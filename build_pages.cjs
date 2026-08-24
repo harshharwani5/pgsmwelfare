@@ -1,13 +1,99 @@
 const fs = require('fs');
 
 // ==========================================
-// UNIFIED FOOTER COMPONENT
+// UNIFIED RESPONSIVE HEADER COMPONENT
+// ==========================================
+function getUnifiedHeader(activePage = 'home') {
+    return `
+    <!-- Top Navigation Bar -->
+    <header class="bg-white/95 backdrop-blur-md w-full z-50 sticky top-0 transition-all duration-300 border-b border-surface-variant/40 shadow-sm" id="topNav">
+        <div class="flex justify-between items-center w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1280px] mx-auto h-20">
+            <!-- Brand Logo -->
+            <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
+                <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                <span class="font-black tracking-tight text-[#a04100]">PGSM Welfare</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm">
+                <a class="${activePage === 'about' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-600 hover:text-[#F36F21] transition-colors'}" href="about.html">About Us</a>
+                <a class="${activePage === 'programs' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-600 hover:text-[#F36F21] transition-colors'}" href="programs.html">Programs</a>
+                <a class="${activePage === 'volunteer' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-600 hover:text-[#F36F21] transition-colors'}" href="volunteer.html">Volunteer</a>
+                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="index.html#work">Our Impact</a>
+                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="about.html#governance">Leadership</a>
+                <a class="${activePage === 'donate' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-600 hover:text-[#F36F21] transition-colors'}" href="donate.html">Donate</a>
+            </nav>
+            
+            <!-- Desktop CTA -->
+            <div class="hidden lg:flex items-center gap-3">
+                <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-[#a04100] active:scale-95 transition-all shadow-md inline-flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    Donate
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" aria-label="Toggle navigation menu" class="lg:hidden text-gray-800 p-2 rounded-xl hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#F36F21]/30 transition-colors">
+                <span id="mobileMenuIcon" class="material-symbols-outlined text-3xl text-[#F36F21]">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Navigation Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300">
+            <nav class="flex flex-col gap-3 font-bold text-base">
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 ${activePage === 'home' ? 'bg-[#FFF7F2] text-[#F36F21] font-extrabold' : 'text-gray-800 hover:bg-gray-50'}" href="index.html">
+                    <span>Home</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 ${activePage === 'about' ? 'bg-[#FFF7F2] text-[#F36F21] font-extrabold' : 'text-gray-800 hover:bg-gray-50'}" href="about.html">
+                    <span>About Us (Founding Story & Trustees)</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 ${activePage === 'programs' ? 'bg-[#FFF7F2] text-[#F36F21] font-extrabold' : 'text-gray-800 hover:bg-gray-50'}" href="programs.html">
+                    <span>Our Programs (Pharmacy & SPL)</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 ${activePage === 'volunteer' ? 'bg-[#FFF7F2] text-[#F36F21] font-extrabold' : 'text-gray-800 hover:bg-gray-50'}" href="volunteer.html">
+                    <span>Volunteer & Field Roles</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="index.html#work">
+                    <span>Field Impact & Stories</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="about.html#governance">
+                    <span>9-Member Governing Body</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="about.html#compliance">
+                    <span>80G / 12A / NITI Compliance</span>
+                    <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
+                </a>
+                
+                <div class="pt-3 flex flex-col gap-3">
+                    <a href="donate.html" class="w-full bg-[#F36F21] text-white text-center font-bold py-3.5 px-6 rounded-xl hover:bg-[#a04100] active:scale-95 shadow-md flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        Donate & Support (80G Tax Exempt)
+                    </a>
+                    <a href="tel:+919406762912" class="w-full bg-gray-100 text-gray-800 text-center font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[#F36F21]">call</span>
+                        Helpdesk: +91 94067 62912
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    `;
+}
+
+// ==========================================
+// UNIFIED FOOTER COMPONENT WITH MOBILE JS
 // ==========================================
 const unifiedFooterHtml = `
     <!-- Comprehensive 4-Column Footer -->
     <footer class="bg-[#1F1F1F] text-gray-300 border-t border-outline/20 w-full relative z-20">
         <!-- Main Content Area -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop py-16 max-w-[1280px] mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4 sm:px-6 md:px-12 lg:px-16 py-16 max-w-[1280px] mx-auto">
             <!-- Column 1: Brand & Trust -->
             <div class="flex flex-col gap-4">
                 <a href="index.html" class="text-2xl font-black text-[#FFB693] tracking-tight flex items-center gap-2">
@@ -20,11 +106,11 @@ const unifiedFooterHtml = `
                 <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        Section 80G Tax Exempt
+                        Section 80G Tax Exempt (URN: AAEAP1466C24BP02)
                     </li>
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        NITI Aayog Darpan Registered
+                        NITI Aayog Darpan (MP/2021/0299785)
                     </li>
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
@@ -72,7 +158,7 @@ const unifiedFooterHtml = `
                 <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to PGSM Welfare updates!');">
                     <label class="sr-only" for="newsletter-email">Your Email Address</label>
                     <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#F36F21] focus:border-transparent placeholder:text-gray-400 text-sm" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
-                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F36F21] active:scale-95 shadow-md" type="submit">
+                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F36F21] active:scale-95 shadow-md cursor-pointer" type="submit">
                         Subscribe
                     </button>
                 </form>
@@ -95,7 +181,7 @@ const unifiedFooterHtml = `
 
         <!-- Bottom Bar -->
         <div class="border-t border-white/10 bg-[#171717]">
-            <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+            <div class="px-4 sm:px-6 md:px-12 lg:px-16 py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400 text-center md:text-left">
                 <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
                 <div class="flex items-center gap-4">
                     <p class="hidden sm:inline">Built for Chhatarpur, Madhya Pradesh.</p>
@@ -108,6 +194,35 @@ const unifiedFooterHtml = `
             </div>
         </div>
     </footer>
+
+    <!-- Universal Mobile Navigation Menu Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (btn && menu) {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isHidden = menu.classList.contains('hidden');
+                    if (isHidden) {
+                        menu.classList.remove('hidden');
+                        if (icon) icon.textContent = 'close';
+                    } else {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    }
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!menu.contains(e.target) && !btn.contains(e.target) && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    }
+                });
+            }
+        });
+    </script>
 `;
 
 // ==========================================
@@ -269,49 +384,20 @@ const homeHtml = `<!DOCTYPE html>
         }
     </style>
 </head>
-<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col overflow-x-hidden w-full">
 
-    <!-- Top Navigation Bar -->
-    <header class="bg-surface w-full z-50 sticky top-0 transition-all duration-300 border-b border-outline-variant/10" id="topNav">
-        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20">
-            <!-- Brand Logo -->
-            <a class="text-headline-md font-headline-md text-primary flex items-center gap-2" href="index.html">
-                <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-primary">PGSM Welfare</span>
-            </a>
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-gutter">
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="about.html">About Us</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="programs.html">Programs</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="volunteer.html">Volunteer</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="#work">Our Work</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="about.html#governance">Leadership</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="donate.html">Donate</a>
-            </nav>
-            <!-- Trailing Action -->
-            <div class="hidden md:flex items-center gap-3">
-                <a href="donate.html" class="bg-primary text-on-primary font-label-bold text-label-bold px-8 py-3 rounded-full hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm inline-flex items-center gap-2">
-                    <span class="material-symbols-outlined text-sm">favorite</span>
-                    Donate
-                </a>
-            </div>
-            <!-- Mobile Menu Toggle -->
-            <button aria-label="Toggle menu" class="md:hidden text-on-surface p-2">
-                <span class="material-symbols-outlined text-2xl">menu</span>
-            </button>
-        </div>
-    </header>
+    ${getUnifiedHeader('home')}
 
-    <main class="flex-grow">
+    <main class="flex-grow w-full overflow-x-hidden">
         <!-- ================= SECTION 1: HERO CANVAS ================= -->
-        <section id="hero" class="bg-primary-container relative overflow-hidden pt-12 pb-24 md:pt-16 md:pb-28 px-margin-mobile md:px-margin-desktop">
-            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
+        <section id="hero" class="bg-primary-container relative overflow-hidden pt-8 pb-20 md:pt-16 md:pb-28 px-4 sm:px-6 md:px-12 lg:px-16">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-xl items-center relative z-10">
                 <!-- Left Column: Content -->
                 <div class="flex flex-col items-start space-y-6">
                     <!-- Bilingual Tagline Badge -->
-                    <div class="bg-on-surface text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-md border border-white/20">
-                        <span class="text-[#F36F21]">✦</span>
-                        <span>शिक्षा से सशक्त समाज, सेवा से समृद्ध राष्ट्र | Empowering Society through Education</span>
+                    <div class="bg-on-surface text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-md border border-white/20 max-w-full">
+                        <span class="text-[#F36F21] shrink-0">✦</span>
+                        <span class="leading-snug break-words">शिक्षा से सशक्त समाज, सेवा से समृद्ध राष्ट्र | Empowering Society through Education</span>
                     </div>
 
                     <!-- Pill Badge -->
@@ -1140,40 +1226,11 @@ const aboutHtml = `<!DOCTYPE html>
         }
     </style>
 </head>
-<body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col">
+<body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col overflow-x-hidden w-full">
 
-    <!-- Top Navigation Bar -->
-    <header class="bg-surface-container-lowest w-full z-50 sticky top-0 transition-all duration-300 border-b border-outline-variant/10 shadow-sm" id="topNav">
-        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20">
-            <!-- Brand Logo -->
-            <a class="text-headline-md font-headline-md text-primary flex items-center gap-2" href="index.html">
-                <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-primary">PGSM Welfare</span>
-            </a>
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-gutter">
-                <a class="text-primary font-label-bold text-label-bold border-b-2 border-primary pb-1" href="about.html">About Us</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="programs.html">Programs</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="volunteer.html">Volunteer</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="index.html#work">Our Impact</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="#governance">Governance</a>
-                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="#compliance">Compliance</a>
-            </nav>
-            <!-- Trailing Action -->
-            <div class="hidden md:flex items-center gap-3">
-                <a href="donate.html" class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-8 py-3 rounded-full hover:bg-primary hover:text-on-primary transition-all duration-200 shadow-sm inline-flex items-center gap-2">
-                    <span class="material-symbols-outlined text-sm">favorite</span>
-                    Donate
-                </a>
-            </div>
-            <!-- Mobile Menu Toggle -->
-            <button aria-label="Toggle menu" class="md:hidden text-on-surface p-2">
-                <span class="material-symbols-outlined text-2xl">menu</span>
-            </button>
-        </div>
-    </header>
+    ${getUnifiedHeader('about')}
 
-    <main class="w-full bg-background flex-grow">
+    <main class="w-full bg-background flex-grow overflow-x-hidden">
         <!-- ================= ABOUT SECTION 1: OUR FOUNDING STORY ================= -->
         <section class="flex flex-col w-full pb-xl">
             <!-- Wide Immersive Hero Image with Overlay -->
@@ -1649,31 +1706,10 @@ const programsHtml = `<!DOCTYPE html>
         }
     </style>
 </head>
-<body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between">
-    <!-- TopNavBar -->
-    <header class="bg-white/95 backdrop-blur-md flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto z-50 sticky top-0 border-b border-surface-variant/40 shadow-sm" id="topNav">
-        <a href="index.html" class="font-headline-md text-headline-md text-primary uppercase tracking-tight flex items-center gap-2">
-            <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-            <span class="font-black tracking-tight text-primary">PGSM Impact</span>
-        </a>
-        <nav class="hidden md:flex gap-8 items-center font-label-bold text-label-bold">
-            <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html">About Us</a>
-            <a class="text-primary border-b-2 border-primary pb-1" href="programs.html">Programs</a>
-            <a class="text-secondary hover:text-primary transition-colors duration-200" href="volunteer.html">Volunteer</a>
-            <a class="text-secondary hover:text-primary transition-colors duration-200" href="index.html#work">Impact Stories</a>
-            <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html#governance">Leadership</a>
-        </nav>
-        <div class="hidden md:flex items-center gap-3">
-            <a href="donate.html" class="bg-primary-container text-white font-bold py-2.5 px-6 rounded-full hover:bg-primary transition-colors shadow-md">
-                Donate Now
-            </a>
-        </div>
-        <button class="md:hidden text-primary">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-    </header>
+<body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
+    ${getUnifiedHeader('programs')}
 
-    <main class="flex-grow">
+    <main class="flex-grow w-full overflow-x-hidden">
         <!-- ================= SECTION 1: HERO CANVAS ================= -->
         <section class="relative pt-16 pb-12 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
             <!-- Background Image with Overlay -->
@@ -2151,34 +2187,11 @@ const volunteerHtml = `<!DOCTYPE html>
         }
     </style>
 </head>
-<body class="bg-white text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between">
-    <!-- TopAppBar -->
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 w-full z-50 border-b border-surface-variant/40 shadow-sm" id="topNav">
-        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
-            <a class="font-headline-md text-headline-md font-extrabold text-[#F36F21] flex items-center gap-2" href="index.html">
-                <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-[#a04100]">PGSM Welfare</span>
-            </a>
-            <nav class="hidden md:flex gap-8 items-center font-label-bold text-label-bold">
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html">About Us</a>
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="programs.html">Programs</a>
-                <a class="text-primary border-b-2 border-primary pb-1" href="volunteer.html">Volunteer</a>
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="index.html#work">Impact Stories</a>
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html#governance">Leadership</a>
-            </nav>
-            <div class="flex gap-3 items-center">
-                <a href="#volunteer-apply" class="font-label-bold px-5 py-2.5 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all text-sm font-bold shadow-sm">
-                    Apply Now
-                </a>
-                <a href="donate.html" class="font-label-bold px-6 py-2.5 bg-[#F36F21] text-white rounded-full hover:bg-[#a04100] transition-all text-sm font-bold shadow-md">
-                    Donate
-                </a>
-            </div>
-        </div>
-    </header>
+<body class="bg-white text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
+    ${getUnifiedHeader('volunteer')}
 
     <!-- Main Content -->
-    <main class="flex-grow">
+    <main class="flex-grow w-full overflow-x-hidden">
         <!-- ================= SECTION 1: HERO CANVAS ================= -->
         <section class="w-full px-margin-mobile md:px-margin-desktop py-16 md:py-24 max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative">
             <!-- Text Content -->
@@ -2549,35 +2562,11 @@ const donateHtml = `<!DOCTYPE html>
         }
     </style>
 </head>
-<body class="bg-soft-cream text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col justify-between">
-    <!-- TopNavBar -->
-    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 w-full transition-all border-b border-surface-variant/40" id="topNav">
-        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1280px] mx-auto">
-            <a class="font-headline-md text-headline-md font-extrabold text-primary flex items-center gap-2" href="index.html">
-                <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-[#a04100]">PGSM Welfare</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-gutter font-label-bold text-label-bold">
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html">About Us</a>
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="programs.html">Programs</a>
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="volunteer.html">Volunteer</a>
-                <a class="text-secondary hover:text-primary transition-colors duration-200" href="index.html#work">Our Impact</a>
-                <a class="text-primary border-b-2 border-primary pb-1" href="donate.html">Donate</a>
-            </nav>
-            <div class="flex items-center gap-3">
-                <a href="#claim-80g" class="font-label-bold text-xs uppercase tracking-wider text-primary border border-primary/30 px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-200 font-bold hidden sm:inline-flex">
-                    80G Receipt
-                </a>
-                <a href="#ways-to-give" class="bg-[#F36F21] text-white font-label-bold px-6 py-2.5 rounded-full hover:bg-[#a04100] transition-colors duration-200 shadow-md flex items-center gap-2 text-sm font-bold">
-                    <span class="material-symbols-outlined text-base">payments</span>
-                    Ways to Give
-                </a>
-            </div>
-        </div>
-    </header>
+<body class="bg-soft-cream text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
+    ${getUnifiedHeader('donate')}
 
     <!-- Main Content -->
-    <main class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl flex-grow">
+    <main class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-xl flex-grow overflow-x-hidden">
         <!-- ================= SECTION 1: IMPACT TIERS GRID ================= -->
         <section class="text-center mb-xl max-w-3xl mx-auto flex flex-col items-center">
             <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-[#FFDBCC] text-[#531E00] font-label-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-full mb-6 border border-[#F36F21]/30 shadow-sm font-bold">
