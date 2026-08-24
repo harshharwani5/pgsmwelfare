@@ -67,70 +67,28 @@ export const pgsmConfig = {
     }
   ],
 
-  // 5. Official 9-Member Governing Body & Leadership Board
+  // 5. Official Governing Body & Leadership Board (3 Core Members)
   leadership: [
     {
-      name: "Dr. Ravi Mishra",
+      name: "Dr. Ravi Kant Mishra",
       role: "President",
       designation: "Physician & Social Leader · Nowgong, Chhatarpur",
       quote: "A Village Healed is a Nation Strengthened. Our mission is to ensure no rural family in Chhatarpur is left behind.",
       image: "/images/ravi_kant_mishra.jpg"
     },
     {
-      name: "Vidhya Devi Mishra",
-      role: "Vice President",
-      designation: "Community Health & Women Welfare Advocate",
-      quote: "Fostering health, mother-child well-being, and dignity for every rural household.",
-      image: "/images/trustee-dr-mishra.jpg"
-    },
-    {
-      name: "Bhartendu Mishra",
-      role: "Secretary",
-      designation: "Operations & Youth Mobilization Director",
-      quote: "Transparency, active volunteer engagement, and dedicated field service are our foundations.",
-      image: "/images/about/team_meeting.jpg"
-    },
-    {
-      name: "Pradeep Kumar",
+      name: "Pradeep Kumar Mishra",
       role: "Treasurer",
       designation: "Financial Governance & Community Administrator",
       quote: "Every single rupee received is audited and deployed directly into verified grassroots programs.",
       image: "/images/pradeep_mishra.jpg"
     },
     {
-      name: "Vijay Kumar",
-      role: "Joint Secretary",
-      designation: "Field Logistics & Camp Coordinator",
-      quote: "Connecting ground-level resources to remote villages with seamless execution.",
-      image: "/images/trustee-pradeep-mishra.jpg"
-    },
-    {
-      name: "Seema",
-      role: "Governing Member",
-      designation: "Women Skilling & Micro-Enterprise Advisor",
-      quote: "Empowering rural women through vocational independence and economic dignity.",
-      image: "/images/trustee-dr-mishra.jpg"
-    },
-    {
-      name: "Sandhya",
-      role: "Governing Member",
-      designation: "Education & Child Welfare Coordinator",
-      quote: "Ensuring every rural child has access to books, classrooms, and digital learning.",
-      image: "/images/trustee-bhartendu-mishra.jpg"
-    },
-    {
-      name: "Jugal Kishore",
-      role: "Governing Member",
-      designation: "Community Outreach & Panchayat Liaison",
-      quote: "Building trusted bridges between rural families and social welfare programs.",
-      image: "/images/trustee-pradeep-mishra.jpg"
-    },
-    {
-      name: "Govind Prasad",
-      role: "Governing Member",
-      designation: "Rural Development & Volunteer Support",
-      quote: "Mobilizing youth and rural leaders for grassroots transformation.",
-      image: "/images/trustee-bhartendu-mishra.jpg"
+      name: "Bhartendu Mishra",
+      role: "Secretary",
+      designation: "Operations & Youth Mobilization Director",
+      quote: "Transparency, active volunteer engagement, and dedicated field service are our foundations.",
+      image: "/images/bhartendu_mishra.jpg"
     }
   ],
 
