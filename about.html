@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us - PGSM Welfare | Founding Story, Governance & Compliance</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a04100",
+                        "primary-container": "#f36f21",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#531e00",
+                        "secondary": "#5f5e5e",
+                        "secondary-container": "#e2dfde",
+                        "surface": "#ffffff",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container": "#efeded",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#584238",
+                        "background": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "outline": "#8c7166",
+                        "outline-variant": "#e0c0b2",
+                        "dark-charcoal": "#1F1F1F",
+                        "saffron": "#F36F21"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "8px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "label-bold": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(243, 111, 33, 0.5);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-surface-container-lowest w-full z-50 sticky top-0 transition-all duration-300 border-b border-outline-variant/10 shadow-sm" id="topNav">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20">
+            <!-- Brand Logo -->
+            <a class="text-headline-md font-headline-md text-primary flex items-center gap-2" href="index.html">
+                <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                <span class="font-black tracking-tight text-primary">PGSM Welfare</span>
+            </a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-gutter">
+                <a class="text-primary font-label-bold text-label-bold border-b-2 border-primary pb-1" href="about.html">About Us</a>
+                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="programs.html">Programs</a>
+                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="volunteer.html">Volunteer</a>
+                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="index.html#work">Our Impact</a>
+                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="#governance">Governance</a>
+                <a class="text-secondary font-label-bold text-label-bold hover:text-primary hover:opacity-80 transition-opacity duration-200" href="#compliance">Compliance</a>
+            </nav>
+            <!-- Trailing Action -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="donate.html" class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-8 py-3 rounded-full hover:bg-primary hover:text-on-primary transition-all duration-200 shadow-sm inline-flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">favorite</span>
+                    Donate
+                </a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button aria-label="Toggle menu" class="md:hidden text-on-surface p-2">
+                <span class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="w-full bg-background flex-grow">
+        <!-- ================= ABOUT SECTION 1: OUR FOUNDING STORY ================= -->
+        <section class="flex flex-col w-full pb-xl">
+            <!-- Wide Immersive Hero Image with Overlay -->
+            <div class="relative w-full h-[50vh] min-h-[420px] mb-xl overflow-hidden">
+                <img alt="Dr. Mishra outside Mishra Clinic greeting rural families" class="w-full h-full object-cover object-center" src="images/about-founding.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1600&q=80';"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 flex flex-col justify-end p-margin-mobile md:p-margin-desktop">
+                    <div class="max-w-[1280px] mx-auto w-full">
+                        <span class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container font-label-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-md">
+                            Our Roots & Origins
+                        </span>
+                        <h1 class="text-white text-3xl md:text-5xl font-black tracking-tight max-w-2xl">
+                            Rooted in Rural Care & Healing
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Three-column Mosaic Layout -->
+            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-lg md:gap-gutter items-center">
+                <!-- Column 1: Lead-in -->
+                <div class="md:col-span-3 flex flex-col justify-start">
+                    <h2 class="text-display-lg font-display-lg tracking-tighter leading-none text-primary-container font-black">
+                        Since<br/>2016
+                    </h2>
+                    <div class="h-1.5 w-16 bg-primary-container mt-sm rounded-full"></div>
+                </div>
+                <!-- Column 2: Core Story -->
+                <div class="md:col-span-5 flex flex-col justify-center">
+                    <h3 class="text-headline-md font-headline-md text-on-background mb-sm font-bold">
+                        Born at Mishra Clinic, Nowgong
+                    </h3>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant font-medium leading-relaxed">
+                        Dr. Ravi Kant Mishra recognized that health and education cannot be treated in isolation. Treating a rural child's fever was meaningless if the family could not afford school kits or digital skills to break the cycle of poverty.
+                    </p>
+                </div>
+                <!-- Column 3: Sidebar Quote -->
+                <div class="md:col-span-4 flex flex-col justify-center">
+                    <div class="bg-surface-container-low border-2 border-outline-variant/40 p-md rounded-2xl shadow-sm h-full flex flex-col justify-center relative overflow-hidden">
+                        <div class="absolute -right-4 -bottom-4 text-primary-container/10 select-none pointer-events-none">
+                            <span class="material-symbols-outlined text-[100px]">format_quote</span>
+                        </div>
+                        <span class="text-label-bold font-label-bold text-primary uppercase tracking-widest mb-xs text-xs">
+                            Our Founding Covenant
+                        </span>
+                        <p class="text-headline-md font-headline-md text-on-background italic leading-snug font-semibold">
+                            "Built not as charity, but as a covenant with our own community in Chhatarpur."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT SECTION 2: EXECUTIVE LEADERSHIP & GOVERNANCE ================= -->
+        <section id="governance" class="py-20 bg-[#FAFAFA] border-t border-b border-surface-variant/40">
+            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <!-- Section Header -->
+                <div class="text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-primary-container text-primary-container text-sm font-bold mb-4 bg-primary-container/5 gap-2">
+                        <span class="material-symbols-outlined text-base">diversity_3</span>
+                        Grassroots Governance
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                        Governing Body & Board of Trustees
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl">
+                        Steering the society with full transparent governance and direct ground presence in Chhatarpur district.
+                    </p>
+                </div>
+
+                <!-- Full 9-Member Governing Body Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Member 1: President -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Dr. Ravi Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-dr-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                President
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary-container uppercase tracking-wider mb-1">President of Society</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Dr. Ravi Mishra</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Physician & Social Leader · Nowgong</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "A Village Healed is a Nation Strengthened. Our mission is to ensure no rural family in Chhatarpur is left behind."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 2: Vice President -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Vidhya Devi Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-dr-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Vice President
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary-container uppercase tracking-wider mb-1">Vice President of Society</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Vidhya Devi Mishra</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Community Health & Women Welfare Advocate</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Fostering health, mother-child well-being, and dignity for every rural household."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 3: Secretary -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Bhartendu Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-bhartendu-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Secretary
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary-container uppercase tracking-wider mb-1">Secretary of Society</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Bhartendu Mishra</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Operations & Youth Mobilization Director</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Transparency, active volunteer engagement, and dedicated field service are our foundations."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 4: Treasurer -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Pradeep Kumar" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-pradeep-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Treasurer
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary-container uppercase tracking-wider mb-1">Treasurer of Society</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Pradeep Kumar</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Financial Governance & Administrator</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Every single rupee received is audited and deployed directly into verified grassroots programs."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 5: Joint Secretary -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Vijay Kumar" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-pradeep-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Joint Secretary
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary-container uppercase tracking-wider mb-1">Joint Secretary of Society</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Vijay Kumar</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Field Logistics & Camp Coordinator</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Connecting ground-level resources to remote villages with seamless execution."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 6: Governing Member (Seema) -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Seema" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-dr-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Governing Member
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Board Member</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Seema</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Women Skilling & Micro-Enterprise Advisor</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Empowering rural women through vocational independence and economic dignity."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 7: Governing Member (Sandhya) -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Sandhya" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-bhartendu-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Governing Member
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Board Member</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Sandhya</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Education & Child Welfare Coordinator</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Ensuring every rural child has access to books, classrooms, and digital learning."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 8: Governing Member (Jugal Kishore) -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Jugal Kishore" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-pradeep-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Governing Member
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Board Member</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Jugal Kishore</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Community Outreach & Liaison</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Building trusted bridges between rural families and social welfare programs."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Member 9: Governing Member (Govind Prasad) -->
+                    <div class="flex flex-col group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
+                            <img alt="Govind Prasad" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-bhartendu-mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Governing Member
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Board Member</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">Govind Prasad</h3>
+                            <p class="text-gray-700 font-medium text-xs mb-2">Rural Development & Volunteer Support</p>
+                            <p class="text-gray-500 italic text-xs leading-relaxed border-t border-gray-100 pt-2">
+                                "Mobilizing youth and rural leaders for grassroots transformation."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT SECTION 3: AWARDS & LEGAL COMPLIANCE ================= -->
+        <section id="compliance" class="w-full py-xl bg-[#1F1F1F] text-white relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-xl">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-sm font-extrabold">
+                        Awards, Recognitions & Legal Compliance
+                    </h2>
+                    <div class="h-1 w-24 bg-[#F36F21] mx-auto rounded-full mb-lg"></div>
+                    <h3 class="font-headline-md text-headline-md text-[#FFB693] mb-sm font-bold">
+                        Recognizing Leaders in NGO Partnership
+                    </h3>
+                    <p class="font-body-lg text-body-lg text-[#E3E2E2] max-w-2xl leading-relaxed">
+                        Celebrating institutional trust and community impact. Our commitment to transparency and legal compliance is foundational to our mission.
+                    </p>
+                </div>
+
+                <!-- 4 Compliance Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                    <!-- Card 1 -->
+                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
+                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">gavel</span>
+                        </div>
+                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">Society Registration</h4>
+                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">06/12/03/11718/16</p>
+                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">(Under MP Society Registration Act)</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
+                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">badge</span>
+                        </div>
+                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">Permanent PAN</h4>
+                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">AAATP8891J</p>
+                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">Income Tax Department</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
+                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">receipt_long</span>
+                        </div>
+                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">Section 80G Exemption</h4>
+                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">50% Tax Exemption</p>
+                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">URN: AAEAP1466C24BP02</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
+                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">handshake</span>
+                        </div>
+                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">NITI Aayog NGO Darpan</h4>
+                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">MP/2021/0299785</p>
+                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">Government of India Portal</p>
+                    </div>
+                </div>
+
+                <!-- Ceremony Documentary Photo Frame -->
+                <div class="w-full relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 mt-4">
+                    <img class="w-full h-auto max-h-[550px] object-cover" alt="District Social Welfare Felicitation Ceremony - Recognizing Leaders" src="images/award-ceremony.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80';"/>
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
+                        <div>
+                            <p class="text-white font-bold text-lg">District Social Welfare Felicitation</p>
+                            <p class="text-gray-300 text-sm">Honoring dedicated community service & healthcare outreach in Chhatarpur district.</p>
+                        </div>
+                        <a href="donate.html" class="bg-[#F36F21] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 shadow-lg active:scale-95 transition-all">
+                            Support Our Cause
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- Comprehensive 4-Column Footer -->
+    <footer class="bg-[#1F1F1F] text-gray-300 border-t border-outline/20 w-full relative z-20">
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop py-16 max-w-[1280px] mx-auto">
+            <!-- Column 1: Brand & Trust -->
+            <div class="flex flex-col gap-4">
+                <a href="index.html" class="text-2xl font-black text-[#FFB693] tracking-tight flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    PGSM Welfare
+                </a>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    Transforming health, education, and livelihoods in rural Chhatarpur since 2016.
+                </p>
+                <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Section 80G Tax Exempt
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        NITI Aayog Darpan Registered
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Reg: 06/12/03/11718/16
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Quick Links</h3>
+                <nav class="flex flex-col gap-2 text-sm">
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html">About Us</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html">Our Programs</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html">Volunteer With Us</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html">Donate & Support</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance">Leadership & Governance</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#compliance">CSR & Legal Compliance</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work">Photo Gallery & Field Work</a>
+                </nav>
+            </div>
+
+            <!-- Column 3: Contact Us -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Contact Us</h3>
+                <div class="flex flex-col gap-3 text-sm text-gray-300">
+                    <p class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0 mt-0.5">location_on</span>
+                        <span>House No. 22, Mishra Clinic, Ward 12, Bus Stand, Nowgong, Chhatarpur (M.P.) – 471201</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">call</span>
+                        <a href="tel:+919406762912" class="hover:text-white transition-colors">+91 94067 62912</a>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">mail</span>
+                        <a href="mailto:info@pgsmwelfare.org" class="hover:text-white transition-colors">info@pgsmwelfare.org</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Column 4: Join Our Mission -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Join Our Mission</h3>
+                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to PGSM Welfare updates!');">
+                    <label class="sr-only" for="newsletter-email">Your Email Address</label>
+                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#F36F21] focus:border-transparent placeholder:text-gray-400 text-sm" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
+                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F36F21] active:scale-95 shadow-md" type="submit">
+                        Subscribe
+                    </button>
+                </form>
+                <div class="flex gap-3 mt-2">
+                    <a aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">public</span>
+                    </a>
+                    <a aria-label="Twitter" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">share</span>
+                    </a>
+                    <a aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">photo_camera</span>
+                    </a>
+                    <a aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">smart_display</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 bg-[#171717]">
+            <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+                <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
+                <div class="flex items-center gap-4">
+                    <p class="hidden sm:inline">Built for Chhatarpur, Madhya Pradesh.</p>
+                    <div class="flex gap-3">
+                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Privacy Policy</a>
+                        <span aria-hidden="true">•</span>
+                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Impact Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

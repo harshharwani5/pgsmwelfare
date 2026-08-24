@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentomojo AIDA Ad Creative Simulator</title>
+  
+  <!-- Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styling (Custom Vanilla CSS for Premium UI & Layout) -->
+  <style>
+    /* Design Tokens & Reset */
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(22, 28, 45, 0.4);
+      --bg-card-hover: rgba(22, 28, 45, 0.6);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-color-glow: rgba(0, 168, 204, 0.3);
+      --accent: #00a8cc;
+      --accent-gradient: linear-gradient(135deg, #00d2ff 0%, #00a8cc 100%);
+      --accent-red: #ff3366;
+      --rentomojo-red: #e02f44;
+      --text-white: #f8fafc;
+      --text-muted: #94a3b8;
+      --glass-bg: rgba(11, 15, 25, 0.7);
+      --font-outfit: 'Outfit', sans-serif;
+      --font-inter: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-inter);
+      min-h: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 168, 204, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(224, 47, 68, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(11, 15, 25, 0.8);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      height: 28px;
+    }
+
+    .header-title {
+      font-family: var(--font-outfit);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .badge-tag {
+      background: rgba(0, 168, 204, 0.15);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid rgba(0, 168, 204, 0.3);
+      font-family: var(--font-outfit);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      width: 100%;
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    /* Left side: The Ad Showcase & Mobile Simulator */
+    .showcase-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mockup-controls {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.375rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+    }
+
+    .mockup-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-family: var(--font-outfit);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mockup-btn.active {
+      background: var(--accent-gradient);
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0, 168, 204, 0.3);
+    }
+
+    /* Instagram Phone Frame Mockup */
+    .phone-frame {
+      width: 100%;
+      max-width: 440px;
+      background: #121212;
+      border-radius: 36px;
+      border: 10px solid #2d2d2d;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Simulated Mobile Status Bar */
+    .phone-header {
+      height: 36px;
+      background: #121212;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .phone-icons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* Instagram App Bar */
+    .instagram-bar {
+      height: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 0.75rem;
+    }
+
+    .ig-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      padding: 1.5px;
+    }
+
+    .ig-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #121212;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-white);
+      font-size: 0.5rem;
+      font-weight: bold;
+    }
+
+    .ig-user-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ig-username {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .ig-verified {
+      width: 12px;
+      height: 12px;
+      fill: #0095f6;
+    }
+
+    .ig-location {
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+    }
+
+    .ig-more {
+      color: var(--text-white);
+      cursor: pointer;
+    }
+
+    /* 1:1 Static Ad Creative Area */
+    .ad-creative-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #1a1f2c;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* The Hero Visual Background */
+    .ad-visual-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* Dark Overlay for Copy Legibility */
+    .ad-overlay-dimmer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(11, 15, 25, 0.8) 0%, rgba(11, 15, 25, 0.2) 35%, rgba(11, 15, 25, 0.1) 60%, rgba(11, 15, 25, 0.9) 100%);
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Ad Marketing Overlays (Logo, Hook, Badges, CTA) */
+    .ad-content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem;
+      box-sizing: border-box;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Top: Rentomojo Logo + Dynamic Ribbon */
+    .ad-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .ad-logo {
+      background: var(--text-white);
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .ad-logo img {
+      height: 14px;
+    }
+
+    .ad-badge {
+      background: var(--accent-gradient);
+      color: #000;
+      font-size: 0.625rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.375rem 0.75rem;
+      border-radius: 4px;
+      font-family: var(--font-outfit);
+      box-shadow: 0 4px 10px rgba(0, 168, 204, 0.2);
+    }
+
+    /* Center-top: Hook Text (Attention) */
+    .ad-hook-box {
+      margin-top: 0.75rem;
+      max-width: 90%;
+    }
+
+    .ad-hook-text {
+      font-family: var(--font-outfit);
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-white);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      letter-spacing: -0.01em;
+      transition: all 0.3s ease;
+    }
+
+    /* Highlight color */
+    .ad-hook-text span {
+      background: linear-gradient(120deg, #00d2ff, #00a8cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Center-bottom: Value Propositions (Desire) */
+    .ad-perks-box {
+      margin-top: auto;
+      margin-bottom: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .ad-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-white);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .ad-perk-icon {
+      width: 14px;
+      height: 14px;
+      fill: #00d2ff;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+
+    /* Bottom: CTA Banner (Action) */
+    .ad-cta-banner {
+      background: rgba(11, 15, 25, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.625rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .ad-cta-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ad-cta-offer {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .ad-cta-sub {
+      font-size: 0.625rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .ad-cta-btn {
+      background: var(--accent-gradient);
+      color: #000;
+      font-family: var(--font-outfit);
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.5rem 0.875rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 168, 204, 0.25);
+    }
+
+    /* Instagram Interaction Feed Details */
+    .ig-interaction-bar {
+      padding: 0.75rem 1rem 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ig-left-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .ig-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--text-white);
+      cursor: pointer;
+      transition: fill 0.2s ease;
+    }
+
+    .ig-icon:hover {
+      fill: var(--text-muted);
+    }
+
+    .ig-icon.liked {
+      fill: var(--accent-red);
+      animation: heartbeat 0.3s ease-in-out;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .ig-likes {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 0 1rem 0.25rem 1rem;
+    }
+
+    .ig-caption {
+      font-size: 0.8125rem;
+      line-height: 1.4;
+      padding: 0 1rem 1rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+    }
+
+    .ig-caption span.user {
+      font-weight: 700;
+      margin-right: 0.25rem;
+      color: var(--text-white);
+    }
+
+    .ig-caption span.hashtags {
+      color: #0095f6;
+      cursor: pointer;
+    }
+
+    /* Right side: Strategy & Interactive Control Panel */
+    .panel-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: var(--bg-card-hover);
+    }
+
+    .card-title {
+      font-family: var(--font-outfit);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-title svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--accent);
+    }
+
+    /* Copy selector list */
+    .copy-selector-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .copy-option-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .copy-option-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(0, 168, 204, 0.2);
+    }
+
+    .copy-option-card.active {
+      background: rgba(0, 168, 204, 0.06);
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(0, 168, 204, 0.15);
+    }
+
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .option-tag {
+      font-size: 0.625rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      color: var(--text-white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .copy-option-card.active .option-tag {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .option-title {
+      font-family: var(--font-outfit);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .option-preview {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* AIDA Breakdown Timeline */
+    .aida-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .aida-timeline::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 4px;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .aida-step {
+      position: relative;
+    }
+
+    .aida-indicator {
+      position: absolute;
+      left: -1.625rem;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 3px solid var(--text-muted);
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .aida-step.active .aida-indicator {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .aida-heading {
+      font-family: var(--font-outfit);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .aida-step.active .aida-heading {
+      color: var(--accent);
+    }
+
+    .aida-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .aida-code {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.8125rem;
+      color: #e2e8f0;
+      font-style: italic;
+      border-left: 2px solid var(--text-muted);
+    }
+
+    .aida-step.active .aida-code {
+      border-left-color: var(--accent);
+    }
+
+    /* Psychology Callout Box */
+    .psychology-card {
+      background: linear-gradient(135deg, rgba(0, 168, 204, 0.05) 0%, rgba(224, 47, 68, 0.05) 100%);
+      border: 1px solid rgba(0, 168, 204, 0.15);
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    .psychology-title {
+      font-family: var(--font-outfit);
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .psychology-text {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Interactive Overlay Switcher (Show/Hide Copy) */
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .toggle-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #334155;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--accent);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* Footer styling */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="logo-container">
+      <!-- Simulated Rentomojo brand logo -->
+      <svg class="brand-logo" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 28.5L24 7.5H0L12 28.5Z" fill="#E02F44"/>
+        <text x="32" y="27" fill="white" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" letter-spacing="-0.02em">rentomojo</text>
+      </svg>
+      <span class="badge-tag">Ad Performance Suite</span>
+    </div>
+    <div style="font-size: 0.8125rem; color: var(--text-muted);">
+      Target: <strong>Metro Professionals (22-30)</strong>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Left Column: The Ad Mockup Simulator -->
+    <div class="showcase-column">
+      
+      <!-- Mockup Platform Selector -->
+      <div class="mockup-controls">
+        <button class="mockup-btn active" id="btn-ig">Instagram Ad</button>
+        <button class="mockup-btn" id="btn-raw">Raw Asset</button>
+      </div>
+
+      <!-- Smartphone Frame Simulator -->
+      <div class="phone-frame" id="mockup-frame">
+        <!-- Phone Status Bar -->
+        <div class="phone-header">
+          <span>20:08</span>
+          <div class="phone-icons">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.58 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17 5H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 9H4v-4h12v4z"/></svg>
+          </div>
+        </div>
+
+        <!-- Instagram Poster Bar -->
+        <div class="instagram-bar">
+          <div class="ig-avatar">
+            <div class="ig-avatar-inner">RM</div>
+          </div>
+          <div class="ig-user-info">
+            <div class="ig-username">
+              rentomojo
+              <svg class="ig-verified" viewBox="0 0 24 24">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <div class="ig-location">Sponsored</div>
+          </div>
+          <div class="ig-more">•••</div>
+        </div>
+
+        <!-- 1:1 Ad Creative Main Viewport -->
+        <div class="ad-creative-container">
+          
+          <!-- AI Generated Visual -->
+          <img src="./rentomojo_sofa.png" alt="Aesthetic living room furnished by Rentomojo" class="ad-visual-bg" id="ad-img">
+          
+          <!-- Dark overlay (toggled dynamic readability) -->
+          <div class="ad-overlay-dimmer" id="ad-dimmer"></div>
+
+          <!-- Interactive Text Overlay Layer -->
+          <div class="ad-content-wrapper" id="ad-text-layer">
+            
+            <!-- Top Section -->
+            <div class="ad-top-row">
+              <div class="ad-logo">
+                <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 12px; width: auto;">
+                  <path d="M12 28.5L24 7.5H0L12 28.5Z" fill="#E02F44"/>
+                  <text x="32" y="27" fill="black" font-family="'Outfit', sans-serif" font-weight="900" font-size="24" letter-spacing="-0.02em">rentomojo</text>
+                </svg>
+              </div>
+              <div class="ad-badge" id="ad-badge-text">LIMITED OFFER</div>
+            </div>
+
+            <!-- Hook Text (Attention) -->
+            <div class="ad-hook-box">
+              <h1 class="ad-hook-text" id="ad-headline">
+                You're on an 11-month lease. <br><span>Why buy 5-year furniture?</span>
+              </h1>
+            </div>
+
+            <!-- Trust Badges (Desire) -->
+            <div class="ad-perks-box">
+              <div class="ad-perk-item">
+                <svg class="ad-perk-icon" viewBox="0 0 24 24">
+                  <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-9l2.25 3H17V9.5h1.5zm-.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+                <span id="ad-perk-1">Free delivery & setup in 72 hours</span>
+              </div>
+              <div class="ad-perk-item">
+                <svg class="ad-perk-icon" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+                <span id="ad-perk-2">Free relocation when you change homes</span>
+              </div>
+              <div class="ad-perk-item">
+                <svg class="ad-perk-icon" viewBox="0 0 24 24">
+                  <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                </svg>
+                <span id="ad-perk-3">Zero maintenance cost & free cleaning</span>
+              </div>
+            </div>
+
+            <!-- Bottom CTA Banner (Action) -->
+            <div class="ad-cta-banner">
+              <div class="ad-cta-info">
+                <span class="ad-cta-offer" id="ad-offer">Get 50% Off First Month</span>
+                <span class="ad-cta-sub" id="ad-sub">Code: SMARTRENT • 0 deposit</span>
+              </div>
+              <button class="ad-cta-btn" id="ad-button-text">Rent Now</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Instagram Feed Actions -->
+        <div class="ig-interaction-bar">
+          <div class="ig-left-actions">
+            <svg class="ig-icon" id="like-icon" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <svg class="ig-icon" viewBox="0 0 24 24">
+              <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
+            <svg class="ig-icon" viewBox="0 0 24 24">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </div>
+          <svg class="ig-icon" viewBox="0 0 24 24">
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/>
+          </svg>
+        </div>
+
+        <div class="ig-likes"><span id="likes-count">1,248</span> likes</div>
+
+        <!-- Dynamic Instagram Caption -->
+        <div class="ig-caption">
+          <span class="user">rentomojo</span>
+          <span id="ig-caption-text">
+            Moving flats in Bangalore, Mumbai, or Pune? Skip the heavy deposits and painful moving costs. Rent brand-new, designer furniture with free delivery and setup. 
+          </span>
+          <span class="hashtags">#SmartLiving #Rentomojo #MetroLife</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Dashboard (Interactions & Strategy) -->
+    <div class="panel-column">
+      
+      <!-- Interactive Copy selector -->
+      <div class="card">
+        <h2 class="card-title">
+          <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          A/B Copy Variations
+        </h2>
+        <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Select a hook variant to preview the ad creative and see the copy update dynamically in the simulator.
+        </p>
+
+        <div class="copy-selector-list">
+          <!-- Hook 1 -->
+          <div class="copy-option-card active" data-index="0">
+            <div class="option-header">
+              <span class="option-title">The 11-Month Lease</span>
+              <span class="option-tag">Hook 1 - Core Pain</span>
+            </div>
+            <p class="option-preview">"You're on an 11-month lease. Why buy 5-year furniture?"</p>
+          </div>
+
+          <!-- Hook 2 -->
+          <div class="copy-option-card" data-index="1">
+            <div class="option-header">
+              <span class="option-title">Landlord Taste Upgrade</span>
+              <span class="option-tag">Hook 2 - Aspirational</span>
+            </div>
+            <p class="option-preview">"Your landlord's taste shouldn't define your lifestyle."</p>
+          </div>
+
+          <!-- Hook 3 -->
+          <div class="copy-option-card" data-index="2">
+            <div class="option-header">
+              <span class="option-title">The Cash Flow Option</span>
+              <span class="option-tag">Hook 3 - Financial</span>
+            </div>
+            <p class="option-preview">"Buying a ₹40,000 sofa vs. Renting at ₹599/mo."</p>
+          </div>
+        </div>
+
+        <!-- Overlay Text Switcher -->
+        <div class="toggle-row">
+          <span class="toggle-label">Render Typography & CTA Overlays</span>
+          <label class="switch">
+            <input type="checkbox" id="toggle-overlay" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- AIDA Copywriting Breakdown -->
+      <div class="card">
+        <h2 class="card-title">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          AIDA Copywriting Framework
+        </h2>
+        
+        <div class="aida-timeline">
+          <!-- Attention -->
+          <div class="aida-step active" id="step-attention">
+            <div class="aida-indicator"></div>
+            <h3 class="aida-heading">A - Attention (The Hook)</h3>
+            <p class="aida-desc">A scroll-stopping question focused on the target's temporary living state in metro cities.</p>
+            <div class="aida-code" id="timeline-attention">"You're on an 11-month lease. Why buy 5-year furniture?"</div>
+          </div>
+
+          <!-- Interest -->
+          <div class="aida-step active" id="step-interest">
+            <div class="aida-indicator"></div>
+            <h3 class="aida-heading">I - Interest (The Problem)</h3>
+            <p class="aida-desc">Contrasting high upfront buying costs against a low, manageable monthly cost.</p>
+            <div class="aida-code" id="timeline-interest">Why dump your savings in deposit + buying, when renting keeps you liquid?</div>
+          </div>
+
+          <!-- Desire -->
+          <div class="aida-step active" id="step-desire">
+            <div class="aida-indicator"></div>
+            <h3 class="aida-heading">D - Desire (Aspirational Perks)</h3>
+            <p class="aida-desc">Highlighting high-value perks that solve relocating hassles (relocation, cleaning, setup).</p>
+            <div class="aida-code" id="timeline-desire">🚚 Free Delivery & Setup • 📦 Free Relocation • 🧼 Free Deep Cleaning</div>
+          </div>
+
+          <!-- Action -->
+          <div class="aida-step active" id="step-action">
+            <div class="aida-indicator"></div>
+            <h3 class="aida-heading">A - Action (Conversion Offer)</h3>
+            <p class="aida-desc">Performance marketing offer with a clear code and frictionless CTA.</p>
+            <div class="aida-code" id="timeline-action">Get 50% Off First Month | Code: SMARTRENT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consumer Psychology Callout -->
+      <div class="psychology-card">
+        <h3 class="psychology-title">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width: 18px; height: 18px; fill: #00d2ff;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+          Consumer Psychology Insights
+        </h3>
+        <p class="psychology-text" id="psychology-analysis">
+          <strong>Commitment Phobia</strong> is real for urban tech workers. By highlighting the short 11-month lease term against a long-term furniture purchase, we evoke the feeling of "buying baggage." The visual of a high-end emerald green sofa shows that renting isn't cheap-looking—it's an aspirational lifestyle upgrade that matches their income and ambition without the burden of ownership.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Bottom Footer -->
+  <footer>
+    Rentomojo AIDA Performance Marketing Campaign Creator | Designed for high-quality metro conversions
+  </footer>
+
+  <!-- Interactivity Logic -->
+  <script>
+    // Copy Data Source
+    const variations = [
+      {
+        headline: "You're on an 11-month lease. <br><span>Why buy 5-year furniture?</span>",
+        badge: "LIMITED OFFER",
+        perk1: "Free delivery & setup in 72 hours",
+        perk2: "Free relocation when you change homes",
+        perk3: "Zero maintenance cost & free cleaning",
+        offer: "Get 50% Off First Month",
+        sub: "Code: SMARTRENT • 0 deposit",
+        btn: "Rent Now",
+        caption: "Moving flats in Bangalore, Mumbai, or Pune? Skip the heavy deposits and painful moving costs. Rent brand-new, designer furniture with free delivery and setup.",
+        interest: "Why dump your savings in deposits + buying, when renting keeps your cash flow liquid?",
+        psychology: "<strong>Commitment Phobia</strong> is real for urban tech workers. By highlighting the short 11-month lease term against a long-term furniture purchase, we evoke the feeling of 'buying baggage'. The visual of a high-end emerald green sofa shows that renting isn't cheap-looking—it's an aspirational lifestyle upgrade that matches their income and ambition without the burden of ownership."
+      },
+      {
+        headline: "Your landlord's taste <br><span>shouldn't define your lifestyle.</span>",
+        badge: "STYLE UPGRADE",
+        perk1: "Award-winning designer furnishings",
+        perk2: "Swap or return items when taste changes",
+        perk3: "100% mint-condition premium inventory",
+        offer: "Furnish Your Space From ₹599/mo",
+        sub: "No credit check • Flexi-tenures",
+        btn: "Upgrade Now",
+        caption: "Mismatched wardrobes and plastic chairs? No thanks. You worked hard for your corporate/tech job—you deserve a home that feels like a sanctuary, not a temporary crashpad.",
+        interest: "Young professionals value status and aesthetics. Renting premium goods boosts self-worth instantly.",
+        psychology: "This uses **Identity & Status Aspiration**. Tech workers relocating to metro hubs want their homes to reflect their new career level. Landlords often supply cheap, mismatched furniture. Rentomojo positions itself as a democratic design partner—giving them high-quality aesthetic vibes on demand. The green velvet sofa visual serves as a status-affirming anchor."
+      },
+      {
+        headline: "Buying a ₹40,000 Sofa? <br><span>Rent it for ₹599/month instead.</span>",
+        badge: "SMART CASHFLOW",
+        perk1: "Keep your capital free for investing",
+        perk2: "Avoid massive depreciation losses",
+        perk3: "No resale stress when you relocate",
+        offer: "Zero Security Deposit Offer",
+        sub: "100% refundable token • Instant approval",
+        btn: "Calculate Savings",
+        caption: "Do the math. Buying = High upfront cost + massive depreciation + packing stress. Rentomojo = Zero commitment, free upgrades, and money saved in your bank account.",
+        interest: "Appealing directly to cash preservation. Highlights cost differences to show renting is a no-brainer.",
+        psychology: "This appeals to the **Rational Optimizer**. Tech professionals are financially literate and know about opportunity cost. By framing buying as a depreciating expense (furniture loses 80% value on resale), we make renting look like a financially smart investment. We highlight that their capital is better spent in mutual funds or travel, reducing purchase friction."
+      }
+    ];
+
+    // Selectors
+    const cards = document.querySelectorAll('.copy-option-card');
+    const headlineEl = document.getElementById('ad-headline');
+    const badgeEl = document.getElementById('ad-badge-text');
+    const perk1El = document.getElementById('ad-perk-1');
+    const perk2El = document.getElementById('ad-perk-2');
+    const perk3El = document.getElementById('ad-perk-3');
+    const offerEl = document.getElementById('ad-offer');
+    const subEl = document.getElementById('ad-sub');
+    const btnEl = document.getElementById('ad-button-text');
+    const captionEl = document.getElementById('ig-caption-text');
+    const timelineAttention = document.getElementById('timeline-attention');
+    const timelineInterest = document.getElementById('timeline-interest');
+    const timelineDesire = document.getElementById('timeline-desire');
+    const timelineAction = document.getElementById('timeline-action');
+    const psychologyAnalysis = document.getElementById('psychology-analysis');
+
+    const toggleOverlay = document.getElementById('toggle-overlay');
+    const adTextLayer = document.getElementById('ad-text-layer');
+    const adDimmer = document.getElementById('ad-dimmer');
+    const btnIg = document.getElementById('btn-ig');
+    const btnRaw = document.getElementById('btn-raw');
+    const mockupFrame = document.getElementById('mockup-frame');
+    const adImg = document.getElementById('ad-img');
+
+    // Tab Change handler
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Remove active class
+        cards.forEach(c => c.classList.remove('active'));
+        
+        // Add active class
+        card.classList.add('active');
+        
+        // Update content
+        const index = parseInt(card.getAttribute('data-index'));
+        const data = variations[index];
+
+        // Animate ad updates
+        adTextLayer.style.opacity = '0';
+        setTimeout(() => {
+          headlineEl.innerHTML = data.headline;
+          badgeEl.textContent = data.badge;
+          perk1El.textContent = data.perk1;
+          perk2El.textContent = data.perk2;
+          perk3El.textContent = data.perk3;
+          offerEl.textContent = data.offer;
+          subEl.textContent = data.sub;
+          btnEl.textContent = data.btn;
+          captionEl.textContent = data.caption;
+          
+          // Timeline update
+          timelineAttention.innerHTML = `"${data.headline.replace('<br><span>', ' ').replace('</span>', '')}"`;
+          timelineInterest.innerHTML = data.interest;
+          timelineDesire.innerHTML = `🚚 ${data.perk1} • 📦 ${data.perk2} • 🧼 ${data.perk3}`;
+          timelineAction.innerHTML = `${data.offer} | ${data.sub}`;
+          
+          // Psychology text update
+          psychologyAnalysis.innerHTML = data.psychology;
+
+          adTextLayer.style.opacity = '1';
+        }, 200);
+      });
+    });
+
+    // Toggle Text Overlay (See raw image)
+    toggleOverlay.addEventListener('change', () => {
+      if (toggleOverlay.checked) {
+        adTextLayer.style.opacity = '1';
+        adDimmer.style.opacity = '1';
+      } else {
+        adTextLayer.style.opacity = '0';
+        adDimmer.style.opacity = '0';
+      }
+    });
+
+    // Mockup Mode Buttons
+    btnIg.addEventListener('click', () => {
+      btnIg.classList.add('active');
+      btnRaw.classList.remove('active');
+      // Restore phone mockup UI
+      mockupFrame.style.borderWidth = '10px';
+      mockupFrame.style.borderRadius = '36px';
+      mockupFrame.style.boxShadow = '0 25px 50px -12px rgba(0,0,0,0.5)';
+      document.querySelector('.phone-header').style.display = 'flex';
+      document.querySelector('.instagram-bar').style.display = 'flex';
+      document.querySelector('.ig-interaction-bar').style.display = 'flex';
+      document.querySelector('.ig-likes').style.display = 'block';
+      document.querySelector('.ig-caption').style.display = 'block';
+      adImg.style.transform = 'scale(1)';
+    });
+
+    btnRaw.addEventListener('click', () => {
+      btnRaw.classList.add('active');
+      btnIg.classList.remove('active');
+      // Hide phone mockup details to show the ad asset stand-alone
+      mockupFrame.style.borderWidth = '1px';
+      mockupFrame.style.borderRadius = '16px';
+      mockupFrame.style.boxShadow = '0 10px 30px rgba(0,0,0,0.4)';
+      document.querySelector('.phone-header').style.display = 'none';
+      document.querySelector('.instagram-bar').style.display = 'none';
+      document.querySelector('.ig-interaction-bar').style.display = 'none';
+      document.querySelector('.ig-likes').style.display = 'none';
+      document.querySelector('.ig-caption').style.display = 'none';
+      adImg.style.transform = 'scale(1.02)';
+    });
+
+    // Social Media Interactivity (Like Button)
+    const likeIcon = document.getElementById('like-icon');
+    const likesCount = document.getElementById('likes-count');
+    let isLiked = false;
+
+    likeIcon.addEventListener('click', () => {
+      if (!isLiked) {
+        likeIcon.classList.add('liked');
+        likesCount.textContent = '1,249';
+        isLiked = true;
+      } else {
+        likeIcon.classList.remove('liked');
+        likesCount.textContent = '1,248';
+        isLiked = false;
+      }
+    });
+  </script>
+</body>
+</html>

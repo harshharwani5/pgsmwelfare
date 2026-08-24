@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechnoGaze | The Science of Scale. The Art of Narrative.</title>
+    <link rel="icon" type="image/png" href="https://technogaze.com/assets/images/logo/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;850;900&family=Outfit:wght@600;750;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & Chart.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            lime: '#85FF00',
+                            dark: '#0A0A0C',
+                            slate: '#121217',
+                            gray: '#1E1E24',
+                            indigo: '#5D00FF'
+                        }
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            background-color: #F4F4F6;
+            color: #18181B;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+              radial-gradient(rgba(93, 0, 255, 0.04) 1px, transparent 0),
+              radial-gradient(rgba(0, 0, 0, 0.02) 1.5px, transparent 0);
+            background-size: 40px 40px, 60px 60px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            color: #18181B;
+        }
+
+        .crt-scanlines::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.04) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            z-index: 99999;
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .brutalist-card {
+            background-color: #ffffff;
+            border: 2px solid #e4e4e7;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .brutalist-card:hover {
+            border-color: #5D00FF;
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5D00FF;
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(93, 0, 255, 0.2);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F4F4F6;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e4e7;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #5D00FF;
+        }
+    </style>
+</head>
+<body class="crt-scanlines">
+    <div class="noise-overlay"></div>
+
+    <!-- ══════════════════════════════════
+         HEADER / NAVBAR
+         ══════════════════════════════════ -->
+    <header class="sticky top-0 z-40 bg-[#F4F4F6]/90 backdrop-blur-md border-b-2 border-zinc-300 px-4 md:px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-cyber-indigo text-white flex items-center justify-center font-extrabold text-2xl tracking-tighter border-2 border-black">
+                TG
+            </div>
+            <div>
+                <span class="font-outfit font-black text-xl tracking-widest text-zinc-900">TECHNO<span class="text-cyber-indigo">GAZE</span></span>
+                <span class="block text-[9px] text-zinc-500 font-mono tracking-wider font-extrabold uppercase mt-[-4px]">Science & Narrative Agency</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="hidden lg:flex items-center gap-1 font-mono">
+            <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-cyber-indigo text-cyber-indigo bg-white shadow-[2px_2px_0px_0px_#5D00FF]">
+                [01] OVERVIEW
+            </button>
+            <button onclick="switchTab('services')" id="tab-services" class="tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-transparent text-zinc-500 hover:text-zinc-900">
+                [02] CAPABILITIES
+            </button>
+            <button onclick="switchTab('caseStudies')" id="tab-caseStudies" class="tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-transparent text-zinc-500 hover:text-zinc-900">
+                [03] LEDGER
+            </button>
+            <button onclick="switchTab('audit')" id="tab-audit" class="tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-transparent text-zinc-500 hover:text-zinc-900">
+                [04] AI AUDIT
+            </button>
+            <button onclick="switchTab('calculator')" id="tab-calculator" class="tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-transparent text-zinc-500 hover:text-zinc-900">
+                [05] ROI LAB
+            </button>
+            <button onclick="switchTab('clientDashboard')" id="tab-clientDashboard" class="tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-transparent text-zinc-500 hover:text-zinc-900">
+                [06] CLIENT LEDGER
+            </button>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="javascript:void(0)" onclick="switchTab('onboarding')" class="relative hidden md:flex items-center gap-2 text-xs font-mono tracking-widest text-zinc-500 hover:text-zinc-900 uppercase">
+                Hiring active
+                <span class="w-2.5 h-2.5 rounded-full bg-cyber-indigo animate-ping"></span>
+            </a>
+            <button onclick="switchTab('onboarding')" class="px-4 py-2 bg-cyber-indigo text-white border-2 border-black font-mono font-bold text-xs tracking-widest hover:bg-black transition-all shadow-[3px_3px_0px_0px_#000000]">
+                BRIEF THE SQUAD ↗
+            </button>
+            
+            <!-- Mobile Menu Trigger -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-zinc-900 border-2 border-zinc-300">
+                <div class="w-6 h-0.5 bg-zinc-900 mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-zinc-900 mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-zinc-900"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-[#F4F4F6] hidden flex-col justify-center items-center gap-6 border-b-4 border-cyber-indigo">
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 font-mono text-cyber-indigo text-2xl border-2 border-cyber-indigo px-3 py-1">
+            CLOSE [X]
+        </button>
+        <button onclick="switchTab('overview'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[1] OVERVIEW</button>
+        <button onclick="switchTab('services'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[2] CAPABILITIES</button>
+        <button onclick="switchTab('caseStudies'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[3] LEDGER</button>
+        <button onclick="switchTab('audit'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[4] AI AUDIT</button>
+        <button onclick="switchTab('calculator'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[5] ROI LAB</button>
+        <button onclick="switchTab('clientDashboard'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[6] CLIENT LEDGER</button>
+        <button onclick="switchTab('onboarding'); toggleMobileMenu()" class="text-2xl font-outfit font-black tracking-widest uppercase text-zinc-900 hover:text-cyber-indigo">[7] BRIEF SQUAD</button>
+    </div>
+
+    <!-- ══════════════════════════════════
+         MAIN CONTENT AREA
+         ══════════════════════════════════ -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 animate-fade-in">
+
+        <!-- ================= OVERVIEW TAB ================= -->
+        <section id="sec-overview" class="tab-content space-y-12">
+            
+            <!-- Hero -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-8">
+              <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyber-indigo bg-cyber-indigo/10 text-cyber-indigo font-mono text-xs tracking-wider uppercase">
+                  <i class="fa-solid fa-bolt animate-bounce"></i> Bhopal's First Cyber-Performance Agency
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-black font-outfit text-zinc-900 leading-none">
+                  THE SCIENCE OF <span class="text-cyber-indigo">SCALE.</span> <br>
+                  THE ART OF <br>
+                  <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyber-indigo to-pink-500 font-extrabold uppercase">NARRATIVE.</span>
+                </h1>
+
+                <div class="font-mono text-zinc-500 text-lg md:text-xl border-l-4 border-cyber-indigo pl-4">
+                  We engineer growth with <br>
+                  <span id="typewriter" class="text-cyber-indigo font-bold tracking-wider"></span><span class="text-cyber-indigo animate-pulse">|</span>
+                </div>
+
+                <p class="text-zinc-500 text-sm md:text-base max-w-lg font-mono">
+                  TechnoGaze Solutions is a premium digital agency that synthesizes hyper-analytical growth hacking with high-culture creative direction to scale venture-backed SaaS, D2C, real estate, and healthcare brands.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                  <button onclick="switchTab('audit')" class="mr-4 px-6 py-3 bg-cyber-indigo text-white border-2 border-black font-mono font-bold text-sm hover:bg-black transition-all inline-flex items-center gap-2 shadow-[4px_4px_0px_0px_#000000]">
+                    INITIATE WEBSITE AUDIT <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                  <button onclick="switchTab('calculator')" class="px-6 py-3 border-2 border-zinc-300 hover:border-cyber-indigo font-mono font-bold text-sm text-zinc-600 hover:text-zinc-900 transition-all bg-white inline-flex items-center gap-2">
+                    LAUNCH ROI CALCULATOR <i class="fa-solid fa-chart-line"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Brand Model ( Harsh K. ) -->
+              <div class="lg:col-span-5 relative">
+                <div class="relative border-4 border-zinc-300 bg-white p-2 shadow-[8px_8px_0px_0px_#e4e4e7]">
+                  <div class="absolute top-4 left-4 z-20 px-3 py-1 bg-black/85 border border-cyber-indigo text-cyber-indigo font-mono text-[10px] tracking-widest uppercase">
+                    [REF_FOUNDER_PORTRAIT_ID: 178042]
+                  </div>
+                  <img 
+                    src="assets/founder_editorial.png" 
+                    alt="Founder Editorial Brand Model" 
+                    class="w-full h-[450px] object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-700" 
+                  >
+                  <div class="border-t-2 border-zinc-200 p-4 mt-2 bg-zinc-50">
+                    <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
+                      <span>HARSH K. [FOUNDER & CD]</span>
+                      <span class="text-cyber-indigo font-bold">SQUAD_LEADER</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ledger Stats Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="brutalist-card p-6 border-2 border-zinc-200 bg-white">
+                <div class="text-zinc-400 font-mono text-xs uppercase mb-2">[01] Total Projects Completed</div>
+                <div class="text-4xl md:text-5xl font-black font-outfit text-zinc-950 mb-2">2,000<span class="text-cyber-indigo">+</span></div>
+                <p class="text-xs text-zinc-500 font-mono">D2C, SaaS, Healthcare, Real Estate scales</p>
+              </div>
+              <div class="brutalist-card p-6 border-2 border-zinc-200 bg-white">
+                <div class="text-zinc-400 font-mono text-xs uppercase mb-2">[02] Active Client Roster</div>
+                <div class="text-4xl md:text-5xl font-black font-outfit text-zinc-950 mb-2">800<span class="text-cyber-indigo">+</span></div>
+                <p class="text-xs text-zinc-500 font-mono">Retainers managed globally by squads</p>
+              </div>
+              <div class="brutalist-card p-6 border-2 border-zinc-200 bg-white">
+                <div class="text-zinc-400 font-mono text-xs uppercase mb-2">[03] Years in Ledger</div>
+                <div class="text-4xl md:text-5xl font-black font-outfit text-zinc-950 mb-2">17<span class="text-cyber-indigo">+</span></div>
+                <p class="text-xs text-zinc-500 font-mono">Pedigree scaling local and global operations</p>
+              </div>
+            </div>
+
+            <!-- 50/50 Squad structure -->
+            <div class="space-y-6 pt-12">
+              <div class="text-center space-y-2">
+                <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[SYSTEM_ADVANTAGES]</span>
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">THE 50/50 SQUAD RETAINER</h2>
+                <p class="text-zinc-500 text-sm max-w-xl mx-auto font-mono">
+                  Why traditional agencies fail you: they deliver creative that doesn't convert, or performance numbers that dilute your brand.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-6">
+                <div class="border-2 border-zinc-200 bg-white p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(93,0,255,0.1)]">
+                  <div class="w-12 h-12 bg-cyber-indigo text-white flex items-center justify-center text-xl font-bold font-mono">N</div>
+                  <h3 class="text-2xl font-bold font-outfit text-zinc-900 uppercase">THE NEXUS METHOD (DATA & TECH)</h3>
+                  <ul class="space-y-2 font-mono text-xs text-zinc-500">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Server-side attribution setup (GA4 & custom nodes).</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> SEO authority building based on semantic index gaps.</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Custom landing page code optimized for Core Web Vitals.</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Real-time transparent ledger sync with client CRM systems.</li>
+                  </ul>
+                </div>
+                <div class="border-2 border-zinc-200 bg-white p-6 space-y-4 shadow-[4px_4px_0px_0px_rgba(93,0,255,0.1)]">
+                  <div class="w-12 h-12 bg-zinc-900 text-white flex items-center justify-center text-xl font-bold font-mono">C</div>
+                  <h3 class="text-2xl font-bold font-outfit text-zinc-900 uppercase">THE CODA METHOD (CREATIVE & ART)</h3>
+                  <ul class="space-y-2 font-mono text-xs text-zinc-500">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Cinematic product shooting and creative commercial layouts.</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Psychographic copywriting addressing client core bottlenecks.</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Brutalist modern user interface designs that stand out in feed.</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyber-indigo"></i> Integrated social media content loops tailored to human triggers.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Campaign Widescreen Display -->
+            <div class="border-2 border-zinc-300 bg-white p-4 relative overflow-hidden">
+              <div class="absolute top-4 left-4 z-20 px-3 py-1 bg-black/85 border border-cyber-indigo text-cyber-indigo font-mono text-[10px] tracking-widest uppercase">
+                [REF_WORK_CAMP_ID: 178043]
+              </div>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <img 
+                  src="assets/agency_workspace.png" 
+                  alt="TechnoGaze Tech Workspace" 
+                  class="w-full h-[350px] object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-700" 
+                >
+                <div class="space-y-4 p-4">
+                  <h4 class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[NEXUS_CAMP_PROD_2026]</h4>
+                  <h3 class="text-3xl font-black font-outfit text-zinc-900 uppercase leading-tight">ENGINEERING HIGH CONVERSION FOR SOUTH ASIAN MARKETS</h3>
+                  <p class="text-zinc-500 font-mono text-xs">
+                    Our workspace combines dynamic campaign tracking with AI-native workflows. HARSH K. and the squads build customized, secure models to scale local businesses in Bhopal to global reach.
+                  </p>
+                  <button onclick="switchTab('onboarding')" class="px-4 py-2 bg-cyber-indigo text-white border-2 border-black font-mono text-xs transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    JOIN COHORTS ↗
+                  </button>
+                </div>
+              </div>
+            </div>
+
+        </section>
+
+        <!-- ================= CAPABILITIES TAB ================= -->
+        <section id="sec-services" class="tab-content space-y-12 hidden">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[AGENCY_EXPERTISE_SCHEMA]</span>
+              <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">CAPABILITIES DATABASE</h2>
+              <p class="text-zinc-500 text-sm max-w-xl mx-auto font-mono">
+                Granular operational channels managed by specialized micro-squad structures. No account managers. Only practitioners.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <!-- SEO -->
+              <div class="brutalist-card p-6">
+                <div class="text-cyber-indigo mb-4 text-3xl"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <h3 class="text-xl font-bold text-zinc-900 uppercase font-outfit mb-3">01. Search Engine Optimization (SEO)</h3>
+                <p class="text-zinc-500 text-xs font-mono leading-relaxed mb-4">
+                  Technical audit execution, Semantic keyword gap mapping, localized search node scaling, schema optimization.
+                </p>
+                <div class="border-t border-zinc-200 pt-3 font-mono">
+                  <span class="text-[10px] text-zinc-400 block uppercase">Outcome metric</span>
+                  <span class="text-sm text-zinc-950 font-bold">+280% Average Organic Traffic Boost</span>
+                </div>
+              </div>
+
+              <!-- PPC -->
+              <div class="brutalist-card p-6">
+                <div class="text-cyber-indigo mb-4 text-3xl"><i class="fa-solid fa-chart-simple"></i></div>
+                <h3 class="text-xl font-bold text-zinc-900 uppercase font-outfit mb-3">02. Performance Advertising (PPC)</h3>
+                <p class="text-zinc-500 text-xs font-mono leading-relaxed mb-4">
+                  Google ads nodes, Meta conversions API pipelines, custom retargeting architectures, cohort testing vectors.
+                </p>
+                <div class="border-t border-zinc-200 pt-3 font-mono">
+                  <span class="text-[10px] text-zinc-400 block uppercase">Outcome metric</span>
+                  <span class="text-sm text-zinc-950 font-bold">3.8x Average Return on Ad Spend (ROAS)</span>
+                </div>
+              </div>
+
+              <!-- SMM -->
+              <div class="brutalist-card p-6">
+                <div class="text-cyber-indigo mb-4 text-3xl"><i class="fa-solid fa-users"></i></div>
+                <h3 class="text-xl font-bold text-zinc-900 uppercase font-outfit mb-3">03. Social Media Management</h3>
+                <p class="text-zinc-500 text-xs font-mono leading-relaxed mb-4">
+                  Organic platform positioning, short-form visual scripting (Reels, TikTok), creator relations, authority loop posting.
+                </p>
+                <div class="border-t border-zinc-200 pt-3 font-mono">
+                  <span class="text-[10px] text-zinc-400 block uppercase">Outcome metric</span>
+                  <span class="text-sm text-zinc-950 font-bold">12% Lead Velocity Spike via Channels</span>
+                </div>
+              </div>
+
+              <!-- Web Dev -->
+              <div class="brutalist-card p-6">
+                <div class="text-cyber-indigo mb-4 text-3xl"><i class="fa-solid fa-code"></i></div>
+                <h3 class="text-xl font-bold text-zinc-900 uppercase font-outfit mb-3">04. Custom Conversion Web Dev</h3>
+                <p class="text-zinc-500 text-xs font-mono leading-relaxed mb-4">
+                  Next.js/React rendering speeds, clean database integrations, transactional funnel structures, multi-device layouts.
+                </p>
+                <div class="border-t border-zinc-200 pt-3 font-mono">
+                  <span class="text-[10px] text-zinc-400 block uppercase">Outcome metric</span>
+                  <span class="text-sm text-zinc-950 font-bold">95+ Lighthouse Score & Reduced Bounce</span>
+                </div>
+              </div>
+
+              <!-- Photo Shoot -->
+              <div class="brutalist-card p-6">
+                <div class="text-cyber-indigo mb-4 text-3xl"><i class="fa-solid fa-camera"></i></div>
+                <h3 class="text-xl font-bold text-zinc-900 uppercase font-outfit mb-3">05. Commercial Photography & Shoot</h3>
+                <p class="text-zinc-500 text-xs font-mono leading-relaxed mb-4">
+                  High-fidelity product captures, editorial studio campaigns, localized video layouts, brand model integration.
+                </p>
+                <div class="border-t border-zinc-200 pt-3 font-mono">
+                  <span class="text-[10px] text-zinc-400 block uppercase">Outcome metric</span>
+                  <span class="text-sm text-zinc-950 font-bold">2.5x Click-Through-Rate (CTR) Boost</span>
+                </div>
+              </div>
+
+              <!-- Academy -->
+              <div class="brutalist-card p-6">
+                <div class="text-cyber-indigo mb-4 text-3xl"><i class="fa-solid fa-award"></i></div>
+                <h3 class="text-xl font-bold text-zinc-900 uppercase font-outfit mb-3">06. Agency-Standard Skill Grooms</h3>
+                <p class="text-zinc-500 text-xs font-mono leading-relaxed mb-4">
+                  Tailored corporate digital marketing grooming, SEO sprint blueprints, performance ledger training programs.
+                </p>
+                <div class="border-t border-zinc-200 pt-3 font-mono">
+                  <span class="text-[10px] text-zinc-400 block uppercase">Outcome metric</span>
+                  <span class="text-sm text-zinc-950 font-bold">98% Certification-to-Placement Rating</span>
+                </div>
+              </div>
+
+            </div>
+        </section>
+
+        <!-- ================= CASE STUDIES TAB ================= -->
+        <section id="sec-caseStudies" class="tab-content space-y-12 hidden">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[PERFORMANCE_LEDGER_ARCHIVES]</span>
+              <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">INTERACTIVE PORTFOLIO & WORK</h2>
+              <p class="text-zinc-500 text-sm max-w-xl mx-auto font-mono">
+                Move the slider to audit how our customized campaigns scale conversion layouts.
+              </p>
+            </div>
+
+            <!-- Before/After Slider -->
+            <div class="space-y-4 max-w-4xl mx-auto">
+              <h3 class="text-xl font-bold font-outfit uppercase text-zinc-900 flex items-center gap-2">
+                <i class="fa-solid fa-bullseye text-cyber-indigo"></i> CASE ID 205: D2C E-COMMERCE CONVERSION REDESIGN
+              </h3>
+              
+              <div 
+                id="slider-container"
+                class="relative h-[400px] w-full border-4 border-zinc-350 overflow-hidden select-none cursor-ew-resize"
+              >
+                <!-- BEFORE -->
+                <div class="absolute inset-0 bg-zinc-200 flex flex-col justify-center items-center text-center p-8">
+                  <div class="text-red-600 font-mono text-5xl font-black tracking-widest uppercase mb-4">BEFORE REDESIGN</div>
+                  <div class="space-y-2 font-mono text-zinc-600 text-sm">
+                    <p>[!] Slow Page Load (5.4 seconds)</p>
+                    <p>[!] Fragmented tracking (Pixel drops 40%)</p>
+                    <p>[!] Average conversion rate: 1.1%</p>
+                    <p>[!] Cluttered checkout funnel (6 separate steps)</p>
+                  </div>
+                </div>
+
+                <!-- AFTER -->
+                <div 
+                  id="slider-after"
+                  class="absolute inset-y-0 left-0 bg-white border-r-4 border-cyber-indigo overflow-hidden flex flex-col justify-center items-center text-center p-8"
+                  style="width: 50%;"
+                >
+                  <div class="min-w-[600px] space-y-4">
+                    <div class="text-cyber-indigo font-mono text-5xl font-black tracking-widest uppercase">AFTER SQUAD SCALE</div>
+                    <div class="space-y-2 font-mono text-zinc-800 text-sm">
+                      <p>[✔] Core Web Vitals Optimized (1.2 seconds)</p>
+                      <p>[✔] Server-side metadata pipelines configured</p>
+                      <p>[✔] Average conversion rate: 4.8% (+336% Boost)</p>
+                      <p>[✔] 1-Page express checkout integrated</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SLIDER HANDLE -->
+                <div 
+                  id="slider-handle"
+                  class="absolute inset-y-0 w-1 bg-cyber-indigo pointer-events-none"
+                  style="left: 50%;"
+                >
+                  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-cyber-indigo text-white border-2 border-black flex items-center justify-center font-bold text-xs font-mono select-none">
+                    ↔
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center text-xs font-mono text-zinc-400 px-2">
+                <span>SLIDE LEFT [BEFORE CONVERSION GAPS]</span>
+                <span>SLIDE RIGHT [AFTER SQUAD ENGINEERING]</span>
+              </div>
+            </div>
+
+            <!-- Network Logos -->
+            <div class="border-t border-zinc-200 pt-12 space-y-4">
+              <h3 class="text-center font-mono text-xs uppercase text-zinc-400">Brands Scaled in our Networks</h3>
+              <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 font-mono">
+                <div class="border border-zinc-300 p-4 text-center text-zinc-400 hover:text-cyber-indigo uppercase text-xs bg-white">D2C Clothing Co</div>
+                <div class="border border-zinc-300 p-4 text-center text-zinc-400 hover:text-cyber-indigo uppercase text-xs bg-white">SaaS Automate Inc</div>
+                <div class="border border-zinc-300 p-4 text-center text-zinc-400 hover:text-cyber-indigo uppercase text-xs bg-white">Apex Orthocare</div>
+                <div class="border border-zinc-300 p-4 text-center text-zinc-400 hover:text-cyber-indigo uppercase text-xs bg-white">Metro Builders</div>
+                <div class="border border-zinc-300 p-4 text-center text-zinc-400 hover:text-cyber-indigo uppercase text-xs bg-white">Veda Prep</div>
+                <div class="border border-zinc-300 p-4 text-center text-zinc-400 hover:text-cyber-indigo uppercase text-xs bg-white">Capital Invest</div>
+              </div>
+            </div>
+        </section>
+
+        <!-- ================= AI AUDIT ENGINE ================= -->
+        <section id="sec-audit" class="tab-content space-y-8 max-w-4xl mx-auto hidden">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[DYNAMIC_AI_AUDIT_ENGINE_v2]</span>
+              <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">AI MARKETING AUDIT</h2>
+              <p class="text-zinc-500 text-sm font-mono">
+                Audit your brand landing node dynamically. Assesses layout, speed, copy triggers, and SEO indices.
+              </p>
+            </div>
+
+            <!-- AUDIT FORM -->
+            <div class="border-2 border-zinc-300 bg-white p-6">
+              <form id="audit-form" onsubmit="runAudit(event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono">
+                  <div class="md:col-span-2">
+                    <label class="block text-xs text-zinc-500 uppercase mb-2">Target Domain URL</label>
+                    <input 
+                      type="url" 
+                      id="audit-url"
+                      placeholder="https://yourbrand.com" 
+                      required
+                      class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                    >
+                  </div>
+                  <div>
+                    <label class="block text-xs text-zinc-500 uppercase mb-2">Industry Sector</label>
+                    <select 
+                      id="audit-sector"
+                      class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-850 focus:outline-none"
+                    >
+                      <option value="d2c">D2C E-Commerce</option>
+                      <option value="saas">SaaS / Cloud Tech</option>
+                      <option value="healthcare">Healthcare / Medical</option>
+                      <option value="realestate">Real Estate / Dev</option>
+                      <option value="local">Local Retail / Services</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="w-full py-4 bg-cyber-indigo text-white border-2 border-black font-mono font-bold text-sm tracking-widest hover:bg-black transition-all shadow-[4px_4px_0px_0px_#000000]"
+                >
+                  EXECUTE SYSTEM SCAN ⚡
+                </button>
+              </form>
+            </div>
+
+            <!-- RUNNING SCAN LOADER -->
+            <div id="audit-scanner" class="border-2 border-cyber-indigo bg-white p-6 space-y-4 font-mono text-xs hidden">
+                <div class="flex justify-between items-center text-cyber-indigo font-bold">
+                  <span>SYSTEM_SCANNING_ACTIVE...</span>
+                  <span id="audit-percent">0%</span>
+                </div>
+                <div class="w-full bg-zinc-200 h-2">
+                  <div id="audit-progress-bar" class="bg-cyber-indigo h-2 transition-all duration-300 w-0"></div>
+                </div>
+                <div id="audit-console-logs" class="space-y-1 text-zinc-550">
+                    <!-- Logs dynamically appended -->
+                </div>
+            </div>
+
+            <!-- AUDIT RESULTS REPORT -->
+            <div id="audit-results" class="border-4 border-cyber-indigo bg-white p-6 space-y-6 hidden shadow-[6px_6px_0px_0px_rgba(93,0,255,0.15)]">
+                <!-- Results dynamically loaded -->
+            </div>
+        </section>
+
+        <!-- ================= ROI CALCULATOR ================= -->
+        <section id="sec-calculator" class="tab-content space-y-8 max-w-4xl mx-auto hidden">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[GROWTH_LAB_PROJECTIONS]</span>
+              <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">MARKETING ROI CALCULATOR</h2>
+              <p class="text-zinc-500 text-sm font-mono">
+                Model your revenue potential by optimizing CPC conversion vectors.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              
+              <!-- SLIDERS -->
+              <div class="lg:col-span-7 border-2 border-zinc-200 bg-white p-6 space-y-6">
+                
+                <!-- Spend -->
+                <div class="space-y-2 font-mono">
+                  <div class="flex justify-between text-xs text-zinc-500">
+                    <span class="uppercase">Monthly Ad Spend ($)</span>
+                    <span class="text-cyber-indigo font-bold" id="val-spend">$5,000</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    id="slider-spend"
+                    min="1000" 
+                    max="100000" 
+                    step="1000"
+                    value="5000"
+                    oninput="recalculateROI()"
+                    class="w-full accent-cyber-indigo"
+                  >
+                  <div class="flex justify-between text-[9px] text-zinc-400">
+                    <span>$1,000</span>
+                    <span>$100,000</span>
+                  </div>
+                </div>
+
+                <!-- CPC -->
+                <div class="space-y-2 font-mono">
+                  <div class="flex justify-between text-xs text-zinc-500">
+                    <span class="uppercase">Average Cost Per Click (CPC)</span>
+                    <span class="text-cyber-indigo font-bold" id="val-cpc">$1.20</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    id="slider-cpc"
+                    min="0.10" 
+                    max="10.00" 
+                    step="0.10"
+                    value="1.20"
+                    oninput="recalculateROI()"
+                    class="w-full accent-cyber-indigo"
+                  >
+                  <div class="flex justify-between text-[9px] text-zinc-400">
+                    <span>$0.10</span>
+                    <span>$10.00</span>
+                  </div>
+                </div>
+
+                <!-- CVR -->
+                <div class="space-y-2 font-mono">
+                  <div class="flex justify-between text-xs text-zinc-500">
+                    <span class="uppercase">Landing Page Conv. Rate (CVR %)</span>
+                    <span class="text-cyber-indigo font-bold" id="val-cvr">2.5%</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    id="slider-cvr"
+                    min="0.5" 
+                    max="15.0" 
+                    step="0.1"
+                    value="2.5"
+                    oninput="recalculateROI()"
+                    class="w-full accent-cyber-indigo"
+                  >
+                  <div class="flex justify-between text-[9px] text-zinc-400">
+                    <span>0.5%</span>
+                    <span>15.0%</span>
+                  </div>
+                </div>
+
+                <!-- AOV -->
+                <div class="space-y-2 font-mono">
+                  <div class="flex justify-between text-xs text-zinc-500">
+                    <span class="uppercase">Average Order / Contract Value ($)</span>
+                    <span class="text-cyber-indigo font-bold" id="val-aov">$85</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    id="slider-aov"
+                    min="10" 
+                    max="1000" 
+                    step="10"
+                    value="85"
+                    oninput="recalculateROI()"
+                    class="w-full accent-cyber-indigo"
+                  >
+                  <div class="flex justify-between text-[9px] text-zinc-400">
+                    <span>$10</span>
+                    <span>$1,000</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- OUTPUT TABLE -->
+              <div class="lg:col-span-5 border-2 border-cyber-indigo bg-white p-6 space-y-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(93,0,255,0.15)]">
+                <div>
+                  <h3 class="font-outfit font-black text-zinc-900 text-lg uppercase border-b border-zinc-200 pb-3 mb-4">[MODELING_OUTPUT]</h3>
+                  
+                  <div class="space-y-4 font-mono text-xs">
+                    <div class="flex justify-between text-zinc-400">
+                      <span>Total Traffic generated:</span>
+                      <span class="text-zinc-800 font-bold" id="res-traffic">4,167 clicks</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-400">
+                      <span>Conversions:</span>
+                      <span class="text-zinc-800 font-bold" id="res-conversions">104 leads/sales</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-400">
+                      <span>Cost per Acquisition (CPA):</span>
+                      <span class="text-zinc-800 font-bold" id="res-cpa">$48.00</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-700 border-t border-zinc-200 pt-3">
+                      <span>GROSS REVENUE:</span>
+                      <span class="text-cyber-indigo text-lg font-black" id="res-revenue">$8,840</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-700">
+                      <span>PROJECTED ROAS:</span>
+                      <span class="text-cyber-indigo text-lg font-black" id="res-roas">1.77x</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-700">
+                      <span>NET PROFIT:</span>
+                      <span class="text-cyber-indigo text-lg font-black text-zinc-900" id="res-profit">$3,840</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-6 border-t border-zinc-200 font-mono">
+                  <div class="text-[10px] text-zinc-400 mb-2">CODA STRATEGY ESTIMATE</div>
+                  <p class="text-xs text-zinc-500 leading-relaxed mb-4">
+                    Based on local agency indices, raising CVR by just 1% yields an additional <span class="text-cyber-indigo font-bold" id="res-tip-gain">$3,542</span>.
+                  </p>
+                  <button onclick="switchTab('onboarding')" class="w-full py-3 bg-cyber-indigo text-white border-2 border-black font-bold text-xs tracking-widest hover:bg-black transition-all shadow-[3px_3px_0px_0px_#000000]">
+                    LOCK IN ROAS FUNNEL ↗
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CHART ENGINE -->
+            <div class="border-2 border-zinc-200 bg-white p-6">
+                <h4 class="font-outfit font-black text-zinc-900 text-base mb-4 uppercase">[ROAS_INVESTMENT_RETURNS_CURVE]</h4>
+                <div class="h-64 relative">
+                    <canvas id="roi-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CLIENT DASHBOARD ================= -->
+        <section id="sec-clientDashboard" class="tab-content space-y-8 hidden">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[CLIENT_LEDGER_TRANSPARENCY]</span>
+              <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">SIMULATED CLIENT DASHBOARD</h2>
+              <p class="text-zinc-500 text-sm font-mono max-w-xl mx-auto">
+                No mystery PDFs. Check the weekly tasks, campaign previews, and live tracking ledger modules.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              
+              <!-- KANBAN -->
+              <div class="border-2 border-zinc-200 bg-white p-6 space-y-6">
+                <div class="flex justify-between items-center border-b border-zinc-200 pb-3">
+                  <h3 class="font-outfit font-black text-zinc-900 text-base uppercase">[SQUAD_TASK_SPRINT_C1]</h3>
+                  <span class="text-[9px] font-mono bg-cyber-indigo/10 text-cyber-indigo border border-cyber-indigo px-2 py-0.5">ACTIVE</span>
+                </div>
+
+                <div class="space-y-3 font-mono text-xs">
+                  <div class="border border-zinc-200 p-3 bg-zinc-50">
+                    <span class="text-[9px] text-zinc-400 uppercase block mb-1">Status: Working</span>
+                    <p class="text-zinc-800">Implementing server-side Conversions API on Meta Pixel.</p>
+                  </div>
+                  <div class="border border-zinc-200 p-3 bg-zinc-50">
+                    <span class="text-[9px] text-zinc-400 uppercase block mb-1">Status: Working</span>
+                    <p class="text-zinc-800">Writing search-intent blog copy targeting 'Real Estate Bhopal' keyword modifiers.</p>
+                  </div>
+                  <div class="border border-zinc-200 p-3 bg-zinc-50">
+                    <span class="text-[9px] text-cyber-indigo uppercase block mb-1 font-bold">Status: Completed [✔]</span>
+                    <p class="text-zinc-800">Optimized index hero image size down by 65%, boosting mobile speed.</p>
+                  </div>
+                  <div class="border border-zinc-200 p-3 bg-zinc-50">
+                    <span class="text-[9px] text-cyber-indigo uppercase block mb-1 font-bold">Status: Completed [✔]</span>
+                    <p class="text-zinc-800">Configured weekly GTM tag containers for Google Search Ads.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- LIVE METRICS -->
+              <div class="lg:col-span-2 border-2 border-zinc-200 bg-white p-6 space-y-6">
+                <div class="flex justify-between items-center border-b border-zinc-200 pb-3">
+                  <h3 class="font-outfit font-black text-zinc-900 text-base uppercase">[PERFORMANCE_LEDGER_MONITOR]</h3>
+                  <span class="text-[9px] font-mono text-zinc-400 uppercase">Updates every 5 minutes</span>
+                </div>
+
+                <div class="space-y-6">
+                  <!-- Organic traffic -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-mono text-zinc-500">
+                      <span>ORGANIC MONTHLY VISITS</span>
+                      <span class="text-cyber-indigo font-bold">48,250 (+12% growth)</span>
+                    </div>
+                    <div class="w-full bg-zinc-200 h-6 border border-zinc-300 relative">
+                      <div class="bg-cyber-indigo h-full w-[82%]" style="transition: width 2s;"></div>
+                      <span class="absolute inset-0 flex items-center justify-end pr-2 text-[9px] font-mono text-zinc-800 font-extrabold">TARGET: 50K</span>
+                    </div>
+                  </div>
+
+                  <!-- Ad Spend ROAS -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-mono text-zinc-500">
+                      <span>AVERAGE CAMPAIGN ROAS</span>
+                      <span class="text-cyber-indigo font-bold">4.21x (Ad Spend ROI Ledger)</span>
+                    </div>
+                    <div class="w-full bg-zinc-200 h-6 border border-zinc-300 relative">
+                      <div class="bg-zinc-900 h-full w-[70%]" style="transition: width 2s;"></div>
+                      <span class="absolute inset-0 flex items-center justify-end pr-2 text-[9px] font-mono text-white font-extrabold">TARGET: 4.5X</span>
+                    </div>
+                  </div>
+
+                  <!-- Qualified Leads -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-mono text-zinc-500">
+                      <span>QUALIFIED SQUAD LEADS</span>
+                      <span class="text-cyber-indigo font-bold">1,840 / Month (+24%)</span>
+                    </div>
+                    <div class="w-full bg-zinc-200 h-6 border border-zinc-300 relative">
+                      <div class="bg-gradient-to-r from-cyber-indigo to-pink-500 h-full w-[90%]" style="transition: width 2s;"></div>
+                      <span class="absolute inset-0 flex items-center justify-end pr-2 text-[9px] font-mono text-white font-extrabold">TARGET: 2K</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border border-zinc-250 p-4 bg-zinc-50 font-mono text-xs space-y-1">
+                  <div class="text-cyber-indigo uppercase font-bold">[ACTIVE_CAMPAIGN_PREVIEW]</div>
+                  <div class="text-zinc-500">Google Search Ads | Bhopal Real Estate Modifiers | Active CTR: 6.42%</div>
+                  <div class="text-zinc-500">Meta Video Ads | D2C Apparel UGC Loops | Active ROAS: 3.94x</div>
+                </div>
+              </div>
+
+            </div>
+        </section>
+
+        <!-- ================= BRIEFING ONBOARDING TAB ================= -->
+        <section id="sec-onboarding" class="tab-content space-y-8 max-w-2xl mx-auto hidden">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono text-cyber-indigo uppercase tracking-widest">[COMMISSION_ONBOARDING_DECK]</span>
+              <h2 class="text-3xl md:text-5xl font-black uppercase text-zinc-900 font-outfit">SQUAD BRIEFING DECK</h2>
+              <p class="text-zinc-500 text-sm font-mono">
+                Qualify your project details in 4 steps to sync with an active micro-squad.
+              </p>
+            </div>
+
+            <!-- FORM CARD -->
+            <div class="border-2 border-zinc-200 bg-white p-6 relative shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">
+                <!-- Submit Success -->
+                <div id="form-success" class="text-center py-12 space-y-4 hidden">
+                  <div class="w-16 h-16 bg-cyber-indigo text-white rounded-full flex items-center justify-center mx-auto text-3xl font-extrabold">
+                    ✓
+                  </div>
+                  <h3 class="text-2xl font-bold font-outfit text-zinc-950 uppercase">BRIEF QUALIFIED SUCCESS</h3>
+                  <p class="text-zinc-500 font-mono text-xs max-w-sm mx-auto">
+                    Data synced to active roster database. Harsh K. and our growth engineer squad will respond to your email in 4 hours.
+                  </p>
+                  <button onclick="resetBriefForm()" class="px-6 py-2 border border-cyber-indigo text-cyber-indigo font-mono text-xs uppercase hover:bg-cyber-indigo hover:text-white">
+                    [RESET_FORM]
+                  </button>
+                </div>
+
+                <form id="onboarding-form" onsubmit="submitBriefForm(event)" class="space-y-6">
+                  <!-- Progress bar -->
+                  <div class="flex justify-between items-center border-b border-zinc-200 pb-4 font-mono">
+                    <span id="form-step-text" class="text-xs text-zinc-400">Step 1 of 4</span>
+                    <div class="flex gap-2" id="form-dots">
+                      <div class="step-dot w-3 h-3 border bg-cyber-indigo border-cyber-indigo"></div>
+                      <div class="step-dot w-3 h-3 border border-zinc-300"></div>
+                      <div class="step-dot w-3 h-3 border border-zinc-300"></div>
+                      <div class="step-dot w-3 h-3 border border-zinc-300"></div>
+                    </div>
+                  </div>
+
+                  <!-- Step 1: URL & Sector -->
+                  <div id="form-step-1" class="form-step-section space-y-4">
+                      <h4 class="text-base font-bold font-outfit text-zinc-900 uppercase">[01] Website Node Details</h4>
+                      <div class="font-mono">
+                        <label class="block text-xs text-zinc-500 uppercase mb-2">Company Domain / App URL</label>
+                        <input 
+                          type="url" 
+                          id="form-url"
+                          placeholder="https://yourbrand.com" 
+                          required
+                          class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                        >
+                      </div>
+                      <div class="font-mono">
+                        <label class="block text-xs text-zinc-500 uppercase mb-2">Sector</label>
+                        <select 
+                          id="form-sector"
+                          class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                        >
+                          <option value="d2c">D2C / Commerce</option>
+                          <option value="saas">SaaS / Cloud App</option>
+                          <option value="healthcare">Healthcare / Medical</option>
+                          <option value="realestate">Real Estate / Dev</option>
+                          <option value="local">Local Retail / Services</option>
+                        </select>
+                      </div>
+                  </div>
+
+                  <!-- Step 2: Budget -->
+                  <div id="form-step-2" class="form-step-section space-y-4 hidden font-mono">
+                      <h4 class="text-base font-bold font-outfit text-zinc-900 uppercase">[02] Allocations Ledger</h4>
+                      <div>
+                        <label class="block text-xs text-zinc-500 uppercase mb-2">Target Monthly Budget</label>
+                        <select 
+                          id="form-budget"
+                          class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                        >
+                          <option value="<$5,000">&lt; $5,000 / Month</option>
+                          <option value="$5,000 - $15,000">$5,000 - $15,000 / Month</option>
+                          <option value="$15,000+">$15,000+ / Month (Enterprise)</option>
+                        </select>
+                      </div>
+                  </div>
+
+                  <!-- Step 3: Gaps -->
+                  <div id="form-step-3" class="form-step-section space-y-4 hidden font-mono">
+                      <h4 class="text-base font-bold font-outfit text-zinc-950 uppercase">[03] Growth Constraints</h4>
+                      <div>
+                        <label class="block text-xs text-zinc-500 uppercase mb-2">Primary Bottleneck</label>
+                        <select 
+                          id="form-bottleneck"
+                          class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                        >
+                          <option value="Traffic Generation">Traffic / Low Visitors</option>
+                          <option value="Conversion CRO">Conversion / Low Sales</option>
+                          <option value="Ad Spend Waste">Ad Spend Attribution / Low ROAS</option>
+                          <option value="SEO Rank Drop">SEO Organic Index Rankings</option>
+                        </select>
+                      </div>
+                  </div>
+
+                  <!-- Step 4: Contact -->
+                  <div id="form-step-4" class="form-step-section space-y-4 hidden font-mono">
+                      <h4 class="text-base font-bold font-outfit text-zinc-955 uppercase">[04] Sync Communications</h4>
+                      <div>
+                        <label class="block text-xs text-zinc-500 uppercase mb-2">Business Email</label>
+                        <input 
+                          type="email" 
+                          id="form-email"
+                          placeholder="name@company.com" 
+                          required
+                          class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                        >
+                      </div>
+                      <div>
+                        <label class="block text-xs text-zinc-500 uppercase mb-2">WhatsApp Phone Number</label>
+                        <input 
+                          type="tel" 
+                          id="form-phone"
+                          placeholder="+91 98936 88878" 
+                          required
+                          class="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 focus:border-cyber-indigo text-xs text-zinc-800 focus:outline-none"
+                        >
+                      </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <div class="flex justify-between items-center pt-4 border-t border-zinc-200 font-mono">
+                    <button 
+                      type="button" 
+                      id="btn-back"
+                      onclick="backFormStep()"
+                      class="px-4 py-2 border border-zinc-300 text-zinc-500 text-xs uppercase hover:text-zinc-950 disabled:opacity-50"
+                      disabled
+                    >
+                      [BACK]
+                    </button>
+                    
+                    <button 
+                      type="button" 
+                      id="btn-next"
+                      onclick="nextFormStep()"
+                      class="px-6 py-2 bg-cyber-indigo text-white font-bold text-xs uppercase shadow-[2px_2px_0px_0px_#000000]"
+                    >
+                      [NEXT]
+                    </button>
+                  </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════
+         FOOTER
+         ══════════════════════════════════ -->
+    <footer class="border-t-2 border-zinc-300 bg-white mt-20 py-12 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-cyber-indigo text-white flex items-center justify-center font-extrabold text-xl border-2 border-black font-mono">
+                TG
+              </div>
+              <span class="font-outfit font-black text-lg tracking-widest text-zinc-900">TECHNO<span class="text-cyber-indigo">GAZE</span></span>
+            </div>
+            <p class="text-xs font-mono text-zinc-500 leading-relaxed">
+              Premium Brutalist Digital Marketing & Performance Engineering Squads out of Bhopal, scaling retainers globally.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-mono text-xs font-bold uppercase text-zinc-900 mb-4">[RESOURCES]</h4>
+            <ul class="space-y-2 font-mono text-xs text-zinc-500">
+              <li><a href="javascript:void(0)" onclick="switchTab('audit')" class="hover:text-cyber-indigo">AI Web Audit Port</a></li>
+              <li><a href="javascript:void(0)" onclick="switchTab('calculator')" class="hover:text-cyber-indigo">ROI Estimator Lab</a></li>
+              <li><a href="javascript:void(0)" onclick="switchTab('clientDashboard')" class="hover:text-cyber-indigo">Live Ledger Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-mono text-xs font-bold uppercase text-zinc-900 mb-4">[CAPABILITIES]</h4>
+            <ul class="space-y-2 font-mono text-xs text-zinc-500">
+              <li><a href="javascript:void(0)" onclick="switchTab('services')" class="hover:text-cyber-indigo">Enterprise SEO Growth</a></li>
+              <li><a href="javascript:void(0)" onclick="switchTab('services')" class="hover:text-cyber-indigo">Paid Meta/Google Ad Squads</a></li>
+              <li><a href="javascript:void(0)" onclick="switchTab('services')" class="hover:text-cyber-indigo">Conversion CRO Dev</a></li>
+            </ul>
+          </div>
+          <div class="font-mono">
+            <h4 class="text-xs font-bold uppercase text-zinc-900 mb-4">[COMMUNICATION]</h4>
+            <p class="text-xs text-zinc-500 mb-2">E: info@technogaze.com</p>
+            <p class="text-xs text-zinc-500">P: +91 98936 88878</p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-zinc-200 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-zinc-400 gap-4">
+          <span>© 2026 TechnoGaze Solutions. All rights scale. Built under Nexus & Coda rules.</span>
+          <span>Bhopal, MP, India</span>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════
+         QUALIFYING STRATEGY CHATBOT
+         ══════════════════════════════════ -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Trigger Button -->
+        <button 
+          onclick="toggleChat()"
+          class="w-14 h-14 bg-cyber-indigo text-white border-2 border-black rounded-full flex items-center justify-center font-bold text-lg shadow-[4px_4px_0px_0px_#000000] hover:bg-black transition-all"
+        >
+          <i class="fa-solid fa-message" id="chat-icon"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div 
+          id="chat-window"
+          class="absolute bottom-18 right-0 w-80 md:w-96 border-4 border-cyber-indigo bg-white text-zinc-900 font-mono text-xs flex flex-col h-[400px] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.15)] hidden"
+        >
+            <div class="bg-cyber-indigo text-white p-3 font-extrabold flex justify-between items-center">
+              <span>GAZEBOT_AI_v2.6 [ONLINE]</span>
+              <span>SQUAD_QUALIFY</span>
+            </div>
+
+            <!-- Messages -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-3 space-y-3 custom-scrollbar">
+                <div class="space-y-1">
+                  <span class="text-[8px] uppercase block text-zinc-400">GAZEBOT_SYSTEM</span>
+                  <div class="inline-block p-2 border border-zinc-200 bg-zinc-50 text-zinc-700 max-w-[85%] break-words">
+                    Initialize GazeBot v2.6. System online. I qualify brands for scale. What is your domain or primary growth bottleneck?
+                  </div>
+                </div>
+            </div>
+
+            <!-- Quick click triggers -->
+            <div class="p-2 border-t border-zinc-200 bg-zinc-100 flex flex-wrap gap-1">
+              <button onclick="chatQuickReply('Execute website audit')" class="px-2 py-1 bg-white border border-zinc-300 hover:border-cyber-indigo text-[10px] uppercase text-zinc-500">[Run Website Audit]</button>
+              <button onclick="chatQuickReply('Calculate marketing ROI')" class="px-2 py-1 bg-white border border-zinc-300 hover:border-cyber-indigo text-[10px] uppercase text-zinc-500">[Calculate ROI]</button>
+              <button onclick="chatQuickReply('Qualify budget options')" class="px-2 py-1 bg-white border border-zinc-300 hover:border-cyber-indigo text-[10px] uppercase text-zinc-500">[Get Pricing]</button>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="chatSubmit(event)" class="flex border-t-2 border-zinc-200">
+              <input 
+                type="text" 
+                id="chat-input"
+                placeholder="Submit domain or query..." 
+                class="flex-1 bg-zinc-50 p-3 border-none text-zinc-800 font-mono text-xs focus:outline-none"
+              >
+              <button type="submit" class="bg-cyber-indigo text-white border-l-2 border-zinc-200 px-4 font-bold">SEND</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         JAVASCRIPT CONTROLLERS
+         ══════════════════════════════════ -->
+    <script>
+        // 1. Tab Switching Controller
+        function switchTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Show target section
+            document.getElementById('sec-' + tabId).classList.remove('hidden');
+            
+            // Update active state on tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-transparent text-zinc-500 hover:text-zinc-900";
+            });
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn px-4 py-2 text-xs font-bold tracking-wider uppercase border-2 border-cyber-indigo text-cyber-indigo bg-white shadow-[2px_2px_0px_0px_#5D00FF]";
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 2. Mobile Menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.remove('flex');
+                menu.classList.add('hidden');
+            }
+        }
+
+        // 3. Typewriter Hero Controller
+        const typewriterWords = [
+            "PERFORMANCE MARKETING",
+            "ENTERPRISE SEO GROWTH",
+            "CYBER-CREATIVE NARRATIVES",
+            "AI-NATIVE INTEGRATION"
+        ];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterEl = document.getElementById('typewriter');
+
+        function loopTypewriter() {
+            const currentWord = typewriterWords[wordIndex];
+            if (isDeleting) {
+                typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(loopTypewriter, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % typewriterWords.length;
+                setTimeout(loopTypewriter, 200);
+            } else {
+                setTimeout(loopTypewriter, isDeleting ? 40 : 80);
+            }
+        }
+        loopTypewriter();
+
+        // 4. Before/After Image Slider Controller
+        const sliderContainer = document.getElementById('slider-container');
+        const sliderAfter = document.getElementById('slider-after');
+        const sliderHandle = document.getElementById('slider-handle');
+
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mousemove', (e) => {
+                const rect = sliderContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percent = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+                
+                sliderAfter.style.width = percent + '%';
+                sliderHandle.style.left = percent + '%';
+            });
+            sliderContainer.addEventListener('touchmove', (e) => {
+                const rect = sliderContainer.getBoundingClientRect();
+                const touch = e.touches[0];
+                const x = touch.clientX - rect.left;
+                const percent = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+                
+                sliderAfter.style.width = percent + '%';
+                sliderHandle.style.left = percent + '%';
+            });
+        }
+
+        // 5. Chatbot Qualifier Widget Controller
+        const chatWindow = document.getElementById('chat-window');
+        const chatIcon = document.getElementById('chat-icon');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+
+        function toggleChat() {
+            if (chatWindow.classList.contains('hidden')) {
+                chatWindow.classList.remove('hidden');
+                chatIcon.classList.remove('fa-message');
+                chatIcon.classList.add('fa-xmark');
+            } else {
+                chatWindow.classList.add('hidden');
+                chatIcon.classList.remove('fa-xmark');
+                chatIcon.classList.add('fa-message');
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const msgNode = document.createElement('div');
+            msgNode.className = `space-y-1 ${sender === 'user' ? 'text-right' : 'text-left'}`;
+            msgNode.innerHTML = `
+                <span class="text-[8px] uppercase block ${sender === 'user' ? 'text-cyber-indigo font-bold' : 'text-zinc-400'}">
+                    ${sender === 'user' ? 'CLIENT_USER' : 'GAZEBOT_SYSTEM'}
+                </span>
+                <div class="inline-block p-2 border ${sender === 'user' ? 'border-cyber-indigo bg-cyber-indigo/10 text-cyber-indigo font-bold' : 'border-zinc-200 bg-zinc-50 text-zinc-700'} max-w-[85%] break-words">
+                    ${text}
+                </div>
+            `;
+            chatMessages.appendChild(msgNode);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function chatSubmit(e) {
+            if (e) e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+            chatInput.value = '';
+            
+            appendMessage('user', text);
+            triggerBotResponse(text);
+        }
+
+        function chatQuickReply(text) {
+            appendMessage('user', text);
+            triggerBotResponse(text);
+        }
+
+        function triggerBotResponse(text) {
+            const query = text.toLowerCase();
+            setTimeout(() => {
+                let reply = '';
+                if (query.includes('audit') || query.includes('analyze')) {
+                    reply = 'Navigate to our [AI Audit Engine] tab to execute a live scan on your domain. Enter your URL and sector to receive vulnerability grades.';
+                } else if (query.includes('roi') || query.includes('calculator')) {
+                    reply = 'Launch our [Growth Lab] tab to adjust sliders for spend, CPC, and conversion rates, mapping revenue outcomes.';
+                } else if (query.includes('service') || query.includes('what you do')) {
+                    reply = 'We specialize in Performance Ads, Enterprise SEO, Conversion CRO, and AI integrations. Explore details in our [Capabilities] tab.';
+                } else if (query.includes('price') || query.includes('cost') || query.includes('budget')) {
+                    reply = 'We build custom squad retainers based on scope. Typically squads start at $3k/month. Use the [Conversational Brief] to specify your budget tier.';
+                } else if (query.includes('founder') || query.includes('model') || query.includes('who is')) {
+                    reply = 'That is Harsh, our Founder & Creative Director. He leads our micro-squad strategy out of Bhopal, scaling brands globally.';
+                } else {
+                    reply = 'Data noted. I recommend booking a briefing call with our Growth Engineer squad or completing our 4-step [Briefing Deck] onboarding form.';
+                }
+                appendMessage('bot', reply);
+            }, 600);
+        }
+
+        // 6. Conversational Brief Form Controller
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        function updateFormUI() {
+            // Hide all steps
+            for(let i = 1; i <= totalSteps; i++) {
+                document.getElementById('form-step-' + i).classList.add('hidden');
+            }
+            // Show current step
+            document.getElementById('form-step-' + currentStep).classList.remove('hidden');
+            
+            // Update dots
+            const dots = document.querySelectorAll('.step-dot');
+            dots.forEach((dot, idx) => {
+                if (idx < currentStep) {
+                    dot.className = "step-dot w-3 h-3 border bg-cyber-indigo border-cyber-indigo";
+                } else {
+                    dot.className = "step-dot w-3 h-3 border border-zinc-300";
+                }
+            });
+            
+            // Text
+            document.getElementById('form-step-text').textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            // Buttons
+            const btnBack = document.getElementById('btn-back');
+            const btnNext = document.getElementById('btn-next');
+            
+            if (currentStep === 1) {
+                btnBack.setAttribute('disabled', 'true');
+            } else {
+                btnBack.removeAttribute('disabled');
+            }
+            
+            if (currentStep === totalSteps) {
+                btnNext.textContent = '[SUBMIT_DECK]';
+            } else {
+                btnNext.textContent = '[NEXT]';
+            }
+        }
+
+        function nextFormStep() {
+            if (currentStep < totalSteps) {
+                // simple validation
+                if (currentStep === 1 && !document.getElementById('form-url').value) {
+                    alert('Please enter a target domain URL');
+                    return;
+                }
+                currentStep++;
+                updateFormUI();
+            } else {
+                // Submit
+                document.getElementById('onboarding-form').dispatchEvent(new Event('submit'));
+            }
+        }
+
+        function backFormStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateFormUI();
+            }
+        }
+
+        function submitBriefForm(e) {
+            e.preventDefault();
+            document.getElementById('onboarding-form').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+
+        function resetBriefForm() {
+            document.getElementById('form-success').classList.add('hidden');
+            document.getElementById('onboarding-form').classList.remove('hidden');
+            document.getElementById('form-url').value = '';
+            document.getElementById('form-email').value = '';
+            document.getElementById('form-phone').value = '';
+            currentStep = 1;
+            updateFormUI();
+        }
+
+        // 7. AI Audit Scanner Controller
+        const auditForm = document.getElementById('audit-form');
+        const auditScanner = document.getElementById('audit-scanner');
+        const auditResults = document.getElementById('audit-results');
+        const auditLogs = document.getElementById('audit-console-logs');
+        const auditPercent = document.getElementById('audit-percent');
+        const auditProgressBar = document.getElementById('audit-progress-bar');
+        
+        const scanLogsList = [
+            "Connecting to target server nodes...",
+            "Scanning DOM hierarchy and CSS layout weights...",
+            "Crawling site architecture for SEO crawl-blockers...",
+            "Assessing landing page performance metrics...",
+            "Grading copywriting semantics and call-to-action weights...",
+            "Running LLM analysis on growth vulnerability matrices..."
+        ];
+
+        function runAudit(e) {
+            e.preventDefault();
+            const url = document.getElementById('audit-url').value;
+            const sector = document.getElementById('audit-sector').value;
+            
+            auditForm.classList.add('hidden');
+            auditScanner.classList.remove('hidden');
+            auditResults.classList.add('hidden');
+            auditLogs.innerHTML = '';
+            
+            let logIdx = 0;
+            const logInterval = setInterval(() => {
+                if (logIdx < scanLogsList.length) {
+                    const log = document.createElement('div');
+                    log.className = 'flex gap-2';
+                    log.innerHTML = `<span class="text-cyber-indigo"><i class="fa-solid fa-check"></i></span> <span>${scanLogsList[logIdx]}</span>`;
+                    auditLogs.appendChild(log);
+                    
+                    const pct = Math.round(((logIdx + 1) / scanLogsList.length) * 100);
+                    auditPercent.textContent = pct + '%';
+                    auditProgressBar.style.width = pct + '%';
+                    
+                    logIdx++;
+                } else {
+                    clearInterval(logInterval);
+                    setTimeout(() => {
+                        showAuditResults(url, sector);
+                    }, 500);
+                }
+            }, 600);
+        }
+
+        const reportDatabase = {
+            d2c: {
+                grade: 'C-',
+                score: 64,
+                metrics: { speed: '4.2s (Slow)', seo: '68%', copy: '72%', tech: 'Shopify / Missing GA4 Schema' },
+                vulnerabilities: [
+                    "Checkout friction: Too many steps before payment gateway.",
+                    "Uncompressed product assets: Main collection banner takes 2.4MB.",
+                    "Missing Facebook Conversion API: Ad tracking relies 100% on client-side pixels."
+                ],
+                plan: "Migrate tracking to server-side GTM, optimize webp formats, implement standard 1-page checkout funnel."
+            },
+            saas: {
+                grade: 'B-',
+                score: 74,
+                metrics: { speed: '2.1s (Moderate)', seo: '80%', copy: '62%', tech: 'Next.js / Custom CMS' },
+                vulnerabilities: [
+                    "Feature-centric landing page: Copy focuses on 'what it is' instead of product value ROI.",
+                    "High CTA clutter: 4 conflicting CTAs in the above-the-fold canvas.",
+                    "Missing product-led interactive guides (no self-onboarding preview)."
+                ],
+                plan: "Rewrite headlines targeting buyer persona bottlenecks, centralize single CTA path, embed self-serve sandboxes."
+            },
+            healthcare: {
+                grade: 'D+',
+                score: 51,
+                metrics: { speed: '5.1s (Critical)', seo: '45%', copy: '58%', tech: 'WordPress / Legacy Theme' },
+                vulnerabilities: [
+                    "Zero Local Business Schema tags on Doctor Profile nodes.",
+                    "Appointment booking forms load inside an iframe, driving 65% mobile drop-off.",
+                    "No review aggregations linking directly to Google Business Profile."
+                ],
+                plan: "Re-platform scheduling using direct API booking, inject structural JSON-LD schemas, automate patient review loop."
+            },
+            realestate: {
+                grade: 'C',
+                score: 69,
+                metrics: { speed: '3.8s (Slow)', seo: '72%', copy: '65%', tech: 'WordPress / Elementor' },
+                vulnerabilities: [
+                    "Image overload: High-resolution listing assets are unoptimized.",
+                    "No CRM lead distribution: Web leads take average 24 hours to receive outreach.",
+                    "Local SEO search ranking gaps for major suburb keyword modifiers."
+                ],
+                plan: "Implement cloud-hosted image CDN, build instant webhook to WhatsApp/Sales CRM, optimize regional sub-pages."
+            },
+            local: {
+                grade: 'C+',
+                score: 70,
+                metrics: { speed: '1.8s (Good)', seo: '58%', copy: '75%', tech: 'Wix / Muted tracking' },
+                vulnerabilities: [
+                    "Mismatched NAP (Name, Address, Phone) citation consistency across directory nodes.",
+                    "Missing Google Maps integration on primary contact layouts.",
+                    "No schema listings for operational hours or pricing matrices."
+                ],
+                plan: "Sync business listings via Yext/BrightLocal, implement clear local maps embed, configure structured service FAQs."
+            }
+        };
+
+        function showAuditResults(url, sector) {
+            auditScanner.classList.add('hidden');
+            auditResults.classList.remove('hidden');
+            
+            const result = reportDatabase[sector] || reportDatabase['d2c'];
+            
+            auditResults.innerHTML = `
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-zinc-200 pb-4 gap-4">
+                  <div class="font-mono">
+                    <h3 class="text-xl font-bold font-outfit text-zinc-950 uppercase tracking-wider">AUDIT MATRIX SUMMARY: ${url}</h3>
+                    <span class="text-xs text-zinc-500 uppercase">Sector parameters loaded: ${sector.toUpperCase()}</span>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div class="text-right font-mono">
+                      <span class="text-[10px] text-zinc-400 block">GROWTH GRADE</span>
+                      <span class="text-2xl font-black text-cyber-indigo">${result.grade}</span>
+                    </div>
+                    <div class="w-12 h-12 rounded-full border-4 border-cyber-indigo flex items-center justify-center font-bold text-cyber-indigo text-lg font-mono">
+                      ${result.score}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
+                  <div class="border border-zinc-200 p-3">
+                    <span class="text-[9px] text-zinc-400 block uppercase">PAGE SPEED LOAD</span>
+                    <span class="text-xs font-bold text-zinc-800">${result.metrics.speed}</span>
+                  </div>
+                  <div class="border border-zinc-200 p-3">
+                    <span class="text-[9px] text-zinc-400 block uppercase">SEO AUTHORITY SCORE</span>
+                    <span class="text-xs font-bold text-zinc-800">${result.metrics.seo}</span>
+                  </div>
+                  <div class="border border-zinc-200 p-3">
+                    <span class="text-[9px] text-zinc-400 block uppercase">COPY CONVERSION RATE</span>
+                    <span class="text-xs font-bold text-zinc-800">${result.metrics.copy}</span>
+                  </div>
+                  <div class="border border-zinc-200 p-3">
+                    <span class="text-[9px] text-zinc-400 block uppercase">CORE STACK DETECTED</span>
+                    <span class="text-xs font-bold text-zinc-800">${result.metrics.tech}</span>
+                  </div>
+                </div>
+
+                <div class="space-y-3 font-mono">
+                  <h4 class="text-sm font-bold text-cyber-indigo uppercase">[!] DETECTED CONVERSION VULNERABILITIES:</h4>
+                  <ul class="space-y-2 text-xs text-zinc-650">
+                    ${result.vulnerabilities.map(v => `
+                      <li class="flex gap-2 items-start">
+                        <i class="fa-solid fa-triangle-exclamation text-red-500 flex-shrink-0 mt-0.5"></i>
+                        <span>${v}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-cyber-indigo bg-zinc-50 p-4 space-y-2 font-mono">
+                  <h4 class="text-xs font-bold text-cyber-indigo uppercase">[✔] SQUAD PROPOSED ACTION PLAN</h4>
+                  <p class="text-xs text-zinc-700 leading-relaxed">${result.plan}</p>
+                </div>
+
+                <div class="text-center pt-2 font-mono">
+                  <button onclick="switchTab('onboarding')" class="px-6 py-3 bg-cyber-indigo text-white border-2 border-black font-bold text-xs tracking-widest hover:bg-black transition-all shadow-[4px_4px_0px_0px_#000000]">
+                    COMMISSION MICRO-SQUAD TO RESOLVE ↗
+                  </button>
+                  <button onclick="resetAuditForm()" class="ml-2 px-6 py-3 border border-zinc-300 text-zinc-500 text-xs hover:text-zinc-950 uppercase">
+                    [Run Another Scan]
+                  </button>
+                </div>
+            `;
+        }
+
+        function resetAuditForm() {
+            auditForm.classList.remove('hidden');
+            auditResults.classList.add('hidden');
+            document.getElementById('audit-url').value = '';
+        }
+
+        // 8. Marketing ROI Calculator Logic
+        let roiChart = null;
+
+        function recalculateROI() {
+            const spendVal = Number(document.getElementById('slider-spend').value);
+            const cpcVal = Number(document.getElementById('slider-cpc').value);
+            const cvrVal = Number(document.getElementById('slider-cvr').value);
+            const aovVal = Number(document.getElementById('slider-aov').value);
+            
+            // Slider value label updates
+            document.getElementById('val-spend').textContent = '$' + spendVal.toLocaleString();
+            document.getElementById('val-cpc').textContent = '$' + cpcVal.toFixed(2);
+            document.getElementById('val-cvr').textContent = cvrVal + '%';
+            document.getElementById('val-aov').textContent = '$' + aovVal;
+            
+            // Calculations
+            const clicks = Math.round(spendVal / cpcVal);
+            const conversions = Math.round(clicks * (cvrVal / 100));
+            const revenue = Math.round(conversions * aovVal);
+            const roas = spendVal > 0 ? (revenue / spendVal).toFixed(2) : "0.00";
+            const netProfit = revenue - spendVal;
+            
+            // DOM updates
+            document.getElementById('res-traffic').textContent = clicks.toLocaleString() + ' clicks';
+            document.getElementById('res-conversions').textContent = conversions.toLocaleString() + ' leads/sales';
+            document.getElementById('res-cpa').textContent = conversions > 0 ? '$' + (spendVal / conversions).toFixed(2) : '$0.00';
+            document.getElementById('res-revenue').textContent = '$' + revenue.toLocaleString();
+            document.getElementById('res-roas').textContent = roas + 'x';
+            
+            const profitEl = document.getElementById('res-profit');
+            profitEl.textContent = '$' + netProfit.toLocaleString();
+            if (netProfit >= 0) {
+                profitEl.className = "text-cyber-indigo text-lg font-black";
+            } else {
+                profitEl.className = "text-red-500 text-lg font-black";
+            }
+            
+            // Optimization tip
+            const optimizedConversions = Math.round(clicks * ((cvrVal + 1.0) / 100));
+            const optimizedRev = Math.round(optimizedConversions * aovVal);
+            const netGain = optimizedRev - revenue;
+            document.getElementById('res-tip-gain').textContent = '$' + netGain.toLocaleString();
+            
+            // Update chart
+            updateChartValues(spendVal, revenue);
+        }
+
+        // Initialize Chart.js
+        function initCharts() {
+            const ctx = document.getElementById('roi-chart').getContext('2d');
+            roiChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Monthly Ad Spend', 'Projected Gross Revenue'],
+                    datasets: [{
+                        label: 'Financial Performance Ledger ($)',
+                        data: [5000, 8840],
+                        backgroundColor: [
+                            'rgba(24, 24, 27, 0.8)',  // Zinc 900 for spend
+                            'rgba(93, 0, 255, 0.7)'  // Cyber Indigo for revenue
+                        ],
+                        borderColor: [
+                            '#18181B',
+                            '#5D00FF'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                color: '#666',
+                                font: {
+                                    family: 'Inter'
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#18181b',
+                                font: {
+                                    family: 'Outfit',
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+            recalculateROI();
+        }
+
+        function updateChartValues(spendVal, revenueVal) {
+            if (!roiChart) return;
+            roiChart.data.datasets[0].data = [spendVal, revenueVal];
+            roiChart.update();
+        }
+
+        // Run when page loads
+        window.addEventListener('load', () => {
+            initCharts();
+        });
+    </script>
+</body>
+</html>

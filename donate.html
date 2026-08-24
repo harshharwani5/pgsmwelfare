@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="scroll-smooth light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Donate & Make an Impact - PGSM Welfare | 80G Tax Exemption & Ways to Give</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a04100",
+                        "primary-container": "#f36f21",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#531e00",
+                        "secondary": "#5f5e5e",
+                        "secondary-container": "#e2dfde",
+                        "surface": "#fbf9f9",
+                        "surface-bright": "#fbf9f9",
+                        "surface-dim": "#dbdad9",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container": "#efeded",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#584238",
+                        "background": "#fbf9f9",
+                        "on-background": "#1b1c1c",
+                        "outline": "#8c7166",
+                        "outline-variant": "#e0c0b2",
+                        "custom-cream": "#FFF7F2",
+                        "charcoal": "#1F1F1F"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "base": "4px",
+                        "xs": "8px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-bold": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .custom-card-shadow {
+            box-shadow: 0px 4px 20px rgba(27, 28, 28, 0.05);
+        }
+        .bg-soft-cream {
+            background-color: #FFF7F2;
+        }
+        .qr-scanner-border {
+            position: relative;
+            padding: 8px;
+            background: linear-gradient(to right, #F36F21 2px, transparent 2px) 0 0,
+                        linear-gradient(to bottom, #F36F21 2px, transparent 2px) 0 0,
+                        linear-gradient(to left, #F36F21 2px, transparent 2px) 100% 0,
+                        linear-gradient(to bottom, #F36F21 2px, transparent 2px) 100% 0,
+                        linear-gradient(to right, #F36F21 2px, transparent 2px) 0 100%,
+                        linear-gradient(to top, #F36F21 2px, transparent 2px) 0 100%,
+                        linear-gradient(to left, #F36F21 2px, transparent 2px) 100% 100%,
+                        linear-gradient(to top, #F36F21 2px, transparent 2px) 100% 100%;
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+        .glass-input:focus {
+            border-color: #F36F21;
+            box-shadow: 0 0 0 2px rgba(243, 111, 33, 0.25);
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .glass-input::placeholder {
+            color: rgba(255, 255, 255, 0.45);
+        }
+    </style>
+</head>
+<body class="bg-soft-cream text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col justify-between">
+    <!-- TopNavBar -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 w-full transition-all border-b border-surface-variant/40" id="topNav">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1280px] mx-auto">
+            <a class="font-headline-md text-headline-md font-extrabold text-primary flex items-center gap-2" href="index.html">
+                <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                <span class="font-black tracking-tight text-[#a04100]">PGSM Welfare</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-gutter font-label-bold text-label-bold">
+                <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html">About Us</a>
+                <a class="text-secondary hover:text-primary transition-colors duration-200" href="programs.html">Programs</a>
+                <a class="text-secondary hover:text-primary transition-colors duration-200" href="volunteer.html">Volunteer</a>
+                <a class="text-secondary hover:text-primary transition-colors duration-200" href="index.html#work">Our Impact</a>
+                <a class="text-primary border-b-2 border-primary pb-1" href="donate.html">Donate</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="#claim-80g" class="font-label-bold text-xs uppercase tracking-wider text-primary border border-primary/30 px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-200 font-bold hidden sm:inline-flex">
+                    80G Receipt
+                </a>
+                <a href="#ways-to-give" class="bg-[#F36F21] text-white font-label-bold px-6 py-2.5 rounded-full hover:bg-[#a04100] transition-colors duration-200 shadow-md flex items-center gap-2 text-sm font-bold">
+                    <span class="material-symbols-outlined text-base">payments</span>
+                    Ways to Give
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl flex-grow">
+        <!-- ================= SECTION 1: IMPACT TIERS GRID ================= -->
+        <section class="text-center mb-xl max-w-3xl mx-auto flex flex-col items-center">
+            <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-[#FFDBCC] text-[#531E00] font-label-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-full mb-6 border border-[#F36F21]/30 shadow-sm font-bold">
+                <span>🎗️ 50% Tax Exemption</span>
+                <span class="text-[#F36F21]">|</span>
+                <span>80G URN: AAEAP1466C24BP02</span>
+                <span class="text-[#F36F21]">|</span>
+                <span>CSR: CSR00007144</span>
+            </div>
+            <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#1F1F1F] mb-4 font-black">
+                Your Contribution Stays in Chhatarpur
+            </h1>
+            <p class="font-body-lg text-body-lg text-secondary max-w-2xl leading-relaxed">
+                100% of your donation is deployed directly to our grassroots medical, digital education, and women skilling camps. Eligible for 50% tax deduction under Section 80G (URN: <strong class="text-gray-900 font-bold">AAEAP1466C24BP02</strong>).
+            </p>
+        </section>
+
+        <!-- Impact Grid (2x2) -->
+        <section id="donate-tiers" class="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-5xl mx-auto mb-20">
+            <!-- Card 1 -->
+            <div class="bg-surface-container-lowest rounded-[20px] custom-card-shadow overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 shadow-lg">
+                <div class="h-64 sm:h-72 w-full relative overflow-hidden rounded-t-[20px] bg-gray-100">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Fill a School Bag" src="images/pillar-education.jpg" onerror="this.onerror=null; this.src='images/work-education.jpg';"/>
+                </div>
+                <div class="p-md flex flex-col flex-grow">
+                    <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹500</div>
+                    <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Fill a School Bag</h3>
+                    <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Funds a complete school kit (books, bag, stationery) for 1 rural child in Nowgong.</p>
+                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
+                        Donate ₹500
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 (Highlighted) -->
+            <div class="bg-surface-container-lowest rounded-[20px] custom-card-shadow overflow-hidden flex flex-col border-2 border-[#F36F21] group hover:-translate-y-1.5 transition-all duration-300 relative shadow-xl">
+                <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md uppercase tracking-wider">Most Needed</div>
+                <div class="h-64 sm:h-72 w-full relative overflow-hidden rounded-t-[18px] bg-gray-100">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Unlock Digital Access" src="images/work-education.jpg" onerror="this.onerror=null; this.src='images/pillar-education.jpg';"/>
+                </div>
+                <div class="p-md flex flex-col flex-grow bg-white">
+                    <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹1,200</div>
+                    <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Unlock Digital Access</h3>
+                    <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Covers one month of computer lab access and internet tutor training for 3 children.</p>
+                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#F36F21] text-white font-bold py-2.5 px-4 rounded-xl hover:bg-[#a04100] transition-colors shadow-md block">
+                        Donate ₹1,200
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-surface-container-lowest rounded-[20px] custom-card-shadow overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 shadow-lg">
+                <div class="h-64 sm:h-72 w-full relative overflow-hidden rounded-t-[20px] bg-gray-100">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Change Her Economic Story" src="images/pillar-tailoring.jpg" onerror="this.onerror=null; this.src='images/work-tailoring.jpg';"/>
+                </div>
+                <div class="p-md flex flex-col flex-grow">
+                    <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹2,500</div>
+                    <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Change Her Economic Story</h3>
+                    <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Sponsors vocational tailoring materials and sewing kit for one rural woman's micro-enterprise.</p>
+                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
+                        Donate ₹2,500
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-surface-container-lowest rounded-[20px] custom-card-shadow overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 shadow-lg">
+                <div class="h-64 sm:h-72 w-full relative overflow-hidden rounded-t-[20px] bg-gray-100">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bring Healthcare Home" src="images/pillar-health.jpg" onerror="this.onerror=null; this.src='images/work-health.jpg';"/>
+                </div>
+                <div class="p-md flex flex-col flex-grow">
+                    <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹5,000</div>
+                    <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Bring Healthcare Home</h3>
+                    <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Funds a free mobile medical camp visit, diagnostic tests, and medicines for 25 rural families.</p>
+                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
+                        Donate ₹5,000
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: WAYS TO GIVE (UPI + DIRECT BANK TRANSFER) ================= -->
+        <section id="ways-to-give" class="pt-8 pb-16">
+            <div class="text-center mb-xl">
+                <span class="inline-flex items-center gap-2 bg-[#FFF2EB] text-[#F36F21] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-sm">
+                    Direct Payment Channels
+                </span>
+                <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#1F1F1F] mb-sm font-black">Ways to Give</h2>
+                <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto leading-relaxed">Choose a convenient and secure method to support our initiatives. Every contribution helps us create lasting impact.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-surface-container-high rounded-3xl overflow-hidden shadow-2xl bg-white relative max-w-5xl mx-auto mb-20">
+                <!-- Desktop Divider -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-surface-container-high -translate-x-1/2"></div>
+                
+                <!-- Left Column: UPI -->
+                <div class="p-8 md:p-12 flex flex-col items-center justify-center border-b md:border-b-0 border-surface-container-high bg-[#FCFBFA]">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-3 text-center font-bold">Quick UPI Transfer</h3>
+                    <p class="text-xs text-gray-500 mb-6 text-center">GPay, PhonePe, Paytm, BHIM & all UPI apps</p>
+                    
+                    <div class="flex items-center space-x-6 mb-6 text-gray-400">
+                        <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                        <span class="material-symbols-outlined text-3xl text-gray-600">credit_card</span>
+                        <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">payments</span>
+                    </div>
+                    
+                    <div class="qr-scanner-border mb-6 shadow-sm bg-white p-3 rounded-2xl">
+                        <div class="w-48 h-48 bg-gray-50 flex flex-col items-center justify-center rounded-xl border border-dashed border-gray-300 p-4 text-center">
+                            <span class="material-symbols-outlined text-7xl text-[#F36F21] mb-2" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+                            <span class="text-[11px] font-bold text-gray-600 uppercase tracking-wider">Scan with any UPI App</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-surface-container-low px-6 py-3 rounded-full flex items-center space-x-3 border border-surface-container-high shadow-sm">
+                        <span class="font-bold text-xs uppercase tracking-wider text-gray-500">UPI ID:</span>
+                        <span class="font-body-md text-sm md:text-base text-gray-900 font-bold tracking-wide select-all">donate@pgsmwelfare</span>
+                        <button onclick="navigator.clipboard.writeText('donate@pgsmwelfare'); alert('UPI ID copied to clipboard: donate@pgsmwelfare');" class="text-[#F36F21] hover:text-[#a04100] transition-colors ml-2 cursor-pointer p-1" title="Copy to clipboard">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Bank Transfer -->
+                <div class="p-8 md:p-12 flex flex-col justify-center bg-white">
+                    <div class="max-w-md mx-auto w-full">
+                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1 font-bold">NEFT / RTGS / IMPS</h3>
+                        <p class="font-body-md text-sm text-secondary mb-6">For larger donations, institutional contributions and CSR grants.</p>
+                        
+                        <div class="bg-surface-container-low p-6 rounded-2xl border border-surface-container-high space-y-3.5 shadow-sm">
+                            <div>
+                                <p class="font-label-sm text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">Account Name</p>
+                                <p class="font-body-md text-sm text-gray-900 font-bold leading-tight">Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society</p>
+                            </div>
+                            
+                            <div class="h-px w-full bg-gray-200"></div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-label-sm text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">Account Number</p>
+                                    <p class="font-body-md text-base text-gray-900 font-black tracking-wider select-all">1234 5678 9000</p>
+                                </div>
+                                <button onclick="navigator.clipboard.writeText('123456789000'); alert('Account Number copied to clipboard: 123456789000');" class="text-[#F36F21] hover:text-[#a04100] transition-colors p-2 rounded-lg hover:bg-white cursor-pointer" title="Copy Account Number">
+                                    <span class="material-symbols-outlined text-lg">content_copy</span>
+                                </button>
+                            </div>
+                            
+                            <div class="h-px w-full bg-gray-200"></div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-label-sm text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">IFSC Code</p>
+                                    <p class="font-body-md text-base text-gray-900 font-black tracking-wider select-all">SBIN0001234</p>
+                                </div>
+                                <button onclick="navigator.clipboard.writeText('SBIN0001234'); alert('IFSC Code copied to clipboard: SBIN0001234');" class="text-[#F36F21] hover:text-[#a04100] transition-colors p-2 rounded-lg hover:bg-white cursor-pointer" title="Copy IFSC">
+                                    <span class="material-symbols-outlined text-lg">content_copy</span>
+                                </button>
+                            </div>
+                            
+                            <div class="h-px w-full bg-gray-200"></div>
+                            
+                            <div>
+                                <p class="font-label-sm text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">80G Tax Exemption URN</p>
+                                <p class="font-body-md text-sm text-[#F36F21] font-bold">AAEAP1466C24BP02</p>
+                            </div>
+
+                            <div class="h-px w-full bg-gray-200"></div>
+
+                            <div>
+                                <p class="font-label-sm text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">CSR Registration No</p>
+                                <p class="font-body-md text-sm text-[#F36F21] font-bold">CSR00007144</p>
+                            </div>
+
+                            <div class="h-px w-full bg-gray-200"></div>
+
+                            <div>
+                                <p class="font-label-sm text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">Branch</p>
+                                <p class="font-body-md text-sm text-gray-900 font-bold">Nowgong, Chhatarpur (M.P.) – 471201</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex items-center gap-2 text-xs text-gray-500 bg-gray-50 p-3 rounded-xl border border-gray-200">
+                            <span class="material-symbols-outlined text-sm text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">info</span>
+                            <span>For instant 80G tax receipt issuance, fill the receipt request form below with your PAN card number.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: 80G TAX RECEIPT CLAIM FORM ================= -->
+        <section id="claim-80g" class="w-full max-w-5xl mx-auto mb-16">
+            <div class="bg-[#1F1F1F] rounded-3xl shadow-2xl p-8 md:p-12 w-full relative overflow-hidden text-white border border-gray-800">
+                <!-- Decorative background elements -->
+                <div class="absolute -top-32 -right-32 w-96 h-96 bg-[#F36F21] opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-[#F36F21] opacity-5 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    <!-- Left: Header -->
+                    <div class="lg:col-span-4 flex flex-col gap-4 text-center lg:text-left justify-center">
+                        <div class="inline-flex items-center gap-2 bg-[#F36F21]/20 text-[#FFB693] font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full w-max mx-auto lg:mx-0 border border-[#F36F21]/30">
+                            Official 80G Tax Exemption
+                        </div>
+                        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white font-black leading-tight">
+                            Claim Your 80G Tax Receipt
+                        </h2>
+                        <p class="font-body-lg text-body-lg text-gray-300 leading-relaxed text-sm md:text-base">
+                            Already donated? Enter your PAN details and transaction ID to receive your Form 10BE tax exemption certificate directly to your email within 24 hours.
+                        </p>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 text-xs text-gray-300 space-y-1 mt-2">
+                            <p><strong>80G URN:</strong> AAEAP1466C24BP02</p>
+                            <p><strong>CSR Reg:</strong> CSR00007144</p>
+                            <p><strong>Society Reg:</strong> 06/12/03/11718/16</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form Grid -->
+                    <form class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5" onsubmit="event.preventDefault(); alert('Tax Receipt Request received for PAN: ' + document.getElementById('receiptPanNumber').value.toUpperCase() + '! Your 80G certificate (URN: AAEAP1466C24BP02) will be processed and sent to your email within 24 hours.'); this.reset();">
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptFullName">Full Name (As per PAN) *</label>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptFullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+                        </div>
+
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-bold text-xs text-[#FFB693] uppercase tracking-wider font-bold" for="receiptPanNumber">PAN Number * (Mandatory for 80G)</label>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text"/>
+                        </div>
+
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptEmail">Email Address * (For PDF Certificate)</label>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptEmail" placeholder="rahul@example.com" required="" type="email"/>
+                        </div>
+
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptWhatsapp">WhatsApp Number *</label>
+                            <div class="flex">
+                                <span class="glass-input px-4 py-3 rounded-l-xl border-r-0 text-white/60 bg-white/5 text-sm font-bold">+91</span>
+                                <input class="glass-input w-full px-4 py-3 rounded-r-xl font-body-md text-sm transition-all duration-200" id="receiptWhatsapp" placeholder="9876543210" required="" type="tel"/>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptTransactionId">Transaction ID / UTR Number *</label>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT..." required="" type="text"/>
+                        </div>
+
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptAmount">Donation Amount (₹) *</label>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptAmount" placeholder="5000" required="" type="number"/>
+                        </div>
+
+                        <!-- Submit Action -->
+                        <div class="md:col-span-2 pt-3">
+                            <button class="w-full bg-[#F36F21] text-white font-bold text-sm md:text-base py-4 px-8 rounded-xl hover:bg-[#a04100] hover:shadow-lg transition-all duration-200 uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#F36F21]/30 active:scale-95" type="submit">
+                                <span>Request 80G Tax Receipt</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Saffron Transparency Bar -->
+    <div class="w-full bg-[#F36F21] py-4 px-margin-mobile md:px-margin-desktop shadow-md z-10">
+        <div class="max-w-[1280px] mx-auto flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-white font-bold text-xs sm:text-sm">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span>NITI Aayog Darpan: MP/2021/0299785</span>
+            </div>
+            <div class="hidden sm:block w-px h-5 bg-white/40"></div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span>80G Exemption URN: AAEAP1466C24BP02</span>
+            </div>
+            <div class="hidden sm:block w-px h-5 bg-white/40"></div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span>CSR Reg: CSR00007144</span>
+            </div>
+            <div class="hidden sm:block w-px h-5 bg-white/40"></div>
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span>Society Reg: 06/12/03/11718/16</span>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Comprehensive 4-Column Footer -->
+    <footer class="bg-[#1F1F1F] text-gray-300 border-t border-outline/20 w-full relative z-20">
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop py-16 max-w-[1280px] mx-auto">
+            <!-- Column 1: Brand & Trust -->
+            <div class="flex flex-col gap-4">
+                <a href="index.html" class="text-2xl font-black text-[#FFB693] tracking-tight flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    PGSM Welfare
+                </a>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    Transforming health, education, and livelihoods in rural Chhatarpur since 2016.
+                </p>
+                <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Section 80G Tax Exempt
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        NITI Aayog Darpan Registered
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Reg: 06/12/03/11718/16
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Quick Links</h3>
+                <nav class="flex flex-col gap-2 text-sm">
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html">About Us</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html">Our Programs</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html">Volunteer With Us</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html">Donate & Support</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance">Leadership & Governance</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#compliance">CSR & Legal Compliance</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work">Photo Gallery & Field Work</a>
+                </nav>
+            </div>
+
+            <!-- Column 3: Contact Us -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Contact Us</h3>
+                <div class="flex flex-col gap-3 text-sm text-gray-300">
+                    <p class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0 mt-0.5">location_on</span>
+                        <span>House No. 22, Mishra Clinic, Ward 12, Bus Stand, Nowgong, Chhatarpur (M.P.) – 471201</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">call</span>
+                        <a href="tel:+919406762912" class="hover:text-white transition-colors">+91 94067 62912</a>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">mail</span>
+                        <a href="mailto:info@pgsmwelfare.org" class="hover:text-white transition-colors">info@pgsmwelfare.org</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Column 4: Join Our Mission -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Join Our Mission</h3>
+                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to PGSM Welfare updates!');">
+                    <label class="sr-only" for="newsletter-email">Your Email Address</label>
+                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#F36F21] focus:border-transparent placeholder:text-gray-400 text-sm" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
+                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F36F21] active:scale-95 shadow-md" type="submit">
+                        Subscribe
+                    </button>
+                </form>
+                <div class="flex gap-3 mt-2">
+                    <a aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">public</span>
+                    </a>
+                    <a aria-label="Twitter" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">share</span>
+                    </a>
+                    <a aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">photo_camera</span>
+                    </a>
+                    <a aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">smart_display</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 bg-[#171717]">
+            <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+                <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
+                <div class="flex items-center gap-4">
+                    <p class="hidden sm:inline">Built for Chhatarpur, Madhya Pradesh.</p>
+                    <div class="flex gap-3">
+                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Privacy Policy</a>
+                        <span aria-hidden="true">•</span>
+                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Impact Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

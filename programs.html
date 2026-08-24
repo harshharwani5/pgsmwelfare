@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html class="scroll-smooth light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Our Grassroots Initiatives & 4-Step Delivery Model - PGSM Impact</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f5f3f3",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-on-surface": "#f2f0f0",
+                        "secondary-container": "#e2dfde",
+                        "on-primary-container": "#531e00",
+                        "surface-container-high": "#e9e8e7",
+                        "background": "#fbf9f9",
+                        "on-secondary-container": "#636262",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-tint": "#a04100",
+                        "surface-bright": "#fbf9f9",
+                        "outline-variant": "#e0c0b2",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dbdad9",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface": "#fbf9f9",
+                        "on-secondary-fixed-variant": "#474746",
+                        "inverse-primary": "#ffb693",
+                        "on-surface-variant": "#584238",
+                        "surface-container": "#efeded",
+                        "primary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "outline": "#8c7166",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "tertiary": "#5d5f5f",
+                        "inverse-surface": "#303031",
+                        "on-tertiary-container": "#2d2f2f",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#959696",
+                        "secondary": "#5f5e5e",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "primary-container": "#f36f21",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-highest": "#e3e2e2",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-background": "#1b1c1c",
+                        "primary": "#a04100",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e3e2e2",
+                        "on-primary-fixed": "#351000",
+                        "tertiary-fixed": "#e2e2e2",
+                        "custom-cream": "#FFF7F2",
+                        "custom-charcoal": "#1F1F1F"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "base": "4px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "margin-desktop": "64px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "xs": "8px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-bold": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "headline-lg": ["44px", { lineHeight: "52px", letterSpacing: "-0.01em", fontWeight: "800" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "800" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display-lg": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(31, 31, 31, 0.05);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .chip {
+            background-color: #ffdbcc;
+            color: #a04100;
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-primary {
+            background-color: #f36f21;
+            color: #ffffff;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(243, 111, 33, 0.25);
+        }
+        .btn-primary:hover {
+            background-color: #a04100;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(243, 111, 33, 0.35);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between">
+    <!-- TopNavBar -->
+    <header class="bg-white/95 backdrop-blur-md flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto z-50 sticky top-0 border-b border-surface-variant/40 shadow-sm" id="topNav">
+        <a href="index.html" class="font-headline-md text-headline-md text-primary uppercase tracking-tight flex items-center gap-2">
+            <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+            <span class="font-black tracking-tight text-primary">PGSM Impact</span>
+        </a>
+        <nav class="hidden md:flex gap-8 items-center font-label-bold text-label-bold">
+            <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html">About Us</a>
+            <a class="text-primary border-b-2 border-primary pb-1" href="programs.html">Programs</a>
+            <a class="text-secondary hover:text-primary transition-colors duration-200" href="volunteer.html">Volunteer</a>
+            <a class="text-secondary hover:text-primary transition-colors duration-200" href="index.html#work">Impact Stories</a>
+            <a class="text-secondary hover:text-primary transition-colors duration-200" href="about.html#governance">Leadership</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+            <a href="donate.html" class="bg-primary-container text-white font-bold py-2.5 px-6 rounded-full hover:bg-primary transition-colors shadow-md">
+                Donate Now
+            </a>
+        </div>
+        <button class="md:hidden text-primary">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </header>
+
+    <main class="flex-grow">
+        <!-- ================= SECTION 1: HERO CANVAS ================= -->
+        <section class="relative pt-16 pb-12 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-[-1] opacity-10 bg-cover bg-center rounded-3xl" style="background-image: url('images/hero.jpg');"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center text-left">
+                <div class="md:pr-8">
+                    <span class="inline-flex items-center gap-2 bg-[#F36F21]/15 text-[#F36F21] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-[#F36F21]/30">
+                        Grassroots Impact in Chhatarpur
+                    </span>
+                    <h1 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg text-[#1F1F1F] mb-sm max-w-4xl font-black">
+                        Our <span class="text-primary-container">Grassroots</span> Initiatives
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                        Transforming Chhatarpur through healthcare, education, women's skilling, youth action, and environmental conservation.
+                    </p>
+                </div>
+
+                <!-- Cumulative Impact Grid -->
+                <div class="bg-surface-container-lowest ambient-shadow rounded-2xl py-md px-lg grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 border border-surface-variant place-items-start shadow-xl">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21]">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-lg text-[#1F1F1F] block">4,500+</span>
+                            <span class="text-xs text-gray-500 font-medium">Patients Treated</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21]">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-lg text-[#1F1F1F] block">3,000+</span>
+                            <span class="text-xs text-gray-500 font-medium">Students Trained</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21]">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">styler</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-lg text-[#1F1F1F] block">1,200+</span>
+                            <span class="text-xs text-gray-500 font-medium">Women Skilled</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21]">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-lg text-[#1F1F1F] block">100+</span>
+                            <span class="text-xs text-gray-500 font-medium">NSS Camps</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 sm:col-span-2">
+                        <div class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21]">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forest</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-lg text-[#1F1F1F] block">800+</span>
+                            <span class="text-xs text-gray-500 font-medium">Trees Planted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky Page Navigation Filter Bar -->
+        <div class="sticky top-[72px] z-40 bg-[#FFF7F2]/95 backdrop-blur-md py-3 border-b border-surface-variant shadow-sm">
+            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop overflow-x-auto no-scrollbar">
+                <ul class="flex items-center gap-sm min-w-max">
+                    <li>
+                        <a class="flex items-center gap-2 bg-primary-container text-white font-label-bold text-label-bold px-md py-2 rounded-full border border-primary-container transition-all shadow-sm" href="#pharmacy">
+                            <span class="material-symbols-outlined text-sm">school</span>
+                            Higher Education & Pharmacy
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 bg-white text-on-surface-variant hover:bg-[#FFF2EB] hover:text-[#F36F21] font-label-bold text-label-bold px-md py-2 rounded-full border border-surface-variant transition-colors" href="#sports-nss">
+                            <span class="material-symbols-outlined text-sm">sports_cricket</span>
+                            Youth & Sports (SPL)
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 bg-white text-on-surface-variant hover:bg-[#FFF2EB] hover:text-[#F36F21] font-label-bold text-label-bold px-md py-2 rounded-full border border-surface-variant transition-colors" href="#healthcare">
+                            <span class="material-symbols-outlined text-sm">medical_services</span>
+                            Free Healthcare
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 bg-white text-on-surface-variant hover:bg-[#FFF2EB] hover:text-[#F36F21] font-label-bold text-label-bold px-md py-2 rounded-full border border-surface-variant transition-colors" href="#women-skilling">
+                            <span class="material-symbols-outlined text-sm">styler</span>
+                            Women Skilling
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 bg-white text-on-surface-variant hover:bg-[#FFF2EB] hover:text-[#F36F21] font-label-bold text-label-bold px-md py-2 rounded-full border border-surface-variant transition-colors" href="#environment">
+                            <span class="material-symbols-outlined text-sm">forest</span>
+                            Environment
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 bg-white text-on-surface-variant hover:bg-[#FFF2EB] hover:text-[#F36F21] font-label-bold text-label-bold px-md py-2 rounded-full border border-surface-variant transition-colors" href="#model">
+                            <span class="material-symbols-outlined text-sm">hub</span>
+                            4-Step Model
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 2: 5 DETAILED PROGRAM PILLARS (ALTERNATING FULL-WIDTH SECTIONS) ================= -->
+        
+        <!-- Pillar 1: Higher Education — Shanti College of Pharmacy (Visual Left, Content Right) -->
+        <section id="pharmacy" class="w-full bg-white py-xl border-b border-surface-variant/40">
+            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
+                <!-- Visual Frame -->
+                <div class="order-2 md:order-1 relative group">
+                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    <img alt="Shanti College of Pharmacy" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-education.jpg" onerror="this.onerror=null; this.src='images/work-education.jpg';"/>
+                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        25+ Mega Placements
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="order-1 md:order-2 flex flex-col items-start gap-md">
+                    <span class="chip">Higher Education</span>
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
+                        Shanti College of Pharmacy
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                        Operating Shanti College of Pharmacy (D.Pharm / B.Pharm programs), providing high-quality professional pharmaceutical education, advanced laboratory infrastructure, and organizing Mega Campus Placement Drives. Over 25+ rural youths secured confirmed jobs at MacLeod's Pharmaceuticals and leading healthcare institutions.
+                    </p>
+                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 25+ Mega Placements</div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 3,000+ Students Trained</div>
+                    </div>
+                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
+                        Sponsor Student Scholarship (₹1,200) <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillar 2: Youth & Sports — Shanti Premier League & NSS (Content Left, Visual Right) -->
+        <section id="sports-nss" class="w-full bg-[#FFF7F2] py-xl border-b border-surface-variant/40">
+            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
+                <!-- Content -->
+                <div class="order-1 md:order-1 flex flex-col items-start gap-md pr-0 md:pr-lg">
+                    <span class="chip">Youth & Sports</span>
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
+                        Shanti Premier League (SPL) & Youth Action
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                        Organizing the premier annual district-level cricket championship (Shanti Premier League Season-6) and National Service Scheme (NSS) 7-day youth leadership residential camps, engaging over 200+ rural athletes, instilling discipline, sportsmanship, and channelizing youth energy into positive community leadership.
+                    </p>
+                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-white p-4 rounded-xl shadow-sm border border-outline-variant/20 w-full max-w-md">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 200+ Rural Athletes in SPL</div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 100+ NSS Leadership Camps</div>
+                    </div>
+                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
+                        Support Youth & Sports Programs <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Visual Frame -->
+                <div class="order-2 md:order-2 relative group">
+                    <div class="absolute inset-0 bg-secondary/10 rounded-[20px] transform -translate-x-4 translate-y-4 -z-10 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    <img alt="Shanti Premier League & Youth Leadership" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-nss.jpg" onerror="this.onerror=null; this.src='images/work-nss.jpg';"/>
+                    <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        Season-6 Championship
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillar 3: Free Healthcare & Eye Camps (Visual Left, Content Right) -->
+        <section id="healthcare" class="w-full bg-white py-xl border-b border-surface-variant/40">
+            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
+                <!-- Visual Frame -->
+                <div class="order-2 md:order-1 relative group">
+                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    <img alt="Free Healthcare & Eye Camps" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-health.jpg" onerror="this.onerror=null; this.src='images/work-health.jpg';"/>
+                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        Mishra Clinic Base
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="order-1 md:order-2 flex flex-col items-start gap-md">
+                    <span class="chip">Community Healing</span>
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
+                        Free Diagnostic & Eye Camps
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                        Operating from Mishra Clinic in Nowgong, providing free doctor consultations, diagnostic checkups, eye screenings, and prescription medicines to families across 45+ remote rural villages.
+                    </p>
+                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 4,500+ Patients Treated</div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 45+ Villages Covered</div>
+                    </div>
+                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
+                        Sponsor a Medical Camp (₹5,000) <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillar 4: Women Vocational Training (Content Left, Visual Right) -->
+        <section id="women-skilling" class="w-full bg-[#FFF7F2] py-xl border-b border-surface-variant/40">
+            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
+                <!-- Content -->
+                <div class="order-1 md:order-1 flex flex-col items-start gap-md pr-0 md:pr-lg">
+                    <span class="chip">Economic Dignity</span>
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
+                        Vocational Tailoring & Micro-Enterprise
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                        Providing certified sewing, cutting, embroidery, and handicraft training that enables rural women to start home enterprises, earn independent income, and support their families with economic dignity.
+                    </p>
+                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-white p-4 rounded-xl shadow-sm border border-outline-variant/20 w-full max-w-md">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 1,200+ Women Certified</div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> Self-Reliance & Enterprise</div>
+                    </div>
+                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
+                        Sponsor a Sewing Machine (₹2,500) <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Visual Frame -->
+                <div class="order-2 md:order-2 relative group">
+                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform -translate-x-4 translate-y-4 -z-10 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    <img alt="Vocational Tailoring & Micro-Enterprise" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-tailoring.jpg" onerror="this.onerror=null; this.src='images/work-tailoring.jpg';"/>
+                    <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        Certified Training
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillar 5: Green Campus & Environment (Visual Left, Content Right) -->
+        <section id="environment" class="w-full bg-white py-xl border-b border-surface-variant/40">
+            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
+                <!-- Visual Frame -->
+                <div class="order-2 md:order-1 relative group">
+                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    <img alt="Green Campus Tree Plantation Drives" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-trees.jpg" onerror="this.onerror=null; this.src='images/work-trees.jpg';"/>
+                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        Reforestation
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="order-1 md:order-2 flex flex-col items-start gap-md">
+                    <span class="chip">Green Future</span>
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
+                        Green Campus Tree Plantation Drives
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                        Leading reforestation initiatives across school premises, college campuses, and public village grounds in Nowgong, promoting environmental responsibility and clean ecological practices.
+                    </p>
+                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 800+ Trees Planted</div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 25+ Green Campuses</div>
+                    </div>
+                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
+                        Support Green Drives <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: 4-STEP GRASSROOTS MODEL ================= -->
+        <section id="model" class="w-full bg-[#F36F21] py-xl px-margin-mobile md:px-margin-desktop text-white relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto">
+                <div class="text-center mb-xl">
+                    <span class="inline-flex items-center gap-2 bg-white/20 text-white font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 backdrop-blur-sm shadow-sm">
+                        Proven Delivery Framework
+                    </span>
+                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-sm font-black">
+                        Our 4-Step Grassroots Model
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+                        A field-tested, transparent framework for sustainable community development and measurable social impact in rural Madhya Pradesh.
+                    </p>
+                </div>
+
+                <div class="relative flex flex-col gap-lg max-w-5xl mx-auto before:content-[''] before:absolute before:left-1/2 before:top-4 before:bottom-4 before:w-1 before:-ml-[2px] before:bg-white/25 before:hidden md:before:block">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-lg md:gap-xl w-full">
+                        <div class="md:w-1/2 flex justify-end w-full">
+                            <div class="bg-white text-gray-900 rounded-2xl p-8 shadow-xl hover:-translate-y-1 transition-transform duration-300 w-full md:max-w-md relative overflow-hidden group">
+                                <div class="absolute -right-4 -bottom-8 text-[160px] font-black text-gray-100 leading-none z-0 group-hover:text-[#F36F21]/15 transition-colors duration-300 select-none">
+                                    1
+                                </div>
+                                <div class="relative z-10">
+                                    <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Phase 1</span>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Survey</h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">Identifying genuine village needs through thorough ground-level research, door-to-door surveys, and direct panchayat engagement.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-start items-center relative">
+                            <div class="absolute -left-[24px] w-12 h-12 bg-white border-4 border-[#F36F21] rounded-full flex items-center justify-center text-[#F36F21] font-black text-lg shadow-lg z-10">
+                                1
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-lg md:gap-xl w-full">
+                        <div class="md:w-1/2 flex justify-start w-full">
+                            <div class="bg-white text-gray-900 rounded-2xl p-8 shadow-xl hover:-translate-y-1 transition-transform duration-300 w-full md:max-w-md relative overflow-hidden group">
+                                <div class="absolute -left-4 -bottom-8 text-[160px] font-black text-gray-100 leading-none z-0 group-hover:text-[#F36F21]/15 transition-colors duration-300 select-none">
+                                    2
+                                </div>
+                                <div class="relative z-10">
+                                    <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Phase 2</span>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Deploy</h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">Mobilizing critical diagnostic kits, medicines, certified trainers, and educational resources directly from Mishra Clinic HQ to remote sites.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-end items-center relative">
+                            <div class="absolute -right-[24px] w-12 h-12 bg-white border-4 border-[#F36F21] rounded-full flex items-center justify-center text-[#F36F21] font-black text-lg shadow-lg z-10">
+                                2
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center gap-lg md:gap-xl w-full">
+                        <div class="md:w-1/2 flex justify-end w-full">
+                            <div class="bg-white text-gray-900 rounded-2xl p-8 shadow-xl hover:-translate-y-1 transition-transform duration-300 w-full md:max-w-md relative overflow-hidden group">
+                                <div class="absolute -right-4 -bottom-8 text-[160px] font-black text-gray-100 leading-none z-0 group-hover:text-[#F36F21]/15 transition-colors duration-300 select-none">
+                                    3
+                                </div>
+                                <div class="relative z-10">
+                                    <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Phase 3</span>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Train</h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">Conducting intensive hands-on computer labs, tailoring certifications, youth NSS leadership drives, and clinical consultations for direct empowerment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-start items-center relative">
+                            <div class="absolute -left-[24px] w-12 h-12 bg-white border-4 border-[#F36F21] rounded-full flex items-center justify-center text-[#F36F21] font-black text-lg shadow-lg z-10">
+                                3
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-lg md:gap-xl w-full">
+                        <div class="md:w-1/2 flex justify-start w-full">
+                            <div class="bg-white text-gray-900 rounded-2xl p-8 shadow-xl hover:-translate-y-1 transition-transform duration-300 w-full md:max-w-md relative overflow-hidden group">
+                                <div class="absolute -left-4 -bottom-8 text-[160px] font-black text-gray-100 leading-none z-0 group-hover:text-[#F36F21]/15 transition-colors duration-300 select-none">
+                                    4
+                                </div>
+                                <div class="relative z-10">
+                                    <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Phase 4</span>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Monitor</h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">Rigorously auditing health outcomes, micro-enterprise revenues, school retention metrics, and tree survival rates for perpetual sustainability.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-end items-center relative">
+                            <div class="absolute -right-[24px] w-12 h-12 bg-white border-4 border-[#F36F21] rounded-full flex items-center justify-center text-[#F36F21] font-black text-lg shadow-lg z-10">
+                                4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- Comprehensive 4-Column Footer -->
+    <footer class="bg-[#1F1F1F] text-gray-300 border-t border-outline/20 w-full relative z-20">
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop py-16 max-w-[1280px] mx-auto">
+            <!-- Column 1: Brand & Trust -->
+            <div class="flex flex-col gap-4">
+                <a href="index.html" class="text-2xl font-black text-[#FFB693] tracking-tight flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    PGSM Welfare
+                </a>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    Transforming health, education, and livelihoods in rural Chhatarpur since 2016.
+                </p>
+                <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Section 80G Tax Exempt
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        NITI Aayog Darpan Registered
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Reg: 06/12/03/11718/16
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Quick Links</h3>
+                <nav class="flex flex-col gap-2 text-sm">
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html">About Us</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html">Our Programs</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html">Volunteer With Us</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html">Donate & Support</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance">Leadership & Governance</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#compliance">CSR & Legal Compliance</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work">Photo Gallery & Field Work</a>
+                </nav>
+            </div>
+
+            <!-- Column 3: Contact Us -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Contact Us</h3>
+                <div class="flex flex-col gap-3 text-sm text-gray-300">
+                    <p class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0 mt-0.5">location_on</span>
+                        <span>House No. 22, Mishra Clinic, Ward 12, Bus Stand, Nowgong, Chhatarpur (M.P.) – 471201</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">call</span>
+                        <a href="tel:+919406762912" class="hover:text-white transition-colors">+91 94067 62912</a>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">mail</span>
+                        <a href="mailto:info@pgsmwelfare.org" class="hover:text-white transition-colors">info@pgsmwelfare.org</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Column 4: Join Our Mission -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-[#FFB693]">Join Our Mission</h3>
+                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to PGSM Welfare updates!');">
+                    <label class="sr-only" for="newsletter-email">Your Email Address</label>
+                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#F36F21] focus:border-transparent placeholder:text-gray-400 text-sm" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
+                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F36F21] active:scale-95 shadow-md" type="submit">
+                        Subscribe
+                    </button>
+                </form>
+                <div class="flex gap-3 mt-2">
+                    <a aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">public</span>
+                    </a>
+                    <a aria-label="Twitter" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">share</span>
+                    </a>
+                    <a aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">photo_camera</span>
+                    </a>
+                    <a aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
+                        <span class="material-symbols-outlined text-base">smart_display</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 bg-[#171717]">
+            <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+                <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
+                <div class="flex items-center gap-4">
+                    <p class="hidden sm:inline">Built for Chhatarpur, Madhya Pradesh.</p>
+                    <div class="flex gap-3">
+                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Privacy Policy</a>
+                        <span aria-hidden="true">•</span>
+                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Impact Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

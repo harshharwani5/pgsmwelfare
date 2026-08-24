@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================================
+   USER CUSTOM COLOR PALETTE & DESIGN SYSTEM (Vibrant Saffron & Dark Charcoal)
+   Primary Brand: Vibrant Saffron/Orange (#F36F21 / #FF6A00)
+   Pure White: #FFFFFF
+   Dark Charcoal: #1F1F1F
+   WhatsApp Green: #25D366
+   ============================================================================ */
+:root {
+  /* Brand Palette */
+  --saffron-orange: #f36f21;
+  --saffron-orange-hover: #e05d0e;
+  --saffron-orange-light: #fff7f2;
+  --saffron-orange-border: #ffcca8;
+
+  --dark-charcoal: #1f1f1f;
+  --dark-charcoal-hover: #121212;
+  --dark-charcoal-light: #f4f4f5;
+
+  --pure-white: #ffffff;
+  --whatsapp-green: #25d366;
+  --whatsapp-green-hover: #1ebd56;
+
+  /* Backgrounds & Neutrals */
+  --bg-primary: #fff7f2; /* Soft Warm Cream */
+  --bg-surface: #ffffff;
+  --bg-muted: #f4f4f5;
+
+  --text-main: #1f1f1f;
+  --text-muted: #4b5563;
+  --text-light: #6b7280;
+
+  --border-color: #e5e7eb;
+  --border-highlight: #f36f21;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 2px 4px rgba(243, 111, 33, 0.04);
+  --shadow-md: 0 8px 24px rgba(243, 111, 33, 0.08);
+  --shadow-lg: 0 16px 36px rgba(243, 111, 33, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition: all 0.25s ease-in-out;
+}
+
+/* Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Clean Card Component */
+.card-clean {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card-clean:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--saffron-orange);
+}
+
+/* Pill Badges */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pill-orange {
+  background-color: var(--saffron-orange);
+  color: #ffffff;
+}
+
+.pill-charcoal {
+  background-color: var(--dark-charcoal);
+  color: #ffffff;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-orange {
+  background-color: var(--saffron-orange);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(243, 111, 33, 0.35);
+}
+
+.btn-orange:hover {
+  background-color: var(--saffron-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(243, 111, 33, 0.45);
+}
+
+.btn-charcoal {
+  background-color: var(--dark-charcoal);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(31, 31, 31, 0.25);
+}
+
+.btn-charcoal:hover {
+  background-color: var(--dark-charcoal-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline-orange {
+  background-color: transparent;
+  border: 2px solid var(--saffron-orange);
+  color: var(--saffron-orange);
+}
+
+.btn-outline-orange:hover {
+  background-color: var(--saffron-orange);
+  color: #ffffff;
+}
+
+/* Floating WhatsApp Badge */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--whatsapp-green);
+  color: #ffffff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
+  z-index: 999;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: var(--whatsapp-green-hover);
+}
+
+@keyframes pulseOrange {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.pulse-orange {
+  animation: pulseOrange 2.5s infinite;
+}
