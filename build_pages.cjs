@@ -792,7 +792,7 @@ const homeHtml = `<!DOCTYPE html>
         <section id="leadership" class="w-full min-h-[80vh] flex flex-col md:flex-row bg-[#1F1F1F] relative overflow-hidden">
             <!-- Image Side -->
             <div class="w-full md:w-1/2 relative min-h-[50vh] md:min-h-[700px] overflow-hidden">
-                <img alt="Dr. Ravi Kant Mishra" class="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out opacity-85 hover:opacity-100" src="images/dr-ravi-mishra.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80';"/>
+                <img alt="Dr. Ravi Kant Mishra" class="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out opacity-85 hover:opacity-100" src="images/dr-ravi-kant-mishra-president.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F] via-transparent to-transparent opacity-90 md:hidden"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1F1F1F] opacity-90 hidden md:block"></div>
                 <div class="absolute bottom-0 left-0 p-margin-desktop md:hidden">
@@ -1303,7 +1303,7 @@ const aboutHtml = `<!DOCTYPE html>
                     <!-- Member 1: President -->
                     <div class="flex flex-col group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
                         <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
-                            <img alt="Dr. Ravi Kant Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/dr-ravi-mishra.jpg"/>
+                            <img alt="Dr. Ravi Kant Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/dr-ravi-kant-mishra-president.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-mishra.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                             <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
                                 President
@@ -1322,7 +1322,7 @@ const aboutHtml = `<!DOCTYPE html>
                     <!-- Member 2: Treasurer -->
                     <div class="flex flex-col group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
                         <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
-                            <img alt="Pradeep Kumar Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-pradeep-mishra.jpg"/>
+                            <img alt="Pradeep Kumar Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/pradeep-kumar-mishra-treasurer.jpg" onerror="this.onerror=null; this.src='images/trustee-pradeep-mishra.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                             <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
                                 Treasurer
@@ -1341,7 +1341,7 @@ const aboutHtml = `<!DOCTYPE html>
                     <!-- Member 3: Secretary -->
                     <div class="flex flex-col group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
                         <div class="rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-gray-100 relative">
-                            <img alt="Bhartendu Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/trustee-bhartendu-mishra.jpg"/>
+                            <img alt="Bhartendu Mishra" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="images/bhartendu-mishra-secretary.jpg" onerror="this.onerror=null; this.src='images/trustee-bhartendu-mishra.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                             <span class="absolute bottom-3 left-3 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
                                 Secretary
