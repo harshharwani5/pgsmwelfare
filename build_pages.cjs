@@ -441,8 +441,8 @@ const homeHtml = `<!DOCTYPE html>
 
                 <!-- Right Column: Real Photo Frame -->
                 <div class="relative w-full max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-                    <div class="aspect-[4/3] rounded-2xl border-8 border-white overflow-hidden shadow-2xl bg-gray-100 relative z-10">
-                        <img alt="Macleods Pharma Mega Placement Drive at Shanti College" class="w-full h-full object-cover" src="images/real/hero_placement.jpg" onerror="this.onerror=null; this.src='images/real/placement_drive.jpg';"/>
+                    <div class="aspect-[4/3] rounded-2xl border-4 border-white/90 overflow-hidden shadow-2xl bg-gray-100 relative z-10 transition-transform duration-300 hover:scale-[1.01]">
+                        <img alt="Macleods Pharma Mega Placement Drive at Shanti College" class="w-full h-full object-cover" src="images/real/hero_placement_pure.jpg" onerror="this.onerror=null; this.src='images/real/hero_placement.jpg';"/>
                     </div>
                     <!-- Floating Placement Stat Card -->
                     <div class="absolute -bottom-6 -left-4 sm:-left-8 z-20 bg-[#1F1F1F] rounded-2xl p-5 shadow-2xl border border-white/10 text-center">
@@ -557,70 +557,56 @@ const homeHtml = `<!DOCTYPE html>
 
                 <!-- Responsive 5 Pillars Grid (Direct Grid Items - Zero Overlap) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
-                            <!-- Real Program 1: Technical Pharmacy Education & Macleods Drive -->
-        <section id="pharmacy" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
-            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-[#FFF2EB] px-3.5 py-1 rounded-full">
-                        Employment-Linked Education
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
-                        Higher Technical Pharmacy Education & Corporate Campus Recruitment
-                    </h2>
-                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                        Operated by the society, **Shanti College of Pharmacy** imparts professional D.Pharm and B.Pharm curricula recognized by the Pharmacy Council of India (PCI). Beyond classroom pedagogy, the institute actively guarantees campus placement opportunities.
-                    </p>
-                    <div class="bg-[#FFF7F2] p-4 rounded-xl border border-[#F36F21]/20 mb-6">
-                        <h4 class="font-bold text-sm text-[#1F1F1F] mb-1">Recent Campus Placement Drive Milestone (28 March 2026):</h4>
-                        <p class="text-xs text-gray-700 leading-relaxed">
-                            Organized in direct collaboration with **Macleods Pharmaceuticals Ltd.** (HR COE Indore team). Out of 100 student aspirants, 45 cleared Round 1, resulting in **25 verified job offer appointments** across industrial manufacturing units in Indore & Baddi.
-                        </p>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
-                            Sponsor a Student's Semester Fee
-                        </a>
-                    </div>
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3]">
-                    <img class="w-full h-full object-cover" alt="Macleods Pharma Placement Drive" src="images/real/placement_drive.jpg"/>
-                </div>
-            </div>
-        </section>
-
-        <!-- Real Program 2: Shanti Premier League & Youth Sports -->
-        <section id="sports-nss" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
-            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3]">
-                    <img class="w-full h-full object-cover" alt="Shanti Premier League Trophy Presentation" src="images/real/spl_trophy.jpg"/>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-white px-3.5 py-1 rounded-full shadow-sm">
-                        Youth Cohesion & Sportsmanship
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
-                        Shanti Premier League (SPL) & Civic Sports Development
-                    </h2>
-                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                        Sports are an essential vehicle for channelizing youth energy, cultivating discipline, and breaking rural social barriers. The society annually organizes the high-stakes **Shanti Premier League (SPL)** cricket championship.
-                    </p>
-                    <div class="bg-white p-4 rounded-xl border border-gray-200 mb-6 shadow-sm">
-                        <h4 class="font-bold text-sm text-[#1F1F1F] mb-1">SPL Season-6 Grand Finale Highlights (10 Jan 2026):</h4>
-                        <p class="text-xs text-gray-700 leading-relaxed">
-                            Final match witnessed a thrilling 12-over clash between B.Pharm 7th Semester (Winners) and M.Pharm (Runners-up). Cash awards of ₹8,000 and ₹4,000 distributed on stage in the presence of distinguished state media journalists and dignitaries. Covered by *Dainik Bhaskar* and *Nai Dunia*.
-                        </p>
-                    </div>
-                    <a href="volunteer.html" class="bg-[#1F1F1F] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-black transition-colors inline-block">
-                        Join as a Sports Volunteer
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pillar 3: Free Healthcare -->
+                    <!-- Pillar 1: Higher Education & Pharmacy -->
                     <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
                         <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Free Healthcare" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/pillar-health.jpg';"/>
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Macleods Pharma Placement Drive" src="images/real/placement_drive_remastered.jpg" onerror="this.onerror=null; this.src='images/real/placement_drive.jpg';"/>
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-white/40 shadow-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[#F36F21] text-[16px]">school</span>
+                                <span class="font-bold text-xs text-[#F36F21] uppercase tracking-wide">Higher Education</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Shanti College of Pharmacy</h3>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Professional D.Pharm &amp; B.Pharm curricula recognized by PCI, modern labs, and 25+ verified campus placements with Macleods Pharmaceuticals.</p>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
+                                <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">25+ Placements · PCI Recognized</span>
+                                <a href="programs.html#pharmacy" class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21] group-hover:bg-[#F36F21] group-hover:text-white transition-colors duration-200 shadow-sm">
+                                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2: Youth & Sports (SPL) -->
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Youth & Sports SPL" src="images/real/spl_trophy.jpg" onerror="this.onerror=null; this.src='images/pillar-nss.jpg';"/>
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-white/40 shadow-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[#F36F21] text-[16px]">sports_cricket</span>
+                                <span class="font-bold text-xs text-[#F36F21] uppercase tracking-wide">Youth &amp; Sports</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Shanti Premier League &amp; NSS</h3>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Annual cricket championship (SPL Season-6) with cash awards, and 7-day NSS youth leadership residential camps building discipline and civic action.</p>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
+                                <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">Season-6 Champs · 200+ Athletes</span>
+                                <a href="programs.html#sports-nss" class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21] group-hover:bg-[#F36F21] group-hover:text-white transition-colors duration-200 shadow-sm">
+                                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3: Free Healthcare -->
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Free Healthcare" src="images/real/health_camp_extended.jpg" onerror="this.onerror=null; this.src='images/real/health_camp_real.jpg';"/>
                             <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-white/40 shadow-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-[#F36F21] text-[16px]">medical_services</span>
                                 <span class="font-bold text-xs text-[#F36F21] uppercase tracking-wide">Community Healing</span>
@@ -628,7 +614,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Free Healthcare & Eye Camps</h3>
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Free Healthcare &amp; Eye Camps</h3>
                                 <p class="text-sm text-gray-600 mb-4 leading-relaxed">Free diagnostic consultations, eye screenings, and prescription medicines reaching families in remote rural villages across India.</p>
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
@@ -643,7 +629,7 @@ const homeHtml = `<!DOCTYPE html>
                     <!-- Pillar 4: Women Vocational Tailoring -->
                     <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
                         <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Women Skilling" src="images/real/nss_cleanliness.jpg" onerror="this.onerror=null; this.src='images/pillar-tailoring.jpg';"/>
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Vocational Tailoring &amp; Skilling" src="images/pillar-tailoring.jpg" onerror="this.onerror=null; this.src='images/work-tailoring.jpg';"/>
                             <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-white/40 shadow-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-[#F36F21] text-[16px]">styler</span>
                                 <span class="font-bold text-xs text-[#F36F21] uppercase tracking-wide">Economic Dignity</span>
@@ -651,8 +637,8 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Vocational Tailoring & Skilling</h3>
-                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Certified sewing, cutting, embroidery, and micro-enterprise kits enabling financial independence.</p>
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Vocational Tailoring &amp; Skilling</h3>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Certified sewing, cutting, embroidery, and micro-enterprise kits enabling financial independence for rural women across India.</p>
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
                                 <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">1,200+ Women Certified</span>
@@ -666,7 +652,7 @@ const homeHtml = `<!DOCTYPE html>
                     <!-- Pillar 5: Green Campus Tree Plantation -->
                     <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100 md:col-span-2 lg:col-span-1">
                         <div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Green Future" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Green Campus Tree Plantation" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
                             <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md border border-white/40 shadow-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-[#F36F21] text-[16px]">eco</span>
                                 <span class="font-bold text-xs text-[#F36F21] uppercase tracking-wide">Green Future</span>
@@ -1408,7 +1394,7 @@ const aboutHtml = `<!DOCTYPE html>
 
                 <!-- Ceremony Documentary Photo Frame -->
                 <div class="w-full relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 mt-4">
-                    <img class="w-full h-auto max-h-[550px] object-cover" alt="Shanti Pratibha Khoj & Board Merit Honors Felicitation Ceremony" src="images/real/pratibha_khoj.jpg" onerror="this.onerror=null; this.src='images/real/press_clipping.jpg';"/>
+                    <img class="w-full h-auto max-h-[550px] object-cover" alt="Shanti Pratibha Khoj &amp; Board Merit Honors Felicitation Ceremony" src="images/real/pratibha_khoj_enhanced.jpg" onerror="this.onerror=null; this.src='images/real/pratibha_khoj.jpg';"/>
                     <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
                         <div>
                             <p class="text-white font-bold text-lg">Shanti Pratibha Khoj & Board Merit Honors</p>
@@ -1698,12 +1684,20 @@ const programsHtml = `<!DOCTYPE html>
         <!-- Real Program 1: Technical Pharmacy Education & Macleods Drive -->
         <section id="pharmacy" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <!-- Visual Left -->
+                <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3] w-full relative">
+                    <img class="w-full h-full object-cover" alt="Macleods Pharma Placement Drive" src="images/real/placement_drive_remastered.jpg" onerror="this.onerror=null; this.src='images/real/placement_drive.jpg';"/>
+                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        Higher Education
+                    </div>
+                </div>
+                <!-- Content Right -->
+                <div class="order-1 lg:order-2">
                     <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-[#FFF2EB] px-3.5 py-1 rounded-full">
                         Employment-Linked Education
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
-                        Higher Technical Pharmacy Education & Corporate Campus Recruitment
+                        Higher Technical Pharmacy Education &amp; Corporate Campus Recruitment
                     </h2>
                     <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                         Operated by the society, <strong>Shanti College of Pharmacy</strong> imparts professional D.Pharm and B.Pharm curricula recognized by the Pharmacy Council of India (PCI). Beyond classroom pedagogy, the institute actively guarantees campus placement opportunities.
@@ -1711,7 +1705,7 @@ const programsHtml = `<!DOCTYPE html>
                     <div class="bg-[#FFF7F2] p-4 rounded-xl border border-[#F36F21]/20 mb-6">
                         <h4 class="font-bold text-sm text-[#1F1F1F] mb-1">Recent Campus Placement Drive Milestone (28 March 2026):</h4>
                         <p class="text-xs text-gray-700 leading-relaxed">
-                            Organized in direct collaboration with <strong>Macleods Pharmaceuticals Ltd.</strong> (HR COE Indore team). Out of 100 student aspirants, 45 cleared Round 1, resulting in <strong>25 verified job offer appointments</strong> across industrial manufacturing units in Indore & Baddi.
+                            Organized in direct collaboration with <strong>Macleods Pharmaceuticals Ltd.</strong> (HR COE Indore team). Out of 100 student aspirants, 45 cleared Round 1, resulting in <strong>25 verified job offer appointments</strong> across industrial manufacturing units in Indore &amp; Baddi.
                         </p>
                     </div>
                     <div class="flex gap-4">
@@ -1720,24 +1714,19 @@ const programsHtml = `<!DOCTYPE html>
                         </a>
                     </div>
                 </div>
-                <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3]">
-                    <img class="w-full h-full object-cover" alt="Macleods Pharma Placement Drive" src="images/real/placement_drive.jpg"/>
-                </div>
             </div>
         </section>
 
         <!-- Real Program 2: Shanti Premier League & Youth Sports -->
         <section id="sports-nss" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3]">
-                    <img class="w-full h-full object-cover" alt="Shanti Premier League Trophy Presentation" src="images/real/spl_trophy.jpg"/>
-                </div>
-                <div class="order-1 lg:order-2">
+                <!-- Content Left -->
+                <div class="order-1 lg:order-1">
                     <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-white px-3.5 py-1 rounded-full shadow-sm">
-                        Youth Cohesion & Sportsmanship
+                        Youth Cohesion &amp; Sportsmanship
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
-                        Shanti Premier League (SPL) & Civic Sports Development
+                        Shanti Premier League (SPL) &amp; Civic Sports Development
                     </h2>
                     <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                         Sports are an essential vehicle for channelizing youth energy, cultivating discipline, and breaking rural social barriers. The society annually organizes the high-stakes <strong>Shanti Premier League (SPL)</strong> cricket championship.
@@ -1752,65 +1741,78 @@ const programsHtml = `<!DOCTYPE html>
                         Join as a Sports Volunteer
                     </a>
                 </div>
+                <!-- Visual Right -->
+                <div class="order-2 lg:order-2 rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full relative">
+                    <img class="w-full h-full object-cover" alt="Shanti Premier League Trophy Presentation" src="images/real/spl_trophy.jpg"/>
+                    <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        Season-6 Championship
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Pillar 3: Free Healthcare & Eye Camps (Visual Left, Content Right) -->
-        <section id="healthcare" class="w-full bg-white py-xl border-b border-surface-variant/40">
-            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
-                <!-- Visual Frame -->
-                <div class="order-2 md:order-1 relative group">
-                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Free Healthcare & Eye Camps" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/pillar-health.jpg';"/>
-                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+        <section id="healthcare" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Visual Left -->
+                <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3] w-full relative">
+                    <img class="w-full h-full object-cover" alt="Free Healthcare & Eye Camps" src="images/real/health_camp_extended.jpg" onerror="this.onerror=null; this.src='images/real/health_camp_real.jpg';"/>
+                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                         Mobile Health Outreach
                     </div>
                 </div>
-                <!-- Content -->
-                <div class="order-1 md:order-2 flex flex-col items-start gap-md">
-                    <span class="chip">Community Healing</span>
-                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
-                        Free Diagnostic & Eye Camps
+                <!-- Content Right -->
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-[#FFF2EB] px-3.5 py-1 rounded-full">
+                        Community Healing
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
+                        Free Diagnostic &amp; Eye Camps
                     </h2>
-                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                         Providing free doctor consultations, diagnostic checkups, eye screenings, and prescription medicines to families across 45+ remote rural villages. Our mobile health camps bring primary healthcare directly to underserved communities.
                     </p>
-                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 4,500+ Patients Treated</div>
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 45+ Villages Covered</div>
+                    <div class="bg-[#FFF7F2] p-4 rounded-xl border border-[#F36F21]/20 mb-6">
+                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">4,500+ Patients Treated</strong></div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">45+ Villages Covered Across India</strong></div>
                     </div>
-                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
-                        Sponsor a Medical Camp (₹5,000) <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
+                    <div class="flex gap-4">
+                        <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
+                            Sponsor a Medical Camp (₹5,000)
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Pillar 4: Women Vocational Training (Content Left, Visual Right) -->
-        <section id="women-skilling" class="w-full bg-[#FFF7F2] py-xl border-b border-surface-variant/40">
-            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
-                <!-- Content -->
-                <div class="order-1 md:order-1 flex flex-col items-start gap-md pr-0 md:pr-lg">
-                    <span class="chip">Economic Dignity</span>
-                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
-                        Vocational Tailoring & Micro-Enterprise
+        <section id="women-skilling" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Content Left -->
+                <div class="order-1 lg:order-1">
+                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-white px-3.5 py-1 rounded-full shadow-sm">
+                        Economic Dignity
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
+                        Vocational Tailoring &amp; Micro-Enterprise
                     </h2>
-                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                         Providing certified sewing, cutting, embroidery, and handicraft training that enables rural women to start home enterprises, earn independent income, and support their families with economic dignity.
                     </p>
-                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-white p-4 rounded-xl shadow-sm border border-outline-variant/20 w-full max-w-md">
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 1,200+ Women Certified</div>
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> Self-Reliance & Enterprise</div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 mb-6 shadow-sm">
+                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">1,200+ Women Certified</strong></div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">Self-Reliance &amp; Micro-Enterprise</strong></div>
                     </div>
-                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
-                        Sponsor a Sewing Machine (₹2,500) <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
+                    <div class="flex gap-4">
+                        <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
+                            Sponsor a Sewing Machine (₹2,500)
+                        </a>
+                    </div>
                 </div>
-                <!-- Visual Frame -->
-                <div class="order-2 md:order-2 relative group">
-                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform -translate-x-4 translate-y-4 -z-10 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Vocational Tailoring & Micro-Enterprise" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-tailoring.jpg" onerror="this.onerror=null; this.src='images/work-tailoring.jpg';"/>
-                    <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                <!-- Visual Right -->
+                <div class="order-2 lg:order-2 rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full relative">
+                    <img class="w-full h-full object-cover" alt="Vocational Tailoring & Micro-Enterprise" src="images/pillar-tailoring.jpg" onerror="this.onerror=null; this.src='images/work-tailoring.jpg';"/>
+                    <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                         Certified Training
                     </div>
                 </div>
@@ -1818,32 +1820,35 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Pillar 5: Green Campus & Environment (Visual Left, Content Right) -->
-        <section id="environment" class="w-full bg-white py-xl border-b border-surface-variant/40">
-            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
-                <!-- Visual Frame -->
-                <div class="order-2 md:order-1 relative group">
-                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Green Campus Tree Plantation Drives" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
-                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+        <section id="environment" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Visual Left -->
+                <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3] w-full relative">
+                    <img class="w-full h-full object-cover" alt="Green Campus Tree Plantation Drives" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
+                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md uppercase tracking-wider">
                         Reforestation
                     </div>
                 </div>
-                <!-- Content -->
-                <div class="order-1 md:order-2 flex flex-col items-start gap-md">
-                    <span class="chip">Green Future</span>
-                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
+                <!-- Content Right -->
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-[#FFF2EB] px-3.5 py-1 rounded-full">
+                        Green Future
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
                         Green Campus Tree Plantation Drives
                     </h2>
-                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                         Leading reforestation initiatives across school premises, college campuses, and public village grounds in rural communities, promoting environmental responsibility and clean ecological practices.
                     </p>
-                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 800+ Trees Planted</div>
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 25+ Green Campuses</div>
+                    <div class="bg-[#FFF7F2] p-4 rounded-xl border border-[#F36F21]/20 mb-6">
+                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">800+ Trees Planted</strong></div>
+                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">25+ Green Campuses Across India</strong></div>
                     </div>
-                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
-                        Support Green Drives <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
+                    <div class="flex gap-4">
+                        <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
+                            Support Green Drives
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2154,53 +2159,83 @@ const volunteerHtml = `<!DOCTYPE html>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Role 1 -->
-                    <div class="border border-gray-200 rounded-2xl p-6 flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
                         <div>
-                            <span class="material-symbols-outlined text-4xl text-[#F36F21] mb-4">clinical_notes</span>
-                            <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Health Camp Diagnostic Assistant</h3>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                                Assist doctors in recording patient vitals, organizing free blood pressure and sugar screening desks in adopted villages (Gram Choubara).
-                            </p>
+                            <div class="aspect-[16/10] w-full overflow-hidden relative bg-gray-100">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Health Camp Diagnostic Assistant" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/real/health_camp_extended.jpg';"/>
+                                <div class="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 border border-white/50">
+                                    <span class="material-symbols-outlined text-sm text-[#F36F21]">clinical_notes</span>
+                                    <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">Healthcare</span>
+                                </div>
+                            </div>
+                            <div class="p-6 pb-2">
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2 group-hover:text-[#F36F21] transition-colors">Health Camp Diagnostic Assistant</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                    Assist doctors in recording patient vitals, organizing free blood pressure and sugar screening desks in adopted villages (Gram Choubara).
+                                </p>
+                            </div>
                         </div>
-                        <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
-                            <span class="text-xs font-bold text-[#F36F21] uppercase">Time Commitment: Weekend Camps</span>
-                            <a href="#volunteer-apply" onclick="document.getElementById('interest').value='medical_camp';" class="w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold text-xs py-2.5 rounded-xl hover:bg-[#F36F21] hover:text-white transition-all">
-                                Sign Up for This Role
-                            </a>
+                        <div class="p-6 pt-0">
+                            <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                                <span class="text-xs font-bold text-[#F36F21] uppercase">Time Commitment: Weekend Camps</span>
+                                <a href="#volunteer-apply" onclick="document.getElementById('interest').value='medical_camp';" class="w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold text-xs py-2.5 rounded-xl hover:bg-[#F36F21] hover:text-white transition-all shadow-sm">
+                                    Sign Up for This Role
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Role 2 -->
-                    <div class="border border-gray-200 rounded-2xl p-6 flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
                         <div>
-                            <span class="material-symbols-outlined text-4xl text-[#F36F21] mb-4">cleaning_services</span>
-                            <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">NSS Swachh Bharat Field Leader</h3>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                                Lead 7-day village immersion cohorts conducting street sanitation, plastic eradication campaigns, and constitutional rights seminars.
-                            </p>
+                            <div class="aspect-[16/10] w-full overflow-hidden relative bg-gray-100">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="NSS Swachh Bharat Field Leader" src="images/real/nss_cleanliness_clean.jpg" onerror="this.onerror=null; this.src='images/real/nss_cleanliness.jpg';"/>
+                                <div class="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 border border-white/50">
+                                    <span class="material-symbols-outlined text-sm text-[#F36F21]">cleaning_services</span>
+                                    <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">NSS &amp; Sanitation</span>
+                                </div>
+                            </div>
+                            <div class="p-6 pb-2">
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2 group-hover:text-[#F36F21] transition-colors">NSS Swachh Bharat Field Leader</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                    Lead 7-day village immersion cohorts conducting street sanitation, plastic eradication campaigns, and constitutional rights seminars.
+                                </p>
+                            </div>
                         </div>
-                        <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
-                            <span class="text-xs font-bold text-[#F36F21] uppercase">Time Commitment: 7-Day Residential Camp</span>
-                            <a href="#volunteer-apply" onclick="document.getElementById('interest').value='field_mobilizer';" class="w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold text-xs py-2.5 rounded-xl hover:bg-[#F36F21] hover:text-white transition-all">
-                                Sign Up for This Role
-                            </a>
+                        <div class="p-6 pt-0">
+                            <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                                <span class="text-xs font-bold text-[#F36F21] uppercase">Time Commitment: 7-Day Residential Camp</span>
+                                <a href="#volunteer-apply" onclick="document.getElementById('interest').value='field_mobilizer';" class="w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold text-xs py-2.5 rounded-xl hover:bg-[#F36F21] hover:text-white transition-all shadow-sm">
+                                    Sign Up for This Role
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Role 3 -->
-                    <div class="border border-gray-200 rounded-2xl p-6 flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
                         <div>
-                            <span class="material-symbols-outlined text-4xl text-[#F36F21] mb-4">sports_cricket</span>
-                            <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Sports & Youth Event Coordinator</h3>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                                Coordinate matches, umpiring, and logistics for the annual Shanti Premier League (SPL) and National Youth Day events.
-                            </p>
+                            <div class="aspect-[16/10] w-full overflow-hidden relative bg-gray-100">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Sports & Youth Event Coordinator" src="images/real/spl_trophy.jpg"/>
+                                <div class="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 border border-white/50">
+                                    <span class="material-symbols-outlined text-sm text-[#F36F21]">sports_cricket</span>
+                                    <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">Youth Sports</span>
+                                </div>
+                            </div>
+                            <div class="p-6 pb-2">
+                                <h3 class="text-xl font-bold text-[#1F1F1F] mb-2 group-hover:text-[#F36F21] transition-colors">Sports & Youth Event Coordinator</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                    Coordinate matches, umpiring, and logistics for the annual Shanti Premier League (SPL) and National Youth Day events.
+                                </p>
+                            </div>
                         </div>
-                        <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
-                            <span class="text-xs font-bold text-[#F36F21] uppercase">Time Commitment: Tournament Weeks</span>
-                            <a href="#volunteer-apply" onclick="document.getElementById('interest').value='field_mobilizer';" class="w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold text-xs py-2.5 rounded-xl hover:bg-[#F36F21] hover:text-white transition-all">
-                                Sign Up for This Role
-                            </a>
+                        <div class="p-6 pt-0">
+                            <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                                <span class="text-xs font-bold text-[#F36F21] uppercase">Time Commitment: Tournament Weeks</span>
+                                <a href="#volunteer-apply" onclick="document.getElementById('interest').value='field_mobilizer';" class="w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold text-xs py-2.5 rounded-xl hover:bg-[#F36F21] hover:text-white transition-all shadow-sm">
+                                    Sign Up for This Role
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
