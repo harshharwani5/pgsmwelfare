@@ -147,7 +147,7 @@
 <body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     
     <!-- Top Navigation Bar -->
-    <header class="bg-white/95 backdrop-blur-md w-full z-50 sticky top-0 transition-all duration-300 border-b border-surface-variant/40 shadow-sm" id="topNav">
+    <header class="bg-white/95 backdrop-blur-md w-full z-50 sticky top-0 transition-all duration-300 border-b border-gray-200/60 shadow-sm" id="topNav">
         <div class="flex justify-between items-center w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1280px] mx-auto h-20">
             <!-- Brand Logo -->
             <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
@@ -157,19 +157,19 @@
             
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm">
-                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="about.html">About Us</a>
-                <a class="text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold" href="programs.html">Programs</a>
-                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="volunteer.html">Volunteer</a>
-                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="index.html#work">Our Impact</a>
-                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="about.html#governance">Leadership</a>
-                <a class="text-gray-600 hover:text-[#F36F21] transition-colors" href="donate.html">Donate</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="about.html">About Us</a>
+                <a class="text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold" href="programs.html">Programs & Placements</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="volunteer.html">Volunteer</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="index.html#work">Field Impact</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="about.html#governance">Leadership</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="donate.html">Donate</a>
             </nav>
             
             <!-- Desktop CTA -->
             <div class="hidden lg:flex items-center gap-3">
                 <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-[#a04100] active:scale-95 transition-all shadow-md inline-flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
-                    Donate
+                    Donate & 80G
                 </a>
             </div>
             
@@ -191,11 +191,11 @@
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 bg-[#FFF7F2] text-[#F36F21] font-extrabold" href="programs.html">
-                    <span>Our Programs (Education & Impact)</span>
+                    <span>Programs & Placements</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="volunteer.html">
-                    <span>Volunteer & Field Roles</span>
+                    <span>Volunteer (Field & NSS Roles)</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="index.html#work">
@@ -214,7 +214,7 @@
                 <div class="pt-3 flex flex-col gap-3">
                     <a href="donate.html" class="w-full bg-[#F36F21] text-white text-center font-bold py-3.5 px-6 rounded-xl hover:bg-[#a04100] active:scale-95 shadow-md flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">favorite</span>
-                        Donate & Support (80G Tax Exempt)
+                        Donate & 80G Tax Exemption
                     </a>
                     <a href="tel:+919406762912" class="w-full bg-gray-100 text-gray-800 text-center font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-sm text-[#F36F21]">call</span>
@@ -230,7 +230,7 @@
         <!-- ================= SECTION 1: HERO CANVAS ================= -->
         <section class="relative pt-16 pb-12 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
             <!-- Background Image with Overlay -->
-            <div class="absolute inset-0 z-[-1] opacity-10 bg-cover bg-center rounded-3xl" style="background-image: url('images/hero.jpg');"></div>
+            <div class="absolute inset-0 z-[-1] opacity-10 bg-cover bg-center rounded-3xl" style="background-image: url('images/real/hero_placement.jpg');"></div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center text-left">
                 <div class="md:pr-8">
@@ -342,64 +342,62 @@
 
         <!-- ================= SECTION 2: 5 DETAILED PROGRAM PILLARS (ALTERNATING FULL-WIDTH SECTIONS) ================= -->
         
-        <!-- Pillar 1: Higher Education — Shanti College of Pharmacy (Visual Left, Content Right) -->
-        <section id="pharmacy" class="w-full bg-white py-xl border-b border-surface-variant/40">
-            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
-                <!-- Visual Frame -->
-                <div class="order-2 md:order-1 relative group">
-                    <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Shanti College of Pharmacy" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-education.jpg" onerror="this.onerror=null; this.src='images/work-education.jpg';"/>
-                    <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
-                        25+ Mega Placements
+        <!-- Real Program 1: Technical Pharmacy Education & Macleods Drive -->
+        <section id="pharmacy" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-[#FFF2EB] px-3.5 py-1 rounded-full">
+                        Employment-Linked Education
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
+                        Higher Technical Pharmacy Education & Corporate Campus Recruitment
+                    </h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                        Operated by the society, <strong>Shanti College of Pharmacy</strong> imparts professional D.Pharm and B.Pharm curricula recognized by the Pharmacy Council of India (PCI). Beyond classroom pedagogy, the institute actively guarantees campus placement opportunities.
+                    </p>
+                    <div class="bg-[#FFF7F2] p-4 rounded-xl border border-[#F36F21]/20 mb-6">
+                        <h4 class="font-bold text-sm text-[#1F1F1F] mb-1">Recent Campus Placement Drive Milestone (28 March 2026):</h4>
+                        <p class="text-xs text-gray-700 leading-relaxed">
+                            Organized in direct collaboration with <strong>Macleods Pharmaceuticals Ltd.</strong> (HR COE Indore team). Out of 100 student aspirants, 45 cleared Round 1, resulting in <strong>25 verified job offer appointments</strong> across industrial manufacturing units in Indore & Baddi.
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
+                            Sponsor a Student's Semester Fee
+                        </a>
                     </div>
                 </div>
-                <!-- Content -->
-                <div class="order-1 md:order-2 flex flex-col items-start gap-md">
-                    <span class="chip">Higher Education</span>
-                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
-                        Shanti College of Pharmacy
-                    </h2>
-                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
-                        Operating Shanti College of Pharmacy (D.Pharm / B.Pharm programs), providing high-quality professional pharmaceutical education, advanced laboratory infrastructure, and organizing Mega Campus Placement Drives. Over 25+ students secured confirmed jobs at MacLeod's Pharmaceuticals and leading healthcare institutions across the country.
-                    </p>
-                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 25+ Mega Placements</div>
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 3,000+ Students Trained</div>
-                    </div>
-                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
-                        Sponsor Student Scholarship (₹1,200) <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
+                <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3]">
+                    <img class="w-full h-full object-cover" alt="Macleods Pharma Placement Drive" src="images/real/placement_drive.jpg"/>
                 </div>
             </div>
         </section>
 
-        <!-- Pillar 2: Youth & Sports — Shanti Premier League & NSS (Content Left, Visual Right) -->
-        <section id="sports-nss" class="w-full bg-[#FFF7F2] py-xl border-b border-surface-variant/40">
-            <div class="max-w-[1280px] mx-auto px-gutter md:px-margin-desktop grid md:grid-cols-2 gap-lg items-center">
-                <!-- Content -->
-                <div class="order-1 md:order-1 flex flex-col items-start gap-md pr-0 md:pr-lg">
-                    <span class="chip">Youth & Sports</span>
-                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background font-extrabold">
-                        Shanti Premier League (SPL) & Youth Action
-                    </h2>
-                    <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
-                        Organizing the premier annual cricket championship (Shanti Premier League Season-6) and National Service Scheme (NSS) 7-day youth leadership residential camps, engaging over 200+ rural athletes, instilling discipline, sportsmanship, and channelizing youth energy into positive community leadership across India.
-                    </p>
-                    <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-white p-4 rounded-xl shadow-sm border border-outline-variant/20 w-full max-w-md">
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 200+ Rural Athletes in SPL</div>
-                        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 100+ NSS Leadership Camps</div>
-                    </div>
-                    <a class="btn-primary font-label-bold text-label-bold py-3.5 px-8 rounded-full mt-2 inline-flex items-center gap-2" href="donate.html">
-                        Support Youth & Sports Programs <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
+        <!-- Real Program 2: Shanti Premier League & Youth Sports -->
+        <section id="sports-nss" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3]">
+                    <img class="w-full h-full object-cover" alt="Shanti Premier League Trophy Presentation" src="images/real/spl_trophy.jpg"/>
                 </div>
-                <!-- Visual Frame -->
-                <div class="order-2 md:order-2 relative group">
-                    <div class="absolute inset-0 bg-secondary/10 rounded-[20px] transform -translate-x-4 translate-y-4 -z-10 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Shanti Premier League & Youth Leadership" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-nss.jpg" onerror="this.onerror=null; this.src='images/work-nss.jpg';"/>
-                    <div class="absolute top-4 right-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
-                        Season-6 Championship
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#F36F21] font-bold text-xs uppercase tracking-widest bg-white px-3.5 py-1 rounded-full shadow-sm">
+                        Youth Cohesion & Sportsmanship
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] mt-3 mb-4">
+                        Shanti Premier League (SPL) & Civic Sports Development
+                    </h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                        Sports are an essential vehicle for channelizing youth energy, cultivating discipline, and breaking rural social barriers. The society annually organizes the high-stakes <strong>Shanti Premier League (SPL)</strong> cricket championship.
+                    </p>
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 mb-6 shadow-sm">
+                        <h4 class="font-bold text-sm text-[#1F1F1F] mb-1">SPL Season-6 Grand Finale Highlights (10 Jan 2026):</h4>
+                        <p class="text-xs text-gray-700 leading-relaxed">
+                            Final match witnessed a thrilling 12-over clash between B.Pharm 7th Semester (Winners) and M.Pharm (Runners-up). Cash awards of ₹8,000 and ₹4,000 distributed on stage in the presence of distinguished state media journalists and dignitaries. Covered by <em>Dainik Bhaskar</em> and <em>Nai Dunia</em>.
+                        </p>
                     </div>
+                    <a href="volunteer.html" class="bg-[#1F1F1F] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-black transition-colors inline-block">
+                        Join as a Sports Volunteer
+                    </a>
                 </div>
             </div>
         </section>
@@ -410,7 +408,7 @@
                 <!-- Visual Frame -->
                 <div class="order-2 md:order-1 relative group">
                     <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Free Healthcare & Eye Camps" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-health.jpg" onerror="this.onerror=null; this.src='images/work-health.jpg';"/>
+                    <img alt="Free Healthcare & Eye Camps" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/pillar-health.jpg';"/>
                     <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
                         Mobile Health Outreach
                     </div>
@@ -472,7 +470,7 @@
                 <!-- Visual Frame -->
                 <div class="order-2 md:order-1 relative group">
                     <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-                    <img alt="Green Campus Tree Plantation Drives" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-trees.jpg" onerror="this.onerror=null; this.src='images/work-trees.jpg';"/>
+                    <img alt="Green Campus Tree Plantation Drives" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
                     <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
                         Reforestation
                     </div>
@@ -602,23 +600,22 @@
     </main>
 
     
-    <!-- Comprehensive 4-Column Footer -->
-    <footer class="bg-[#1F1F1F] text-gray-300 border-t border-outline/20 w-full relative z-20">
-        <!-- Main Content Area -->
+    <!-- Universal 4-Column Footer & Compliance Bar -->
+    <footer class="bg-[#1F1F1F] text-gray-300 border-t border-white/10 w-full relative z-20">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4 sm:px-6 md:px-12 lg:px-16 py-16 max-w-[1280px] mx-auto">
-            <!-- Column 1: Brand & Trust -->
+            <!-- Column 1: Institutional Credibility -->
             <div class="flex flex-col gap-4">
                 <a href="index.html" class="text-2xl font-black text-[#FFB693] tracking-tight flex items-center gap-2">
                     <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
                     PGSM Welfare
                 </a>
                 <p class="text-sm text-gray-300 leading-relaxed">
-                    Transforming health, education, and livelihoods across rural India since 2016.
+                    Pioneering rural education-to-employment pathways, community health surveillance, and youth leadership across Central India since 2016.
                 </p>
                 <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        Section 80G Tax Exempt (URN: AAEAP1466C24BP02)
+                        Section 80G Certified (URN: AAEAP1466C24BP02)
                     </li>
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
@@ -626,7 +623,7 @@
                     </li>
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
-                        Reg: 06/12/03/11718/16
+                        MCA CSR Approved (Reg: CSR00007144)
                     </li>
                 </ul>
             </div>
@@ -635,23 +632,22 @@
             <div class="flex flex-col gap-4">
                 <h3 class="text-lg font-bold text-[#FFB693]">Quick Links</h3>
                 <nav class="flex flex-col gap-2 text-sm">
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html">About Us</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html">Our Programs</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html">Volunteer With Us</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html">Donate & Support</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance">Leadership & Governance</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#compliance">CSR & Legal Compliance</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work">Photo Gallery & Field Work</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html">About the Foundation</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html">Shanti College & Programs</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html">NSS Volunteer Corps</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html">Tax-Exempt Donations</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance">Board of Trustees</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work">Photo Gallery & Press</a>
                 </nav>
             </div>
 
-            <!-- Column 3: Contact Us -->
+            <!-- Column 3: Contact Details (Regulatory Office) -->
             <div class="flex flex-col gap-4">
-                <h3 class="text-lg font-bold text-[#FFB693]">Contact Us</h3>
+                <h3 class="text-lg font-bold text-[#FFB693]">Registered Secretariat</h3>
                 <div class="flex flex-col gap-3 text-sm text-gray-300">
                     <p class="flex items-start gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0 mt-0.5">location_on</span>
-                        <span>House No. 22, Mishra Clinic, Ward 12, Bus Stand, Nowgong, Chhatarpur (M.P.) – 471201</span>
+                        <span>Secretariat Office, Mishra Clinic Campus, Nowgong, Madhya Pradesh – 471201</span>
                     </p>
                     <p class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">call</span>
@@ -659,18 +655,19 @@
                     </p>
                     <p class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">mail</span>
-                        <a href="mailto:info@pgsmwelfare.org" class="hover:text-white transition-colors">info@pgsmwelfare.org</a>
+                        <a href="mailto:psgmwelfare@gmail.com" class="hover:text-white transition-colors">psgmwelfare@gmail.com</a>
                     </p>
                 </div>
             </div>
 
-            <!-- Column 4: Join Our Mission -->
+            <!-- Column 4: Newsletter -->
             <div class="flex flex-col gap-4">
-                <h3 class="text-lg font-bold text-[#FFB693]">Join Our Mission</h3>
-                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to PGSM Welfare updates!');">
+                <h3 class="text-lg font-bold text-[#FFB693]">Subscribe for Updates</h3>
+                <p class="text-xs text-gray-400">Receive verified quarterly impact reports and field audit summaries.</p>
+                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
                     <label class="sr-only" for="newsletter-email">Your Email Address</label>
-                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#F36F21] focus:border-transparent placeholder:text-gray-400 text-sm" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
-                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F36F21] active:scale-95 shadow-md cursor-pointer" type="submit">
+                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#F36F21] outline-none" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
+                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors shadow-md cursor-pointer" type="submit">
                         Subscribe
                     </button>
                 </form>
@@ -692,17 +689,10 @@
         </div>
 
         <!-- Bottom Bar -->
-        <div class="border-t border-white/10 bg-[#171717]">
-            <div class="px-4 sm:px-6 md:px-12 lg:px-16 py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400 text-center md:text-left">
+        <div class="border-t border-white/10 bg-[#171717] py-4 px-4 text-xs text-gray-400">
+            <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
                 <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
-                <div class="flex items-center gap-4">
-                    <p class="hidden sm:inline">Headquartered in Madhya Pradesh. Serving rural communities across India.</p>
-                    <div class="flex gap-3">
-                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Privacy Policy</a>
-                        <span aria-hidden="true">•</span>
-                        <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Impact Report</a>
-                    </div>
-                </div>
+                <p>Society Reg: 06/12/03/11718/16 | Permanent PAN: AAATP8891J</p>
             </div>
         </div>
     </footer>
