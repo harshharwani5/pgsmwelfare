@@ -50,7 +50,7 @@ function getUnifiedHeader(activePage = 'home') {
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 ${activePage === 'programs' ? 'bg-[#FFF7F2] text-[#F36F21] font-extrabold' : 'text-gray-800 hover:bg-gray-50'}" href="programs.html">
-                    <span>Our Programs (Pharmacy & SPL)</span>
+                    <span>Our Programs (Education & Impact)</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 ${activePage === 'volunteer' ? 'bg-[#FFF7F2] text-[#F36F21] font-extrabold' : 'text-gray-800 hover:bg-gray-50'}" href="volunteer.html">
@@ -101,7 +101,7 @@ const unifiedFooterHtml = `
                     PGSM Welfare
                 </a>
                 <p class="text-sm text-gray-300 leading-relaxed">
-                    Transforming health, education, and livelihoods in rural Chhatarpur since 2016.
+                    Transforming health, education, and livelihoods across rural India since 2016.
                 </p>
                 <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
                     <li class="flex items-center gap-2">
@@ -184,7 +184,7 @@ const unifiedFooterHtml = `
             <div class="px-4 sm:px-6 md:px-12 lg:px-16 py-4 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400 text-center md:text-left">
                 <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
                 <div class="flex items-center gap-4">
-                    <p class="hidden sm:inline">Built for Chhatarpur, Madhya Pradesh.</p>
+                    <p class="hidden sm:inline">Headquartered in Madhya Pradesh. Serving rural communities across India.</p>
                     <div class="flex gap-3">
                         <a class="hover:text-[#FFB693] transition-colors" href="about.html#compliance">Privacy Policy</a>
                         <span aria-hidden="true">•</span>
@@ -233,7 +233,7 @@ const homeHtml = `<!DOCTYPE html>
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>PGSM Welfare - Transforming Rural Lives in Chhatarpur</title>
+    <title>PGSM Welfare - Transforming Rural Lives Across India</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -408,11 +408,11 @@ const homeHtml = `<!DOCTYPE html>
 
                     <!-- Headline -->
                     <h1 class="text-headline-lg-mobile md:text-display-lg font-display-lg text-on-primary leading-tight max-w-2xl font-extrabold">
-                        Every Child in Chhatarpur Deserves to Dream in Full Colour
+                        Every Child in India Deserves to Dream in Full Colour
                     </h1>
                     <!-- Subtitle -->
                     <p class="text-body-lg font-body-lg text-on-primary/90 max-w-xl leading-relaxed">
-                        Since 2016, PGSM Welfare has been quietly rebuilding futures in rural Madhya Pradesh — one classroom, one skill, one life at a time. Your support keeps that promise alive.
+                        Since 2016, PGSM Welfare has been quietly rebuilding futures across rural India — one classroom, one skill, one life at a time. Your support keeps that promise alive.
                     </p>
                     <!-- Action Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
@@ -443,7 +443,7 @@ const homeHtml = `<!DOCTYPE html>
                 <div class="relative w-full max-w-lg mx-auto lg:mx-0 lg:ml-auto mt-8 lg:mt-0">
                     <!-- Photo Card -->
                     <div class="aspect-[4/3] rounded-2xl border-8 border-on-primary overflow-hidden ambient-shadow bg-surface-variant relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500 ease-out shadow-2xl">
-                        <img alt="Smiling young girl holding books outside a rural school in Madhya Pradesh" class="w-full h-full object-cover" src="images/hero.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80';"/>
+                        <img alt="Smiling young girl holding books outside a rural school in India" class="w-full h-full object-cover" src="images/hero.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80';"/>
                     </div>
                     <!-- Floating Stat Card -->
                     <div class="absolute -bottom-4 right-2 sm:-bottom-6 sm:right-0 lg:-right-12 z-20 bg-on-surface rounded-2xl p-4 sm:p-6 md:p-8 ambient-shadow shadow-2xl">
@@ -472,7 +472,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-white leading-snug">Shanti College of Pharmacy Mega Placements (25+ Jobs)</h4>
-                            <p class="text-xs text-white/80 mt-1 leading-relaxed">25+ rural students secured confirmed jobs in pharmaceutical leaders like MacLeod's Pharma.</p>
+                            <p class="text-xs text-white/80 mt-1 leading-relaxed">25+ rural students secured confirmed jobs in leading pharmaceutical companies including MacLeod's Pharma.</p>
                         </div>
                     </div>
 
@@ -484,7 +484,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-white leading-snug">Shanti Premier League (SPL) Cricket Tournament</h4>
-                            <p class="text-xs text-white/80 mt-1 leading-relaxed">District-level youth cricket tournament promoting physical health, discipline, and leadership.</p>
+                            <p class="text-xs text-white/80 mt-1 leading-relaxed">Annual youth cricket tournament promoting physical health, discipline, and leadership among rural communities.</p>
                         </div>
                     </div>
 
@@ -495,8 +495,8 @@ const homeHtml = `<!DOCTYPE html>
                             <span class="material-symbols-outlined text-[#FFDBCC] text-lg">medical_services</span>
                         </div>
                         <div>
-                            <h4 class="font-bold text-sm text-white leading-snug">4,500+ Patients Treated at Mishra Clinic & Camps</h4>
-                            <p class="text-xs text-white/80 mt-1 leading-relaxed">Free specialist doctor checkups, eye tests, and prescription medicines across 45+ villages.</p>
+                            <h4 class="font-bold text-sm text-white leading-snug">4,500+ Patients Treated at Free Camps</h4>
+                            <p class="text-xs text-white/80 mt-1 leading-relaxed">Free specialist doctor consultations, eye screenings, and prescription medicines across 45+ villages and counting.</p>
                         </div>
                     </div>
 
@@ -508,7 +508,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-white leading-snug">1,200+ Women Certified in Tailoring</h4>
-                            <p class="text-xs text-white/80 mt-1 leading-relaxed">Empowering rural women with certified tailoring skills and micro-enterprise support.</p>
+                            <p class="text-xs text-white/80 mt-1 leading-relaxed">Empowering rural women across India with certified vocational skills and micro-enterprise support.</p>
                         </div>
                     </div>
                 </div>
@@ -558,7 +558,7 @@ const homeHtml = `<!DOCTYPE html>
                         Our Core Program Pillars
                     </h2>
                     <p class="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
-                        Transforming rural lives across Nowgong & Chhatarpur district through transparent, field-tested initiatives.
+                        Transforming rural lives across India through transparent, field-tested initiatives driven by local partnerships.
                     </p>
                 </div>
 
@@ -576,7 +576,7 @@ const homeHtml = `<!DOCTYPE html>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
                                 <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Shanti College of Pharmacy</h3>
-                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Professional D.Pharm & B.Pharm education, modern pharmacy labs, and 25+ Mega Campus Placements.</p>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Professional D.Pharm & B.Pharm education, modern pharmacy labs, and 25+ Mega Campus Placements across leading companies.</p>
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
                                 <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">25+ Placements · 3,000+ Trained</span>
@@ -599,7 +599,7 @@ const homeHtml = `<!DOCTYPE html>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
                                 <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Shanti Premier League & NSS</h3>
-                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">District-level cricket championship (SPL Season-6) and 7-day NSS youth leadership residential camps.</p>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Annual cricket championship (SPL Season-6) and 7-day NSS youth leadership residential camps fostering discipline and civic action.</p>
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
                                 <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">200+ Athletes · 100+ Camps</span>
@@ -622,10 +622,10 @@ const homeHtml = `<!DOCTYPE html>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
                                 <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Free Healthcare & Eye Camps</h3>
-                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Free diagnostic doctor consultations, eye tests, and prescription medicines from Mishra Clinic base.</p>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Free diagnostic consultations, eye screenings, and prescription medicines reaching families in remote rural villages across India.</p>
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
-                                <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">4,500+ Treated · 45 Villages</span>
+                                <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">4,500+ Treated · 45+ Villages</span>
                                 <a href="programs.html#healthcare" class="w-10 h-10 rounded-full bg-[#FFF2EB] flex items-center justify-center text-[#F36F21] group-hover:bg-[#F36F21] group-hover:text-white transition-colors duration-200 shadow-sm">
                                     <span class="material-symbols-outlined text-base">arrow_forward</span>
                                 </a>
@@ -668,7 +668,7 @@ const homeHtml = `<!DOCTYPE html>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
                                 <h3 class="text-xl font-bold text-[#1F1F1F] mb-2">Green Campus Tree Plantation</h3>
-                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Reforestation initiatives across school premises, college campuses, and village grounds in Nowgong.</p>
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">Reforestation initiatives across school premises, college campuses, and village commons — building greener communities nationwide.</p>
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-100 pt-4 mt-auto">
                                 <span class="font-bold text-xs sm:text-sm text-[#1F1F1F]">800+ Trees · 25+ Campuses</span>
@@ -692,7 +692,7 @@ const homeHtml = `<!DOCTYPE html>
                 <!-- Header -->
                 <div class="flex flex-col gap-xs max-w-2xl">
                     <h2 class="font-headline-lg text-headline-lg md:text-[40px] font-extrabold text-[#1F1F1F]">Our Work in the Field</h2>
-                    <p class="font-body-md text-body-md text-[#1F1F1F] font-medium">Transforming Rural Lives Through Holistic Change in Chhatarpur</p>
+                    <p class="font-body-md text-body-md text-[#1F1F1F] font-medium">Transforming Rural Lives Through Holistic Change Across India</p>
                 </div>
 
                 <!-- Carousel Area -->
@@ -819,10 +819,10 @@ const homeHtml = `<!DOCTYPE html>
                     <!-- Body Text -->
                     <div class="text-surface-variant font-body-lg text-body-lg space-y-6 mb-xl leading-relaxed">
                         <p>
-                            For over two decades, Dr. Mishra has spearheaded initiatives that bring critical healthcare, education, and sustainable development to the most marginalized rural communities. His approach is not merely charity, but systemic empowerment.
+                            For over two decades, Dr. Mishra has spearheaded initiatives that bring critical healthcare, education, and sustainable development to the most marginalized rural communities across India. His approach is not merely charity, but systemic empowerment.
                         </p>
                         <p>
-                            We believe that true impact requires deep roots. By partnering with local leaders and focusing on preventative, community-driven solutions, we are building resilience from the ground up.
+                            We believe that true impact requires deep roots. By partnering with local leaders and focusing on preventative, community-driven solutions, we are building resilience from the ground up — one village at a time, across every state we reach.
                         </p>
                     </div>
                     <!-- CTA -->
@@ -1258,10 +1258,10 @@ const aboutHtml = `<!DOCTYPE html>
                 <!-- Column 2: Core Story -->
                 <div class="md:col-span-5 flex flex-col justify-center">
                     <h3 class="text-headline-md font-headline-md text-on-background mb-sm font-bold">
-                        Born at Mishra Clinic, Nowgong
+                        Born at a Rural Clinic, Built for a Nation
                     </h3>
                     <p class="text-body-lg font-body-lg text-on-surface-variant font-medium leading-relaxed">
-                        Dr. Ravi Kant Mishra recognized that health and education cannot be treated in isolation. Treating a rural child's fever was meaningless if the family could not afford school kits or digital skills to break the cycle of poverty.
+                        Dr. Ravi Kant Mishra recognized that health and education cannot be treated in isolation. Treating a rural child's fever was meaningless if the family could not afford school kits or digital skills to break the cycle of poverty. What began as a small clinic in Madhya Pradesh has grown into a national movement touching lives across India.
                     </p>
                 </div>
                 <!-- Column 3: Sidebar Quote -->
@@ -1274,7 +1274,7 @@ const aboutHtml = `<!DOCTYPE html>
                             Our Founding Covenant
                         </span>
                         <p class="text-headline-md font-headline-md text-on-background italic leading-snug font-semibold">
-                            "Built not as charity, but as a covenant with our own community in Chhatarpur."
+                            "Built not as charity, but as a covenant with rural communities across India."
                         </p>
                     </div>
                 </div>
@@ -1294,7 +1294,7 @@ const aboutHtml = `<!DOCTYPE html>
                         Governing Body & Board of Trustees
                     </h2>
                     <p class="text-xl text-gray-600 max-w-2xl">
-                        Steering the society with full transparent governance, integrity, and direct ground presence in Chhatarpur district.
+                        Steering the society with transparent governance, integrity, and direct ground presence across rural India.
                     </p>
                 </div>
 
@@ -1312,9 +1312,9 @@ const aboutHtml = `<!DOCTYPE html>
                         <div>
                             <p class="text-xs font-bold text-primary-container uppercase tracking-wider mb-1">President of Society</p>
                             <h3 class="text-2xl font-bold text-gray-900 mb-1">Dr. Ravi Kant Mishra</h3>
-                            <p class="text-gray-700 font-medium text-sm mb-3">Physician & Social Leader · Nowgong</p>
+                            <p class="text-gray-700 font-medium text-sm mb-3">Physician & Social Leader</p>
                             <p class="text-gray-600 italic text-sm leading-relaxed border-t border-gray-100 pt-3">
-                                "A Village Healed is a Nation Strengthened. Our mission is to ensure no rural family in Chhatarpur is left behind."
+                                "A Village Healed is a Nation Strengthened. Our mission is to ensure no rural family in India is left behind."
                             </p>
                         </div>
                     </div>
@@ -1373,7 +1373,7 @@ const aboutHtml = `<!DOCTYPE html>
                         Recognizing Leaders in NGO Partnership
                     </h3>
                     <p class="font-body-lg text-body-lg text-[#E3E2E2] max-w-2xl leading-relaxed">
-                        Celebrating institutional trust and community impact. Our commitment to transparency and legal compliance is foundational to our mission.
+                        Celebrating institutional trust and nationwide community impact. Our commitment to transparency and legal compliance is foundational to our mission.
                     </p>
                 </div>
 
@@ -1422,11 +1422,11 @@ const aboutHtml = `<!DOCTYPE html>
 
                 <!-- Ceremony Documentary Photo Frame -->
                 <div class="w-full relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 mt-4">
-                    <img class="w-full h-auto max-h-[550px] object-cover" alt="District Social Welfare Felicitation Ceremony - Recognizing Leaders" src="images/award-ceremony.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80';"/>
+                    <img class="w-full h-auto max-h-[550px] object-cover" alt="Government Social Welfare Felicitation Ceremony - Recognizing Leaders" src="images/award-ceremony.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80';"/>
                     <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
                         <div>
-                            <p class="text-white font-bold text-lg">District Social Welfare Felicitation</p>
-                            <p class="text-gray-300 text-sm">Honoring dedicated community service & healthcare outreach in Chhatarpur district.</p>
+                            <p class="text-white font-bold text-lg">Government Social Welfare Felicitation</p>
+                            <p class="text-gray-300 text-sm">Honoring dedicated community service & healthcare outreach across rural India.</p>
                         </div>
                         <a href="donate.html" class="bg-[#F36F21] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 shadow-lg active:scale-95 transition-all">
                             Support Our Cause
@@ -1602,13 +1602,13 @@ const programsHtml = `<!DOCTYPE html>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center text-left">
                 <div class="md:pr-8">
                     <span class="inline-flex items-center gap-2 bg-[#F36F21]/15 text-[#F36F21] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-[#F36F21]/30">
-                        Grassroots Impact in Chhatarpur
+                        Grassroots Impact Across India
                     </span>
                     <h1 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg text-[#1F1F1F] mb-sm max-w-4xl font-black">
                         Our <span class="text-primary-container">Grassroots</span> Initiatives
                     </h1>
                     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-                        Transforming Chhatarpur through healthcare, education, women's skilling, youth action, and environmental conservation.
+                        Transforming rural India through healthcare, education, women's skilling, youth action, and environmental conservation.
                     </p>
                 </div>
 
@@ -1727,7 +1727,7 @@ const programsHtml = `<!DOCTYPE html>
                         Shanti College of Pharmacy
                     </h2>
                     <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
-                        Operating Shanti College of Pharmacy (D.Pharm / B.Pharm programs), providing high-quality professional pharmaceutical education, advanced laboratory infrastructure, and organizing Mega Campus Placement Drives. Over 25+ rural youths secured confirmed jobs at MacLeod's Pharmaceuticals and leading healthcare institutions.
+                        Operating Shanti College of Pharmacy (D.Pharm / B.Pharm programs), providing high-quality professional pharmaceutical education, advanced laboratory infrastructure, and organizing Mega Campus Placement Drives. Over 25+ students secured confirmed jobs at MacLeod's Pharmaceuticals and leading healthcare institutions across the country.
                     </p>
                     <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
                         <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 25+ Mega Placements</div>
@@ -1750,7 +1750,7 @@ const programsHtml = `<!DOCTYPE html>
                         Shanti Premier League (SPL) & Youth Action
                     </h2>
                     <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
-                        Organizing the premier annual district-level cricket championship (Shanti Premier League Season-6) and National Service Scheme (NSS) 7-day youth leadership residential camps, engaging over 200+ rural athletes, instilling discipline, sportsmanship, and channelizing youth energy into positive community leadership.
+                        Organizing the premier annual cricket championship (Shanti Premier League Season-6) and National Service Scheme (NSS) 7-day youth leadership residential camps, engaging over 200+ rural athletes, instilling discipline, sportsmanship, and channelizing youth energy into positive community leadership across India.
                     </p>
                     <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-white p-4 rounded-xl shadow-sm border border-outline-variant/20 w-full max-w-md">
                         <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 200+ Rural Athletes in SPL</div>
@@ -1779,7 +1779,7 @@ const programsHtml = `<!DOCTYPE html>
                     <div class="absolute inset-0 bg-primary-container/10 rounded-[20px] transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
                     <img alt="Free Healthcare & Eye Camps" class="w-full h-auto aspect-square object-cover rounded-[20px] shadow-lg border-2 border-gray-100" src="images/pillar-health.jpg" onerror="this.onerror=null; this.src='images/work-health.jpg';"/>
                     <div class="absolute top-4 left-4 bg-[#F36F21] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
-                        Mishra Clinic Base
+                        Mobile Health Outreach
                     </div>
                 </div>
                 <!-- Content -->
@@ -1789,7 +1789,7 @@ const programsHtml = `<!DOCTYPE html>
                         Free Diagnostic & Eye Camps
                     </h2>
                     <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
-                        Operating from Mishra Clinic in Nowgong, providing free doctor consultations, diagnostic checkups, eye screenings, and prescription medicines to families across 45+ remote rural villages.
+                        Providing free doctor consultations, diagnostic checkups, eye screenings, and prescription medicines to families across 45+ remote rural villages. Our mobile health camps bring primary healthcare directly to underserved communities.
                     </p>
                     <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
                         <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 4,500+ Patients Treated</div>
@@ -1851,7 +1851,7 @@ const programsHtml = `<!DOCTYPE html>
                         Green Campus Tree Plantation Drives
                     </h2>
                     <p class="font-body-lg text-body-lg text-secondary max-w-xl leading-relaxed">
-                        Leading reforestation initiatives across school premises, college campuses, and public village grounds in Nowgong, promoting environmental responsibility and clean ecological practices.
+                        Leading reforestation initiatives across school premises, college campuses, and public village grounds in rural communities, promoting environmental responsibility and clean ecological practices.
                     </p>
                     <div class="flex flex-wrap gap-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 w-full max-w-md">
                         <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 800+ Trees Planted</div>
@@ -1875,7 +1875,7 @@ const programsHtml = `<!DOCTYPE html>
                         Our 4-Step Grassroots Model
                     </h2>
                     <p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
-                        A field-tested, transparent framework for sustainable community development and measurable social impact in rural Madhya Pradesh.
+                        A field-tested, transparent framework for sustainable community development and measurable social impact across rural India.
                     </p>
                 </div>
 
@@ -1890,7 +1890,7 @@ const programsHtml = `<!DOCTYPE html>
                                 <div class="relative z-10">
                                     <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Phase 1</span>
                                     <h3 class="text-2xl font-bold text-gray-900 mb-2">Survey</h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">Identifying genuine village needs through thorough ground-level research, door-to-door surveys, and direct panchayat engagement.</p>
+                                    <p class="text-gray-600 leading-relaxed text-sm">Identifying genuine village needs through thorough ground-level research, door-to-door surveys, and direct panchayat engagement in every region we serve.</p>
                                 </div>
                             </div>
                         </div>
@@ -1911,7 +1911,7 @@ const programsHtml = `<!DOCTYPE html>
                                 <div class="relative z-10">
                                     <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Phase 2</span>
                                     <h3 class="text-2xl font-bold text-gray-900 mb-2">Deploy</h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">Mobilizing critical diagnostic kits, medicines, certified trainers, and educational resources directly from Mishra Clinic HQ to remote sites.</p>
+                                    <p class="text-gray-600 leading-relaxed text-sm">Mobilizing critical diagnostic kits, medicines, certified trainers, and educational resources directly from our headquarters to remote field sites across India.</p>
                                 </div>
                             </div>
                         </div>
@@ -2081,13 +2081,13 @@ const volunteerHtml = `<!DOCTYPE html>
             <!-- Text Content -->
             <div class="w-full lg:w-1/2 flex flex-col items-start gap-6 z-10">
                 <div class="inline-flex items-center gap-2 bg-[#F36F21]/10 text-[#F36F21] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#F36F21]/20 shadow-sm">
-                    Field Action in Chhatarpur
+                    Field Action Across India
                 </div>
                 <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#F36F21] font-black leading-tight">
-                    Become the Force of Change in Chhatarpur
+                    Become the Force of Change Across Rural India
                 </h1>
                 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
-                    Step out of the classroom and into the field. Join PGSM Welfare to deliver real, hands-on impact where it matters most across rural communities.
+                    Step out of the classroom and into the field. Join PGSM Welfare to deliver real, hands-on impact where it matters most across rural communities in India.
                 </p>
                 <a class="inline-flex items-center gap-2 font-label-bold bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-all shadow-lg active:scale-95 text-base font-bold group" href="#volunteer-roles">
                     Apply to Volunteer 
@@ -2097,7 +2097,7 @@ const volunteerHtml = `<!DOCTYPE html>
 
             <!-- Image Anchor -->
             <div class="w-full lg:w-1/2 relative z-10 rounded-2xl overflow-hidden ambient-shadow border-4 border-white shadow-2xl">
-                <img alt="Authentic group photo of NSS youth volunteers ready for field work in Nowgong" class="w-full h-auto aspect-[4/3] object-cover rounded-2xl" src="images/work-nss.jpg" onerror="this.onerror=null; this.src='images/pillar-nss.jpg';"/>
+                <img alt="Authentic group photo of NSS youth volunteers ready for field work" class="w-full h-auto aspect-[4/3] object-cover rounded-2xl" src="images/work-nss.jpg" onerror="this.onerror=null; this.src='images/pillar-nss.jpg';"/>
             </div>
 
             <!-- Decorative Blob -->
@@ -2124,7 +2124,7 @@ const volunteerHtml = `<!DOCTYPE html>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900">Real Field Impact</h3>
                         <p class="font-body-md text-body-md text-gray-600 leading-relaxed">
-                            Zero admin busywork. Work directly on the ground organizing free health camps, setting up computer labs, and mentoring rural children.
+                            Zero admin busywork. Work directly on the ground organizing free health camps, setting up computer labs, and mentoring rural children across India.
                         </p>
                     </div>
 
@@ -2162,7 +2162,7 @@ const volunteerHtml = `<!DOCTYPE html>
                         Where We Need Your Energy
                     </h2>
                     <p class="font-body-lg text-body-lg text-gray-300">
-                        Match your skills with our grassroots programs.
+                        Match your skills with our grassroots programs across India.
                     </p>
                 </div>
 
@@ -2179,7 +2179,7 @@ const volunteerHtml = `<!DOCTYPE html>
                         <div class="p-md flex flex-col flex-grow">
                             <h3 class="font-headline-md text-headline-md text-white mb-xs font-bold">Medical Camp Assistant</h3>
                             <p class="font-body-md text-body-md text-gray-300 mb-md flex-grow leading-relaxed">
-                                Help register rural patients, manage crowds, and assist doctors at Mishra Clinic's free village health camps.
+                                Help register rural patients, manage crowds, and assist doctors at our free village health camps.
                             </p>
                             <a href="#volunteer-apply" onclick="document.getElementById('interest').value='medical_camp';" class="w-full text-center bg-transparent border-2 border-primary-container text-primary-container font-label-bold text-label-bold px-lg py-sm rounded-full transition-colors group-hover:bg-primary-container group-hover:text-white cursor-pointer active:scale-95">
                                 Sign Up
@@ -2257,10 +2257,10 @@ const volunteerHtml = `<!DOCTYPE html>
                 <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-gray-900 font-black">
                     Submit Your Application
                 </h2>
-                <p class="text-gray-600 text-sm mt-1">Join our active cohort of grassroots volunteers in Nowgong & Chhatarpur.</p>
+                <p class="text-gray-600 text-sm mt-1">Join our active cohort of grassroots volunteers across India.</p>
             </div>
 
-            <form class="space-y-6" id="volunteer-form" onsubmit="event.preventDefault(); alert('Application submitted successfully! Our team at Nowgong HQ will contact you on WhatsApp/Phone shortly.'); this.reset();">
+            <form class="space-y-6" id="volunteer-form" onsubmit="event.preventDefault(); alert('Application submitted successfully! Our team will contact you on WhatsApp/Phone shortly.'); this.reset();">
                 <!-- Full Name -->
                 <div>
                     <label class="block font-bold text-sm text-gray-700 mb-2" for="fullName">Full Name *</label>
@@ -2307,7 +2307,7 @@ const volunteerHtml = `<!DOCTYPE html>
                 <!-- Textarea -->
                 <div>
                     <label class="block font-bold text-sm text-gray-700 mb-2" for="motivation">Why do you want to join PGSM Welfare? *</label>
-                    <textarea class="w-full bg-gray-50 border border-gray-300 rounded-xl py-3 px-4 text-base text-gray-900 focus:outline-none focus:border-[#F36F21] focus:ring-2 focus:ring-[#F36F21]/20 transition-all resize-none" id="motivation" name="motivation" placeholder="Tell us briefly about your background and why you want to serve in Chhatarpur..." rows="4" required></textarea>
+                    <textarea class="w-full bg-gray-50 border border-gray-300 rounded-xl py-3 px-4 text-base text-gray-900 focus:outline-none focus:border-[#F36F21] focus:ring-2 focus:ring-[#F36F21]/20 transition-all resize-none" id="motivation" name="motivation" placeholder="Tell us briefly about your background and why you want to serve rural communities with PGSM Welfare..." rows="4" required></textarea>
                 </div>
 
                 <!-- Submit Button -->
@@ -2461,10 +2461,10 @@ const donateHtml = `<!DOCTYPE html>
                 <span>CSR: CSR00007144</span>
             </div>
             <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#1F1F1F] mb-4 font-black">
-                Your Contribution Stays in Chhatarpur
+                Your Contribution Reaches Rural India Directly
             </h1>
             <p class="font-body-lg text-body-lg text-secondary max-w-2xl leading-relaxed">
-                100% of your donation is deployed directly to our grassroots medical, digital education, and women skilling camps. Eligible for 50% tax deduction under Section 80G (URN: <strong class="text-gray-900 font-bold">AAEAP1466C24BP02</strong>).
+                100% of your donation is deployed directly to our grassroots medical, digital education, and women skilling camps across India. Eligible for 50% tax deduction under Section 80G (URN: <strong class="text-gray-900 font-bold">AAEAP1466C24BP02</strong>).
             </p>
         </section>
 
@@ -2478,7 +2478,7 @@ const donateHtml = `<!DOCTYPE html>
                 <div class="p-md flex flex-col flex-grow">
                     <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹500</div>
                     <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Fill a School Bag</h3>
-                    <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Funds a complete school kit (books, bag, stationery) for 1 rural child in Nowgong.</p>
+                    <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Funds a complete school kit (books, bag, stationery) for 1 rural child.</p>
                     <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
                         Donate ₹500
                     </a>

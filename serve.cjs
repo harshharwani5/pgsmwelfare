@@ -19,7 +19,25 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   let reqUrl = req.url.split('?')[0];
   if (reqUrl === '/') {
-    reqUrl = '/pgsm_hero.html';
+    reqUrl = '/index.html';
+  } else if (reqUrl === '/gym' || reqUrl === '/home' || reqUrl === '/website1' || reqUrl === '/v1') {
+    reqUrl = '/gym_home.html';
+  } else if (reqUrl === '/website2' || reqUrl === '/v2' || reqUrl === '/gym_v2') {
+    reqUrl = '/gym_home_v2.html';
+  } else if (reqUrl === '/website3' || reqUrl === '/v3' || reqUrl === '/gym_v3') {
+    reqUrl = '/gym_home_v3.html';
+  } else if (reqUrl === '/classes') {
+    reqUrl = '/classes.html';
+  } else if (reqUrl === '/classes_v2') {
+    reqUrl = '/classes_v2.html';
+  } else if (reqUrl === '/classes_v3') {
+    reqUrl = '/classes_v3.html';
+  } else if (reqUrl === '/membership' || reqUrl === '/pricing') {
+    reqUrl = '/membership.html';
+  } else if (reqUrl === '/membership_v2') {
+    reqUrl = '/membership_v2.html';
+  } else if (reqUrl === '/membership_v3') {
+    reqUrl = '/membership_v3.html';
   }
   const filePath = path.join(__dirname, decodeURIComponent(reqUrl));
   const extname = path.extname(filePath).toLowerCase();
