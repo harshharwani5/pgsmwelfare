@@ -643,8 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(savedLang);
 });
 
-// Default Razorpay Configuration (Replace with Live Key ID for production)
-window.RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'rzp_test_PGSMWelfare2026';
+// Razorpay Configuration
+window.RAZORPAY_KEY_ID = 'rzp_test_51ZJ10hEeqkZ1L';
 
 /**
  * Universal Razorpay Payment Integration Handler
@@ -661,7 +661,7 @@ function payWithRazorpay(amount, title) {
     }
 
     const numericAmount = parseFloat(amount) || 500;
-    const razorpayKey = window.RAZORPAY_KEY_ID || 'rzp_test_PGSMWelfare2026';
+    const razorpayKey = window.RAZORPAY_KEY_ID || 'rzp_test_51ZJ10hEeqkZ1L';
     const isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
 
     const options = {
