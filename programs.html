@@ -143,6 +143,7 @@
             transform: scale(0.98);
         }
     </style>
+    <script src="translations.js"></script>
 </head>
 <body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     
@@ -152,17 +153,17 @@
             <!-- Brand Logo -->
             <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
                 <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-[#a04100]">PGSM Welfare</span>
+                <span class="font-black tracking-tight text-[#a04100]" data-i18n="brand_name">PGSM Welfare</span>
             </a>
             
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm">
-                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="about.html">About Us</a>
-                <a class="text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold" href="programs.html">Programs & Placements</a>
-                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="volunteer.html">Volunteer</a>
-                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="index.html#work">Field Impact</a>
-                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="about.html#governance">Leadership</a>
-                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="donate.html">Donate</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold" href="programs.html" data-i18n="nav_programs">Programs & Placements</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="volunteer.html" data-i18n="nav_volunteer">Volunteer</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="index.html#work" data-i18n="nav_impact">Field Impact</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="about.html#governance" data-i18n="nav_leadership">Leadership</a>
+                <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="donate.html" data-i18n="nav_donate">Donate</a>
             </nav>
             
             <!-- Desktop Right Corner: Language Toggle & CTA -->
@@ -177,7 +178,7 @@
                 <!-- Desktop CTA -->
                 <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-5 py-2.5 rounded-full hover:bg-[#a04100] active:scale-95 transition-all shadow-md inline-flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
-                    Donate & 80G
+                    <span data-i18n="nav_cta">Donate & 80G</span>
                 </a>
             </div>
             
@@ -208,42 +209,42 @@
                     </div>
                 </div>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="index.html">
-                    <span>Home</span>
+                    <span data-i18n="m_nav_home">Home</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="about.html">
-                    <span>About Us (Founding Story & Trustees)</span>
+                    <span data-i18n="m_nav_about">About Us (Founding Story & Trustees)</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 bg-[#FFF7F2] text-[#F36F21] font-extrabold" href="programs.html">
-                    <span>Programs & Placements</span>
+                    <span data-i18n="m_nav_programs">Programs & Placements</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="volunteer.html">
-                    <span>Volunteer (Field & NSS Roles)</span>
+                    <span data-i18n="m_nav_volunteer">Volunteer (Field & NSS Roles)</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="index.html#work">
-                    <span>Field Impact & Stories</span>
+                    <span data-i18n="m_nav_impact">Field Impact & Stories</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="about.html#governance">
-                    <span>Governing Body & Leadership</span>
+                    <span data-i18n="m_nav_leadership">Governing Body & Leadership</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 <a class="flex items-center justify-between py-2.5 px-3 rounded-lg border-b border-gray-100 text-gray-800 hover:bg-gray-50" href="about.html#compliance">
-                    <span>80G / 12A / NITI Compliance</span>
+                    <span data-i18n="m_nav_compliance">80G / 12A / NITI Compliance</span>
                     <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
                 </a>
                 
                 <div class="pt-3 flex flex-col gap-3">
                     <a href="donate.html" class="w-full bg-[#F36F21] text-white text-center font-bold py-3.5 px-6 rounded-xl hover:bg-[#a04100] active:scale-95 shadow-md flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">favorite</span>
-                        Donate & 80G Tax Exemption
+                        <span data-i18n="m_nav_cta">Donate & 80G Tax Exemption</span>
                     </a>
                     <a href="tel:+919406762912" class="w-full bg-gray-100 text-gray-800 text-center font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-sm text-[#F36F21]">call</span>
-                        Helpdesk: +91 94067 62912
+                        <span data-i18n="m_helpdesk">Helpdesk: +91 94067 62912</span>
                     </a>
                 </div>
             </nav>
@@ -287,7 +288,7 @@
                         </div>
                         <div>
                             <span class="font-bold text-lg text-[#1F1F1F] block">3,000+</span>
-                            <span class="text-xs text-gray-500 font-medium">Students Trained</span>
+                            <span class="text-xs text-gray-500 font-medium"><span data-i18n="metric2_lbl">Students Trained</span></span>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -314,7 +315,7 @@
                         </div>
                         <div>
                             <span class="font-bold text-lg text-[#1F1F1F] block">800+</span>
-                            <span class="text-xs text-gray-500 font-medium">Trees Planted</span>
+                            <span class="text-xs text-gray-500 font-medium"><span data-i18n="metric4_lbl">Trees Planted</span></span>
                         </div>
                     </div>
                 </div>
@@ -396,7 +397,7 @@
                     </div>
                     <div class="flex gap-4">
                         <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
-                            Sponsor a Student's Semester Fee
+                            <span data-i18n="prog_pharm_btn">Sponsor a Student's Semester Fee</span>
                         </a>
                     </div>
                 </div>
@@ -486,12 +487,12 @@
                         Providing certified sewing, cutting, embroidery, and handicraft training that enables rural women to start home enterprises, earn independent income, and support their families with economic dignity.
                     </p>
                     <div class="bg-white p-4 rounded-xl border border-gray-200 mb-6 shadow-sm">
-                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">1,200+ Women Certified</strong></div>
+                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]"><span data-i18n="p4_stat">1,200+ Women Certified</span></strong></div>
                         <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">Self-Reliance &amp; Micro-Enterprise</strong></div>
                     </div>
                     <div class="flex gap-4">
                         <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#a04100] transition-colors">
-                            Sponsor a Sewing Machine (₹2,500)
+                            <span data-i18n="prog_women_btn">Sponsor a Sewing Machine (₹2,500)</span>
                         </a>
                     </div>
                 </div>
@@ -527,7 +528,7 @@
                         Leading reforestation initiatives across school premises, college campuses, and public village grounds in rural communities, promoting environmental responsibility and clean ecological practices.
                     </p>
                     <div class="bg-[#FFF7F2] p-4 rounded-xl border border-[#F36F21]/20 mb-6">
-                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">800+ Trees Planted</strong></div>
+                        <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">800+ <span data-i18n="metric4_lbl">Trees Planted</span></strong></div>
                         <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> <strong class="text-sm text-[#1F1F1F]">25+ Green Campuses Across India</strong></div>
                     </div>
                     <div class="flex gap-4">
@@ -651,47 +652,47 @@
             <div class="flex flex-col gap-4">
                 <a href="index.html" class="text-2xl font-black text-[#FFB693] tracking-tight flex items-center gap-2">
                     <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                    PGSM Welfare
+                    <span data-i18n="brand_name">PGSM Welfare</span>
                 </a>
-                <p class="text-sm text-gray-300 leading-relaxed">
+                <p class="text-sm text-gray-300 leading-relaxed" data-i18n="ft_desc">
                     Pioneering rural education-to-employment pathways, community health surveillance, and youth leadership across Central India since 2016.
                 </p>
                 <ul class="flex flex-col gap-2 mt-2 text-xs font-bold text-gray-200">
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        Section 80G Certified (URN: AAEAP1466C24BP02)
+                        <span data-i18n="ft_cred_80g">Section 80G Certified (URN: AAEAP1466C24BP02)</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        NITI Aayog Darpan (MP/2021/0299785)
+                        <span data-i18n="ft_cred_niti">NITI Aayog Darpan (MP/2021/0299785)</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
-                        MCA CSR Approved (Reg: CSR00007144)
+                        <span data-i18n="ft_cred_csr">MCA CSR Approved (Reg: CSR00007144)</span>
                     </li>
                 </ul>
             </div>
 
             <!-- Column 2: Quick Links -->
             <div class="flex flex-col gap-4">
-                <h3 class="text-lg font-bold text-[#FFB693]">Quick Links</h3>
+                <h3 class="text-lg font-bold text-[#FFB693]" data-i18n="ft_ql_title">Quick Links</h3>
                 <nav class="flex flex-col gap-2 text-sm">
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html">About the Foundation</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html">Shanti College & Programs</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html">NSS Volunteer Corps</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html">Tax-Exempt Donations</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance">Board of Trustees</a>
-                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work">Photo Gallery & Press</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html" data-i18n="ft_ql_about">About the Foundation</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="programs.html" data-i18n="ft_ql_programs">Shanti College & Programs</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="volunteer.html" data-i18n="ft_ql_nss">NSS Volunteer Corps</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="donate.html" data-i18n="ft_ql_donate">Tax-Exempt Donations</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="about.html#governance" data-i18n="ft_ql_board">Board of Trustees</a>
+                    <a class="text-gray-300 hover:text-[#F36F21] transition-colors w-max" href="index.html#work" data-i18n="ft_ql_gallery">Photo Gallery & Press</a>
                 </nav>
             </div>
 
             <!-- Column 3: Contact Details (Regulatory Office) -->
             <div class="flex flex-col gap-4">
-                <h3 class="text-lg font-bold text-[#FFB693]">Registered Secretariat</h3>
+                <h3 class="text-lg font-bold text-[#FFB693]" data-i18n="ft_sec_title">Registered Secretariat</h3>
                 <div class="flex flex-col gap-3 text-sm text-gray-300">
                     <p class="flex items-start gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0 mt-0.5">location_on</span>
-                        <span>Secretariat Office, Mishra Clinic Campus, Nowgong, Madhya Pradesh – 471201</span>
+                        <span data-i18n="ft_sec_addr">Secretariat Office, Mishra Clinic Campus, Nowgong, Madhya Pradesh – 471201</span>
                     </p>
                     <p class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F36F21] text-lg shrink-0">call</span>
@@ -706,153 +707,30 @@
 
             <!-- Column 4: Newsletter -->
             <div class="flex flex-col gap-4">
-                <h3 class="text-lg font-bold text-[#FFB693]">Subscribe for Updates</h3>
-                <p class="text-xs text-gray-400">Receive verified quarterly impact reports and field audit summaries.</p>
-                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                <h3 class="text-lg font-bold text-[#FFB693]" data-i18n="ft_news_title">Subscribe for Updates</h3>
+                <p class="text-xs text-gray-400" data-i18n="ft_news_desc">Receive verified quarterly impact reports and field audit summaries.</p>
+                <form class="flex flex-col gap-2" onsubmit="event.preventDefault(); alert(document.documentElement.lang === 'hi' ? 'पीजीएसएम वेलफेयर परिवार से जुड़ने के लिए आपका धन्यवाद!' : 'Subscribed successfully!');">
                     <label class="sr-only" for="newsletter-email">Your Email Address</label>
-                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#F36F21] outline-none" id="newsletter-email" placeholder="Your Email Address" type="email" required/>
-                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors shadow-md cursor-pointer" type="submit">
+                    <input class="w-full bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#F36F21] outline-none" id="newsletter-email" placeholder="Your Email Address" data-i18n-placeholder="ft_news_placeholder" type="email" required/>
+                    <button class="bg-[#F36F21] text-white font-bold text-sm rounded-lg px-4 py-2.5 hover:bg-[#a04100] transition-colors shadow-md cursor-pointer" type="submit" data-i18n="ft_news_btn">
                         Subscribe
                     </button>
                 </form>
-                <div class="flex gap-3 mt-2">
-                    <a aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
-                        <span class="material-symbols-outlined text-base">public</span>
-                    </a>
-                    <a aria-label="Twitter" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
-                        <span class="material-symbols-outlined text-base">share</span>
-                    </a>
-                    <a aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
-                        <span class="material-symbols-outlined text-base">photo_camera</span>
-                    </a>
-                    <a aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] hover:text-white transition-all shadow" href="#">
-                        <span class="material-symbols-outlined text-base">smart_display</span>
-                    </a>
-                </div>
             </div>
         </div>
 
         <!-- Bottom Bar -->
         <div class="border-t border-white/10 bg-[#171717] py-4 px-4 text-xs text-gray-400">
             <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
-                <p>© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
-                <p>Society Reg: 06/12/03/11718/16 | Permanent PAN: AAATP8891J</p>
+                <p data-i18n="ft_copy">© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.</p>
+                <p data-i18n="ft_reg_ids">Society Reg: 06/12/03/11718/16 | Permanent PAN: AAATP8891J</p>
             </div>
         </div>
     </footer>
 
-    <!-- Google Translate Hidden Container & Frame Suppression Styles -->
-    <div id="google_translate_element" style="display:none; visibility:hidden;"></div>
-    <style>
-        .goog-te-banner-frame.skiptranslate,
-        .goog-te-banner-frame,
-        iframe.goog-te-banner-frame,
-        .goog-te-balloon-frame,
-        #goog-gt-tt,
-        .goog-te-spinner-pos {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        body {
-            top: 0px !important;
-            position: static !important;
-        }
-        .skiptranslate > iframe {
-            display: none !important;
-        }
-        #google_translate_element {
-            display: none !important;
-        }
-        .goog-tooltip, .goog-tooltip:hover {
-            display: none !important;
-        }
-        .goog-text-highlight {
-            background-color: transparent !important;
-            box-shadow: none !important;
-        }
-        font {
-            background-color: transparent !important;
-            box-shadow: none !important;
-        }
-    </style>
-
-    <!-- Google Translate API Callback & Loader -->
+    <!-- Universal Bilingual Translation Engine -->
+    <script src="translations.js"></script>
     <script>
-        window.googleTranslateElementInit = function() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,hi',
-                autoDisplay: false
-            }, 'google_translate_element');
-        };
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <!-- Universal Navigation & Language Switcher Script -->
-    <script>
-        function updateLangUI(lang) {
-            const isHindi = lang === 'hi';
-            
-            document.querySelectorAll('.lang-btn-en').forEach(btn => {
-                if (isHindi) {
-                    btn.classList.remove('bg-[#F36F21]', 'text-white', 'shadow-xs');
-                    btn.classList.add('text-gray-600', 'hover:text-gray-900');
-                } else {
-                    btn.classList.add('bg-[#F36F21]', 'text-white', 'shadow-xs');
-                    btn.classList.remove('text-gray-600', 'hover:text-gray-900');
-                }
-            });
-
-            document.querySelectorAll('.lang-btn-hi').forEach(btn => {
-                if (isHindi) {
-                    btn.classList.add('bg-[#F36F21]', 'text-white', 'shadow-xs');
-                    btn.classList.remove('text-gray-600', 'hover:text-gray-900');
-                } else {
-                    btn.classList.remove('bg-[#F36F21]', 'text-white', 'shadow-xs');
-                    btn.classList.add('text-gray-600', 'hover:text-gray-900');
-                }
-            });
-
-            document.querySelectorAll('.mobile-lang-label').forEach(el => {
-                el.textContent = isHindi ? 'English' : 'हिन्दी';
-            });
-        }
-
-        function setLanguage(lang) {
-            localStorage.setItem('pgsm_selected_lang', lang);
-            const domain = window.location.hostname;
-            
-            if (lang === 'hi') {
-                document.cookie = "googtrans=/en/hi; path=/";
-                if (domain && domain !== 'localhost') {
-                    document.cookie = "googtrans=/en/hi; path=/; domain=" + domain;
-                }
-            } else {
-                document.cookie = "googtrans=/en/en; path=/";
-                if (domain && domain !== 'localhost') {
-                    document.cookie = "googtrans=/en/en; path=/; domain=" + domain;
-                }
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                if (domain && domain !== 'localhost') {
-                    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain;
-                }
-            }
-
-            const combo = document.querySelector('.goog-te-combo');
-            if (combo) {
-                combo.value = lang;
-                combo.dispatchEvent(new Event('change'));
-            } else {
-                window.location.reload();
-            }
-            updateLangUI(lang);
-        }
-
-        function toggleLanguage() {
-            const current = localStorage.getItem('pgsm_selected_lang') || (document.cookie.includes('/en/hi') ? 'hi' : 'en');
-            setLanguage(current === 'hi' ? 'en' : 'hi');
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle
             const btn = document.getElementById('mobileMenuBtn');
@@ -880,24 +758,9 @@
             }
 
             // Sync Initial Language State
-            const isHindiCookie = document.cookie.includes('googtrans=/en/hi');
-            const savedLang = localStorage.getItem('pgsm_selected_lang') || (isHindiCookie ? 'hi' : 'en');
-            updateLangUI(savedLang);
-
-            if (savedLang === 'hi') {
-                let checkAttempts = 0;
-                const checkInterval = setInterval(() => {
-                    const combo = document.querySelector('.goog-te-combo');
-                    if (combo) {
-                        if (combo.value !== 'hi') {
-                            combo.value = 'hi';
-                            combo.dispatchEvent(new Event('change'));
-                        }
-                        clearInterval(checkInterval);
-                    } else if (++checkAttempts > 25) {
-                        clearInterval(checkInterval);
-                    }
-                }, 100);
+            const savedLang = localStorage.getItem('pgsm_selected_lang') || 'en';
+            if (typeof applyLanguage === 'function') {
+                applyLanguage(savedLang);
             }
         });
     </script>
