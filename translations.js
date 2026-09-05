@@ -642,3 +642,64 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('pgsm_selected_lang') || 'en';
     applyLanguage(savedLang);
 });
+
+// Default Razorpay Configuration (Replace with Live Key ID for production)
+window.RAZORPAY_KEY_ID = window.RAZORPAY_KEY_ID || 'rzp_test_PGSMWelfare2026';
+
+/**
+ * Universal Razorpay Payment Integration Handler
+ * @param {number|string} amount Donation amount in INR (e.g. 500, 1200)
+ * @param {string} title Tier title or donation cause
+ */
+function payWithRazorpay(amount, title) {
+    if (typeof Razorpay === 'undefined') {
+        const isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
+        alert(isHindi 
+            ? 'रेजॉरपे पेमेंट गेटवे लोड हो रहा है, कृपया 2 सेकंड बाद पुनः प्रयास करें।' 
+            : 'Razorpay Payment Gateway is initializing. Please try again in a moment.');
+        return;
+    }
+
+    const numericAmount = parseFloat(amount) || 500;
+    const razorpayKey = window.RAZORPAY_KEY_ID || 'rzp_test_PGSMWelfare2026';
+    const isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
+
+    const options = {
+        key: razorpayKey,
+        amount: Math.round(numericAmount * 100),
+        currency: 'INR',
+        name: isHindi ? 'पीजीएसएम वेलफेयर सोसाइटी' : 'PGSM Welfare Society',
+        description: (isHindi ? 'सहयोग राशि: ' : 'Donation: ') + (title || (isHindi ? 'ग्रामीण उत्थान' : 'Rural Upliftment')),
+        image: 'images/real/hero_placement_pure.jpg',
+        handler: function (response) {
+            const paymentId = response.razorpay_payment_id;
+            const successMsg = isHindi 
+                ? 'ऑनलाइन भुगतान सफलतापूर्वक पूरा हुआ!\nट्रांजैक्शन / पेमेंट आईडी: ' + paymentId + '\nधारा 80G कर-छूट रसीद प्रपत्र में आपकी राशि एवं आईडी दर्ज कर दी गई है।'
+                : 'Payment completed successfully!\nTransaction / Payment ID: ' + paymentId + '\nYour 80G Tax Exemption Receipt form has been pre-filled below.';
+            alert(successMsg);
+
+            // Pre-fill Form 80G Receipt
+            const amtInput = document.getElementById('receiptAmount');
+            const utrInput = document.getElementById('receiptTransactionId');
+            if (amtInput) amtInput.value = numericAmount;
+            if (utrInput) utrInput.value = paymentId;
+
+            const claimForm = document.getElementById('claim-80g');
+            if (claimForm) {
+                claimForm.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+        prefill: {
+            name: '',
+            email: '',
+            contact: ''
+        },
+        theme: {
+            color: '#F36F21'
+        }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+}
+

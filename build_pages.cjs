@@ -199,6 +199,7 @@ const unifiedFooterHtml = `
     </footer>
 
     <!-- Universal Bilingual Translation Engine -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="translations.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -394,6 +395,7 @@ const homeHtml = `<!DOCTYPE html>
             background-color: #FFF7F2 !important;
         }
     </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="translations.js"></script>
 </head>
 <body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col overflow-x-hidden w-full">
@@ -1135,6 +1137,15 @@ const homeHtml = `<!DOCTYPE html>
                     updateUI(e.target.value, true);
                 });
             }
+
+            if (cta) {
+                cta.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const amt = window.currentSelectedDonationAmount || 1200;
+                    const title = window.currentSelectedDonationTitle || 'Unlock Digital Access';
+                    payWithRazorpay(amt, title);
+                });
+            }
         });
     </script>
 </body>
@@ -1236,6 +1247,7 @@ const aboutHtml = `<!DOCTYPE html>
             transform: translateY(-4px);
         }
     </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="translations.js"></script>
 </head>
 <body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col overflow-x-hidden w-full">
@@ -1582,6 +1594,7 @@ const programsHtml = `<!DOCTYPE html>
             transform: scale(0.98);
         }
     </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="translations.js"></script>
 </head>
 <body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
@@ -2081,6 +2094,7 @@ const volunteerHtml = `<!DOCTYPE html>
             border-top-width: 4px;
         }
     </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="translations.js"></script>
 </head>
 <body class="bg-white text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
@@ -2482,6 +2496,7 @@ const donateHtml = `<!DOCTYPE html>
             color: rgba(255, 255, 255, 0.45);
         }
     </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="translations.js"></script>
 </head>
 <body class="bg-soft-cream text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
@@ -2517,9 +2532,9 @@ const donateHtml = `<!DOCTYPE html>
                     <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹500</div>
                     <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Fill a School Bag</h3>
                     <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Funds a complete school kit (books, bag, stationery) for 1 rural child.</p>
-                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
-                        Donate ₹500
-                    </a>
+                    <button type="button" onclick="payWithRazorpay(500, 'Fill a School Bag')" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block cursor-pointer active:scale-95">
+                        Donate ₹500 via Razorpay
+                    </button>
                 </div>
             </div>
 
@@ -2533,9 +2548,9 @@ const donateHtml = `<!DOCTYPE html>
                     <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹1,200</div>
                     <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Unlock Digital Access</h3>
                     <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Covers one month of computer lab access and internet tutor training for 3 children.</p>
-                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#F36F21] text-white font-bold py-2.5 px-4 rounded-xl hover:bg-[#a04100] transition-colors shadow-md block">
-                        Donate ₹1,200
-                    </a>
+                    <button type="button" onclick="payWithRazorpay(1200, 'Unlock Digital Access')" class="mt-4 w-full text-center bg-[#F36F21] text-white font-bold py-2.5 px-4 rounded-xl hover:bg-[#a04100] transition-colors shadow-md block cursor-pointer active:scale-95">
+                        Donate ₹1,200 via Razorpay
+                    </button>
                 </div>
             </div>
 
@@ -2548,9 +2563,9 @@ const donateHtml = `<!DOCTYPE html>
                     <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹2,500</div>
                     <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Change Her Economic Story</h3>
                     <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Sponsors vocational tailoring materials and sewing kit for one rural woman's micro-enterprise.</p>
-                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
-                        Donate ₹2,500
-                    </a>
+                    <button type="button" onclick="payWithRazorpay(2500, 'Change Her Economic Story')" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block cursor-pointer active:scale-95">
+                        Donate ₹2,500 via Razorpay
+                    </button>
                 </div>
             </div>
 
@@ -2563,9 +2578,9 @@ const donateHtml = `<!DOCTYPE html>
                     <div class="text-[#F36F21] font-headline-md text-headline-md font-bold mb-2">₹5,000</div>
                     <h3 class="font-label-bold text-lg text-on-surface mb-2 font-bold">Bring Healthcare Home</h3>
                     <p class="font-body-md text-body-md text-secondary mt-auto leading-relaxed">Funds a free mobile medical camp visit, diagnostic tests, and medicines for 25 rural families.</p>
-                    <a href="#ways-to-give" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block">
-                        Donate ₹5,000
-                    </a>
+                    <button type="button" onclick="payWithRazorpay(5000, 'Bring Healthcare Home')" class="mt-4 w-full text-center bg-[#FFF2EB] border border-[#F36F21]/30 text-[#F36F21] font-bold py-2.5 px-4 rounded-xl hover:bg-[#F36F21] hover:text-white transition-colors block cursor-pointer active:scale-95">
+                        Donate ₹5,000 via Razorpay
+                    </button>
                 </div>
             </div>
         </section>
