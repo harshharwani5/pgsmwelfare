@@ -79,8 +79,7 @@ if ($fp) {
 }
 
 // 2. Automated Google Sheets Webhook Sync
-// You can set the Webhook URL in your Hostinger environment variables or configure it directly below
-$googleSheetWebhook = getenv('GOOGLE_SHEET_VOLUNTEER_URL') ?: '';
+$googleSheetWebhook = getenv('GOOGLE_SHEET_VOLUNTEER_URL') ?: 'https://script.google.com/macros/s/AKfycbwALG5uPwxKeT6wDVCLGRfFzSfeGLVgi1NSMarr02sNpg-8DXJzLu0ocXS8YumpGs-_wg/exec';
 
 $sheetSuccess = false;
 if (!empty($googleSheetWebhook) && strpos($googleSheetWebhook, 'http') === 0) {
