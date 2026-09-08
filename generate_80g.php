@@ -200,23 +200,26 @@ $pdf->SetTextColor(31, 31, 31);
 // Metadata Box
 $pdf->SetFillColor(248, 249, 250);
 $pdf->SetDrawColor(220, 220, 220);
-$pdf->Rect(14, $pdf->GetY(), 182, 14, 'DF');
+$pdf->Rect(14, $pdf->GetY(), 182, 16, 'DF');
 
-$metaY = $pdf->GetY() + 2;
+$metaY = $pdf->GetY() + 1.5;
 $pdf->SetXY(16, $metaY);
-$pdf->Cell(45, 5, 'Receipt No: ' . $receiptNumber, 0, 0, 'L');
-$pdf->Cell(45, 5, 'Date of Issue: ' . $issueDate, 0, 0, 'L');
-$pdf->Cell(45, 5, 'Financial Year: ' . $finYear, 0, 0, 'L');
-$pdf->Cell(45, 5, 'Assessment Year: ' . $ayYear, 0, 1, 'L');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(92, 4.5, 'Receipt No: ' . $receiptNumber, 0, 0, 'L');
+$pdf->Cell(86, 4.5, 'Date of Issue: ' . $issueDate, 0, 1, 'L');
 
-$pdf->SetXY(16, $metaY + 5.5);
-$pdf->SetFont('Arial', '', 8);
+$pdf->SetXY(16, $metaY + 4.5);
+$pdf->Cell(92, 4.5, 'Financial Year: ' . $finYear, 0, 0, 'L');
+$pdf->Cell(86, 4.5, 'Assessment Year: ' . $ayYear, 0, 1, 'L');
+
+$pdf->SetXY(16, $metaY + 9);
+$pdf->SetFont('Arial', '', 7.5);
 $pdf->SetTextColor(100, 100, 100);
-$pdf->Cell(90, 5, 'Section 80G Approval Order: AAEAP1466C24BP02', 0, 0, 'L');
-$pdf->Cell(90, 5, 'Validity: In Perpetuity (Sub-clause (vi) of clause (a) of Section 80G(5))', 0, 1, 'L');
+$pdf->Cell(92, 4.5, 'Section 80G Approval URN: AAEAP1466C24BP02', 0, 0, 'L');
+$pdf->Cell(86, 4.5, 'Validity: In Perpetuity (Sec 80G(5)(vi))', 0, 1, 'L');
 
 // 5. Donor Information Section
-$pdf->SetY($metaY + 14);
+$pdf->SetY($metaY + 16.5);
 $pdf->SetFont('Arial', 'B', 9.5);
 $pdf->SetTextColor(243, 111, 33);
 $pdf->Cell(182, 6, 'I. PARTICULARS OF THE DONOR (As Reported for Form 10BD)', 0, 1, 'L');
@@ -229,86 +232,86 @@ $pdf->Rect(14, $donorStartY, 182, 26, 'D');
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
 $pdf->SetXY(16, $donorStartY + 2);
-$pdf->Cell(45, 6, 'Donor Full Name:', 0, 0, 'L');
+$pdf->Cell(60, 5.5, 'Donor Full Name:', 0, 0, 'L');
 $pdf->SetFont('Arial', 'B', 9);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 6, $fullName, 0, 1, 'L');
+$pdf->Cell(118, 5.5, $fullName, 0, 1, 'L');
 
-$pdf->SetXY(16, $donorStartY + 8);
+$pdf->SetXY(16, $donorStartY + 7.5);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 6, 'Permanent Account Number (PAN):', 0, 0, 'L');
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(60, 5.5, 'Permanent Account Number (PAN):', 0, 0, 'L');
+$pdf->SetFont('Arial', 'B', 9.5);
 $pdf->SetTextColor(160, 65, 0); // Highlighted PAN
-$pdf->Cell(130, 6, $panNumber . '   (Mandatory for Section 80G Tax Deduction Claim)', 0, 1, 'L');
+$pdf->Cell(118, 5.5, $panNumber . '  (Mandatory for Sec 80G Deduction)', 0, 1, 'L');
 
-$pdf->SetXY(16, $donorStartY + 14);
+$pdf->SetXY(16, $donorStartY + 13);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 6, 'Email Address:', 0, 0, 'L');
+$pdf->Cell(60, 5.5, 'Email Address:', 0, 0, 'L');
 $pdf->SetFont('Arial', '', 8.5);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 6, $email, 0, 1, 'L');
+$pdf->Cell(118, 5.5, $email, 0, 1, 'L');
 
-$pdf->SetXY(16, $donorStartY + 20);
+$pdf->SetXY(16, $donorStartY + 18.5);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 5, 'Contact / WhatsApp:', 0, 0, 'L');
+$pdf->Cell(60, 5.5, 'Contact / WhatsApp:', 0, 0, 'L');
 $pdf->SetFont('Arial', '', 8.5);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 5, $whatsapp ?: 'Not Provided', 0, 1, 'L');
+$pdf->Cell(118, 5.5, $whatsapp ?: 'Not Provided', 0, 1, 'L');
 
 // 6. Contribution & Transaction Particulars
-$pdf->SetY($donorStartY + 29);
+$pdf->SetY($donorStartY + 28);
 $pdf->SetFont('Arial', 'B', 9.5);
 $pdf->SetTextColor(243, 111, 33);
 $pdf->Cell(182, 6, 'II. CONTRIBUTION & TRANSACTION DETAILS', 0, 1, 'L');
 
 $txnStartY = $pdf->GetY();
-$pdf->Rect(14, $txnStartY, 182, 32, 'D');
+$pdf->Rect(14, $txnStartY, 182, 30, 'D');
 
 $pdf->SetXY(16, $txnStartY + 2);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 6, 'Donation Amount (in Figures):', 0, 0, 'L');
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Cell(60, 5.5, 'Donation Amount (in Figures):', 0, 0, 'L');
+$pdf->SetFont('Arial', 'B', 10.5);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 6, $formattedAmount, 0, 1, 'L');
+$pdf->Cell(118, 5.5, $formattedAmount, 0, 1, 'L');
 
-$pdf->SetXY(16, $txnStartY + 8);
+$pdf->SetXY(16, $txnStartY + 7.5);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 6, 'Amount in Words:', 0, 0, 'L');
+$pdf->Cell(60, 5.5, 'Amount in Words:', 0, 0, 'L');
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 6, $amountInWords, 0, 1, 'L');
+$pdf->Cell(118, 5.5, $amountInWords, 0, 1, 'L');
 
-$pdf->SetXY(16, $txnStartY + 14);
+$pdf->SetXY(16, $txnStartY + 13);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 6, 'Mode of Contribution:', 0, 0, 'L');
-$pdf->SetFont('Arial', '', 8.5);
+$pdf->Cell(60, 5.5, 'Mode of Contribution:', 0, 0, 'L');
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 6, 'Electronic Funds Transfer (Razorpay / UPI / NetBanking / Cards)', 0, 1, 'L');
+$pdf->Cell(118, 5.5, 'Electronic Funds Transfer (Razorpay / UPI / NetBanking / Cards)', 0, 1, 'L');
 
-$pdf->SetXY(16, $txnStartY + 20);
+$pdf->SetXY(16, $txnStartY + 18.5);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 6, 'Transaction Ref / UTR No:', 0, 0, 'L');
+$pdf->Cell(60, 5.5, 'Transaction Ref / UTR No:', 0, 0, 'L');
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(160, 65, 0);
-$pdf->Cell(130, 6, $transactionId, 0, 1, 'L');
+$pdf->Cell(118, 5.5, $transactionId, 0, 1, 'L');
 
-$pdf->SetXY(16, $txnStartY + 26);
+$pdf->SetXY(16, $txnStartY + 24);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(45, 5, 'Charitable Cause / Purpose:', 0, 0, 'L');
-$pdf->SetFont('Arial', '', 8.5);
+$pdf->Cell(60, 5, 'Charitable Cause / Purpose:', 0, 0, 'L');
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(130, 5, 'Grassroots Rural Education, Youth Livelihoods & Free Community Healthcare', 0, 1, 'L');
+$pdf->Cell(118, 5, 'Grassroots Rural Education, Youth Livelihoods & Free Community Healthcare', 0, 1, 'L');
 
 // 7. Statutory Certification & Legal Declaration
-$pdf->SetY($txnStartY + 35);
+$pdf->SetY($txnStartY + 33);
 $certBoxY = $pdf->GetY();
 $pdf->SetFillColor(255, 252, 250);
 $pdf->SetDrawColor(243, 111, 33);
@@ -325,39 +328,40 @@ $pdf->SetXY(16, $certBoxY + 7);
 $pdf->MultiCell(178, 3.8, "1. Received with sincere gratitude from the donor as a voluntary charitable contribution to Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society.\n2. Certified that the Society is approved under Section 80G(5)(vi) of the Income Tax Act, 1961 vide Order URN AAEAP1466C24BP02 and Section 12A URN AAEAP1466C25BP01.\n3. Donations to the Society are entitled to 50% deduction in calculating the total taxable income of the donor under Section 80G.\n4. In accordance with CBDT Notification No. 19/2021, the details of this donation shall be electronically filed in the Annual Statement of Donations (Form 10BD) on the Income Tax Department e-Filing Portal.");
 
 // 8. Signatures & Digital Seal Block
-$pdf->SetY($certBoxY + 38);
+$pdf->SetY($certBoxY + 37);
 $signY = $pdf->GetY();
 
 // Seal Box on Left
 $pdf->SetDrawColor(200, 200, 200);
-$pdf->Rect(14, $signY, 80, 28, 'D');
-$pdf->SetXY(16, $signY + 2);
+$pdf->Rect(14, $signY, 84, 28, 'D');
+$pdf->SetXY(14, $signY + 2);
 $pdf->SetFont('Arial', 'B', 7.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(76, 4, 'OFFICIAL SEAL / STAMP', 0, 1, 'C');
+$pdf->Cell(84, 4, 'OFFICIAL SEAL / STAMP', 0, 1, 'C');
 
 $pdf->SetFont('Arial', 'I', 7);
 $pdf->SetTextColor(120, 120, 120);
-$pdf->SetXY(16, $signY + 8);
-$pdf->MultiCell(76, 3.5, "PANDIT SHREE GYASI LAL MISHRA\nEDUCATION & SOCIAL WELFARE SOCIETY\nReg. 06/12/03/11718/16 * NOWGONG (M.P.)\n[Digitally Verified Seal]", 0, 'C');
+$pdf->SetXY(14, $signY + 8);
+$pdf->MultiCell(84, 3.5, "PANDIT SHREE GYASI LAL MISHRA\nEDUCATION & SOCIAL WELFARE SOCIETY\nReg. 06/12/03/11718/16 * NOWGONG (M.P.)\n[Digitally Verified Seal]", 0, 'C');
 
 // Signatory on Right
 $pdf->Rect(102, $signY, 94, 28, 'D');
-$pdf->SetXY(104, $signY + 2);
+$pdf->SetXY(102, $signY + 2);
 $pdf->SetFont('Arial', 'B', 7.5);
 $pdf->SetTextColor(80, 80, 80);
-$pdf->Cell(90, 4, 'FOR PANDIT SHREE GYASI LAL MISHRA WELFARE SOCIETY', 0, 1, 'C');
+$pdf->Cell(94, 4, 'FOR PANDIT SHREE GYASI LAL MISHRA WELFARE SOCIETY', 0, 1, 'C');
 
-$pdf->SetXY(104, $signY + 12);
+$pdf->SetXY(102, $signY + 11);
 $pdf->SetFont('Arial', 'B', 8.5);
 $pdf->SetTextColor(31, 31, 31);
-$pdf->Cell(90, 4, 'Authorized Signatory / Secretary', 0, 1, 'C');
+$pdf->Cell(94, 4, 'Authorized Signatory / Secretary', 0, 1, 'C');
 
-$pdf->SetXY(104, $signY + 17);
+$pdf->SetXY(102, $signY + 16.5);
 $pdf->SetFont('Arial', 'I', 6.5);
 $pdf->SetTextColor(120, 120, 120);
-$pdf->Cell(90, 3.5, 'Digitally Issued e-Receipt (Authenticated Electronic Certificate)', 0, 1, 'C');
-$pdf->Cell(90, 3.5, 'Generated on ' . $issueDateTime, 0, 1, 'C');
+$pdf->Cell(94, 3.5, 'Digitally Issued e-Receipt (Authenticated Electronic Certificate)', 0, 1, 'C');
+$pdf->SetXY(102, $signY + 20.5);
+$pdf->Cell(94, 3.5, 'Generated on ' . $issueDateTime, 0, 1, 'C');
 
 // 9. Bottom Footer Notice
 $pdf->SetY(274);
