@@ -755,11 +755,12 @@ document.addEventListener('DOMContentLoaded', () => {
 window.RAZORPAY_KEY_ID = 'rzp_live_TZYodTojrVGsKI';
 
 /**
- * Universal Razorpay Payment Integration Handler
+ * Universal Razorpay Payment Integration Handler (Live Mode Compatible)
+ * Creates server-verified order_id via create_order.php to satisfy Razorpay Live security
  * @param {number|string} amount Donation amount in INR (e.g. 500, 1200)
  * @param {string} title Tier title or donation cause
  */
-function payWithRazorpay(amount, title) {
+async function payWithRazorpay(amount, title) {
     if (typeof Razorpay === 'undefined') {
         const isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
         alert(isHindi 
@@ -769,18 +770,48 @@ function payWithRazorpay(amount, title) {
     }
 
     const numericAmount = parseFloat(amount) || 500;
-    const razorpayKey = window.RAZORPAY_KEY_ID || 'rzp_live_TZYodTojrVGsKI';
     const isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
+    const donationTitle = title || (isHindi ? 'ग्रामीण उत्थान एवं शिक्षा' : 'Rural Education & Healthcare Donation');
 
+    let orderId = null;
+    let finalKey = window.RAZORPAY_KEY_ID || 'rzp_live_TZYodTojrVGsKI';
+    let finalAmountPaise = Math.round(numericAmount * 100);
+
+    // 1. Create secure order via server endpoint
+    try {
+        const orderRes = await fetch('create_order.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                amount: numericAmount,
+                title: donationTitle
+            })
+        });
+
+        if (orderRes.ok) {
+            const orderData = await orderRes.json();
+            if (orderData && orderData.id) {
+                orderId = orderData.id;
+                if (orderData.key) finalKey = orderData.key;
+                if (orderData.amount) finalAmountPaise = orderData.amount;
+            }
+        } else {
+            console.warn('create_order.php returned status:', orderRes.status);
+        }
+    } catch (err) {
+        console.warn('Could not contact order endpoint, attempting direct checkout:', err);
+    }
+
+    // 2. Configure Razorpay Standard Checkout
     const options = {
-        key: razorpayKey,
-        amount: Math.round(numericAmount * 100),
+        key: finalKey,
+        amount: finalAmountPaise,
         currency: 'INR',
         name: isHindi ? 'पीजीएसएम वेलफेयर सोसाइटी' : 'PGSM Welfare Society',
-        description: (isHindi ? 'सहयोग राशि: ' : 'Donation: ') + (title || (isHindi ? 'ग्रामीण उत्थान' : 'Rural Upliftment')),
-        image: 'images/real/hero_placement_pure.jpg',
+        description: (isHindi ? 'सहयोग राशि: ' : 'Donation: ') + donationTitle,
+        image: 'https://pgsmwelfare.org/images/real/hero_placement_pure.jpg',
         handler: function (response) {
-            const paymentId = response.razorpay_payment_id;
+            const paymentId = response.razorpay_payment_id || response.razorpay_order_id || 'SUCCESS';
             const successMsg = isHindi 
                 ? 'ऑनलाइन भुगतान सफलतापूर्वक पूरा हुआ!\nट्रांजैक्शन / पेमेंट आईडी: ' + paymentId + '\nधारा 80G कर-छूट रसीद प्रपत्र में आपकी राशि एवं आईडी दर्ज कर दी गई है।'
                 : 'Payment completed successfully!\nTransaction / Payment ID: ' + paymentId + '\nYour 80G Tax Exemption Receipt form has been pre-filled below.';
@@ -807,7 +838,18 @@ function payWithRazorpay(amount, title) {
         }
     };
 
+    // Attach order_id required in Live Mode
+    if (orderId) {
+        options.order_id = orderId;
+    }
+
     const rzp = new Razorpay(options);
+    rzp.on('payment.failed', function (resp) {
+        console.error('Razorpay transaction failed:', resp.error);
+        const failDesc = resp.error && resp.error.description ? resp.error.description : 'Transaction cancelled or declined.';
+        alert(isHindi ? ('भुगतान पूरा नहीं हो सका: ' + failDesc) : ('Payment could not be completed: ' + failDesc));
+    });
+
     rzp.open();
 }
 
