@@ -836,6 +836,22 @@ async function payWithRazorpay(amount, title) {
             const claimForm = document.getElementById('claim-80g');
             if (claimForm) {
                 claimForm.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const panInput = document.getElementById('receiptPanNumber');
+                    if (panInput) {
+                        panInput.focus();
+                        panInput.classList.add('ring-4', 'ring-[#F36F21]');
+                        setTimeout(() => panInput.classList.remove('ring-4', 'ring-[#F36F21]'), 3500);
+                    }
+                }, 600);
+            } else {
+                sessionStorage.setItem('pgsm_receipt_amount', numericAmount);
+                sessionStorage.setItem('pgsm_receipt_txn', paymentId);
+                if (confirm(isHindi 
+                    ? 'भुगतान सफल रहा! क्या आप अभी अपना धारा 80G आयकर छूट प्रमाणपत्र (PDF) डाउनलोड करना चाहते हैं?' 
+                    : 'Payment completed! Would you like to claim and download your Section 80G Tax Exemption Receipt (PDF) now?')) {
+                    window.location.href = 'donate.html#claim-80g';
+                }
             }
         },
         prefill: {

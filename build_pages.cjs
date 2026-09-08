@@ -3435,7 +3435,58 @@ const donateHtml = `<!DOCTYPE html>
                     </div>
 
                     <!-- Right: Form Grid -->
-                    <form class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5" onsubmit="event.preventDefault(); alert('Tax Receipt Request received for PAN: ' + document.getElementById('receiptPanNumber').value.toUpperCase() + '! Your 80G certificate (URN: AAEAP1466C24BP02) will be processed and sent to your email within 24 hours.'); this.reset();">
+                    <form id="tax-receipt-form" class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5" onsubmit="handle80GReceiptSubmit(event)">
+                        <!-- Success Result Box -->
+                        <div id="receipt-result-box" class="hidden md:col-span-2 bg-gradient-to-br from-emerald-950/90 via-emerald-900/80 to-black/90 border-2 border-emerald-500 rounded-2xl p-6 text-white shadow-2xl animate-fade-in">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-emerald-400 text-4xl flex-shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                <div class="flex-1 space-y-2.5">
+                                    <div class="flex flex-wrap items-center justify-between gap-2">
+                                        <h3 class="font-headline-md text-xl font-black text-emerald-300">
+                                            Official 80G Tax Exemption Certificate Issued!
+                                        </h3>
+                                        <span id="res-receipt-no" class="bg-emerald-500/20 text-emerald-200 border border-emerald-500/40 text-xs font-mono font-bold px-3 py-1 rounded-full"></span>
+                                    </div>
+                                    <p class="text-sm text-gray-200 leading-relaxed">
+                                        Your unalterable PDF certificate has been <strong>downloaded to your device</strong> and emailed with PDF attachment to <strong id="res-receipt-email" class="text-white"></strong>. Details are recorded for CBDT Annual Form 10BD filing.
+                                    </p>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-black/40 border border-white/10 p-3.5 rounded-xl text-xs mt-3">
+                                        <div>
+                                            <span class="text-gray-400 block text-[11px] uppercase tracking-wider">Donor Name</span>
+                                            <span id="res-donor-name" class="font-bold text-white text-sm truncate block"></span>
+                                        </div>
+                                        <div>
+                                            <span class="text-gray-400 block text-[11px] uppercase tracking-wider">PAN Number</span>
+                                            <span id="res-pan-no" class="font-bold text-amber-300 text-sm font-mono block"></span>
+                                        </div>
+                                        <div>
+                                            <span class="text-gray-400 block text-[11px] uppercase tracking-wider">Exempt Amount</span>
+                                            <span id="res-amount" class="font-bold text-emerald-300 text-sm block"></span>
+                                        </div>
+                                        <div>
+                                            <span class="text-gray-400 block text-[11px] uppercase tracking-wider">Date of Issue</span>
+                                            <span id="res-date" class="font-bold text-white text-sm block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-3 pt-3">
+                                        <button type="button" id="download-again-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider py-3 px-5 rounded-xl transition-all flex items-center gap-2 shadow-lg active:scale-95 cursor-pointer">
+                                            <span class="material-symbols-outlined text-base">download</span>
+                                            <span>Download PDF Certificate Again</span>
+                                        </button>
+                                        <button type="button" onclick="resetTaxReceiptForm()" class="bg-white/10 hover:bg-white/20 text-gray-300 font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-xl transition-all cursor-pointer">
+                                            Issue Another Receipt
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Error Alert Box -->
+                        <div id="receipt-error-box" class="hidden md:col-span-2 bg-red-950/80 border border-red-500/80 rounded-2xl p-4 text-white text-sm flex items-center gap-3 shadow-lg">
+                            <span class="material-symbols-outlined text-red-400 text-2xl flex-shrink-0">error</span>
+                            <span id="receipt-error-msg" class="flex-1 text-red-200"></span>
+                        </div>
+
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptFullName">Full Name (As per PAN) *</label>
                             <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptFullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
@@ -3443,7 +3494,7 @@ const donateHtml = `<!DOCTYPE html>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-[#FFB693] uppercase tracking-wider font-bold" for="receiptPanNumber">PAN Number * (Mandatory for 80G)</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text" oninput="this.value = this.value.toUpperCase()"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
@@ -3461,19 +3512,19 @@ const donateHtml = `<!DOCTYPE html>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptTransactionId">Transaction ID / UTR Number *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT..." required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT / rzp_..." required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptAmount">Donation Amount (₹) *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptAmount" placeholder="5000" required="" type="number"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptAmount" placeholder="5000" min="50" required="" type="number"/>
                         </div>
 
                         <!-- Submit Action -->
                         <div class="md:col-span-2 pt-3">
-                            <button class="w-full bg-[#F36F21] text-white font-bold text-sm md:text-base py-4 px-8 rounded-xl hover:bg-[#a04100] hover:shadow-lg transition-all duration-200 uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#F36F21]/30 active:scale-95" type="submit">
-                                <span><span data-i18n="f_submit_80g">Request 80G Tax Receipt</span></span>
-                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+                            <button id="receipt-submit-btn" class="w-full bg-[#F36F21] text-white font-bold text-sm md:text-base py-4 px-8 rounded-xl hover:bg-[#a04100] hover:shadow-lg transition-all duration-200 uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#F36F21]/30 active:scale-95" type="submit">
+                                <span id="receipt-btn-text"><span data-i18n="f_submit_80g">Download Official 80G Tax Receipt (Instant PDF)</span></span>
+                                <span id="receipt-btn-icon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
                             </button>
                         </div>
                     </form>
@@ -3586,7 +3637,193 @@ const donateHtml = `<!DOCTYPE html>
                     updateDonatePageCustom(e.target.value, true, false);
                 });
             }
+
+            // Check cross-page prefill from Razorpay
+            try {
+                var savedAmt = sessionStorage.getItem('pgsm_receipt_amount');
+                var savedTxn = sessionStorage.getItem('pgsm_receipt_txn');
+                if (savedAmt && document.getElementById('receiptAmount')) {
+                    document.getElementById('receiptAmount').value = savedAmt;
+                    sessionStorage.removeItem('pgsm_receipt_amount');
+                }
+                if (savedTxn && document.getElementById('receiptTransactionId')) {
+                    document.getElementById('receiptTransactionId').value = savedTxn;
+                    sessionStorage.removeItem('pgsm_receipt_txn');
+                }
+                if (window.location.hash === '#claim-80g') {
+                    var panInput = document.getElementById('receiptPanNumber');
+                    if (panInput) {
+                        setTimeout(function() {
+                            panInput.focus();
+                            panInput.classList.add('ring-4', 'ring-[#F36F21]');
+                            setTimeout(function() { panInput.classList.remove('ring-4', 'ring-[#F36F21]'); }, 3500);
+                        }, 500);
+                    }
+                }
+            } catch (err) {
+                console.warn('SessionStorage unavailable:', err);
+            }
         });
+
+        // ==========================================
+        // AUTOMATED 80G TAX RECEIPT CLIENT HANDLER
+        // ==========================================
+        var lastGeneratedPdfBase64 = null;
+        var lastGeneratedPdfFilename = null;
+
+        async function handle80GReceiptSubmit(e) {
+            e.preventDefault();
+
+            var fullName = (document.getElementById('receiptFullName').value || '').trim();
+            var panNumber = (document.getElementById('receiptPanNumber').value || '').trim().toUpperCase();
+            var email = (document.getElementById('receiptEmail').value || '').trim();
+            var whatsapp = (document.getElementById('receiptWhatsapp').value || '').trim();
+            var transactionId = (document.getElementById('receiptTransactionId').value || '').trim();
+            var amount = parseFloat(document.getElementById('receiptAmount').value) || 0;
+
+            var errBox = document.getElementById('receipt-error-box');
+            var errMsg = document.getElementById('receipt-error-msg');
+            var resBox = document.getElementById('receipt-result-box');
+            var submitBtn = document.getElementById('receipt-submit-btn');
+            var btnText = document.getElementById('receipt-btn-text');
+            var btnIcon = document.getElementById('receipt-btn-icon');
+
+            if (errBox) errBox.classList.add('hidden');
+            if (resBox) resBox.classList.add('hidden');
+
+            // PAN Regex Validation (5 letters + 4 digits + 1 letter)
+            var panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (!panRegex.test(panNumber)) {
+                if (errBox && errMsg) {
+                    errMsg.textContent = 'Please enter a valid 10-digit Indian PAN Number (e.g. ABCDE1234F). PAN is legally mandatory for claiming 80G tax deductions.';
+                    errBox.classList.remove('hidden');
+                } else {
+                    alert('Invalid PAN Number format.');
+                }
+                var panInput = document.getElementById('receiptPanNumber');
+                if (panInput) panInput.focus();
+                return;
+            }
+
+            if (amount < 50) {
+                if (errBox && errMsg) {
+                    errMsg.textContent = 'Minimum donation amount for 80G receipt is ₹50.';
+                    errBox.classList.remove('hidden');
+                }
+                return;
+            }
+
+            // Set Loading State
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            btnText.textContent = 'Generating Official 80G Certificate...';
+            btnIcon.textContent = 'hourglass_top';
+            btnIcon.classList.add('animate-spin');
+
+            try {
+                var response = await fetch('generate_80g.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fullName: fullName,
+                        panNumber: panNumber,
+                        email: email,
+                        whatsapp: whatsapp,
+                        transactionId: transactionId,
+                        amount: amount
+                    })
+                });
+
+                var rawText = await response.text();
+                var cleanText = rawText.replace(/^\uFEFF/, '').trim();
+                var result = JSON.parse(cleanText);
+
+                if (!response.ok || !result.success) {
+                    throw new Error(result.error || 'Failed to generate 80G tax receipt.');
+                }
+
+                // Cache for re-download
+                lastGeneratedPdfBase64 = result.pdfBase64;
+                lastGeneratedPdfFilename = result.pdfFilename || ('PGSM_80G_Receipt_' + result.receiptNumber.replace(/\//g, '_') + '.pdf');
+
+                // Instant Browser Download
+                triggerPdfDownload(result.pdfBase64, lastGeneratedPdfFilename);
+
+                // Populate and Reveal Success Box
+                document.getElementById('res-receipt-no').textContent = result.receiptNumber;
+                document.getElementById('res-receipt-email').textContent = email;
+                document.getElementById('res-donor-name').textContent = result.donorName;
+                document.getElementById('res-pan-no').textContent = result.panNumber;
+                document.getElementById('res-amount').textContent = '₹' + (result.formattedAmount ? result.formattedAmount.replace('INR ', '') : amount.toLocaleString('en-IN'));
+                document.getElementById('res-date').textContent = result.issueDate;
+
+                var downloadAgainBtn = document.getElementById('download-again-btn');
+                if (downloadAgainBtn) {
+                    downloadAgainBtn.onclick = function() {
+                        triggerPdfDownload(lastGeneratedPdfBase64, lastGeneratedPdfFilename);
+                    };
+                }
+
+                if (resBox) {
+                    resBox.classList.remove('hidden');
+                    resBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+            } catch (err) {
+                console.error('80G Generation Error:', err);
+                if (errBox && errMsg) {
+                    errMsg.textContent = err.message || 'An unexpected error occurred while generating your 80G certificate. Please check your details and try again.';
+                    errBox.classList.remove('hidden');
+                } else {
+                    alert('Error: ' + err.message);
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                btnText.innerHTML = '<span data-i18n="f_submit_80g">Download Official 80G Tax Receipt (Instant PDF)</span>';
+                btnIcon.textContent = 'download';
+                btnIcon.classList.remove('animate-spin');
+            }
+        }
+
+        function triggerPdfDownload(base64Data, filename) {
+            try {
+                var byteCharacters = atob(base64Data);
+                var byteNumbers = new Array(byteCharacters.length);
+                for (var i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                var byteArray = new Uint8Array(byteNumbers);
+                var blob = new Blob([byteArray], { type: 'application/pdf' });
+                var url = URL.createObjectURL(blob);
+
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(function() { URL.revokeObjectURL(url); }, 10000);
+            } catch (e) {
+                var link = document.createElement('a');
+                link.href = 'data:application/pdf;base64,' + base64Data;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        function resetTaxReceiptForm() {
+            var form = document.getElementById('tax-receipt-form');
+            if (form) form.reset();
+            var resBox = document.getElementById('receipt-result-box');
+            if (resBox) resBox.classList.add('hidden');
+            var errBox = document.getElementById('receipt-error-box');
+            if (errBox) errBox.classList.add('hidden');
+            var panInput = document.getElementById('receiptPanNumber');
+            if (panInput) panInput.focus();
+        }
     </script>
 
     ${unifiedFooterHtml}
