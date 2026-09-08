@@ -49,6 +49,14 @@ const PGSM_TRANSLATIONS = {
         "ft_news_btn": "Subscribe",
         "ft_copy": "© 2026 Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society. All Rights Reserved.",
         "ft_reg_ids": "Society Reg: 06/12/03/11718/16 | Permanent PAN: AAATP8891J",
+        "ft_rep_title": "Audited Reports & Filings",
+        "ft_btn_ar26": "2026 Annual Report (PDF)",
+        "ft_btn_audit": "Audited Financial Statements (PDF)",
+        "comp_inst_badge": "Institutional & CSR Compliance",
+        "comp_inst_title": "Official Annual Reports & Statutory Auditor Filings",
+        "comp_inst_sub": "Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization.",
+        "btn_dl_ar26": "Download 2026 Annual Report (PDF)",
+        "btn_dl_audit": "Download Audited Financial Statements (PDF)",
 
         // Page 1: Home Page (index.html)
         "hero_badge": "✦ शिक्षा से सशक्त समाज, सेवा से समृद्ध राष्ट्र | Empowering Society through Education",
@@ -131,6 +139,32 @@ const PGSM_TRANSLATIONS = {
         "work_c5_desc": "800+ tree plantation drives",
         "view_more": "View More",
 
+        // Section: In the Media / Regional Press Coverage
+        "press_badge": "Independent Press & Regional Media Coverage",
+        "press_title": "Featured in Regional Press",
+        "press_sub": "Official field reporting from leading publications documenting our sports tournaments, youth residential camps, and corporate recruitment milestones.",
+        "press_view_full": "View Clipping",
+        "press_view_photo": "View Photo",
+        "press_live_badge": "Verified Regional Print Coverage (2026)",
+
+        "press_c1_outlet": "Dainik Bhaskar · 12 Jan 2026",
+        "press_c1_tag": "SPL Season-6 Finals",
+        "press_c1_hl": "शांति कॉलेज ऑफ फार्मेसी द्वारा आयोजित शांति प्रीमियर लीग का समापन, बी-फार्मा ने जीता फाइनल मुकाबला",
+        "press_c1_desc": "Final match organized by Shanti College of Pharmacy saw B.Pharm 7th Sem defeat M.Pharm by 3 wickets; ₹8,000 cash prize conferred in the presence of distinguished guests and senior media correspondents.",
+        "press_c1_stat": "Cash Prize: ₹8,000 | 12-Over Final",
+
+        "press_c2_outlet": "Nai Dunia · Sr. Journalist Nanhe Raja Bundela",
+        "press_c2_tag": "7-Day NSS Rural Immersion",
+        "press_c2_hl": "मानव अधिकार एवं मूलभूत कर्तव्यों पर व्याख्यान के साथ 7-दिवसीय एनएसएस शिविर का सफल समापन",
+        "press_c2_desc": "Week-long residential camp in adopted village Gram Choubara wrapped up following constitutional awareness sessions, primary medical vitals screening, and village cleanliness campaigns.",
+        "press_c2_stat": "Gram Choubara | 50+ NSS Cadets",
+
+        "press_c3_outlet": "Pharma Media · Mega Placement",
+        "press_c3_tag": "Campus Recruitment",
+        "press_c3_hl": "Macleods Pharmaceuticals द्वारा आयोजित मेगा केंपस ड्राइव में 25 छात्रों को नियुक्ति पत्र",
+        "press_c3_desc": "Rigorous multi-stage recruitment drive by leading national pharmaceutical firm Macleods resulted in 25 immediate appointment letters for formulation and QA positions in Indore & Baddi.",
+        "press_c3_stat": "25 Appointment Letters | Macleods Ltd",
+
         "lead_quote": "\"A Village Healed is a Nation Strengthened.\"",
         "lead_p1": "For over two decades, Dr. Mishra has spearheaded initiatives that bring critical healthcare, education, and sustainable development to the most marginalized rural communities across India. His approach is not merely charity, but systemic empowerment.",
         "lead_p2": "We believe that true impact requires deep roots. By partnering with local leaders and focusing on preventative, community-driven solutions, we are building resilience from the ground up — one village at a time, across every state we reach.",
@@ -182,6 +216,26 @@ const PGSM_TRANSLATIONS = {
         "t3_quote": "\"Transparency, hard work, and walking shoulder-to-shoulder with rural youth are our society's highest values.\"",
         "accred_title": "Regulatory Accreditations & Statutory Compliance",
         "accred_sub": "100% verified compliance under Central & State government regulatory frameworks.",
+
+        // Distinguished Guests & Patrons (Convocation Endorsements)
+        "patrons_badge": "DIGNITARY ENDORSEMENTS & CONVOCATION HONORS",
+        "patrons_title": "Distinguished Guests & Institutional Patrons",
+        "patrons_sub": "Our annual convocations, merit scholarship ceremonies, and grassroots programs have been graced and commended by civil servants (IAS), senior medical specialists, and eminent educators.",
+        
+        "patron_c1_tag": "Civil Services / IAS Officer",
+        "patron_c1_name": "Shri Ashutosh Mishra (IAS)",
+        "patron_c1_role": "UPSC 2024 · All India Rank 198 (Special Guest)",
+        "patron_c1_desc": "Graced our Annual Convocation as Special Guest of Honor, felicitating meritorious graduates and commending the society's mission of bridging professional technical education with rural careers in Bundelkhand.",
+        
+        "patron_c2_tag": "Higher Education Mentor",
+        "patron_c2_name": "Dr. Major L.N. Rawat",
+        "patron_c2_role": "Former Principal, Bapu Degree College",
+        "patron_c2_desc": "Keynote convocation speaker and veteran academic advisor, praising the institution's stringent PCI compliance, academic discipline, and field-driven NSS youth leadership.",
+        
+        "patron_c3_tag": "State Merit Scholar & Incentive",
+        "patron_c3_name": "Kritika Pateria",
+        "patron_c3_role": "9th State Rank (MP Board 12th) · Scholarship Recipient",
+        "patron_c3_desc": "Awarded a 100% higher education scholarship and special ₹10,000 cash incentive on stage by Director Er. Bhartendu Mishra, exemplifying our covenant to sponsor outstanding rural female scholars.",
 
         // Page 3: Programs (programs.html)
         "prog_hero_title": "5 Pillars of Grassroots Rural Upliftment",
@@ -335,6 +389,14 @@ const PGSM_TRANSLATIONS = {
         "ft_news_btn": "सदस्यता लें",
         "ft_copy": "© 2026 पंडित श्री गयासी लाल मिश्रा एजुकेशनल एवं सोशल वेलफेयर सोसाइटी। सर्वाधिकार सुरक्षित।",
         "ft_reg_ids": "सोसाइटी पंजीयन क्रमांक: 06/12/03/11718/16 | स्थायी पैन (PAN): AAATP8891J",
+        "ft_rep_title": "ऑडिट रिपोर्ट एवं वैधानिक फाइलिंग्स",
+        "ft_btn_ar26": "वार्षिक रिपोर्ट 2026 (PDF)",
+        "ft_btn_audit": "ऑडिटेड वित्तीय विवरण (PDF)",
+        "comp_inst_badge": "संस्थागत एवं सीएसआर पारदर्शिता",
+        "comp_inst_title": "अधिकृत वार्षिक प्रतिवेदन एवं वैधानिक ऑडिट रिपोर्ट",
+        "comp_inst_sub": "चार्टर्ड अकाउंटेंट जयेंद्र तिवारी एंड एसोसिएट्स द्वारा विधिवत प्रमाणित ऑडिट रिपोर्ट एवं वित्तीय विवरण।",
+        "btn_dl_ar26": "वार्षिक रिपोर्ट 2026 डाउनलोड करें (PDF)",
+        "btn_dl_audit": "ऑडिटेड वित्तीय विवरण डाउनलोड करें (PDF)",
 
         // Page 1: Home Page (index.html)
         "hero_badge": "✦ शिक्षा से सशक्त समाज, सेवा से समृद्ध राष्ट्र (Empowering Society Through Education & Health)",
@@ -417,6 +479,32 @@ const PGSM_TRANSLATIONS = {
         "work_c5_desc": "सघन वृक्षारोपण एवं पर्यावरण जागरूकता रैलियां",
         "view_more": "विस्तार से जानें",
 
+        // अनुभाग: समाचार पत्रों में प्रेस कवरेज (In the Media)
+        "press_badge": "समाचार पत्रों में प्रकाशित निष्पक्ष कवरेज",
+        "press_title": "प्रेस कवरेज: धरातल की गूंज",
+        "press_sub": "दैनिक भास्कर, नईदुनिया व राज्य स्तरीय मीडिया द्वारा हमारी खेल प्रतियोगिताओं, एनएसएस ग्राम शिविरों व रोजगार अभियानों का प्रामाणिक कवरेज।",
+        "press_view_full": "समाचार पत्र कटिंग देखें",
+        "press_view_photo": "फोटो देखें",
+        "press_live_badge": "दैनिक भास्कर एवं नईदुनिया में प्रकाशित (2026)",
+
+        "press_c1_outlet": "दैनिक भास्कर · 12 जनवरी 2026",
+        "press_c1_tag": "एसपीएल सीजन-6 समापन",
+        "press_c1_hl": "शांति कॉलेज ऑफ फार्मेसी द्वारा आयोजित शांति प्रीमियर लीग का समापन, बी-फार्मा ने जीता फाइनल मुकाबला",
+        "press_c1_desc": "शांति कॉलेज ऑफ फार्मेसी द्वारा आयोजित एसपीएल टूर्नामेंट के 12-ओवर के रोमांचक फाइनल में बी-फार्मा 7th सेमेस्टर ने एम-फार्मा को 3 विकेट से हराकर खिताब जीता। विजेता को ₹8,000 नकद पुरस्कार से सम्मानित किया गया।",
+        "press_c1_stat": "विजेता पुरस्कार: ₹8,000 | 12-ओवर फाइनल",
+
+        "press_c2_outlet": "नईदुनिया · वरिष्ठ पत्रकार नन्हे राजा बुंदेला",
+        "press_c2_tag": "7-दिवसीय एनएसएस शिविर",
+        "press_c2_hl": "मानव अधिकार एवं मूलभूत कर्तव्यों पर व्याख्यान के साथ 7-दिवसीय एनएसएस शिविर का सफल समापन",
+        "press_c2_desc": "दत्तक ग्राम चौबारा में 7-दिवसीय आवासीय राष्ट्रीय सेवा योजना शिविर का संविधान, मानवाधिकार व कर्तव्यों पर प्रबोधन, स्वास्थ्य परीक्षण व स्वच्छता रैलियों के साथ सफल समापन।",
+        "press_c2_stat": "दत्तक ग्राम चौबारा | 50+ स्वयंसेवक",
+
+        "press_c3_outlet": "फार्मा मीडिया · वृहद कैंपस प्लेसमेंट",
+        "press_c3_tag": "रोजगार एवं प्लेसमेंट",
+        "press_c3_hl": "Macleods Pharmaceuticals द्वारा आयोजित मेगा केंपस ड्राइव में 25 छात्रों को नियुक्ति पत्र",
+        "press_c3_desc": "शीर्ष राष्ट्रीय कंपनी Macleods Pharmaceuticals द्वारा आयोजित बहु-स्तरीय चयन प्रक्रिया में शांति कॉलेज के 25 छात्र-छात्राओं को इंदौर व बद्दी प्लांट्स हेतु सीधे नियुक्ति पत्र प्रदान किए गए।",
+        "press_c3_stat": "25 नियुक्ति पत्र | मैकलियोड्स फार्मा",
+
         "lead_quote": "\"जब तक गाँव के अंतिम परिवार तक स्वास्थ्य और सम्मानजनक शिक्षा नहीं पहुँचती, तब तक समाज का विकास अधूरा है।\"",
         "lead_p1": "दो दशकों से अधिक समय से नौगांव और छतरपुर अंचल में निःस्वार्थ चिकित्सा सेवा दे रहे डॉ. रवि कांत मिश्रा ने इस संस्था की नींव रखी—सच्चा सामाजिक परिवर्तन केवल तात्कालिक सहायता से नहीं, बल्कि संस्थागत आत्मनिर्भरता से आता है।",
         "lead_p2": "हमारा विश्वास है कि शिक्षा और स्वास्थ्य एक दूसरे के पूरक हैं। जब हम एक युवा को रोजगारपरक तकनीकी शिक्षा देते हैं और एक परिवार को स्वास्थ्य सुरक्षा प्रदान करते हैं, तो हम आने वाली कई पीढ़ियों को गरीबी के चक्र से मुक्त कर देते हैं।",
@@ -468,6 +556,26 @@ const PGSM_TRANSLATIONS = {
         "t3_quote": "\"पारदर्शिता, कर्मठता और ग्रामीण युवाओं के साथ कंधे से कंधा मिलाकर काम करना ही हमारे समाज की सबसे बड़ी पूंजी है।\"",
         "accred_title": "वैधानिक मान्यताएं, सरकारी अनुमोदन एवं पारदर्शिता",
         "accred_sub": "शासन के सभी नियमों के अंतर्गत पूर्णतः पंजीकृत एवं सत्यापित संस्था।",
+
+        // विशिष्ट अतिथि एवं संरक्षक (दीक्षांत समारोह एवं प्रशासनिक सम्मान)
+        "patrons_badge": "विशिष्ट अतिथि, प्रशासनिक अधिकारी एवं संरक्षक",
+        "patrons_title": "विशिष्ट अतिथि एवं सम्मानीय संरक्षक",
+        "patrons_sub": "संस्था के वार्षिक दीक्षांत समारोह, मेधावी छात्र अलंकरण एवं सामाजिक सम्मेलनों को भारतीय प्रशासनिक सेवा (IAS) अधिकारियों, प्रख्यात शिक्षाविदों एवं राज्य स्तरीय प्रतिभाओं की गरिमामयी उपस्थिति का गौरव प्राप्त है।",
+        
+        "patron_c1_tag": "भारतीय प्रशासनिक सेवा (IAS)",
+        "patron_c1_name": "श्री आशुतोष मिश्रा (IAS)",
+        "patron_c1_role": "UPSC 2024 · रैंक 198 (विशिष्ट अतिथि)",
+        "patron_c1_desc": "वार्षिक दीक्षांत समारोह में विशिष्ट अतिथि के रूप में पधारकर उपाधि प्राप्त विद्यार्थियों को सम्मानित किया एवं बुंदेलखंड में व्यावसायिक शिक्षा को ग्रामीण रोजगार से जोड़ने के संस्था के प्रयासों की भूरि-भूरि प्रशंसा की।",
+        
+        "patron_c2_tag": "वरिष्ठ शिक्षाविद एवं संरक्षक",
+        "patron_c2_name": "डॉ. मेजर एल.एन. रावत",
+        "patron_c2_role": "पूर्व प्राचार्य, बापू डिग्री कॉलेज",
+        "patron_c2_desc": "दीक्षांत समारोह में मुख्य वक्ता के रूप में मार्गदर्शन प्रदान किया तथा संस्था के उच्च शैक्षणिक मानकों, पीसीआई मान्यता, अनुशासन एवं एनएसएस सेवा प्रकल्पों की सराहना की।",
+        
+        "patron_c3_tag": "राज्य स्तरीय मेधावी छात्र अलंकरण",
+        "patron_c3_name": "कृतिका पटेरिया",
+        "patron_c3_role": "मध्य प्रदेश बोर्ड 12वीं में 9वीं रैंक · पूर्ण छात्रवृत्ति",
+        "patron_c3_desc": "संस्था निदेशक इंजी. भारतेंदु मिश्र द्वारा मंच पर पूर्ण उच्च शिक्षा छात्रवृत्ति एवं ₹10,000 की नकद प्रोत्साहन राशि से सम्मानित। ग्रामीण प्रतिभाओं के उत्थान का प्रत्यक्ष प्रमाण।",
 
         // Page 3: Programs (programs.html)
         "prog_hero_title": "ग्रामीण विकास एवं युवा स्वावलंबन के 5 प्रमुख प्रकल्प",

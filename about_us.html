@@ -99,15 +99,17 @@
     
     <!-- Top Navigation Bar -->
     <header class="bg-white/95 backdrop-blur-md w-full z-50 sticky top-0 transition-all duration-300 border-b border-gray-200/60 shadow-sm" id="topNav">
-        <div class="flex justify-between items-center w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1280px] mx-auto h-20">
-            <!-- Brand Logo -->
-            <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
-                <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-[#a04100]" data-i18n="brand_name">PGSM Welfare</span>
-            </a>
+        <div class="flex justify-between items-center w-full px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto h-20 relative">
+            <!-- Brand Logo (Very Left) -->
+            <div class="flex items-center flex-shrink-0 z-10">
+                <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
+                    <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    <span class="font-black tracking-tight text-[#a04100]" data-i18n="brand_name">PGSM Welfare</span>
+                </a>
+            </div>
             
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm">
+            <!-- Desktop Navigation (Centered in the Middle) -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm absolute left-1/2 -translate-x-1/2">
                 <a class="text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold" href="about.html" data-i18n="nav_about">About Us</a>
                 <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="programs.html" data-i18n="nav_programs">Programs & Placements</a>
                 <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="volunteer.html" data-i18n="nav_volunteer">Volunteer</a>
@@ -116,16 +118,16 @@
                 <a class="text-gray-700 hover:text-[#F36F21] transition-colors" href="donate.html" data-i18n="nav_donate">Donate</a>
             </nav>
             
-            <!-- Desktop Right Corner: Language Toggle & CTA -->
-            <div class="hidden lg:flex items-center gap-3">
-                <!-- Hindi / English Switcher -->
+            <!-- Desktop Right Corner: Language Toggle & Donate CTA (Far Right) -->
+            <div class="hidden lg:flex items-center gap-3.5 z-10 flex-shrink-0">
+                <!-- Hindi / English Switcher (Stays in Place) -->
                 <div class="inline-flex items-center bg-gray-100/90 border border-gray-200 rounded-full p-1 text-xs font-bold shadow-xs">
                     <span class="material-symbols-outlined text-sm text-[#F36F21] ml-1.5 mr-1 select-none" style="font-variation-settings: 'FILL' 1;">translate</span>
                     <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-1 rounded-full transition-all bg-[#F36F21] text-white shadow-xs">EN</button>
                     <button type="button" onclick="setLanguage('hi')" class="lang-btn-hi px-2.5 py-1 rounded-full transition-all text-gray-600 hover:text-gray-900">हिन्दी</button>
                 </div>
 
-                <!-- Desktop CTA -->
+                <!-- Desktop CTA (Far Right) -->
                 <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-5 py-2.5 rounded-full hover:bg-[#a04100] active:scale-95 transition-all shadow-md inline-flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
                     <span data-i18n="nav_cta">Donate & 80G</span>
@@ -133,7 +135,7 @@
             </div>
             
             <!-- Mobile Right Corner: Language Toggle & Menu Toggle Button -->
-            <div class="flex items-center gap-2 lg:hidden">
+            <div class="flex items-center gap-2 lg:hidden z-10">
                 <button type="button" onclick="toggleLanguage()" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-gray-200 bg-gray-50 text-xs font-bold text-gray-800 hover:border-[#F36F21] active:scale-95 transition-all shadow-xs" title="Switch Language / भाषा बदलें">
                     <span class="material-symbols-outlined text-sm text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">translate</span>
                     <span class="mobile-lang-label">हिन्दी</span>
@@ -195,6 +197,22 @@
                     <a href="tel:+919406762912" class="w-full bg-gray-100 text-gray-800 text-center font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-sm text-[#F36F21]">call</span>
                         <span data-i18n="m_helpdesk">Helpdesk: +91 94067 62912</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Drawer Social Media Profiles -->
+                <div class="pt-3 pb-1 border-t border-gray-100 flex items-center justify-center gap-3 text-gray-600">
+                    <a href="https://www.facebook.com/panditshreegyasilalmishrasociety/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="Facebook">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/panditshreegyasilalmishrasocie/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="Instagram">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/panditshreegyasilalmishrasociety" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="LinkedIn">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/Psglmsociety" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="Twitter / X">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
                 </div>
             </nav>
@@ -313,6 +331,131 @@
             </div>
         </section>
 
+        <!-- ================= ABOUT SECTION 2.5: DISTINGUISHED GUESTS & PATRONS ================= -->
+        <section id="patrons" class="py-16 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF9F5] border-b border-gray-200/80 relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto relative z-10">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F36F21]/10 border border-[#F36F21]/20 text-[#a04100] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+                        <span class="material-symbols-outlined text-base text-[#F36F21]">military_tech</span>
+                        <span data-i18n="patrons_badge">DIGNITARY ENDORSEMENTS & CONVOCATION HONORS</span>
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] tracking-tight">
+                        <span data-i18n="patrons_title">Distinguished Guests & Institutional Patrons</span>
+                    </h2>
+                    <p class="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                        <span data-i18n="patrons_sub">Our annual convocations, merit scholarship ceremonies, and grassroots programs have been graced and commended by civil servants (IAS), senior medical specialists, and eminent educators.</span>
+                    </p>
+                </div>
+
+                <!-- 3 Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- Card 1: Shri Ashutosh Mishra (IAS) -->
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-[#F36F21]/20 flex items-center gap-1.5" data-i18n="patron_c1_tag">
+                                    <span class="material-symbols-outlined text-sm">account_balance</span>
+                                    Civil Services / IAS Officer
+                                </span>
+                                <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">AIR 198</span>
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-[#F36F21] transition-colors" data-i18n="patron_c1_name">
+                                Shri Ashutosh Mishra (IAS)
+                            </h3>
+                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c1_role">
+                                UPSC 2024 · All India Rank 198 (Special Guest)
+                            </p>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c1_desc">
+                                Graced our Annual Convocation as Special Guest of Honor, felicitating meritorious graduates and commending the society's mission of bridging professional technical education with rural careers in Bundelkhand.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                            <span class="inline-flex items-center gap-1 text-gray-700">
+                                <span class="material-symbols-outlined text-sm text-[#F36F21]">verified</span>
+                                Convocation 2025 Guest of Honor
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Dr. Major L.N. Rawat -->
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-blue-50 text-blue-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-200 flex items-center gap-1.5" data-i18n="patron_c2_tag">
+                                    <span class="material-symbols-outlined text-sm">school</span>
+                                    Higher Education Mentor
+                                </span>
+                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">Senior Academic</span>
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-blue-700 transition-colors" data-i18n="patron_c2_name">
+                                Dr. Major L.N. Rawat
+                            </h3>
+                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c2_role">
+                                Former Principal, Bapu Degree College
+                            </p>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c2_desc">
+                                Keynote convocation speaker and veteran academic advisor, praising the institution's stringent PCI compliance, academic discipline, and field-driven NSS youth leadership.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                            <span class="inline-flex items-center gap-1 text-gray-700">
+                                <span class="material-symbols-outlined text-sm text-blue-600">verified</span>
+                                Academic Keynote Mentor
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Kritika Pateria & Scholarship -->
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-emerald-50 text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-200 flex items-center gap-1.5" data-i18n="patron_c3_tag">
+                                    <span class="material-symbols-outlined text-sm">military_tech</span>
+                                    State Merit Scholar & Incentive
+                                </span>
+                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">₹10,000 Award</span>
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors" data-i18n="patron_c3_name">
+                                Kritika Pateria
+                            </h3>
+                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c3_role">
+                                9th State Rank (MP Board 12th) · Scholarship Recipient
+                            </p>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c3_desc">
+                                Awarded a 100% higher education scholarship and special ₹10,000 cash incentive on stage by Director Er. Bhartendu Mishra, exemplifying our covenant to sponsor outstanding rural female scholars.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                            <span class="inline-flex items-center gap-1 text-gray-700">
+                                <span class="material-symbols-outlined text-sm text-emerald-600">verified</span>
+                                100% Scholarship + Cash Incentive
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Medical & Administrative Patronage Strip -->
+                <div class="mt-10 bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#F36F21]/10 flex items-center justify-center text-[#F36F21] shrink-0">
+                            <span class="material-symbols-outlined text-2xl">local_hospital</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-900">Endorsed by Public Administrators & Senior Medical Specialists</h4>
+                            <p class="text-xs text-gray-600">Guided by Dr. Ravi Kant Mishra's two decades of clinical goodwill in Nowgong and commended by state administrative leadership.</p>
+                        </div>
+                    </div>
+                    <a href="about.html#governance" class="text-xs font-bold text-[#F36F21] hover:underline shrink-0 inline-flex items-center gap-1">
+                        <span>View Governance</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= ABOUT SECTION 3: AWARDS & LEGAL COMPLIANCE ================= -->
         <section id="compliance" class="w-full py-xl bg-[#1F1F1F] text-white relative overflow-hidden">
             <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-xl">
@@ -373,9 +516,33 @@
                     </div>
                 </div>
 
+                <!-- Institutional & CSR Audit Download Strip -->
+                <div class="bg-white/5 border border-white/15 rounded-2xl p-6 md:p-8 backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl my-2">
+                    <div class="flex items-center gap-4 text-left">
+                        <div class="w-14 h-14 rounded-2xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21] shrink-0">
+                            <span class="material-symbols-outlined text-3xl">verified_user</span>
+                        </div>
+                        <div>
+                            <span class="bg-[#F36F21] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full" data-i18n="comp_inst_badge">Institutional & CSR Compliance</span>
+                            <h4 class="text-lg md:text-xl font-bold text-white mt-1" data-i18n="comp_inst_title">Official Annual Reports & Statutory Auditor Filings</h4>
+                            <p class="text-xs sm:text-sm text-gray-300 mt-0.5 max-w-xl" data-i18n="comp_inst_sub">Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0 w-full lg:w-auto">
+                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95">
+                            <span class="material-symbols-outlined text-base">download</span>
+                            <span data-i18n="btn_dl_ar26">Download 2026 Annual Report (PDF)</span>
+                        </a>
+                        <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95">
+                            <span class="material-symbols-outlined text-base">receipt_long</span>
+                            <span data-i18n="btn_dl_audit">Download Audited Financial Statements (PDF)</span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Ceremony Documentary Photo Frame -->
                 <div class="w-full relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 mt-4">
-                    <img class="w-full h-auto max-h-[550px] object-cover" alt="<span data-i18n="m4_title">Shanti Pratibha Khoj & Board Merit Honors</span> Felicitation Ceremony" src="images/real/pratibha_khoj_enhanced.jpg" onerror="this.onerror=null; this.src='images/real/pratibha_khoj.jpg';"/>
+                    <img class="w-full h-auto max-h-[550px] object-cover" alt="Shanti Pratibha Khoj and Board Merit Honors Felicitation Ceremony" src="images/real/pratibha_khoj_enhanced.jpg" onerror="this.onerror=null; this.src='images/real/pratibha_khoj.jpg';"/>
                     <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
                         <div>
                             <p class="text-white font-bold text-lg">Shanti Pratibha Khoj & Board Merit Honors</p>
@@ -417,6 +584,28 @@
                         <span data-i18n="ft_cred_csr">MCA CSR Approved (Reg: CSR00007144)</span>
                     </li>
                 </ul>
+
+                <!-- Download Annual Reports & Audited Financials Buttons -->
+                <div class="mt-4 pt-3 border-t border-white/10 flex flex-col gap-2">
+                    <span class="text-xs font-bold text-[#FFB693] uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm text-[#F36F21]">description</span>
+                        <span data-i18n="ft_rep_title">Audited Reports & Filings</span>
+                    </span>
+                    <a href="reports/ANNUAL_REPORT_2026.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all" title="Download 2026 Annual Report">
+                        <span class="flex items-center gap-1.5 truncate">
+                            <span class="material-symbols-outlined text-sm text-[#F36F21]">download</span>
+                            <span data-i18n="ft_btn_ar26">2026 Annual Report (PDF)</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 shrink-0">4.9 MB</span>
+                    </a>
+                    <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all" title="Download Audited Financial Statements">
+                        <span class="flex items-center gap-1.5 truncate">
+                            <span class="material-symbols-outlined text-sm text-[#F36F21]">download</span>
+                            <span data-i18n="ft_btn_audit">Audited Financial Statements (PDF)</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 shrink-0">CA Verified</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Column 2: Quick Links -->
@@ -462,6 +651,21 @@
                         Subscribe
                     </button>
                 </form>
+                <!-- Official Verified Social Profiles -->
+                <div class="flex items-center gap-3 mt-4">
+                    <a aria-label="Facebook" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://www.facebook.com/panditshreegyasilalmishrasociety/" title="Facebook">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a aria-label="Instagram" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://www.instagram.com/panditshreegyasilalmishrasocie/" title="Instagram">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://www.linkedin.com/company/panditshreegyasilalmishrasociety" title="LinkedIn">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a aria-label="Twitter / X" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://x.com/Psglmsociety" title="Twitter / X">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
 

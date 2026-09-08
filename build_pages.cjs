@@ -7,15 +7,17 @@ function getUnifiedHeader(activePage = 'home') {
     return `
     <!-- Top Navigation Bar -->
     <header class="bg-white/95 backdrop-blur-md w-full z-50 sticky top-0 transition-all duration-300 border-b border-gray-200/60 shadow-sm" id="topNav">
-        <div class="flex justify-between items-center w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1280px] mx-auto h-20">
-            <!-- Brand Logo -->
-            <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
-                <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
-                <span class="font-black tracking-tight text-[#a04100]" data-i18n="brand_name">PGSM Welfare</span>
-            </a>
+        <div class="flex justify-between items-center w-full px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto h-20 relative">
+            <!-- Brand Logo (Very Left) -->
+            <div class="flex items-center flex-shrink-0 z-10">
+                <a class="text-xl sm:text-2xl font-black text-[#F36F21] flex items-center gap-2 tracking-tight" href="index.html">
+                    <span class="material-symbols-outlined text-3xl text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    <span class="font-black tracking-tight text-[#a04100]" data-i18n="brand_name">PGSM Welfare</span>
+                </a>
+            </div>
             
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm">
+            <!-- Desktop Navigation (Centered in the Middle) -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-sm absolute left-1/2 -translate-x-1/2">
                 <a class="${activePage === 'about' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-700 hover:text-[#F36F21] transition-colors'}" href="about.html" data-i18n="nav_about">About Us</a>
                 <a class="${activePage === 'programs' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-700 hover:text-[#F36F21] transition-colors'}" href="programs.html" data-i18n="nav_programs">Programs & Placements</a>
                 <a class="${activePage === 'volunteer' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-700 hover:text-[#F36F21] transition-colors'}" href="volunteer.html" data-i18n="nav_volunteer">Volunteer</a>
@@ -24,16 +26,16 @@ function getUnifiedHeader(activePage = 'home') {
                 <a class="${activePage === 'donate' ? 'text-[#F36F21] border-b-2 border-[#F36F21] pb-1 font-extrabold' : 'text-gray-700 hover:text-[#F36F21] transition-colors'}" href="donate.html" data-i18n="nav_donate">Donate</a>
             </nav>
             
-            <!-- Desktop Right Corner: Language Toggle & CTA -->
-            <div class="hidden lg:flex items-center gap-3">
-                <!-- Hindi / English Switcher -->
+            <!-- Desktop Right Corner: Language Toggle & Donate CTA (Far Right) -->
+            <div class="hidden lg:flex items-center gap-3.5 z-10 flex-shrink-0">
+                <!-- Hindi / English Switcher (Stays in Place) -->
                 <div class="inline-flex items-center bg-gray-100/90 border border-gray-200 rounded-full p-1 text-xs font-bold shadow-xs">
                     <span class="material-symbols-outlined text-sm text-[#F36F21] ml-1.5 mr-1 select-none" style="font-variation-settings: 'FILL' 1;">translate</span>
                     <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-1 rounded-full transition-all bg-[#F36F21] text-white shadow-xs">EN</button>
                     <button type="button" onclick="setLanguage('hi')" class="lang-btn-hi px-2.5 py-1 rounded-full transition-all text-gray-600 hover:text-gray-900">हिन्दी</button>
                 </div>
 
-                <!-- Desktop CTA -->
+                <!-- Desktop CTA (Far Right) -->
                 <a href="donate.html" class="bg-[#F36F21] text-white font-bold text-sm px-5 py-2.5 rounded-full hover:bg-[#a04100] active:scale-95 transition-all shadow-md inline-flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
                     <span data-i18n="nav_cta">Donate & 80G</span>
@@ -41,7 +43,7 @@ function getUnifiedHeader(activePage = 'home') {
             </div>
             
             <!-- Mobile Right Corner: Language Toggle & Menu Toggle Button -->
-            <div class="flex items-center gap-2 lg:hidden">
+            <div class="flex items-center gap-2 lg:hidden z-10">
                 <button type="button" onclick="toggleLanguage()" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-gray-200 bg-gray-50 text-xs font-bold text-gray-800 hover:border-[#F36F21] active:scale-95 transition-all shadow-xs" title="Switch Language / भाषा बदलें">
                     <span class="material-symbols-outlined text-sm text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">translate</span>
                     <span class="mobile-lang-label">हिन्दी</span>
@@ -105,6 +107,22 @@ function getUnifiedHeader(activePage = 'home') {
                         <span data-i18n="m_helpdesk">Helpdesk: +91 94067 62912</span>
                     </a>
                 </div>
+
+                <!-- Mobile Drawer Social Media Profiles -->
+                <div class="pt-3 pb-1 border-t border-gray-100 flex items-center justify-center gap-3 text-gray-600">
+                    <a href="https://www.facebook.com/panditshreegyasilalmishrasociety/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="Facebook">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/panditshreegyasilalmishrasocie/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="Instagram">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/panditshreegyasilalmishrasociety" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="LinkedIn">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/Psglmsociety" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#F36F21] hover:text-white flex items-center justify-center transition-colors shadow-xs" title="Twitter / X">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -141,6 +159,28 @@ const unifiedFooterHtml = `
                         <span data-i18n="ft_cred_csr">MCA CSR Approved (Reg: CSR00007144)</span>
                     </li>
                 </ul>
+
+                <!-- Download Annual Reports & Audited Financials Buttons -->
+                <div class="mt-4 pt-3 border-t border-white/10 flex flex-col gap-2">
+                    <span class="text-xs font-bold text-[#FFB693] uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm text-[#F36F21]">description</span>
+                        <span data-i18n="ft_rep_title">Audited Reports & Filings</span>
+                    </span>
+                    <a href="reports/ANNUAL_REPORT_2026.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all" title="Download 2026 Annual Report">
+                        <span class="flex items-center gap-1.5 truncate">
+                            <span class="material-symbols-outlined text-sm text-[#F36F21]">download</span>
+                            <span data-i18n="ft_btn_ar26">2026 Annual Report (PDF)</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 shrink-0">4.9 MB</span>
+                    </a>
+                    <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all" title="Download Audited Financial Statements">
+                        <span class="flex items-center gap-1.5 truncate">
+                            <span class="material-symbols-outlined text-sm text-[#F36F21]">download</span>
+                            <span data-i18n="ft_btn_audit">Audited Financial Statements (PDF)</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 shrink-0">CA Verified</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Column 2: Quick Links -->
@@ -186,6 +226,21 @@ const unifiedFooterHtml = `
                         Subscribe
                     </button>
                 </form>
+                <!-- Official Verified Social Profiles -->
+                <div class="flex items-center gap-3 mt-4">
+                    <a aria-label="Facebook" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://www.facebook.com/panditshreegyasilalmishrasociety/" title="Facebook">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a aria-label="Instagram" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://www.instagram.com/panditshreegyasilalmishrasocie/" title="Instagram">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://www.linkedin.com/company/panditshreegyasilalmishrasociety" title="LinkedIn">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a aria-label="Twitter / X" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#F36F21] transition-all shadow" href="https://x.com/Psglmsociety" title="Twitter / X">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -464,7 +519,7 @@ const homeHtml = `<!DOCTYPE html>
                 <!-- Right Column: Real Photo Frame -->
                 <div class="relative w-full max-w-lg mx-auto lg:mx-0 lg:ml-auto">
                     <div class="aspect-[4/3] rounded-2xl border-4 border-white/90 overflow-hidden shadow-2xl bg-gray-100 relative z-10 transition-transform duration-300 hover:scale-[1.01]">
-                        <img alt="<span data-i18n="m1_title">Macleods Pharma Mega Placement Drive</span> at Shanti College" class="w-full h-full object-cover" src="images/real/hero_placement_pure.jpg" onerror="this.onerror=null; this.src='images/real/hero_placement.jpg';"/>
+                        <img alt="Macleods Pharma Mega Placement Drive at Shanti College" class="w-full h-full object-cover" src="images/real/hero_placement_pure.jpg" onerror="this.onerror=null; this.src='images/real/hero_placement.jpg';"/>
                     </div>
                     <!-- Floating Placement Stat Card -->
                     <div class="absolute -bottom-6 -left-4 sm:-left-8 z-20 bg-[#1F1F1F] rounded-2xl p-5 shadow-2xl border border-white/10 text-center">
@@ -798,6 +853,195 @@ const homeHtml = `<!DOCTYPE html>
                         <button class="w-12 h-12 rounded-full bg-[#1F1F1F] text-white flex justify-center items-center hover:bg-[#333] transition-colors shadow-lg active:scale-95 cursor-pointer" id="nextBtn" aria-label="Next slide">
                             <span class="material-symbols-outlined">arrow_right_alt</span>
                         </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3.5: IN THE MEDIA / REGIONAL PRESS CLIPPINGS ================= -->
+        <section id="press" class="w-full py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFFDFB] border-y border-gray-200/70 relative overflow-hidden">
+            <!-- Subtle Background Accents -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-[#F36F21]/5 rounded-full blur-3xl -z-0 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl -z-0 pointer-events-none"></div>
+
+            <div class="max-w-[1280px] mx-auto relative z-10">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF2EB] border border-[#F36F21]/20 text-[#a04100] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+                            <span class="material-symbols-outlined text-base text-[#F36F21]" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+                            <span data-i18n="press_badge">Independent Press & Regional Media Coverage</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
+                            <span data-i18n="press_title">Featured in Regional Press</span>
+                        </h2>
+                        <p class="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
+                            <span data-i18n="press_sub">Official field reporting from leading publications documenting our sports tournaments, youth residential camps, and corporate recruitment milestones.</span>
+                        </p>
+                    </div>
+
+                    <!-- Trust Tag -->
+                    <div class="hidden md:flex items-center gap-3 bg-white px-5 py-3 rounded-2xl border border-gray-200/80 shadow-xs text-xs font-bold text-gray-700 shrink-0">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span data-i18n="press_live_badge">Verified Regional Print Coverage (2026)</span>
+                    </div>
+                </div>
+
+                <!-- 3-Card Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- CARD 1: Dainik Bhaskar (12 Jan 2026) -->
+                    <div class="bg-white rounded-2xl border border-gray-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                        <!-- Image Container with Authentic Clipping -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-50 border-b border-gray-100 cursor-pointer" onclick="openPressModal('images/real/press_clipping.jpg', 'Dainik Bhaskar (12-01-2026)', 'शांति कॉलेज ऑफ फार्मेसी द्वारा आयोजित शांति प्रीमियर लीग का समापन, बी-फार्मा ने जीता फाइनल मुकाबला')">
+                            <img src="images/real/press_clipping.jpg" alt="Dainik Bhaskar 12-01-2026 Press Clipping" class="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='images/real/spl_trophy.jpg';">
+                            <!-- Overlay Pill -->
+                            <div class="absolute top-3 left-3 bg-[#D9381E] text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-xs">newspaper</span>
+                                <span data-i18n="press_c1_outlet">Dainik Bhaskar · 12 Jan 2026</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-xs font-bold px-3 py-1.5 rounded-xl backdrop-blur-sm shadow-md flex items-center gap-1.5 transition-colors">
+                                <span class="material-symbols-outlined text-sm">zoom_in</span>
+                                <span data-i18n="press_view_full">View Clipping</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6 flex flex-col flex-grow justify-between gap-4">
+                            <div>
+                                <div class="flex items-center justify-between text-xs font-bold text-gray-500 mb-2">
+                                    <span class="text-[#F36F21] bg-[#FFF2EB] px-2.5 py-0.5 rounded-md uppercase tracking-wider" data-i18n="press_c1_tag">SPL Season-6 Finals</span>
+                                    <span class="text-gray-400">12-01-2026</span>
+                                </div>
+                                <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug group-hover:text-[#F36F21] transition-colors mb-3">
+                                    <span data-i18n="press_c1_hl">"शांति कॉलेज ऑफ फार्मेसी द्वारा आयोजित शांति प्रीमियर लीग का समापन, बी-फार्मा ने जीता फाइनल मुकाबला"</span>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                                    <span data-i18n="press_c1_desc">Final match organized by Shanti College of Pharmacy saw B.Pharm 7th Sem defeat M.Pharm by 3 wickets; ₹8,000 cash prize conferred in the presence of distinguished guests and senior media correspondents.</span>
+                                </p>
+                            </div>
+
+                            <!-- Footer / Metadata Bar -->
+                            <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                                <span class="flex items-center gap-1 text-emerald-600 font-bold">
+                                    <span class="material-symbols-outlined text-sm">emoji_events</span>
+                                    <span data-i18n="press_c1_stat">Cash Prize: ₹8,000 | 12-Over Final</span>
+                                </span>
+                                <button type="button" onclick="openPressModal('images/real/press_clipping.jpg', 'Dainik Bhaskar (12-01-2026)', 'शांति कॉलेज ऑफ फार्मेसी द्वारा आयोजित शांति प्रीमियर लीग का समापन, बी-फार्मा ने जीता फाइनल मुकाबला')" class="text-[#F36F21] font-bold hover:underline inline-flex items-center gap-0.5">
+                                    <span class="material-symbols-outlined text-sm">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: Nai Dunia (By Sr. Journalist Nanhe Raja Bundela) -->
+                    <div class="bg-white rounded-2xl border border-gray-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                        <!-- Image Container with Camp Photo -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-50 border-b border-gray-100 cursor-pointer" onclick="openPressModal('images/real/nss_cleanliness_clean.jpg', 'Nai Dunia Special Report (Nanhe Raja Bundela)', 'मानव अधिकार एवं मूलभूत कर्तव्यों पर व्याख्यान के साथ 7-दिवसीय एनएसएस शिविर का सफल समापन')">
+                            <img src="images/real/nss_cleanliness_clean.jpg" alt="Nai Dunia NSS Camp Coverage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='images/real/nss_cleanliness.jpg';">
+                            <!-- Overlay Pill -->
+                            <div class="absolute top-3 left-3 bg-[#0A66C2] text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-xs">history_edu</span>
+                                <span data-i18n="press_c2_outlet">Nai Dunia · Sr. Journalist Nanhe Raja Bundela</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-xs font-bold px-3 py-1.5 rounded-xl backdrop-blur-sm shadow-md flex items-center gap-1.5 transition-colors">
+                                <span class="material-symbols-outlined text-sm">zoom_in</span>
+                                <span data-i18n="press_view_photo">View Photo</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6 flex flex-col flex-grow justify-between gap-4">
+                            <div>
+                                <div class="flex items-center justify-between text-xs font-bold text-gray-500 mb-2">
+                                    <span class="text-[#0A66C2] bg-blue-50 px-2.5 py-0.5 rounded-md uppercase tracking-wider" data-i18n="press_c2_tag">7-Day NSS Rural Immersion</span>
+                                    <span class="text-gray-400">Gram Choubara</span>
+                                </div>
+                                <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug group-hover:text-[#0A66C2] transition-colors mb-3">
+                                    <span data-i18n="press_c2_hl">"मानव अधिकार एवं मूलभूत कर्तव्यों पर व्याख्यान के साथ 7-दिवसीय एनएसएस शिविर का सफल समापन"</span>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                                    <span data-i18n="press_c2_desc">Week-long residential camp in adopted village Gram Choubara wrapped up following constitutional awareness sessions, primary medical vitals screening, and village cleanliness campaigns.</span>
+                                </p>
+                            </div>
+
+                            <!-- Footer / Metadata Bar -->
+                            <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                                <span class="flex items-center gap-1 text-blue-700 font-bold">
+                                    <span class="material-symbols-outlined text-sm">verified</span>
+                                    <span data-i18n="press_c2_stat">Gram Choubara | 50+ NSS Cadets</span>
+                                </span>
+                                <button type="button" onclick="openPressModal('images/real/nss_cleanliness_clean.jpg', 'Nai Dunia Special Report (Nanhe Raja Bundela)', 'मानव अधिकार एवं मूलभूत कर्तव्यों पर व्याख्यान के साथ 7-दिवसीय एनएसएस शिविर का सफल समापन')" class="text-[#0A66C2] font-bold hover:underline inline-flex items-center gap-0.5">
+                                    <span class="material-symbols-outlined text-sm">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: Pharma Media (Macleods Placement Drive) -->
+                    <div class="bg-white rounded-2xl border border-gray-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                        <!-- Image Container with Placement Drive Photo -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-50 border-b border-gray-100 cursor-pointer" onclick="openPressModal('images/real/placement_drive.jpg', 'Pharma Media (Macleods Mega Campus Drive)', 'Macleods Pharmaceuticals द्वारा आयोजित मेगा केंपस ड्राइव में 25 छात्रों को नियुक्ति पत्र')">
+                            <img src="images/real/placement_drive.jpg" alt="Macleods Mega Placement Drive" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='images/real/hero_placement_flyer_raw.jpg';">
+                            <!-- Overlay Pill -->
+                            <div class="absolute top-3 left-3 bg-[#00875A] text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-xs">work</span>
+                                <span data-i18n="press_c3_outlet">Pharma Media · Mega Placement</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-xs font-bold px-3 py-1.5 rounded-xl backdrop-blur-sm shadow-md flex items-center gap-1.5 transition-colors">
+                                <span class="material-symbols-outlined text-sm">zoom_in</span>
+                                <span data-i18n="press_view_photo">View Photo</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6 flex flex-col flex-grow justify-between gap-4">
+                            <div>
+                                <div class="flex items-center justify-between text-xs font-bold text-gray-500 mb-2">
+                                    <span class="text-[#00875A] bg-emerald-50 px-2.5 py-0.5 rounded-md uppercase tracking-wider" data-i18n="press_c3_tag">Campus Recruitment</span>
+                                    <span class="text-gray-400">Campus Drive</span>
+                                </div>
+                                <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug group-hover:text-[#00875A] transition-colors mb-3">
+                                    <span data-i18n="press_c3_hl">"Macleods Pharmaceuticals द्वारा आयोजित मेगा केंपस ड्राइव में 25 छात्रों को नियुक्ति पत्र"</span>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                                    <span data-i18n="press_c3_desc">Rigorous multi-stage recruitment drive by leading national pharmaceutical firm Macleods resulted in 25 immediate appointment letters for formulation and QA positions in Indore & Baddi.</span>
+                                </p>
+                            </div>
+
+                            <!-- Footer / Metadata Bar -->
+                            <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                                <span class="flex items-center gap-1 text-emerald-700 font-bold">
+                                    <span class="material-symbols-outlined text-sm">work_history</span>
+                                    <span data-i18n="press_c3_stat">25 Appointment Letters | Macleods Ltd</span>
+                                </span>
+                                <button type="button" onclick="openPressModal('images/real/placement_drive.jpg', 'Pharma Media (Macleods Mega Campus Drive)', 'Macleods Pharmaceuticals द्वारा आयोजित मेगा केंपस ड्राइव में 25 छात्रों को नियुक्ति पत्र')" class="text-[#00875A] font-bold hover:underline inline-flex items-center gap-0.5">
+                                    <span class="material-symbols-outlined text-sm">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Lightbox Modal for Press Clipping / Full Image -->
+            <div id="pressModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+                <div class="relative bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl flex flex-col max-h-[90vh]" onclick="event.stopPropagation();">
+                    <div class="p-4 bg-gray-900 text-white flex items-center justify-between border-b border-gray-800">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[#F36F21]">newspaper</span>
+                            <h4 id="pressModalTitle" class="font-bold text-sm sm:text-base text-white truncate">Press Document Preview</h4>
+                        </div>
+                        <button type="button" onclick="closePressModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+                            <span class="material-symbols-outlined text-sm">close</span>
+                        </button>
+                    </div>
+                    <div class="p-4 overflow-y-auto flex items-center justify-center bg-gray-50 flex-grow">
+                        <img id="pressModalImg" src="" alt="Press Preview" class="max-w-full max-h-[65vh] object-contain rounded-lg shadow-md">
+                    </div>
+                    <div class="p-4 bg-white border-t border-gray-200">
+                        <p id="pressModalCaption" class="text-xs sm:text-sm text-gray-800 font-semibold text-center"></p>
                     </div>
                 </div>
             </div>
@@ -1146,7 +1390,45 @@ const homeHtml = `<!DOCTYPE html>
                     payWithRazorpay(amt, title);
                 });
             }
+
+            // Press Modal Backdrop & ESC Dismissal
+            const pressModal = document.getElementById('pressModal');
+            if (pressModal) {
+                pressModal.addEventListener('click', (e) => {
+                    if (e.target === pressModal) {
+                        closePressModal();
+                    }
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closePressModal();
+                }
+            });
         });
+
+        // Press Modal Functions (Global)
+        window.openPressModal = function(imgSrc, title, caption) {
+            const modal = document.getElementById('pressModal');
+            const modalImg = document.getElementById('pressModalImg');
+            const modalTitle = document.getElementById('pressModalTitle');
+            const modalCaption = document.getElementById('pressModalCaption');
+            if (modal && modalImg) {
+                modalImg.src = imgSrc;
+                if (modalTitle) modalTitle.textContent = title || 'Press Document';
+                if (modalCaption) modalCaption.textContent = caption || '';
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closePressModal = function() {
+            const modal = document.getElementById('pressModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        };
     </script>
 </body>
 </html>`;
@@ -1365,6 +1647,131 @@ const aboutHtml = `<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- ================= ABOUT SECTION 2.5: DISTINGUISHED GUESTS & PATRONS ================= -->
+        <section id="patrons" class="py-16 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF9F5] border-b border-gray-200/80 relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto relative z-10">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F36F21]/10 border border-[#F36F21]/20 text-[#a04100] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+                        <span class="material-symbols-outlined text-base text-[#F36F21]">military_tech</span>
+                        <span data-i18n="patrons_badge">DIGNITARY ENDORSEMENTS & CONVOCATION HONORS</span>
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] tracking-tight">
+                        <span data-i18n="patrons_title">Distinguished Guests & Institutional Patrons</span>
+                    </h2>
+                    <p class="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                        <span data-i18n="patrons_sub">Our annual convocations, merit scholarship ceremonies, and grassroots programs have been graced and commended by civil servants (IAS), senior medical specialists, and eminent educators.</span>
+                    </p>
+                </div>
+
+                <!-- 3 Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- Card 1: Shri Ashutosh Mishra (IAS) -->
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-[#F36F21]/20 flex items-center gap-1.5" data-i18n="patron_c1_tag">
+                                    <span class="material-symbols-outlined text-sm">account_balance</span>
+                                    Civil Services / IAS Officer
+                                </span>
+                                <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">AIR 198</span>
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-[#F36F21] transition-colors" data-i18n="patron_c1_name">
+                                Shri Ashutosh Mishra (IAS)
+                            </h3>
+                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c1_role">
+                                UPSC 2024 · All India Rank 198 (Special Guest)
+                            </p>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c1_desc">
+                                Graced our Annual Convocation as Special Guest of Honor, felicitating meritorious graduates and commending the society's mission of bridging professional technical education with rural careers in Bundelkhand.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                            <span class="inline-flex items-center gap-1 text-gray-700">
+                                <span class="material-symbols-outlined text-sm text-[#F36F21]">verified</span>
+                                Convocation 2025 Guest of Honor
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Dr. Major L.N. Rawat -->
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-blue-50 text-blue-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-200 flex items-center gap-1.5" data-i18n="patron_c2_tag">
+                                    <span class="material-symbols-outlined text-sm">school</span>
+                                    Higher Education Mentor
+                                </span>
+                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">Senior Academic</span>
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-blue-700 transition-colors" data-i18n="patron_c2_name">
+                                Dr. Major L.N. Rawat
+                            </h3>
+                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c2_role">
+                                Former Principal, Bapu Degree College
+                            </p>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c2_desc">
+                                Keynote convocation speaker and veteran academic advisor, praising the institution's stringent PCI compliance, academic discipline, and field-driven NSS youth leadership.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                            <span class="inline-flex items-center gap-1 text-gray-700">
+                                <span class="material-symbols-outlined text-sm text-blue-600">verified</span>
+                                Academic Keynote Mentor
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Kritika Pateria & Scholarship -->
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-emerald-50 text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-200 flex items-center gap-1.5" data-i18n="patron_c3_tag">
+                                    <span class="material-symbols-outlined text-sm">military_tech</span>
+                                    State Merit Scholar & Incentive
+                                </span>
+                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">₹10,000 Award</span>
+                            </div>
+                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors" data-i18n="patron_c3_name">
+                                Kritika Pateria
+                            </h3>
+                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c3_role">
+                                9th State Rank (MP Board 12th) · Scholarship Recipient
+                            </p>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c3_desc">
+                                Awarded a 100% higher education scholarship and special ₹10,000 cash incentive on stage by Director Er. Bhartendu Mishra, exemplifying our covenant to sponsor outstanding rural female scholars.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
+                            <span class="inline-flex items-center gap-1 text-gray-700">
+                                <span class="material-symbols-outlined text-sm text-emerald-600">verified</span>
+                                100% Scholarship + Cash Incentive
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Medical & Administrative Patronage Strip -->
+                <div class="mt-10 bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#F36F21]/10 flex items-center justify-center text-[#F36F21] shrink-0">
+                            <span class="material-symbols-outlined text-2xl">local_hospital</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-900">Endorsed by Public Administrators & Senior Medical Specialists</h4>
+                            <p class="text-xs text-gray-600">Guided by Dr. Ravi Kant Mishra's two decades of clinical goodwill in Nowgong and commended by state administrative leadership.</p>
+                        </div>
+                    </div>
+                    <a href="about.html#governance" class="text-xs font-bold text-[#F36F21] hover:underline shrink-0 inline-flex items-center gap-1">
+                        <span>View Governance</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= ABOUT SECTION 3: AWARDS & LEGAL COMPLIANCE ================= -->
         <section id="compliance" class="w-full py-xl bg-[#1F1F1F] text-white relative overflow-hidden">
             <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-xl">
@@ -1425,9 +1832,33 @@ const aboutHtml = `<!DOCTYPE html>
                     </div>
                 </div>
 
+                <!-- Institutional & CSR Audit Download Strip -->
+                <div class="bg-white/5 border border-white/15 rounded-2xl p-6 md:p-8 backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl my-2">
+                    <div class="flex items-center gap-4 text-left">
+                        <div class="w-14 h-14 rounded-2xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21] shrink-0">
+                            <span class="material-symbols-outlined text-3xl">verified_user</span>
+                        </div>
+                        <div>
+                            <span class="bg-[#F36F21] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full" data-i18n="comp_inst_badge">Institutional & CSR Compliance</span>
+                            <h4 class="text-lg md:text-xl font-bold text-white mt-1" data-i18n="comp_inst_title">Official Annual Reports & Statutory Auditor Filings</h4>
+                            <p class="text-xs sm:text-sm text-gray-300 mt-0.5 max-w-xl" data-i18n="comp_inst_sub">Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0 w-full lg:w-auto">
+                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95">
+                            <span class="material-symbols-outlined text-base">download</span>
+                            <span data-i18n="btn_dl_ar26">Download 2026 Annual Report (PDF)</span>
+                        </a>
+                        <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95">
+                            <span class="material-symbols-outlined text-base">receipt_long</span>
+                            <span data-i18n="btn_dl_audit">Download Audited Financial Statements (PDF)</span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Ceremony Documentary Photo Frame -->
                 <div class="w-full relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 mt-4">
-                    <img class="w-full h-auto max-h-[550px] object-cover" alt="<span data-i18n="m4_title">Shanti Pratibha Khoj & Board Merit Honors</span> Felicitation Ceremony" src="images/real/pratibha_khoj_enhanced.jpg" onerror="this.onerror=null; this.src='images/real/pratibha_khoj.jpg';"/>
+                    <img class="w-full h-auto max-h-[550px] object-cover" alt="Shanti Pratibha Khoj and Board Merit Honors Felicitation Ceremony" src="images/real/pratibha_khoj_enhanced.jpg" onerror="this.onerror=null; this.src='images/real/pratibha_khoj.jpg';"/>
                     <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
                         <div>
                             <p class="text-white font-bold text-lg">Shanti Pratibha Khoj & Board Merit Honors</p>
@@ -2199,7 +2630,7 @@ const volunteerHtml = `<!DOCTYPE html>
                     <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
                         <div>
                             <div class="aspect-[16/10] w-full overflow-hidden relative bg-gray-100">
-                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="<span data-i18n="r1_title">Health Camp Diagnostic Assistant</span>" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/real/health_camp_extended.jpg';"/>
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Health Camp Diagnostic Assistant" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/real/health_camp_extended.jpg';"/>
                                 <div class="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 border border-white/50">
                                     <span class="material-symbols-outlined text-sm text-[#F36F21]">clinical_notes</span>
                                     <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">Healthcare</span>
@@ -2226,7 +2657,7 @@ const volunteerHtml = `<!DOCTYPE html>
                     <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-[#F36F21] transition-all group shadow-sm hover:shadow-md">
                         <div>
                             <div class="aspect-[16/10] w-full overflow-hidden relative bg-gray-100">
-                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="<span data-i18n="r2_title">NSS Swachh Bharat Field Leader</span>" src="images/real/nss_cleanliness_clean.jpg" onerror="this.onerror=null; this.src='images/real/nss_cleanliness.jpg';"/>
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="NSS Swachh Bharat Field Leader" src="images/real/nss_cleanliness_clean.jpg" onerror="this.onerror=null; this.src='images/real/nss_cleanliness.jpg';"/>
                                 <div class="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 border border-white/50">
                                     <span class="material-symbols-outlined text-sm text-[#F36F21]">cleaning_services</span>
                                     <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">NSS &amp; Sanitation</span>
