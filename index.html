@@ -209,7 +209,7 @@
         </div>
 
         <!-- Mobile Dropdown Navigation Drawer -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300">
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
             <nav class="flex flex-col gap-3 font-bold text-base">
                 <!-- Mobile Language Selector Row -->
                 <div class="py-2.5 px-3 mb-1 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-between">
@@ -416,7 +416,7 @@
         <!-- Bottom Metrics Bar -->
         <section class="bg-surface-container-lowest border-b border-outline-variant/30 relative z-20 shadow-sm">
             <div class="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-12">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 divide-x divide-outline-variant/20">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 md:divide-x divide-outline-variant/20">
                     <!-- Metric 1 -->
                     <div class="flex flex-col items-center md:items-start px-4 sm:px-8 text-center md:text-left">
                         <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold">9+</span>
@@ -595,7 +595,7 @@
                     <!-- Carousel Container -->
                     <div class="flex gap-md overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-sm w-full" id="work-carousel">
                         <!-- Card 1: Health -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Health Camp" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/pillar-health.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -610,7 +610,7 @@
                         </div>
 
                         <!-- Card 2: Education -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Digital Classroom" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/placement_drive.jpg" onerror="this.onerror=null; this.src='images/real/hero_placement.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -625,7 +625,7 @@
                         </div>
 
                         <!-- Card 3: Women Empowerment -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Women Tailoring" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/nss_cleanliness.jpg" onerror="this.onerror=null; this.src='images/pillar-tailoring.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -640,7 +640,7 @@
                         </div>
 
                         <!-- Card 4: Youth Leadership -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="NSS Camp" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/spl_trophy.jpg" onerror="this.onerror=null; this.src='images/real/nss_cleanliness.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -655,7 +655,7 @@
                         </div>
 
                         <!-- Card 5: Green Campus -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Tree Plantation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -879,7 +879,7 @@
                 <img alt="Dr. Ravi Kant Mishra" class="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out opacity-85 hover:opacity-100" src="images/real/dr_ravi_kant_mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-kant-mishra-president.jpg';"/>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F] via-transparent to-transparent opacity-90 md:hidden"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1F1F1F] opacity-90 hidden md:block"></div>
-                <div class="absolute bottom-0 left-0 p-margin-desktop md:hidden">
+                <div class="absolute bottom-0 left-0 p-6 md:hidden">
                     <p class="text-white text-2xl font-bold tracking-tight">Dr. Ravi Kant Mishra</p>
                     <p class="text-primary-fixed-dim font-bold text-sm uppercase tracking-wider mt-1">Founder & President</p>
                 </div>
@@ -1173,6 +1173,13 @@
                         menu.classList.add('hidden');
                         if (icon) icon.textContent = 'menu';
                     }
+                });
+
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    });
                 });
             }
 

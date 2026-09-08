@@ -172,7 +172,7 @@
         </div>
 
         <!-- Mobile Dropdown Navigation Drawer -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300">
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
             <nav class="flex flex-col gap-3 font-bold text-base">
                 <!-- Mobile Language Selector Row -->
                 <div class="py-2.5 px-3 mb-1 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-between">
@@ -357,9 +357,9 @@
                         <p class="text-xs text-gray-500 mb-6">For Institutional, CSR, and High-Value Philanthropic Grants</p>
                         
                         <div class="space-y-3 bg-[#FBF9F9] p-5 rounded-xl border border-gray-200 text-sm">
-                            <div class="flex justify-between border-b border-gray-200 pb-2">
-                                <span class="text-gray-500">Account Name:</span>
-                                <strong class="text-[#1F1F1F] text-right text-xs sm:text-sm">Pandit Shree Gyasi Lal Mishra Education & Social Welfare Society</strong>
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-gray-200 pb-2 gap-1">
+                                <span class="text-gray-500 text-xs sm:text-sm">Account Name:</span>
+                                <strong class="text-[#1F1F1F] text-left sm:text-right text-xs sm:text-sm">Pandit Shree Gyasi Lal Mishra Education & Social Welfare Society</strong>
                             </div>
                             <div class="flex justify-between border-b border-gray-200 pb-2">
                                 <span class="text-gray-500">Bank Name:</span>
@@ -429,35 +429,35 @@
                     <form class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5" onsubmit="event.preventDefault(); alert('Tax Receipt Request received for PAN: ' + document.getElementById('receiptPanNumber').value.toUpperCase() + '! Your 80G certificate (URN: AAEAP1466C24BP02) will be processed and sent to your email within 24 hours.'); this.reset();">
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptFullName">Full Name (As per PAN) *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptFullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptFullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-[#FFB693] uppercase tracking-wider font-bold" for="receiptPanNumber">PAN Number * (Mandatory for 80G)</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptEmail">Email Address * (For PDF Certificate)</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptEmail" placeholder="rahul@example.com" required="" type="email"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptEmail" placeholder="rahul@example.com" required="" type="email"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptWhatsapp">WhatsApp Number *</label>
                             <div class="flex">
-                                <span class="glass-input px-4 py-3 rounded-l-xl border-r-0 text-white/60 bg-white/5 text-sm font-bold">+91</span>
-                                <input class="glass-input w-full px-4 py-3 rounded-r-xl font-body-md text-sm transition-all duration-200" id="receiptWhatsapp" placeholder="9876543210" required="" type="tel"/>
+                                <span class="glass-input px-4 py-3 rounded-l-xl border-r-0 text-white/60 bg-white/5 text-base font-bold">+91</span>
+                                <input class="glass-input w-full px-4 py-3 rounded-r-xl font-body-md text-base transition-all duration-200" id="receiptWhatsapp" placeholder="9876543210" required="" type="tel"/>
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptTransactionId">Transaction ID / UTR Number *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT..." required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT..." required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptAmount">Donation Amount (₹) *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptAmount" placeholder="5000" required="" type="number"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptAmount" placeholder="5000" required="" type="number"/>
                         </div>
 
                         <!-- Submit Action -->
@@ -646,6 +646,13 @@
                         menu.classList.add('hidden');
                         if (icon) icon.textContent = 'menu';
                     }
+                });
+
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    });
                 });
             }
 

@@ -148,7 +148,7 @@
         </div>
 
         <!-- Mobile Dropdown Navigation Drawer -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300">
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
             <nav class="flex flex-col gap-3 font-bold text-base">
                 <!-- Mobile Language Selector Row -->
                 <div class="py-2.5 px-3 mb-1 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-between">
@@ -421,7 +421,7 @@
         </section>
 
         <!-- Bottom Section: Form Card -->
-        <section id="volunteer-apply" class="w-full max-w-3xl mx-auto bg-white p-8 md:p-12 flex flex-col justify-center shadow-2xl rounded-3xl -mt-12 mb-24 relative z-20 border-2 border-[#F36F21]/20">
+        <section id="volunteer-apply" class="w-[calc(100%-2rem)] max-w-3xl mx-auto bg-white p-5 sm:p-8 md:p-12 flex flex-col justify-center shadow-2xl rounded-2xl sm:rounded-3xl -mt-12 mb-24 relative z-20 border-2 border-[#F36F21]/20">
             <div class="text-center mb-8">
                 <span class="inline-flex items-center gap-2 bg-[#FFF2EB] text-[#F36F21] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-sm">
                     Direct Recruitment
@@ -639,6 +639,13 @@
                         menu.classList.add('hidden');
                         if (icon) icon.textContent = 'menu';
                     }
+                });
+
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    });
                 });
             }
 

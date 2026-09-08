@@ -147,7 +147,7 @@
         </div>
 
         <!-- Mobile Dropdown Navigation Drawer -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300">
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
             <nav class="flex flex-col gap-3 font-bold text-base">
                 <!-- Mobile Language Selector Row -->
                 <div class="py-2.5 px-3 mb-1 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-between">
@@ -705,6 +705,13 @@
                         menu.classList.add('hidden');
                         if (icon) icon.textContent = 'menu';
                     }
+                });
+
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    });
                 });
             }
 

@@ -55,7 +55,7 @@ function getUnifiedHeader(activePage = 'home') {
         </div>
 
         <!-- Mobile Dropdown Navigation Drawer -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300">
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-2xl px-5 py-6 transition-all duration-300 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
             <nav class="flex flex-col gap-3 font-bold text-base">
                 <!-- Mobile Language Selector Row -->
                 <div class="py-2.5 px-3 mb-1 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-between">
@@ -280,6 +280,13 @@ const unifiedFooterHtml = `
                         menu.classList.add('hidden');
                         if (icon) icon.textContent = 'menu';
                     }
+                });
+
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        if (icon) icon.textContent = 'menu';
+                    });
                 });
             }
 
@@ -591,7 +598,7 @@ const homeHtml = `<!DOCTYPE html>
         <!-- Bottom Metrics Bar -->
         <section class="bg-surface-container-lowest border-b border-outline-variant/30 relative z-20 shadow-sm">
             <div class="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-12">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 divide-x divide-outline-variant/20">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 md:divide-x divide-outline-variant/20">
                     <!-- Metric 1 -->
                     <div class="flex flex-col items-center md:items-start px-4 sm:px-8 text-center md:text-left">
                         <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold">9+</span>
@@ -770,7 +777,7 @@ const homeHtml = `<!DOCTYPE html>
                     <!-- Carousel Container -->
                     <div class="flex gap-md overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-sm w-full" id="work-carousel">
                         <!-- Card 1: Health -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Health Camp" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/health_camp_real.jpg" onerror="this.onerror=null; this.src='images/pillar-health.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -785,7 +792,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
 
                         <!-- Card 2: Education -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Digital Classroom" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/placement_drive.jpg" onerror="this.onerror=null; this.src='images/real/hero_placement.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -800,7 +807,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
 
                         <!-- Card 3: Women Empowerment -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Women Tailoring" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/nss_cleanliness.jpg" onerror="this.onerror=null; this.src='images/pillar-tailoring.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -815,7 +822,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
 
                         <!-- Card 4: Youth Leadership -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="NSS Camp" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/spl_trophy.jpg" onerror="this.onerror=null; this.src='images/real/nss_cleanliness.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -830,7 +837,7 @@ const homeHtml = `<!DOCTYPE html>
                         </div>
 
                         <!-- Card 5: Green Campus -->
-                        <div class="snap-start shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
+                        <div class="snap-start shrink-0 w-[80vw] sm:w-[400px] md:w-[450px] aspect-square relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl border-4 border-white/20">
                             <img alt="Tree Plantation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/real/tree_plantation_real.jpg" onerror="this.onerror=null; this.src='images/pillar-trees.jpg';"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 w-full p-md flex flex-col gap-sm">
@@ -1054,7 +1061,7 @@ const homeHtml = `<!DOCTYPE html>
                 <img alt="Dr. Ravi Kant Mishra" class="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out opacity-85 hover:opacity-100" src="images/real/dr_ravi_kant_mishra.jpg" onerror="this.onerror=null; this.src='images/dr-ravi-kant-mishra-president.jpg';"/>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#1F1F1F] via-transparent to-transparent opacity-90 md:hidden"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1F1F1F] opacity-90 hidden md:block"></div>
-                <div class="absolute bottom-0 left-0 p-margin-desktop md:hidden">
+                <div class="absolute bottom-0 left-0 p-6 md:hidden">
                     <p class="text-white text-2xl font-bold tracking-tight">Dr. Ravi Kant Mishra</p>
                     <p class="text-primary-fixed-dim font-bold text-sm uppercase tracking-wider mt-1">Founder & President</p>
                 </div>
@@ -2102,7 +2109,7 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Sticky Page Navigation Filter Bar -->
-        <div class="sticky top-[72px] z-40 bg-[#FFF7F2]/95 backdrop-blur-md py-3 border-b border-surface-variant shadow-sm">
+        <div class="sticky top-20 z-40 bg-[#FFF7F2]/95 backdrop-blur-md py-3 border-b border-surface-variant shadow-sm">
             <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop overflow-x-auto no-scrollbar">
                 <ul class="flex items-center gap-sm min-w-max">
                     <li>
@@ -2148,7 +2155,7 @@ const programsHtml = `<!DOCTYPE html>
         <!-- ================= SECTION 2: 5 DETAILED PROGRAM PILLARS (ALTERNATING FULL-WIDTH SECTIONS) ================= -->
         
         <!-- Real Program 1: Technical Pharmacy Education & Macleods Drive -->
-        <section id="pharmacy" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
+        <section id="pharmacy" class="scroll-mt-36 py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Visual Left -->
                 <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3] w-full relative">
@@ -2184,7 +2191,7 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Real Program 2: Shanti Premier League & Youth Sports -->
-        <section id="sports-nss" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
+        <section id="sports-nss" class="scroll-mt-36 py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Content Left -->
                 <div class="order-1 lg:order-1">
@@ -2218,7 +2225,7 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Pillar 3: Free Healthcare & Eye Camps (Visual Left, Content Right) -->
-        <section id="healthcare" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
+        <section id="healthcare" class="scroll-mt-36 py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Visual Left -->
                 <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3] w-full relative">
@@ -2252,7 +2259,7 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Pillar 4: Women Vocational Training (Content Left, Visual Right) -->
-        <section id="women-skilling" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
+        <section id="women-skilling" class="scroll-mt-36 py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Content Left -->
                 <div class="order-1 lg:order-1">
@@ -2286,7 +2293,7 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Pillar 5: Green Campus & Environment (Visual Left, Content Right) -->
-        <section id="environment" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
+        <section id="environment" class="scroll-mt-36 py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-b border-gray-100">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Visual Left -->
                 <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 aspect-[4/3] w-full relative">
@@ -2320,7 +2327,7 @@ const programsHtml = `<!DOCTYPE html>
         </section>
 
         <!-- ================= SECTION 3: 4-STEP GRASSROOTS MODEL ================= -->
-        <section id="model" class="w-full bg-[#F36F21] py-xl px-margin-mobile md:px-margin-desktop text-white relative overflow-hidden">
+        <section id="model" class="scroll-mt-36 w-full bg-[#F36F21] py-xl px-margin-mobile md:px-margin-desktop text-white relative overflow-hidden">
             <div class="max-w-[1280px] mx-auto">
                 <div class="text-center mb-xl">
                     <span class="inline-flex items-center gap-2 bg-white/20 text-white font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 backdrop-blur-sm shadow-sm">
@@ -2731,7 +2738,7 @@ const volunteerHtml = `<!DOCTYPE html>
         </section>
 
         <!-- Bottom Section: Form Card -->
-        <section id="volunteer-apply" class="w-full max-w-3xl mx-auto bg-white p-8 md:p-12 flex flex-col justify-center shadow-2xl rounded-3xl -mt-12 mb-24 relative z-20 border-2 border-[#F36F21]/20">
+        <section id="volunteer-apply" class="w-[calc(100%-2rem)] max-w-3xl mx-auto bg-white p-5 sm:p-8 md:p-12 flex flex-col justify-center shadow-2xl rounded-2xl sm:rounded-3xl -mt-12 mb-24 relative z-20 border-2 border-[#F36F21]/20">
             <div class="text-center mb-8">
                 <span class="inline-flex items-center gap-2 bg-[#FFF2EB] text-[#F36F21] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-sm">
                     Direct Recruitment
@@ -3045,9 +3052,9 @@ const donateHtml = `<!DOCTYPE html>
                         <p class="text-xs text-gray-500 mb-6">For Institutional, CSR, and High-Value Philanthropic Grants</p>
                         
                         <div class="space-y-3 bg-[#FBF9F9] p-5 rounded-xl border border-gray-200 text-sm">
-                            <div class="flex justify-between border-b border-gray-200 pb-2">
-                                <span class="text-gray-500">Account Name:</span>
-                                <strong class="text-[#1F1F1F] text-right text-xs sm:text-sm">Pandit Shree Gyasi Lal Mishra Education & Social Welfare Society</strong>
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-gray-200 pb-2 gap-1">
+                                <span class="text-gray-500 text-xs sm:text-sm">Account Name:</span>
+                                <strong class="text-[#1F1F1F] text-left sm:text-right text-xs sm:text-sm">Pandit Shree Gyasi Lal Mishra Education & Social Welfare Society</strong>
                             </div>
                             <div class="flex justify-between border-b border-gray-200 pb-2">
                                 <span class="text-gray-500">Bank Name:</span>
@@ -3117,35 +3124,35 @@ const donateHtml = `<!DOCTYPE html>
                     <form class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5" onsubmit="event.preventDefault(); alert('Tax Receipt Request received for PAN: ' + document.getElementById('receiptPanNumber').value.toUpperCase() + '! Your 80G certificate (URN: AAEAP1466C24BP02) will be processed and sent to your email within 24 hours.'); this.reset();">
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptFullName">Full Name (As per PAN) *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptFullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptFullName" placeholder="e.g. Rahul Sharma" required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-[#FFB693] uppercase tracking-wider font-bold" for="receiptPanNumber">PAN Number * (Mandatory for 80G)</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200 uppercase font-bold tracking-wider border-2 border-[#F36F21]/60" id="receiptPanNumber" maxlength="10" placeholder="ABCDE1234F" required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptEmail">Email Address * (For PDF Certificate)</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptEmail" placeholder="rahul@example.com" required="" type="email"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptEmail" placeholder="rahul@example.com" required="" type="email"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptWhatsapp">WhatsApp Number *</label>
                             <div class="flex">
-                                <span class="glass-input px-4 py-3 rounded-l-xl border-r-0 text-white/60 bg-white/5 text-sm font-bold">+91</span>
-                                <input class="glass-input w-full px-4 py-3 rounded-r-xl font-body-md text-sm transition-all duration-200" id="receiptWhatsapp" placeholder="9876543210" required="" type="tel"/>
+                                <span class="glass-input px-4 py-3 rounded-l-xl border-r-0 text-white/60 bg-white/5 text-base font-bold">+91</span>
+                                <input class="glass-input w-full px-4 py-3 rounded-r-xl font-body-md text-base transition-all duration-200" id="receiptWhatsapp" placeholder="9876543210" required="" type="tel"/>
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptTransactionId">Transaction ID / UTR Number *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT..." required="" type="text"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptTransactionId" placeholder="e.g. UPI1234567890 / NEFT..." required="" type="text"/>
                         </div>
 
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-bold text-xs text-gray-300 uppercase tracking-wider font-bold" for="receiptAmount">Donation Amount (₹) *</label>
-                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-sm transition-all duration-200" id="receiptAmount" placeholder="5000" required="" type="number"/>
+                            <input class="glass-input w-full px-4 py-3 rounded-xl font-body-md text-base transition-all duration-200" id="receiptAmount" placeholder="5000" required="" type="number"/>
                         </div>
 
                         <!-- Submit Action -->
