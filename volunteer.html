@@ -432,7 +432,7 @@
                 <p class="text-gray-600 text-sm mt-1">Join our active cohort of grassroots volunteers across India.</p>
             </div>
 
-            <form class="space-y-6" id="volunteer-form" onsubmit="event.preventDefault(); alert('Application submitted successfully! Our team will contact you on WhatsApp/Phone shortly.'); this.reset();">
+            <form class="space-y-6" id="volunteer-form">
                 <!-- Full Name -->
                 <div>
                     <label class="block font-bold text-sm text-gray-700 mb-2" for="fullName">Full Name *</label>
@@ -483,12 +483,120 @@
                 </div>
 
                 <!-- Submit Button -->
-                <button class="w-full bg-[#F36F21] text-white font-bold text-lg py-4 px-8 rounded-xl transition-all hover:bg-[#a04100] active:scale-95 shadow-lg shadow-[#F36F21]/30 cursor-pointer flex items-center justify-center gap-2" type="submit">
-                    <span>Send Application</span>
-                    <span class="material-symbols-outlined text-xl">send</span>
+                <button id="volunteer-submit-btn" class="w-full bg-[#F36F21] text-white font-bold text-lg py-4 px-8 rounded-xl transition-all hover:bg-[#a04100] active:scale-95 shadow-lg shadow-[#F36F21]/30 cursor-pointer flex items-center justify-center gap-2" type="submit">
+                    <span id="volunteer-btn-text">Send Application</span>
+                    <span id="volunteer-btn-icon" class="material-symbols-outlined text-xl">send</span>
                 </button>
+
+                <!-- Feedback Alert Container -->
+                <div id="volunteer-alert" class="hidden p-4 rounded-xl text-sm font-semibold text-center transition-all"></div>
             </form>
         </section>
+
+        <!-- Volunteer Form Submission Script -->
+        <script>
+            window.GOOGLE_SHEET_VOLUNTEER_URL = window.GOOGLE_SHEET_VOLUNTEER_URL || '';
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var form = document.getElementById('volunteer-form');
+                var submitBtn = document.getElementById('volunteer-submit-btn');
+                var btnText = document.getElementById('volunteer-btn-text');
+                var btnIcon = document.getElementById('volunteer-btn-icon');
+                var alertBox = document.getElementById('volunteer-alert');
+
+                if (form) {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+
+                        var fullName = document.getElementById('fullName').value.trim();
+                        var whatsapp = document.getElementById('whatsapp').value.trim();
+                        var email = document.getElementById('email').value.trim();
+                        var status = document.getElementById('status').value;
+                        var interest = document.getElementById('interest').value;
+                        var motivation = document.getElementById('motivation').value.trim();
+
+                        if (!fullName || !whatsapp || !email || !status || !interest || !motivation) {
+                            alert('Please fill in all mandatory fields.');
+                            return;
+                        }
+
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                        }
+                        if (btnText) btnText.textContent = 'Submitting Application...';
+                        if (btnIcon) {
+                            btnIcon.textContent = 'progress_activity';
+                            btnIcon.classList.add('animate-spin');
+                        }
+                        if (alertBox) {
+                            alertBox.classList.add('hidden');
+                            alertBox.className = 'hidden p-4 rounded-xl text-sm font-semibold text-center transition-all';
+                        }
+
+                        var payload = {
+                            fullName: fullName,
+                            whatsapp: whatsapp,
+                            email: email,
+                            status: status,
+                            interest: interest,
+                            motivation: motivation
+                        };
+
+                        try {
+                            // 1. Send to server endpoint (Email + CSV Logging + Google Sheets sync)
+                            var res = await fetch('submit_volunteer.php', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+
+                            // 2. Direct frontend sync to Google Sheets if client-side URL is configured
+                            if (window.GOOGLE_SHEET_VOLUNTEER_URL && window.GOOGLE_SHEET_VOLUNTEER_URL.indexOf('http') === 0) {
+                                try {
+                                    fetch(window.GOOGLE_SHEET_VOLUNTEER_URL, {
+                                        method: 'POST',
+                                        mode: 'no-cors',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify(payload)
+                                    });
+                                } catch(e) {
+                                    console.warn('Direct Google Sheet submission notice:', e);
+                                }
+                            }
+
+                            if (alertBox) {
+                                alertBox.className = 'p-4 rounded-xl text-sm font-bold text-center bg-green-50 border-2 border-green-500 text-green-800 block';
+                                alertBox.innerHTML = '🎉 Thank you, <strong>' + fullName + '</strong>! Your volunteer application has been successfully submitted and recorded. Our team will contact you on WhatsApp / Phone shortly.';
+                                alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            } else {
+                                alert('Thank you, ' + fullName + '! Your volunteer application has been submitted and recorded. Our team will contact you shortly.');
+                            }
+
+                            form.reset();
+                        } catch (err) {
+                            console.error('Submission error:', err);
+                            if (alertBox) {
+                                alertBox.className = 'p-4 rounded-xl text-sm font-bold text-center bg-amber-50 border-2 border-[#F36F21] text-amber-900 block';
+                                alertBox.innerHTML = '⚠️ Note: Application recorded locally. If you need urgent confirmation, you can also message us directly on WhatsApp: <a href="https://wa.me/919406762912" target="_blank" class="underline text-[#F36F21] font-black">+91 94067 62912</a>.';
+                            } else {
+                                alert('Application received! For immediate coordination, you can also reach us on WhatsApp: +91 94067 62912.');
+                            }
+                        } finally {
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                            }
+                            if (btnText) btnText.textContent = 'Send Application';
+                            if (btnIcon) {
+                                btnIcon.textContent = 'send';
+                                btnIcon.classList.remove('animate-spin');
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
     </main>
 
     

@@ -85,6 +85,43 @@ const server = http.createServer((req, res) => {
         return;
     }
 
+    // Localhost handler for submit_volunteer.php
+    if (rawUrl === '/submit_volunteer.php' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => body += chunk);
+        req.on('end', () => {
+            try {
+                const parsed = JSON.parse(body || '{}');
+                console.log('Volunteer Application Received locally:', parsed);
+
+                // Write to local volunteers.csv
+                const csvPath = path.join(__dirname, 'volunteers.csv');
+                const isNew = !fs.existsSync(csvPath);
+                const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+                let line = `"${timestamp}","${parsed.fullName || ''}","${parsed.whatsapp || ''}","${parsed.email || ''}","${parsed.status || ''}","${parsed.interest || ''}","${(parsed.motivation || '').replace(/"/g, '""')}","127.0.0.1"\n`;
+                if (isNew) {
+                    fs.writeFileSync(csvPath, '\uFEFFTimestamp,Full Name,WhatsApp,Email,Status,Area of Interest,Motivation,IP Address\n' + line, 'utf8');
+                } else {
+                    fs.appendFileSync(csvPath, line, 'utf8');
+                }
+
+                res.writeHead(200, {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                });
+                res.end(JSON.stringify({
+                    success: true,
+                    message: 'Volunteer application submitted successfully!',
+                    logged: true
+                }));
+            } catch(e) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: false, error: e.message }));
+            }
+        });
+        return;
+    }
+
     let filePath = path.join(__dirname, rawUrl === '/' ? 'index.html' : rawUrl);
     
     if (!fs.existsSync(filePath)) {
