@@ -752,7 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Razorpay Configuration
-window.RAZORPAY_KEY_ID = 'rzp_test_51ZJ10hEeqkZ1L';
+window.RAZORPAY_KEY_ID = 'rzp_live_TZYodTojrVGsKI';
 
 /**
  * Universal Razorpay Payment Integration Handler
@@ -769,7 +769,7 @@ function payWithRazorpay(amount, title) {
     }
 
     const numericAmount = parseFloat(amount) || 500;
-    const razorpayKey = window.RAZORPAY_KEY_ID || 'rzp_test_51ZJ10hEeqkZ1L';
+    const razorpayKey = window.RAZORPAY_KEY_ID || 'rzp_live_TZYodTojrVGsKI';
     const isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
 
     const options = {

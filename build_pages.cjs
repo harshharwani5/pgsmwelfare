@@ -166,16 +166,39 @@ const unifiedFooterHtml = `
                         <span class="material-symbols-outlined text-sm text-[#F36F21]">description</span>
                         <span data-i18n="ft_rep_title">Audited Reports & Filings</span>
                     </span>
-                    <a href="reports/ANNUAL_REPORT_2026.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all" title="Download 2026 Annual Report">
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-2.5 py-1.5 rounded-lg transition-all" title="Download 2026 Annual Report">
+                            <span class="flex items-center gap-1 truncate">
+                                <span class="material-symbols-outlined text-xs text-[#F36F21]">download</span>
+                                <span>2026 Report</span>
+                            </span>
+                            <span class="text-[9px] bg-[#F36F21] text-white px-1.5 py-0.5 rounded font-black shrink-0">NEW</span>
+                        </a>
+                        <a href="reports/ANNUAL_REPORT_2025.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-2.5 py-1.5 rounded-lg transition-all" title="Download 2025 Annual Report">
+                            <span class="flex items-center gap-1 truncate">
+                                <span class="material-symbols-outlined text-xs text-[#F36F21]">download</span>
+                                <span>2025 Report</span>
+                            </span>
+                            <span class="text-[10px] text-gray-400 shrink-0">PDF</span>
+                        </a>
+                        <a href="reports/ANNUAL_REPORT_2024.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-2.5 py-1.5 rounded-lg transition-all" title="Download 2024 Annual Report">
+                            <span class="flex items-center gap-1 truncate">
+                                <span class="material-symbols-outlined text-xs text-[#F36F21]">download</span>
+                                <span>2024 Report</span>
+                            </span>
+                            <span class="text-[10px] text-gray-400 shrink-0">PDF</span>
+                        </a>
+                        <a href="reports/ANNUAL_REPORT_2023.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-2.5 py-1.5 rounded-lg transition-all" title="Download 2023 Annual Report">
+                            <span class="flex items-center gap-1 truncate">
+                                <span class="material-symbols-outlined text-xs text-[#F36F21]">download</span>
+                                <span>2023 Report</span>
+                            </span>
+                            <span class="text-[10px] text-gray-400 shrink-0">PDF</span>
+                        </a>
+                    </div>
+                    <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all mt-0.5" title="Download Audited Financial Statements">
                         <span class="flex items-center gap-1.5 truncate">
-                            <span class="material-symbols-outlined text-sm text-[#F36F21]">download</span>
-                            <span data-i18n="ft_btn_ar26">2026 Annual Report (PDF)</span>
-                        </span>
-                        <span class="text-[10px] text-gray-400 shrink-0">4.9 MB</span>
-                    </a>
-                    <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-between text-xs font-bold text-gray-200 hover:text-[#F36F21] bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-all" title="Download Audited Financial Statements">
-                        <span class="flex items-center gap-1.5 truncate">
-                            <span class="material-symbols-outlined text-sm text-[#F36F21]">download</span>
+                            <span class="material-symbols-outlined text-sm text-[#F36F21]">verified</span>
                             <span data-i18n="ft_btn_audit">Audited Financial Statements (PDF)</span>
                         </span>
                         <span class="text-[10px] text-gray-400 shrink-0">CA Verified</span>
@@ -1840,25 +1863,84 @@ const aboutHtml = `<!DOCTYPE html>
                 </div>
 
                 <!-- Institutional & CSR Audit Download Strip -->
-                <div class="bg-white/5 border border-white/15 rounded-2xl p-6 md:p-8 backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl my-2">
-                    <div class="flex items-center gap-4 text-left">
-                        <div class="w-14 h-14 rounded-2xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21] shrink-0">
-                            <span class="material-symbols-outlined text-3xl">verified_user</span>
+                <div class="bg-white/5 border border-white/15 rounded-2xl p-6 md:p-8 backdrop-blur-md flex flex-col gap-6 shadow-xl my-2">
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 text-left">
+                            <div class="w-14 h-14 rounded-2xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21] shrink-0">
+                                <span class="material-symbols-outlined text-3xl">verified_user</span>
+                            </div>
+                            <div>
+                                <span class="bg-[#F36F21] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full" data-i18n="comp_inst_badge">Institutional & CSR Compliance</span>
+                                <h4 class="text-lg md:text-xl font-bold text-white mt-1" data-i18n="comp_inst_title">Official Annual Reports & Statutory Auditor Filings</h4>
+                                <p class="text-xs sm:text-sm text-gray-300 mt-0.5 max-w-xl" data-i18n="comp_inst_sub">Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization across all operating years.</p>
+                            </div>
                         </div>
-                        <div>
-                            <span class="bg-[#F36F21] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full" data-i18n="comp_inst_badge">Institutional & CSR Compliance</span>
-                            <h4 class="text-lg md:text-xl font-bold text-white mt-1" data-i18n="comp_inst_title">Official Annual Reports & Statutory Auditor Filings</h4>
-                            <p class="text-xs sm:text-sm text-gray-300 mt-0.5 max-w-xl" data-i18n="comp_inst_sub">Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization.</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0 w-full lg:w-auto">
-                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95">
-                            <span class="material-symbols-outlined text-base">download</span>
-                            <span data-i18n="btn_dl_ar26">Download 2026 Annual Report (PDF)</span>
-                        </a>
-                        <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95">
+                        <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95 shrink-0 w-full sm:w-auto">
                             <span class="material-symbols-outlined text-base">receipt_long</span>
-                            <span data-i18n="btn_dl_audit">Download Audited Financial Statements (PDF)</span>
+                            <span data-i18n="btn_dl_audit">Download CA Audited Financial Statements (PDF)</span>
+                        </a>
+                    </div>
+
+                    <!-- Multi-Year Annual Reports Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t border-white/10">
+                        <!-- 2026 -->
+                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2025–26</span>
+                                    <span class="text-[10px] font-extrabold bg-[#F36F21] text-white px-2 py-0.5 rounded-full">Latest</span>
+                                </div>
+                                <p class="text-xs text-gray-300 mt-2 font-medium">Annual Progress & Governance</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                                <span class="text-[10px] text-gray-400">4.9 MB</span>
+                            </div>
+                        </a>
+
+                        <!-- 2025 -->
+                        <a href="reports/ANNUAL_REPORT_2025.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2024–25</span>
+                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2 py-0.5 rounded-full">Certified</span>
+                                </div>
+                                <p class="text-xs text-gray-300 mt-2 font-medium">Annual Progress & Impact Report</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                                <span class="text-[10px] text-gray-400">4.2 MB</span>
+                            </div>
+                        </a>
+
+                        <!-- 2024 -->
+                        <a href="reports/ANNUAL_REPORT_2024.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2023–24</span>
+                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2 py-0.5 rounded-full">Certified</span>
+                                </div>
+                                <p class="text-xs text-gray-300 mt-2 font-medium">Annual Progress & Outreach</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                                <span class="text-[10px] text-gray-400">PDF</span>
+                            </div>
+                        </a>
+
+                        <!-- 2023 -->
+                        <a href="reports/ANNUAL_REPORT_2023.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2022–23</span>
+                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2 py-0.5 rounded-full">Certified</span>
+                                </div>
+                                <p class="text-xs text-gray-300 mt-2 font-medium">Financial & Statutory Statement</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                                <span class="text-[10px] text-gray-400">7.5 MB</span>
+                            </div>
                         </a>
                     </div>
                 </div>
