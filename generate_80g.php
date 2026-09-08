@@ -27,6 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit(0);
 }
 
+if (!defined('FPDF_FONTPATH')) {
+    define('FPDF_FONTPATH', __DIR__ . '/font/');
+}
 require_once __DIR__ . '/fpdf.php';
 
 // Parse incoming payload (JSON or POST)
@@ -150,7 +153,8 @@ class PDF80G extends FPDF {
     }
 }
 
-$pdf = new PDF80G('P', 'mm', 'A4');
+try {
+    $pdf = new PDF80G('P', 'mm', 'A4');
 $pdf->SetAutoPageBreak(false);
 $pdf->AddPage();
 
@@ -500,3 +504,11 @@ echo json_encode([
     'pdfFilename'   => $pdfFilename,
     'pdfBase64'     => $pdfBase64
 ]);
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'error'   => 'Certificate Generation Error: ' . $e->getMessage()
+    ]);
+    exit(0);
+}
