@@ -79,7 +79,7 @@ if ($fp) {
 }
 
 // 2. Automated Google Sheets Webhook Sync
-$googleSheetWebhook = getenv('GOOGLE_SHEET_VOLUNTEER_URL') ?: 'https://script.google.com/macros/s/AKfycbwALG5uPwxKeT6wDVCLGRfFzSfeGLVgi1NSMarr02sNpg-8DXJzLu0ocXS8YumpGs-_wg/exec';
+$googleSheetWebhook = getenv('GOOGLE_SHEET_VOLUNTEER_URL') ?: 'https://script.google.com/macros/s/AKfycbyvWa96qnpB88Savv16-nfVHYF1Ro1UFoY2SDTo-NGGsmwgLTYH8kd-jY6n6qJvF6cdPA/exec';
 
 $sheetSuccess = false;
 if (!empty($googleSheetWebhook) && strpos($googleSheetWebhook, 'http') === 0) {
