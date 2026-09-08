@@ -789,17 +789,27 @@ async function payWithRazorpay(amount, title) {
         });
 
         if (orderRes.ok) {
-            const orderData = await orderRes.json();
+            const rawText = await orderRes.text();
+            const cleanText = rawText.replace(/^\uFEFF/, '').trim();
+            const orderData = JSON.parse(cleanText);
             if (orderData && orderData.id) {
                 orderId = orderData.id;
                 if (orderData.key) finalKey = orderData.key;
                 if (orderData.amount) finalAmountPaise = orderData.amount;
+            } else if (orderData && orderData.error) {
+                throw new Error(orderData.message || 'Razorpay order creation rejected');
             }
         } else {
-            console.warn('create_order.php returned status:', orderRes.status);
+            const errText = await orderRes.text();
+            throw new Error(`Server returned HTTP ${orderRes.status}: ${errText}`);
         }
     } catch (err) {
-        console.warn('Could not contact order endpoint, attempting direct checkout:', err);
+        console.error('Order creation error:', err);
+        const alertMsg = isHindi
+            ? 'सुरक्षित भुगतान सत्र आरंभ करने में समस्या आई। कृपया पुनः प्रयास करें।\nविवरण: ' + (err.message || '')
+            : 'Unable to initialize secure payment session. Please try again.\nDetails: ' + (err.message || '');
+        alert(alertMsg);
+        return; // Do not open broken modal in Live Mode without an order_id
     }
 
     // 2. Configure Razorpay Standard Checkout

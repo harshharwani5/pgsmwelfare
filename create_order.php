@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Razorpay Live Order Creation Endpoint
  * Pandit Shree Gyasi Lal Mishra Educational & Social Welfare Society

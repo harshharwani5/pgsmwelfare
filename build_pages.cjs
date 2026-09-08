@@ -278,7 +278,7 @@ const unifiedFooterHtml = `
 
     <!-- Universal Bilingual Translation Engine -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2.2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle
@@ -481,7 +481,7 @@ const homeHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2.2"></script>
 </head>
 <body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col overflow-x-hidden w-full">
 
@@ -1560,7 +1560,7 @@ const aboutHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2.2"></script>
 </head>
 <body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col overflow-x-hidden w-full">
 
@@ -2115,7 +2115,7 @@ const programsHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2.2"></script>
 </head>
 <body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     ${getUnifiedHeader('programs')}
@@ -2615,7 +2615,7 @@ const volunteerHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2.2"></script>
 </head>
 <body class="bg-white text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     ${getUnifiedHeader('volunteer')}
@@ -3017,7 +3017,7 @@ const donateHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2.2"></script>
 </head>
 <body class="bg-soft-cream text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     ${getUnifiedHeader('donate')}
