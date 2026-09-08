@@ -1180,7 +1180,7 @@ const homeHtml = `<!DOCTYPE html>
                                 <button class="w-full text-left p-sm rounded-xl border border-surface-variant bg-surface hover:border-[#F36F21] hover:bg-[#FFF7F2] transition-all group focus:outline-none flex justify-between items-center donation-tier cursor-pointer" data-desc="Choose your own contribution." data-tier="custom" data-title="Custom Amount">
                                     <div class="flex flex-col">
                                         <span class="font-headline-md text-headline-md text-on-surface group-hover:text-[#F36F21] transition-colors font-bold">Custom Amount</span>
-                                        <span class="font-label-bold text-label-bold text-secondary mt-1">Choose your own contribution</span>
+                                        <span class="font-label-bold text-label-bold text-secondary mt-1">Choose any amount (Min. ₹50)</span>
                                     </div>
                                     <span class="material-symbols-outlined text-surface-variant group-hover:text-[#F36F21]">arrow_forward</span>
                                 </button>
@@ -1211,11 +1211,23 @@ const homeHtml = `<!DOCTYPE html>
                                     <p class="font-body-lg text-body-lg text-secondary" id="impact-desc">Covers one month of computer lab access for 3 children, giving rural kids their first step into the digital world.</p>
                                     <!-- Custom Controls -->
                                     <div class="hidden w-full flex-col gap-sm mt-4" id="custom-controls">
+                                        <!-- Quick Preset Pills -->
+                                        <div class="flex flex-wrap gap-1.5 justify-center mb-1">
+                                            <button type="button" onclick="setHomeCustomAmount(50)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹50</button>
+                                            <button type="button" onclick="setHomeCustomAmount(100)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹100</button>
+                                            <button type="button" onclick="setHomeCustomAmount(250)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹250</button>
+                                            <button type="button" onclick="setHomeCustomAmount(500)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹500</button>
+                                            <button type="button" onclick="setHomeCustomAmount(1000)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹1,000</button>
+                                        </div>
                                         <div class="flex items-center gap-4 border border-surface-variant rounded-lg p-2 bg-surface-container-lowest focus-within:border-[#F36F21]">
                                             <span class="text-on-surface font-headline-md ml-2 font-bold">₹</span>
-                                            <input class="flex-grow bg-transparent font-headline-md outline-none text-on-surface w-full p-1 font-bold" id="custom-input" max="100000" min="100" step="50" style="border: none; box-shadow: none;" type="number" value="1000"/>
+                                            <input class="flex-grow bg-transparent font-headline-md outline-none text-on-surface w-full p-1 font-bold" id="custom-input" max="100000" min="50" step="10" style="border: none; box-shadow: none;" type="number" value="100"/>
                                         </div>
-                                        <input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-[#F36F21] mt-2" id="custom-slider" max="100000" min="100" step="50" type="range" value="1000"/>
+                                        <input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-[#F36F21] mt-2" id="custom-slider" max="10000" min="50" step="10" type="range" value="100"/>
+                                        <div class="flex justify-between text-[11px] text-gray-500 font-bold px-1">
+                                            <span>₹50 (Min)</span>
+                                            <span>₹10,000+</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Main CTA -->
@@ -1304,16 +1316,31 @@ const homeHtml = `<!DOCTYPE html>
                     img: 'images/work-health.jpg', 
                     title: 'Bring Healthcare to Her Door', 
                     desc: 'Deploys a mobile health camp diagnostic kit, providing essential check-ups for an entire remote village community.', 
-                    baseAmount: 5000, 
+                            baseAmount: 5000, 
                     unit: 'health camps deployed' 
                 }
             };
 
+            // Initialize selected donation amount and title
+            window.currentSelectedDonationAmount = 1200;
+            window.currentSelectedDonationTitle = 'Unlock Digital Access';
+
+            window.setHomeCustomAmount = function(amt) {
+                const customBtn = document.querySelector('.donation-tier[data-tier="custom"]');
+                if (customBtn && !customBtn.classList.contains('active-tier')) {
+                    customBtn.click();
+                }
+                updateUI(amt, true);
+            };
+
             function updateUI(amount, isCustom = false) {
+                const numericAmount = Math.max(50, Math.min(100000, parseFloat(amount) || 50));
+                window.currentSelectedDonationAmount = numericAmount;
+
                 let closestTier = 500;
-                if (amount >= 5000) closestTier = 5000;
-                else if (amount >= 2500) closestTier = 2500;
-                else if (amount >= 1200) closestTier = 1200;
+                if (numericAmount >= 5000) closestTier = 5000;
+                else if (numericAmount >= 2500) closestTier = 2500;
+                else if (numericAmount >= 1200) closestTier = 1200;
 
                 const data = impactData[closestTier];
 
@@ -1326,17 +1353,19 @@ const homeHtml = `<!DOCTYPE html>
                 }
 
                 if (isCustom) {
-                    const quantity = Math.floor(amount / data.baseAmount) || 1;
-                    if (headline) headline.textContent = \`Custom Impact (Rs. \${amount})\`;
-                    if (desc) desc.textContent = \`This funds approximately \${quantity} \${data.unit}.\`;
-                    if (cta) cta.textContent = \`Donate ₹\${amount}\`;
+                    window.currentSelectedDonationTitle = 'Custom Donation (₹' + numericAmount + ')';
+                    const quantity = Math.floor(numericAmount / data.baseAmount) || 1;
+                    if (headline) headline.textContent = 'Custom Impact (₹' + numericAmount.toLocaleString('en-IN') + ')';
+                    if (desc) desc.textContent = 'This funds approximately ' + quantity + ' ' + data.unit + '.';
+                    if (cta) cta.textContent = 'Donate ₹' + numericAmount.toLocaleString('en-IN');
                     if (customControls) customControls.classList.remove('hidden');
-                    if (customInput) customInput.value = amount;
-                    if (customSlider) customSlider.value = amount;
+                    if (customInput && document.activeElement !== customInput) customInput.value = numericAmount;
+                    if (customSlider && document.activeElement !== customSlider) customSlider.value = Math.min(10000, numericAmount);
                 } else {
-                    if (headline) headline.textContent = \`\${data.title} (Rs. \${amount})\`;
+                    window.currentSelectedDonationTitle = data.title;
+                    if (headline) headline.textContent = data.title + ' (₹' + numericAmount.toLocaleString('en-IN') + ')';
                     if (desc) desc.textContent = data.desc;
-                    if (cta) cta.textContent = \`Donate ₹\${amount}\`;
+                    if (cta) cta.textContent = 'Donate ₹' + numericAmount.toLocaleString('en-IN');
                     if (customControls) customControls.classList.add('hidden');
                 }
             }
@@ -1392,23 +1421,31 @@ const homeHtml = `<!DOCTYPE html>
 
                     const tierVal = button.getAttribute('data-tier');
                     if (tierVal === 'custom') {
-                        updateUI(customInput ? customInput.value : 1000, true);
+                        const currentVal = customInput ? (parseFloat(customInput.value) || 100) : 100;
+                        updateUI(currentVal, true);
                     } else {
-                        updateUI(tierVal, false);
+                        updateUI(parseFloat(tierVal) || 1200, false);
                     }
                 });
             });
 
             if (customInput) {
                 customInput.addEventListener('input', (e) => {
-                    const val = Math.max(100, Math.min(100000, e.target.value || 100));
+                    const val = Math.max(50, Math.min(100000, parseFloat(e.target.value) || 50));
+                    updateUI(val, true);
+                });
+                customInput.addEventListener('blur', (e) => {
+                    let val = parseFloat(e.target.value) || 50;
+                    if (val < 50) val = 50;
+                    e.target.value = val;
                     updateUI(val, true);
                 });
             }
 
             if (customSlider) {
                 customSlider.addEventListener('input', (e) => {
-                    updateUI(e.target.value, true);
+                    const val = Math.max(50, Math.min(100000, parseFloat(e.target.value) || 50));
+                    updateUI(val, true);
                 });
             }
 
@@ -3105,6 +3142,93 @@ const donateHtml = `<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- ================= SECTION 1.5: CUSTOM DONATION (FLEXIBLE GIVING) ================= -->
+        <section id="custom-donation-section" class="max-w-5xl mx-auto mb-20">
+            <div class="bg-gradient-to-br from-white via-[#FFF9F5] to-[#FFF2EB] rounded-[24px] p-6 sm:p-10 border-2 border-[#F36F21]/30 shadow-xl relative overflow-hidden">
+                <!-- Subtle decorative background accent -->
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#F36F21]/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="relative z-10 flex flex-col gap-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200/80 pb-6">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 bg-[#FFF2EB] text-[#F36F21] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-[#F36F21]/30 mb-2">
+                                <span class="material-symbols-outlined text-sm">volunteer_activism</span>
+                                Flexible Giving (Starting from ₹50)
+                            </span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1F1F1F] tracking-tight">
+                                Choose Your Own Contribution
+                            </h2>
+                            <p class="text-sm sm:text-base text-gray-600 mt-1 max-w-2xl">
+                                Every rupee makes a direct difference. Support our educational, livelihood, and healthcare missions with an amount of your choice starting from just ₹50.
+                            </p>
+                        </div>
+                        <div class="hidden sm:flex flex-col items-end">
+                            <span class="text-xs text-gray-500 font-semibold">100% Tax Deductible</span>
+                            <span class="text-xs font-bold text-[#F36F21] bg-white px-2.5 py-1 rounded-lg border border-gray-200 shadow-sm mt-1">Section 80G Certified</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Preset Amount Pills -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2.5">
+                            Quick Select Amount
+                        </label>
+                        <div class="flex flex-wrap gap-2.5" id="donate-page-pills">
+                            <button type="button" onclick="setDonatePageAmount(50)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹50</button>
+                            <button type="button" onclick="setDonatePageAmount(100)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border-2 border-[#F36F21] bg-[#FFF2EB] text-[#F36F21] shadow-sm transition-all cursor-pointer">₹100</button>
+                            <button type="button" onclick="setDonatePageAmount(250)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹250</button>
+                            <button type="button" onclick="setDonatePageAmount(500)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹500</button>
+                            <button type="button" onclick="setDonatePageAmount(1000)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹1,000</button>
+                            <button type="button" onclick="setDonatePageAmount(2500)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹2,500</button>
+                            <button type="button" onclick="setDonatePageAmount(5000)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹5,000</button>
+                            <button type="button" onclick="setDonatePageAmount(10000)" class="donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹10,000</button>
+                        </div>
+                    </div>
+
+                    <!-- Input + Slider Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center bg-white p-5 sm:p-6 rounded-2xl border border-gray-200/90 shadow-sm">
+                        <!-- Custom Input Box -->
+                        <div class="md:col-span-5 flex flex-col gap-1.5">
+                            <label for="donate-page-custom-input" class="text-xs font-bold text-gray-600 uppercase tracking-wider">
+                                Enter Custom Amount (₹)
+                            </label>
+                            <div class="flex items-center border-2 border-[#F36F21]/40 rounded-xl px-4 py-2.5 bg-gray-50 focus-within:border-[#F36F21] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#F36F21]/20 transition-all">
+                                <span class="text-[#F36F21] text-2xl font-black mr-2">₹</span>
+                                <input type="number" id="donate-page-custom-input" min="50" max="500000" step="10" value="100" class="w-full text-2xl font-black text-gray-900 bg-transparent outline-none tracking-tight" placeholder="100" />
+                            </div>
+                            <span class="text-[11px] text-gray-500 font-medium">Minimum donation is ₹50</span>
+                        </div>
+
+                        <!-- Slider -->
+                        <div class="md:col-span-7 flex flex-col gap-2">
+                            <div class="flex justify-between text-xs text-gray-500 font-bold">
+                                <span>₹50 (Min)</span>
+                                <span class="text-[#F36F21]">Drag slider or type above</span>
+                                <span>₹25,000+</span>
+                            </div>
+                            <input type="range" id="donate-page-custom-slider" min="50" max="25000" step="50" value="100" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#F36F21]" />
+                            <p id="donate-page-impact-hint" class="text-xs sm:text-sm text-gray-600 mt-1 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span>
+                                <span>Provides essential stationery, notebooks, and learning aids for 1 primary student.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Donate Button -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                        <div class="flex items-center gap-3 text-xs text-gray-600">
+                            <span class="material-symbols-outlined text-green-600 text-lg" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                            <span>Direct UPI, Cards, NetBanking & Wallets via Razorpay Standard Checkout</span>
+                        </div>
+                        <button type="button" id="donate-page-custom-btn" onclick="handleDonatePageCustomPay()" class="w-full sm:w-auto min-w-[280px] bg-[#F36F21] text-white font-bold text-base py-3.5 px-8 rounded-xl hover:bg-[#a04100] transition-all duration-200 shadow-lg shadow-[#F36F21]/30 flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                            <span id="donate-page-btn-text">Donate ₹100 via Razorpay</span>
+                            <span class="material-symbols-outlined text-xl">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
                 <!-- ================= SECTION 2: WAYS TO GIVE (UPI + VERIFIED ICICI BANK) ================= -->
         <section id="ways-to-give" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] rounded-3xl mb-20">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -3274,6 +3398,88 @@ const donateHtml = `<!DOCTYPE html>
             </div>
         </div>
     </div>
+
+    <!-- Donate Page Interactive Custom Donation Script -->
+    <script>
+        function updateDonatePageCustom(val, fromSlider, fromInput) {
+            var amt = parseFloat(val) || 50;
+            if (amt < 50) amt = 50;
+            if (amt > 1000000) amt = 1000000;
+
+            var input = document.getElementById('donate-page-custom-input');
+            var slider = document.getElementById('donate-page-custom-slider');
+            var btnText = document.getElementById('donate-page-btn-text');
+            var hint = document.getElementById('donate-page-impact-hint');
+
+            if (input && !fromInput) input.value = amt;
+            if (slider && !fromSlider) slider.value = Math.min(25000, amt);
+            if (btnText) btnText.textContent = 'Donate ₹' + amt.toLocaleString('en-IN') + ' via Razorpay';
+
+            // Update pill highlight
+            var pills = document.querySelectorAll('#donate-page-pills .donate-pill');
+            pills.forEach(function(pill) {
+                var pillAmt = parseInt(pill.textContent.replace(/[^0-9]/g, ''), 10);
+                if (pillAmt === amt) {
+                    pill.className = 'donate-pill px-4 py-2 rounded-xl text-sm font-bold border-2 border-[#F36F21] bg-[#FFF2EB] text-[#F36F21] shadow-sm transition-all cursor-pointer';
+                } else {
+                    pill.className = 'donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer';
+                }
+            });
+
+            // Update impact hint
+            if (hint) {
+                if (amt < 200) {
+                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Provides essential stationery, notebooks, and learning aids for 1 primary student.</span>';
+                } else if (amt < 1000) {
+                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Funds a complete student kit (school bag, books, and uniforms) for rural education.</span>';
+                } else if (amt < 2500) {
+                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Covers computer lab access, digital literacy, and internet classes for rural children.</span>';
+                } else if (amt < 5000) {
+                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Sponsors women tailoring vocational materials and micro-enterprise sewing training.</span>';
+                } else {
+                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Deploys village-level health diagnostics, free medicines, and doctors for rural families.</span>';
+                }
+            }
+        }
+
+        function setDonatePageAmount(amt) {
+            updateDonatePageCustom(amt, false, false);
+        }
+
+        function handleDonatePageCustomPay() {
+            var input = document.getElementById('donate-page-custom-input');
+            var amt = input ? (parseFloat(input.value) || 50) : 100;
+            if (amt < 50) {
+                alert('Minimum donation amount is ₹50.');
+                amt = 50;
+                if (input) input.value = 50;
+            }
+            payWithRazorpay(amt, 'Custom Donation (₹' + amt + ')');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var input = document.getElementById('donate-page-custom-input');
+            var slider = document.getElementById('donate-page-custom-slider');
+
+            if (input) {
+                input.addEventListener('input', function(e) {
+                    updateDonatePageCustom(e.target.value, false, true);
+                });
+                input.addEventListener('blur', function(e) {
+                    var val = parseFloat(e.target.value) || 50;
+                    if (val < 50) val = 50;
+                    e.target.value = val;
+                    updateDonatePageCustom(val, false, false);
+                });
+            }
+
+            if (slider) {
+                slider.addEventListener('input', function(e) {
+                    updateDonatePageCustom(e.target.value, true, false);
+                });
+            }
+        });
+    </script>
 
     ${unifiedFooterHtml}
 </body>

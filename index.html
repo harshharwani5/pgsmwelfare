@@ -975,7 +975,7 @@
                                 <button class="w-full text-left p-sm rounded-xl border border-surface-variant bg-surface hover:border-[#F36F21] hover:bg-[#FFF7F2] transition-all group focus:outline-none flex justify-between items-center donation-tier cursor-pointer" data-desc="Choose your own contribution." data-tier="custom" data-title="Custom Amount">
                                     <div class="flex flex-col">
                                         <span class="font-headline-md text-headline-md text-on-surface group-hover:text-[#F36F21] transition-colors font-bold">Custom Amount</span>
-                                        <span class="font-label-bold text-label-bold text-secondary mt-1">Choose your own contribution</span>
+                                        <span class="font-label-bold text-label-bold text-secondary mt-1">Choose any amount (Min. ₹50)</span>
                                     </div>
                                     <span class="material-symbols-outlined text-surface-variant group-hover:text-[#F36F21]">arrow_forward</span>
                                 </button>
@@ -1006,11 +1006,23 @@
                                     <p class="font-body-lg text-body-lg text-secondary" id="impact-desc">Covers one month of computer lab access for 3 children, giving rural kids their first step into the digital world.</p>
                                     <!-- Custom Controls -->
                                     <div class="hidden w-full flex-col gap-sm mt-4" id="custom-controls">
+                                        <!-- Quick Preset Pills -->
+                                        <div class="flex flex-wrap gap-1.5 justify-center mb-1">
+                                            <button type="button" onclick="setHomeCustomAmount(50)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹50</button>
+                                            <button type="button" onclick="setHomeCustomAmount(100)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹100</button>
+                                            <button type="button" onclick="setHomeCustomAmount(250)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹250</button>
+                                            <button type="button" onclick="setHomeCustomAmount(500)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹500</button>
+                                            <button type="button" onclick="setHomeCustomAmount(1000)" class="px-2.5 py-1 text-xs font-bold rounded-lg border border-gray-300 bg-white hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer">₹1,000</button>
+                                        </div>
                                         <div class="flex items-center gap-4 border border-surface-variant rounded-lg p-2 bg-surface-container-lowest focus-within:border-[#F36F21]">
                                             <span class="text-on-surface font-headline-md ml-2 font-bold">₹</span>
-                                            <input class="flex-grow bg-transparent font-headline-md outline-none text-on-surface w-full p-1 font-bold" id="custom-input" max="100000" min="100" step="50" style="border: none; box-shadow: none;" type="number" value="1000"/>
+                                            <input class="flex-grow bg-transparent font-headline-md outline-none text-on-surface w-full p-1 font-bold" id="custom-input" max="100000" min="50" step="10" style="border: none; box-shadow: none;" type="number" value="100"/>
                                         </div>
-                                        <input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-[#F36F21] mt-2" id="custom-slider" max="100000" min="100" step="50" type="range" value="1000"/>
+                                        <input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-[#F36F21] mt-2" id="custom-slider" max="10000" min="50" step="10" type="range" value="100"/>
+                                        <div class="flex justify-between text-[11px] text-gray-500 font-bold px-1">
+                                            <span>₹50 (Min)</span>
+                                            <span>₹10,000+</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Main CTA -->
@@ -1287,16 +1299,31 @@
                     img: 'images/work-health.jpg', 
                     title: 'Bring Healthcare to Her Door', 
                     desc: 'Deploys a mobile health camp diagnostic kit, providing essential check-ups for an entire remote village community.', 
-                    baseAmount: 5000, 
+                            baseAmount: 5000, 
                     unit: 'health camps deployed' 
                 }
             };
 
+            // Initialize selected donation amount and title
+            window.currentSelectedDonationAmount = 1200;
+            window.currentSelectedDonationTitle = 'Unlock Digital Access';
+
+            window.setHomeCustomAmount = function(amt) {
+                const customBtn = document.querySelector('.donation-tier[data-tier="custom"]');
+                if (customBtn && !customBtn.classList.contains('active-tier')) {
+                    customBtn.click();
+                }
+                updateUI(amt, true);
+            };
+
             function updateUI(amount, isCustom = false) {
+                const numericAmount = Math.max(50, Math.min(100000, parseFloat(amount) || 50));
+                window.currentSelectedDonationAmount = numericAmount;
+
                 let closestTier = 500;
-                if (amount >= 5000) closestTier = 5000;
-                else if (amount >= 2500) closestTier = 2500;
-                else if (amount >= 1200) closestTier = 1200;
+                if (numericAmount >= 5000) closestTier = 5000;
+                else if (numericAmount >= 2500) closestTier = 2500;
+                else if (numericAmount >= 1200) closestTier = 1200;
 
                 const data = impactData[closestTier];
 
@@ -1309,17 +1336,19 @@
                 }
 
                 if (isCustom) {
-                    const quantity = Math.floor(amount / data.baseAmount) || 1;
-                    if (headline) headline.textContent = `Custom Impact (Rs. ${amount})`;
-                    if (desc) desc.textContent = `This funds approximately ${quantity} ${data.unit}.`;
-                    if (cta) cta.textContent = `Donate ₹${amount}`;
+                    window.currentSelectedDonationTitle = 'Custom Donation (₹' + numericAmount + ')';
+                    const quantity = Math.floor(numericAmount / data.baseAmount) || 1;
+                    if (headline) headline.textContent = 'Custom Impact (₹' + numericAmount.toLocaleString('en-IN') + ')';
+                    if (desc) desc.textContent = 'This funds approximately ' + quantity + ' ' + data.unit + '.';
+                    if (cta) cta.textContent = 'Donate ₹' + numericAmount.toLocaleString('en-IN');
                     if (customControls) customControls.classList.remove('hidden');
-                    if (customInput) customInput.value = amount;
-                    if (customSlider) customSlider.value = amount;
+                    if (customInput && document.activeElement !== customInput) customInput.value = numericAmount;
+                    if (customSlider && document.activeElement !== customSlider) customSlider.value = Math.min(10000, numericAmount);
                 } else {
-                    if (headline) headline.textContent = `${data.title} (Rs. ${amount})`;
+                    window.currentSelectedDonationTitle = data.title;
+                    if (headline) headline.textContent = data.title + ' (₹' + numericAmount.toLocaleString('en-IN') + ')';
                     if (desc) desc.textContent = data.desc;
-                    if (cta) cta.textContent = `Donate ₹${amount}`;
+                    if (cta) cta.textContent = 'Donate ₹' + numericAmount.toLocaleString('en-IN');
                     if (customControls) customControls.classList.add('hidden');
                 }
             }
@@ -1375,23 +1404,31 @@
 
                     const tierVal = button.getAttribute('data-tier');
                     if (tierVal === 'custom') {
-                        updateUI(customInput ? customInput.value : 1000, true);
+                        const currentVal = customInput ? (parseFloat(customInput.value) || 100) : 100;
+                        updateUI(currentVal, true);
                     } else {
-                        updateUI(tierVal, false);
+                        updateUI(parseFloat(tierVal) || 1200, false);
                     }
                 });
             });
 
             if (customInput) {
                 customInput.addEventListener('input', (e) => {
-                    const val = Math.max(100, Math.min(100000, e.target.value || 100));
+                    const val = Math.max(50, Math.min(100000, parseFloat(e.target.value) || 50));
+                    updateUI(val, true);
+                });
+                customInput.addEventListener('blur', (e) => {
+                    let val = parseFloat(e.target.value) || 50;
+                    if (val < 50) val = 50;
+                    e.target.value = val;
                     updateUI(val, true);
                 });
             }
 
             if (customSlider) {
                 customSlider.addEventListener('input', (e) => {
-                    updateUI(e.target.value, true);
+                    const val = Math.max(50, Math.min(100000, parseFloat(e.target.value) || 50));
+                    updateUI(val, true);
                 });
             }
 
