@@ -517,15 +517,15 @@
                         <!-- Success Result Box -->
                         <div id="receipt-result-box" class="hidden md:col-span-2 bg-gradient-to-br from-emerald-950/90 via-emerald-900/80 to-black/90 border-2 border-emerald-500 rounded-2xl p-6 text-white shadow-2xl animate-fade-in">
                             <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-emerald-400 text-4xl flex-shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                <span id="res-icon" class="material-symbols-outlined text-emerald-400 text-4xl flex-shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
                                 <div class="flex-1 space-y-2.5">
                                     <div class="flex flex-wrap items-center justify-between gap-2">
-                                        <h3 class="font-headline-md text-xl font-black text-emerald-300">
+                                        <h3 id="res-heading" class="font-headline-md text-xl font-black text-emerald-300">
                                             Official 80G Tax Exemption Certificate Issued!
                                         </h3>
                                         <span id="res-receipt-no" class="bg-emerald-500/20 text-emerald-200 border border-emerald-500/40 text-xs font-mono font-bold px-3 py-1 rounded-full"></span>
                                     </div>
-                                    <p class="text-sm text-gray-200 leading-relaxed">
+                                    <p id="res-desc" class="text-sm text-gray-200 leading-relaxed">
                                         Your unalterable PDF certificate has been <strong>downloaded to your device</strong> and emailed with PDF attachment to <strong id="res-receipt-email" class="text-white"></strong>. Details are recorded for CBDT Annual Form 10BD filing.
                                     </p>
                                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-black/40 border border-white/10 p-3.5 rounded-xl text-xs mt-3">
@@ -820,26 +820,74 @@
                     throw new Error(result.error || 'Failed to generate 80G tax receipt.');
                 }
 
-                // Cache for re-download
-                lastGeneratedPdfBase64 = result.pdfBase64;
-                lastGeneratedPdfFilename = result.pdfFilename || ('PGSM_80G_Receipt_' + result.receiptNumber.replace(///g, '_') + '.pdf');
-
-                // Instant Browser Download
-                triggerPdfDownload(result.pdfBase64, lastGeneratedPdfFilename);
-
-                // Populate and Reveal Success Box
-                document.getElementById('res-receipt-no').textContent = result.receiptNumber;
-                document.getElementById('res-receipt-email').textContent = email;
-                document.getElementById('res-donor-name').textContent = result.donorName;
-                document.getElementById('res-pan-no').textContent = result.panNumber;
-                document.getElementById('res-amount').textContent = '₹' + (result.formattedAmount ? result.formattedAmount.replace('INR ', '') : amount.toLocaleString('en-IN'));
-                document.getElementById('res-date').textContent = result.issueDate;
-
                 var downloadAgainBtn = document.getElementById('download-again-btn');
-                if (downloadAgainBtn) {
-                    downloadAgainBtn.onclick = function() {
-                        triggerPdfDownload(lastGeneratedPdfBase64, lastGeneratedPdfFilename);
-                    };
+                var resIcon = document.getElementById('res-icon');
+                var resHeading = document.getElementById('res-heading');
+                var resDesc = document.getElementById('res-desc');
+                var resReceiptNo = document.getElementById('res-receipt-no');
+
+                if (result.pendingVerification) {
+                    // Direct Bank Transfer / Offline UPI (Requires manual bank statement check)
+                    if (resIcon) {
+                        resIcon.textContent = 'schedule';
+                        resIcon.className = 'material-symbols-outlined text-amber-400 text-4xl flex-shrink-0';
+                    }
+                    if (resHeading) {
+                        resHeading.textContent = 'Bank Transfer Verification Submitted!';
+                        resHeading.className = 'font-headline-md text-xl font-black text-amber-300';
+                    }
+                    if (resReceiptNo) {
+                        resReceiptNo.textContent = 'VERIFICATION PENDING';
+                        resReceiptNo.className = 'bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-mono font-bold px-3 py-1 rounded-full';
+                    }
+                    if (resDesc) {
+                        resDesc.innerHTML = result.message;
+                    }
+                    if (downloadAgainBtn) {
+                        downloadAgainBtn.style.display = 'none';
+                    }
+                    document.getElementById('res-receipt-email').textContent = email;
+                    document.getElementById('res-donor-name').textContent = result.donorName;
+                    document.getElementById('res-pan-no').textContent = result.panNumber;
+                    document.getElementById('res-amount').textContent = '₹' + (parseFloat(result.amount) || amount).toLocaleString('en-IN');
+                    document.getElementById('res-date').textContent = 'Pending Admin Reconciliation';
+                } else {
+                    // Live Razorpay Verified (Instant PDF Certificate)
+                    if (resIcon) {
+                        resIcon.textContent = 'verified';
+                        resIcon.className = 'material-symbols-outlined text-emerald-400 text-4xl flex-shrink-0';
+                    }
+                    if (resHeading) {
+                        resHeading.textContent = 'Official 80G Tax Exemption Certificate Issued!';
+                        resHeading.className = 'font-headline-md text-xl font-black text-emerald-300';
+                    }
+                    if (resReceiptNo) {
+                        resReceiptNo.textContent = result.receiptNumber;
+                        resReceiptNo.className = 'bg-emerald-500/20 text-emerald-200 border border-emerald-500/40 text-xs font-mono font-bold px-3 py-1 rounded-full';
+                    }
+                    if (resDesc) {
+                        resDesc.innerHTML = 'Your payment has been <strong>verified in real-time with Razorpay</strong>. Your official unalterable PDF certificate has been downloaded to your device and emailed with attachment to <strong class="text-white">' + email + '</strong>.';
+                    }
+
+                    // Cache for re-download
+                    lastGeneratedPdfBase64 = result.pdfBase64;
+                    lastGeneratedPdfFilename = result.pdfFilename || ('PGSM_80G_Receipt_' + result.receiptNumber.replace(///g, '_') + '.pdf');
+
+                    // Instant Browser Download
+                    triggerPdfDownload(result.pdfBase64, lastGeneratedPdfFilename);
+
+                    document.getElementById('res-receipt-email').textContent = email;
+                    document.getElementById('res-donor-name').textContent = result.donorName;
+                    document.getElementById('res-pan-no').textContent = result.panNumber;
+                    document.getElementById('res-amount').textContent = '₹' + (result.formattedAmount ? result.formattedAmount.replace('INR ', '') : amount.toLocaleString('en-IN'));
+                    document.getElementById('res-date').textContent = result.issueDate;
+
+                    if (downloadAgainBtn) {
+                        downloadAgainBtn.style.display = 'inline-flex';
+                        downloadAgainBtn.onclick = function() {
+                            triggerPdfDownload(lastGeneratedPdfBase64, lastGeneratedPdfFilename);
+                        };
+                    }
                 }
 
                 if (resBox) {

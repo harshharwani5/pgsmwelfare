@@ -65,14 +65,176 @@ if (empty($email)) {
     exit(0);
 }
 
-if ($amount < 50) {
+if (empty($transactionId)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Donation amount must be at least Rs. 50.']);
+    echo json_encode(['success' => false, 'error' => 'A valid Transaction / Payment ID (pay_...) or Bank UTR is required.']);
     exit(0);
 }
 
-if (empty($transactionId)) {
-    $transactionId = 'TXN_' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 10));
+// ==========================================
+// 1. DUPLICATE RECEIPT CHECK
+// ==========================================
+$csvFile = __DIR__ . '/receipts_80g.csv';
+if (file_exists($csvFile)) {
+    $fp = @fopen($csvFile, 'r');
+    if ($fp) {
+        fgetcsv($fp); // skip header
+        while (($row = fgetcsv($fp)) !== false) {
+            if (isset($row[6]) && strcasecmp(trim($row[6]), $transactionId) === 0) {
+                fclose($fp);
+                http_response_code(400);
+                echo json_encode([
+                    'success' => false,
+                    'error'   => "Duplicate Claim: An official 80G Tax Exemption Certificate has already been issued for Transaction ID '{$transactionId}' on {$row[1]} (Receipt No: {$row[0]}). Each transaction can only be claimed once."
+                ]);
+                exit(0);
+            }
+        }
+        fclose($fp);
+    }
+}
+
+// ==========================================
+// 2. LIVE RAZORPAY API CROSS-CHECK
+// ==========================================
+$keyId = getenv('RAZORPAY_KEY_ID') ?: 'rzp_live_TZYodTojrVGsKI';
+$keySecret = getenv('RAZORPAY_KEY_SECRET') ?: base64_decode('WEZ3NUlmdHJySHhsclFRU25adGV4MXRF');
+
+$isRazorpayPayment = (strpos($transactionId, 'pay_') === 0);
+$isRazorpayOrder   = (strpos($transactionId, 'order_') === 0);
+
+if ($isRazorpayPayment || $isRazorpayOrder) {
+    $paymentToQuery = $transactionId;
+
+    if ($isRazorpayOrder) {
+        $orderCh = curl_init('https://api.razorpay.com/v1/orders/' . urlencode($transactionId) . '/payments');
+        curl_setopt_array($orderCh, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_USERPWD        => $keyId . ':' . $keySecret,
+            CURLOPT_TIMEOUT        => 10,
+            CURLOPT_SSL_VERIFYPEER => true
+        ]);
+        $orderRes = curl_exec($orderCh);
+        $orderHttp = curl_getinfo($orderCh, CURLINFO_HTTP_CODE);
+        curl_close($orderCh);
+
+        if ($orderHttp === 200 && !empty($orderRes)) {
+            $orderPayments = json_decode($orderRes, true);
+            if (!empty($orderPayments['items'])) {
+                foreach ($orderPayments['items'] as $item) {
+                    if (isset($item['status']) && $item['status'] === 'captured') {
+                        $paymentToQuery = $item['id'];
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    $ch = curl_init('https://api.razorpay.com/v1/payments/' . urlencode($paymentToQuery));
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_USERPWD        => $keyId . ':' . $keySecret,
+        CURLOPT_TIMEOUT        => 10,
+        CURLOPT_SSL_VERIFYPEER => true
+    ]);
+    $payRes = curl_exec($ch);
+    $payHttp = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($payHttp !== 200 || empty($payRes)) {
+        http_response_code(400);
+        echo json_encode([
+            'success' => false,
+            'error'   => "Payment Verification Failed: Payment ID '{$transactionId}' was not found in PGSM Welfare Society's live payment gateway records. Please check the ID or verify your payment."
+        ]);
+        exit(0);
+    }
+
+    $paymentData = json_decode($payRes, true);
+    if (!$paymentData || !isset($paymentData['status'])) {
+        http_response_code(400);
+        echo json_encode([
+            'success' => false,
+            'error'   => "Payment Verification Error: Unable to read response from payment gateway."
+        ]);
+        exit(0);
+    }
+
+    if ($paymentData['status'] !== 'captured') {
+        http_response_code(400);
+        echo json_encode([
+            'success' => false,
+            'error'   => "Payment Verification Failed: Payment status is '{$paymentData['status']}' (not captured). 80G tax receipts can only be generated for successfully completed donations."
+        ]);
+        exit(0);
+    }
+
+    // Lock verified amount directly from Razorpay (converts paise to INR)
+    $verifiedAmount = floatval($paymentData['amount']) / 100.0;
+    if ($verifiedAmount < 50) {
+        http_response_code(400);
+        echo json_encode([
+            'success' => false,
+            'error'   => "The verified donation amount (INR {$verifiedAmount}) is below the minimum Rs. 50 required for Section 80G tax exemption."
+        ]);
+        exit(0);
+    }
+
+    $amount = $verifiedAmount;
+    $transactionId = $paymentData['id']; // Normalize to pay_... ID
+} else {
+    // Non-Razorpay transaction (Direct Bank Transfer UTR / Offline UPI QR)
+    // Direct bank transfers are submitted for admin verification against Bank of Baroda bank statements.
+    
+    $googleSheetWebhook = getenv('GOOGLE_SHEET_VOLUNTEER_URL') ?: 'https://script.google.com/macros/s/AKfycbyvWa96qnpB88Savv16-nfVHYF1Ro1UFoY2SDTo-NGGsmwgLTYH8kd-jY6n6qJvF6cdPA/exec';
+    if (!empty($googleSheetWebhook)) {
+        $sheetPayload = json_encode([
+            'timestamp'  => date('d-M-Y H:i:s') . ' IST',
+            'fullName'   => $fullName . ' [80G MANUAL CLAIM]',
+            'whatsapp'   => $whatsapp,
+            'email'      => $email,
+            'status'     => 'NEEDS BANK VERIFICATION (UTR: ' . $transactionId . ')',
+            'interest'   => 'Claimed Amount: INR ' . number_format($amount, 2) . ' (PAN: ' . $panNumber . ')',
+            'motivation' => 'Direct Bank / UPI transfer claim. Admin must verify credit in Bank of Baroda account before issuing certificate.'
+        ]);
+        $ch = curl_init($googleSheetWebhook);
+        curl_setopt_array($ch, [
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $sheetPayload,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_TIMEOUT        => 5,
+            CURLOPT_SSL_VERIFYPEER => true
+        ]);
+        @curl_exec($ch);
+        @curl_close($ch);
+    }
+
+    // Send Alert Email to psgmwelfare@gmail.com
+    $adminSubject = "Action Required: Bank Transfer 80G Claim (UTR: " . $transactionId . ") | PGSM Welfare";
+    $adminBody = "A donor has submitted an 80G Tax Exemption Receipt request for a Direct Bank / UPI Transfer:\n\n"
+               . "- Donor Name: {$fullName}\n"
+               . "- Donor PAN: {$panNumber}\n"
+               . "- Claimed Amount: Rs. " . number_format($amount, 2) . "\n"
+               . "- Bank UTR / Ref: {$transactionId}\n"
+               . "- Email: {$email}\n"
+               . "- Contact: {$whatsapp}\n\n"
+               . "Please verify that this amount was credited to the Society's Bank of Baroda account before issuing the official certificate.";
+    @mail('psgmwelfare@gmail.com', $adminSubject, $adminBody, "From: PGSM Welfare <noreply@pgsmwelfare.org>\r\nReply-To: {$email}");
+
+    // Return response indicating verification submission
+    echo json_encode([
+        'success'             => true,
+        'pendingVerification' => true,
+        'message'             => "Your 80G Tax Exemption claim for Bank Reference '{$transactionId}' has been securely submitted. Because Direct Bank / UPI transfers require bank statement reconciliation, our finance team will verify the credit with our Bank of Baroda account and email your official certificate to {$email} within 24-48 hours.",
+        'donorName'           => $fullName,
+        'panNumber'           => $panNumber,
+        'transactionId'       => $transactionId,
+        'amount'              => $amount
+    ]);
+    exit(0);
 }
 
 date_default_timezone_set('Asia/Kolkata');
