@@ -734,6 +734,14 @@ function applyLanguage(lang) {
             el.placeholder = PGSM_TRANSLATIONS[targetLang][key];
         }
     });
+
+    // Sync custom donation widget on donate page if present
+    if (typeof window.updateDonatePageCustom === 'function') {
+        const customInput = document.getElementById('donate-page-custom-input');
+        if (customInput) {
+            window.updateDonatePageCustom(customInput.value, false, false);
+        }
+    }
 }
 
 function setLanguage(lang) {

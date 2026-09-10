@@ -3337,6 +3337,121 @@ const donateHtml = `<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- Dedicated Interactive Engine for Custom Donation Section -->
+        <script>
+            (function() {
+                window.updateDonatePageCustom = function(val, fromSlider, fromInput) {
+                    var raw = parseFloat(val);
+                    var amt = isNaN(raw) ? 0 : Math.round(raw);
+                    if (!fromInput && amt < 50) amt = 50;
+                    if (amt > 500000) amt = 500000;
+
+                    var input = document.getElementById('donate-page-custom-input');
+                    var slider = document.getElementById('donate-page-custom-slider');
+                    var btnText = document.getElementById('donate-page-btn-text');
+                    var hint = document.getElementById('donate-page-impact-hint');
+
+                    if (input && !fromInput) {
+                        input.value = amt;
+                    }
+                    if (slider && !fromSlider) {
+                        slider.value = Math.min(25000, Math.max(50, amt));
+                    }
+                    if (btnText) {
+                        var isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
+                        var displayAmt = (amt > 0 ? amt : 50).toLocaleString('en-IN');
+                        btnText.textContent = isHindi ? ('रेजॉरपे द्वारा ₹' + displayAmt + ' दान करें') : ('Donate ₹' + displayAmt + ' via Razorpay');
+                    }
+
+                    // Update pill highlight
+                    var pills = document.querySelectorAll('#donate-page-pills .donate-pill');
+                    pills.forEach(function(pill) {
+                        var pillAmt = parseInt(pill.textContent.replace(/[^0-9]/g, ''), 10);
+                        if (pillAmt === amt) {
+                            pill.className = 'donate-pill px-4 py-2 rounded-xl text-sm font-bold border-2 border-[#F36F21] bg-[#FFF2EB] text-[#F36F21] shadow-sm transition-all cursor-pointer';
+                        } else {
+                            pill.className = 'donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer';
+                        }
+                    });
+
+                    // Update impact hint
+                    if (hint) {
+                        var isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
+                        if (amt < 200) {
+                            hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>' + (isHindi ? '1 प्राथमिक ग्रामीण छात्र हेतु आवश्यक पाठ्यसामग्री, कॉपियाँ व लेखन किट।' : 'Provides essential stationery, notebooks, and learning aids for 1 primary student.') + '</span>';
+                        } else if (amt < 1000) {
+                            hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>' + (isHindi ? 'ग्रामीण छात्र हेतु संपूर्ण स्कूल किट (बस्ता, पुस्तकें, पोशाक) का प्रबंध।' : 'Funds a complete student kit (school bag, books, and uniforms) for rural education.') + '</span>';
+                        } else if (amt < 2500) {
+                            hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>' + (isHindi ? 'ग्रामीण बच्चों हेतु डिजिटल कंप्यूटर लैब एवं इंटरनेट कक्षाओं का संचालन।' : 'Covers computer lab access, digital literacy, and internet classes for rural children.') + '</span>';
+                        } else if (amt < 5000) {
+                            hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>' + (isHindi ? 'ग्रामीण महिलाओं हेतु सिलाई-कढ़ाई सामग्री एवं स्वावलंबन प्रशिक्षण।' : 'Sponsors women tailoring vocational materials and micro-enterprise sewing training.') + '</span>';
+                        } else {
+                            hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>' + (isHindi ? 'गाँव में निःशुल्क स्वास्थ्य शिविर, जांच व दवाइयों की व्यवस्था।' : 'Deploys village-level health diagnostics, free medicines, and doctors for rural families.') + '</span>';
+                        }
+                    }
+                };
+
+                window.setDonatePageAmount = function(amt) {
+                    window.updateDonatePageCustom(amt, false, false);
+                };
+
+                window.handleDonatePageCustomPay = function() {
+                    var input = document.getElementById('donate-page-custom-input');
+                    var amt = input ? (parseFloat(input.value) || 50) : 100;
+                    if (amt < 50) {
+                        var isHindi = (localStorage.getItem('pgsm_selected_lang') || 'en') === 'hi';
+                        alert(isHindi ? 'न्यूनतम सहयोग राशि ₹50 है।' : 'Minimum donation amount is ₹50.');
+                        amt = 50;
+                        if (input) input.value = 50;
+                        window.updateDonatePageCustom(50, false, false);
+                    }
+                    if (typeof payWithRazorpay === 'function') {
+                        payWithRazorpay(amt, 'Custom Donation (₹' + amt + ')');
+                    } else {
+                        console.error('payWithRazorpay is not loaded yet');
+                    }
+                };
+
+                function bindCustomEvents() {
+                    var input = document.getElementById('donate-page-custom-input');
+                    var slider = document.getElementById('donate-page-custom-slider');
+
+                    if (input && !input._pgsmBound) {
+                        input._pgsmBound = true;
+                        input.addEventListener('input', function(e) {
+                            window.updateDonatePageCustom(e.target.value, false, true);
+                        });
+                        input.addEventListener('blur', function(e) {
+                            var val = parseFloat(e.target.value) || 50;
+                            if (val < 50) val = 50;
+                            if (val > 500000) val = 500000;
+                            e.target.value = val;
+                            window.updateDonatePageCustom(val, false, false);
+                        });
+                        input.addEventListener('keydown', function(e) {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                                window.handleDonatePageCustomPay();
+                            }
+                        });
+                    }
+
+                    if (slider && !slider._pgsmBound) {
+                        slider._pgsmBound = true;
+                        slider.addEventListener('input', function(e) {
+                            window.updateDonatePageCustom(e.target.value, true, false);
+                        });
+                    }
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', bindCustomEvents);
+                } else {
+                    bindCustomEvents();
+                }
+            })();
+        </script>
+
                 <!-- ================= SECTION 2: WAYS TO GIVE (UPI + VERIFIED ICICI BANK) ================= -->
         <section id="ways-to-give" class="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF7F2] rounded-3xl mb-20">
             <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -3558,86 +3673,9 @@ const donateHtml = `<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- Donate Page Interactive Custom Donation Script -->
+    <!-- Donate Page 80G Tax Receipt Form & URL Hash Prefill Script -->
     <script>
-        function updateDonatePageCustom(val, fromSlider, fromInput) {
-            var amt = parseFloat(val) || 50;
-            if (amt < 50) amt = 50;
-            if (amt > 1000000) amt = 1000000;
-
-            var input = document.getElementById('donate-page-custom-input');
-            var slider = document.getElementById('donate-page-custom-slider');
-            var btnText = document.getElementById('donate-page-btn-text');
-            var hint = document.getElementById('donate-page-impact-hint');
-
-            if (input && !fromInput) input.value = amt;
-            if (slider && !fromSlider) slider.value = Math.min(25000, amt);
-            if (btnText) btnText.textContent = 'Donate ₹' + amt.toLocaleString('en-IN') + ' via Razorpay';
-
-            // Update pill highlight
-            var pills = document.querySelectorAll('#donate-page-pills .donate-pill');
-            pills.forEach(function(pill) {
-                var pillAmt = parseInt(pill.textContent.replace(/[^0-9]/g, ''), 10);
-                if (pillAmt === amt) {
-                    pill.className = 'donate-pill px-4 py-2 rounded-xl text-sm font-bold border-2 border-[#F36F21] bg-[#FFF2EB] text-[#F36F21] shadow-sm transition-all cursor-pointer';
-                } else {
-                    pill.className = 'donate-pill px-4 py-2 rounded-xl text-sm font-bold border border-gray-300 bg-white text-gray-700 hover:border-[#F36F21] hover:text-[#F36F21] transition-all cursor-pointer';
-                }
-            });
-
-            // Update impact hint
-            if (hint) {
-                if (amt < 200) {
-                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Provides essential stationery, notebooks, and learning aids for 1 primary student.</span>';
-                } else if (amt < 1000) {
-                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Funds a complete student kit (school bag, books, and uniforms) for rural education.</span>';
-                } else if (amt < 2500) {
-                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Covers computer lab access, digital literacy, and internet classes for rural children.</span>';
-                } else if (amt < 5000) {
-                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Sponsors women tailoring vocational materials and micro-enterprise sewing training.</span>';
-                } else {
-                    hint.innerHTML = '<span class="material-symbols-outlined text-[#F36F21] text-base">check_circle</span><span>Deploys village-level health diagnostics, free medicines, and doctors for rural families.</span>';
-                }
-            }
-        }
-
-        function setDonatePageAmount(amt) {
-            updateDonatePageCustom(amt, false, false);
-        }
-
-        function handleDonatePageCustomPay() {
-            var input = document.getElementById('donate-page-custom-input');
-            var amt = input ? (parseFloat(input.value) || 50) : 100;
-            if (amt < 50) {
-                alert('Minimum donation amount is ₹50.');
-                amt = 50;
-                if (input) input.value = 50;
-            }
-            payWithRazorpay(amt, 'Custom Donation (₹' + amt + ')');
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            var input = document.getElementById('donate-page-custom-input');
-            var slider = document.getElementById('donate-page-custom-slider');
-
-            if (input) {
-                input.addEventListener('input', function(e) {
-                    updateDonatePageCustom(e.target.value, false, true);
-                });
-                input.addEventListener('blur', function(e) {
-                    var val = parseFloat(e.target.value) || 50;
-                    if (val < 50) val = 50;
-                    e.target.value = val;
-                    updateDonatePageCustom(val, false, false);
-                });
-            }
-
-            if (slider) {
-                slider.addEventListener('input', function(e) {
-                    updateDonatePageCustom(e.target.value, true, false);
-                });
-            }
-
             // Check cross-page prefill from Razorpay
             try {
                 var savedAmt = sessionStorage.getItem('pgsm_receipt_amount');
@@ -3793,7 +3831,7 @@ const donateHtml = `<!DOCTYPE html>
 
                     // Cache for re-download
                     lastGeneratedPdfBase64 = result.pdfBase64;
-                    lastGeneratedPdfFilename = result.pdfFilename || ('PGSM_80G_Receipt_' + result.receiptNumber.replace(/\//g, '_') + '.pdf');
+                    lastGeneratedPdfFilename = result.pdfFilename || ('PGSM_80G_Receipt_' + (result.receiptNumber ? result.receiptNumber.split('/').join('_') : 'TAX') + '.pdf');
 
                     // Instant Browser Download
                     triggerPdfDownload(result.pdfBase64, lastGeneratedPdfFilename);
