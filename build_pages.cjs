@@ -1899,6 +1899,185 @@ const aboutHtml = `<!DOCTYPE html>
                     </div>
                 </div>
 
+                <!-- ================= OFFICIAL GOVERNMENT REGISTRATIONS & STATUTORY CERTIFICATES ================= -->
+                <div id="statutory-documents" class="bg-gradient-to-br from-[#2A2A2A] to-[#1A1A1A] border-2 border-[#F36F21]/30 rounded-3xl p-6 md:p-10 shadow-2xl flex flex-col gap-8 my-4 relative overflow-hidden">
+                    <!-- Subtle watermark badge -->
+                    <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none text-white select-none">
+                        <span class="material-symbols-outlined text-[240px]">verified</span>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-white/10 pb-6 relative z-10">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 bg-[#F36F21]/20 text-[#FFB693] text-xs font-extrabold uppercase px-3 py-1 rounded-full border border-[#F36F21]/40 mb-2">
+                                <span class="material-symbols-outlined text-sm">verified</span>
+                                Verified Public Records
+                            </span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                                Official Statutory Certificates & Government Orders
+                            </h3>
+                            <p class="text-sm text-gray-300 mt-1 max-w-2xl">
+                                Complete, unalterable digital copies of our government registration, tax exemptions, and founding constitution for institutional donors, CSR partners, and public transparency.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">check_circle</span> 100% Verified Non-Profit
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 5 Statutory Certificates Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
+                        <!-- 1. Society Registration Certificate -->
+                        <div id="doc-society-reg" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md">
+                            <div>
+                                <div class="flex items-start justify-between gap-2 mb-3">
+                                    <div class="w-12 h-12 rounded-xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21]">
+                                        <span class="material-symbols-outlined text-2xl">gavel</span>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase bg-amber-500/20 text-amber-200 border border-amber-500/30 px-2 py-0.5 rounded-full">Govt. of MP</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                    Society Registration Certificate
+                                </h4>
+                                <p class="text-xs font-bold text-[#F36F21] mt-1">
+                                    Reg No: 06/12/03/11718/16
+                                </p>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                    Official certificate granted under Madhya Pradesh Society Registration Act, 1973. Registered on 03 October 2016 by the Registrar of Societies.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
+                                <a href="documents/PGSM_Society_Registration_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">visibility</span> View PDF
+                                </a>
+                                <a href="documents/PGSM_Society_Registration_Certificate.pdf" download="PGSM_Society_Registration_Certificate.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 2. Section 80G Tax Exemption Order -->
+                        <div id="doc-80g-exemption" class="bg-white/5 hover:bg-white/10 border-2 border-[#F36F21]/40 hover:border-[#F36F21] rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-lg relative">
+                            <div class="absolute -top-3 right-4 bg-[#F36F21] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow">
+                                50% Tax Exemption
+                            </div>
+                            <div>
+                                <div class="flex items-start justify-between gap-2 mb-3">
+                                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                                        <span class="material-symbols-outlined text-2xl">receipt_long</span>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-200 border border-emerald-500/30 px-2 py-0.5 rounded-full">Income Tax Dept</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                    Section 80G Tax Exemption Order
+                                </h4>
+                                <p class="text-xs font-bold text-emerald-400 mt-1">
+                                    URN: AAEAP1466C24BP02
+                                </p>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                    Official Form 10AD approval order issued by CIT (Exemption) Bhopal under Section 80G(5). Valid for Assessment Years 2023-24 to 2027-28.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
+                                <a href="documents/PGSM_Section_80G_Tax_Exemption_Order.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">visibility</span> View PDF
+                                </a>
+                                <a href="documents/PGSM_Section_80G_Tax_Exemption_Order.pdf" download="PGSM_Section_80G_Tax_Exemption_Order.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 3. Section 12AB (12A) Charitable Registration -->
+                        <div id="doc-12ab-charitable" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md">
+                            <div>
+                                <div class="flex items-start justify-between gap-2 mb-3">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+                                        <span class="material-symbols-outlined text-2xl">verified_user</span>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase bg-blue-500/20 text-blue-200 border border-blue-500/30 px-2 py-0.5 rounded-full">10-Year Trust Order</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                    Section 12AB (12A) Registration
+                                </h4>
+                                <p class="text-xs font-bold text-blue-400 mt-1">
+                                    URN: AAEAP1466C25BP01
+                                </p>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                    Official Form 10AD order under Section 12AB(1)(b) recognizing PGSM as an unalterable non-profit charitable society. Valid from AY 2027-28 to 2036-37.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
+                                <a href="documents/PGSM_Section_12AB_Charitable_Registration_Order.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">visibility</span> View PDF
+                                </a>
+                                <a href="documents/PGSM_Section_12AB_Charitable_Registration_Order.pdf" download="PGSM_Section_12AB_Charitable_Registration_Order.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 4. NITI Aayog NGO Darpan Certificate -->
+                        <div id="doc-niti-aayog" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md">
+                            <div>
+                                <div class="flex items-start justify-between gap-2 mb-3">
+                                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400">
+                                        <span class="material-symbols-outlined text-2xl">handshake</span>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase bg-orange-500/20 text-orange-200 border border-orange-500/30 px-2 py-0.5 rounded-full">National Portal</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                    NITI Aayog NGO Darpan
+                                </h4>
+                                <p class="text-xs font-bold text-orange-400 mt-1">
+                                    DARPAN ID: MP/2021/0299785
+                                </p>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                    Official National NGO Portal verification acknowledging active status, PAN AAEAP1466C, and verified trustees under Government of India guidelines.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
+                                <a href="documents/PGSM_NITI_Aayog_Darpan_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">visibility</span> View PDF
+                                </a>
+                                <a href="documents/PGSM_NITI_Aayog_Darpan_Certificate.pdf" download="PGSM_NITI_Aayog_Darpan_Certificate.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Society Constitution & MoA (12 Pages) -->
+                        <div id="doc-society-moa" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md md:col-span-2 lg:col-span-2">
+                            <div>
+                                <div class="flex items-start justify-between gap-2 mb-3">
+                                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400">
+                                        <span class="material-symbols-outlined text-2xl">menu_book</span>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase bg-purple-500/20 text-purple-200 border border-purple-500/30 px-2 py-0.5 rounded-full">12-Page Certified Charter</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                    Society Memorandum of Association & By-Laws (स्मृति पत्र एवं नियमावली)
+                                </h4>
+                                <p class="text-xs font-bold text-purple-400 mt-1">
+                                    Approved by Assistant Registrar, Sagar Division
+                                </p>
+                                <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                    Complete founding constitution, organizational aims (education, pharmacy institutions, rural health camps, sports), executive committee powers, and official rules bearing government stamp paper.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                                <a href="documents/PGSM_Society_Constitution_Rules_MoA.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all text-center flex items-center justify-center gap-1.5 shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">visibility</span> View Full 12-Page MoA (PDF)
+                                </a>
+                                <a href="documents/PGSM_Society_Constitution_Rules_MoA.pdf" download="PGSM_Society_Constitution_Rules_MoA.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5" title="Download MoA PDF">
+                                    <span class="material-symbols-outlined text-sm">download</span> Download PDF (2.2 MB)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Institutional & CSR Audit Download Strip -->
                 <div class="bg-white/5 border border-white/15 rounded-2xl p-6 md:p-8 backdrop-blur-md flex flex-col gap-6 shadow-xl my-2">
                     <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
