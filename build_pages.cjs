@@ -278,7 +278,7 @@ const unifiedFooterHtml = `
 
     <!-- Universal Bilingual Translation Engine -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js?v=2.2"></script>
+    <script src="translations.js?v=2.3"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle
@@ -481,7 +481,7 @@ const homeHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js?v=2.2"></script>
+    <script src="translations.js?v=2.3"></script>
 </head>
 <body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col overflow-x-hidden w-full">
 
@@ -624,22 +624,22 @@ const homeHtml = `<!DOCTYPE html>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 md:divide-x divide-outline-variant/20">
                     <!-- Metric 1 -->
                     <div class="flex flex-col items-center md:items-start px-4 sm:px-8 text-center md:text-left">
-                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold">9+</span>
+                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold" data-counter-target="9" data-counter-suffix="+">9+</span>
                         <span class="text-secondary font-label-bold text-label-bold uppercase tracking-widest mt-2 text-[10px] sm:text-xs"><span data-i18n="metric1_lbl">Years Active Service</span></span>
                     </div>
                     <!-- Metric 2 -->
                     <div class="flex flex-col items-center md:items-start px-4 sm:px-8 text-center md:text-left">
-                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold">3,000+</span>
+                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold" data-counter-target="3000" data-counter-suffix="+" data-counter-format="comma">3,000+</span>
                         <span class="text-secondary font-label-bold text-label-bold uppercase tracking-widest mt-2 text-[10px] sm:text-xs"><span data-i18n="metric2_lbl">Students Trained</span></span>
                     </div>
                     <!-- Metric 3 -->
                     <div class="flex flex-col items-center md:items-start px-4 sm:px-8 text-center md:text-left">
-                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold">100+</span>
+                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold" data-counter-target="100" data-counter-suffix="+">100+</span>
                         <span class="text-secondary font-label-bold text-label-bold uppercase tracking-widest mt-2 text-[10px] sm:text-xs"><span data-i18n="metric3_lbl">NSS Youth Camps</span></span>
                     </div>
                     <!-- Metric 4 -->
                     <div class="flex flex-col items-center md:items-start px-4 sm:px-8 text-center md:text-left">
-                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold">800+</span>
+                        <span class="text-primary font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold" data-counter-target="800" data-counter-suffix="+">800+</span>
                         <span class="text-secondary font-label-bold text-label-bold uppercase tracking-widest mt-2 text-[10px] sm:text-xs"><span data-i18n="metric4_lbl">Trees Planted</span></span>
                     </div>
                 </div>
@@ -1597,7 +1597,7 @@ const aboutHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js?v=2.2"></script>
+    <script src="translations.js?v=2.3"></script>
 </head>
 <body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col overflow-x-hidden w-full">
 
@@ -2365,7 +2365,7 @@ const programsHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js?v=2.2"></script>
+    <script src="translations.js?v=2.3"></script>
 </head>
 <body class="bg-[#FFF7F2] font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     ${getUnifiedHeader('programs')}
@@ -2396,7 +2396,7 @@ const programsHtml = `<!DOCTYPE html>
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
                         </div>
                         <div>
-                            <span class="font-bold text-lg text-[#1F1F1F] block">4,500+</span>
+                            <span class="font-bold text-lg text-[#1F1F1F] block" data-counter-target="4500" data-counter-suffix="+" data-counter-format="comma">4,500+</span>
                             <span class="text-xs text-gray-500 font-medium">Patients Treated</span>
                         </div>
                     </div>
@@ -2405,7 +2405,7 @@ const programsHtml = `<!DOCTYPE html>
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
                         </div>
                         <div>
-                            <span class="font-bold text-lg text-[#1F1F1F] block">3,000+</span>
+                            <span class="font-bold text-lg text-[#1F1F1F] block" data-counter-target="3000" data-counter-suffix="+" data-counter-format="comma">3,000+</span>
                             <span class="text-xs text-gray-500 font-medium"><span data-i18n="metric2_lbl">Students Trained</span></span>
                         </div>
                     </div>
@@ -2414,7 +2414,7 @@ const programsHtml = `<!DOCTYPE html>
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">styler</span>
                         </div>
                         <div>
-                            <span class="font-bold text-lg text-[#1F1F1F] block">1,200+</span>
+                            <span class="font-bold text-lg text-[#1F1F1F] block" data-counter-target="1200" data-counter-suffix="+" data-counter-format="comma">1,200+</span>
                             <span class="text-xs text-gray-500 font-medium">Women Skilled</span>
                         </div>
                     </div>
@@ -2423,7 +2423,7 @@ const programsHtml = `<!DOCTYPE html>
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
                         </div>
                         <div>
-                            <span class="font-bold text-lg text-[#1F1F1F] block">100+</span>
+                            <span class="font-bold text-lg text-[#1F1F1F] block" data-counter-target="100" data-counter-suffix="+">100+</span>
                             <span class="text-xs text-gray-500 font-medium">NSS Camps</span>
                         </div>
                     </div>
@@ -2432,7 +2432,7 @@ const programsHtml = `<!DOCTYPE html>
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forest</span>
                         </div>
                         <div>
-                            <span class="font-bold text-lg text-[#1F1F1F] block">800+</span>
+                            <span class="font-bold text-lg text-[#1F1F1F] block" data-counter-target="800" data-counter-suffix="+">800+</span>
                             <span class="text-xs text-gray-500 font-medium"><span data-i18n="metric4_lbl">Trees Planted</span></span>
                         </div>
                     </div>
@@ -2865,7 +2865,7 @@ const volunteerHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js?v=2.2"></script>
+    <script src="translations.js?v=2.3"></script>
 </head>
 <body class="bg-white text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     ${getUnifiedHeader('volunteer')}
@@ -3375,7 +3375,7 @@ const donateHtml = `<!DOCTYPE html>
         }
     </style>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="translations.js?v=2.2"></script>
+    <script src="translations.js?v=2.3"></script>
 </head>
 <body class="bg-soft-cream text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden w-full">
     ${getUnifiedHeader('donate')}

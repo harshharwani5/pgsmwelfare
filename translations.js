@@ -753,11 +753,80 @@ function toggleLanguage() {
     setLanguage(current === 'hi' ? 'en' : 'hi');
 }
 
+// Interactive Animated Number Counter
+function initCounters() {
+    const counterElements = document.querySelectorAll('[data-counter-target]');
+    if (!counterElements.length) return;
+
+    const animateCounter = (el) => {
+        if (el.dataset.counterStarted === 'true') return;
+        el.dataset.counterStarted = 'true';
+
+        const target = parseFloat(el.getAttribute('data-counter-target')) || 0;
+        const duration = parseInt(el.getAttribute('data-counter-duration')) || 1800;
+        const suffix = el.getAttribute('data-counter-suffix') || '';
+        const prefix = el.getAttribute('data-counter-prefix') || '';
+        const useComma = el.getAttribute('data-counter-format') === 'comma';
+
+        // Set initial display to 0
+        el.textContent = `${prefix}0${suffix}`;
+
+        const startTime = performance.now();
+
+        const step = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Ease out cubic (smooth deceleration)
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const currentVal = Math.round(ease * target);
+
+            const formattedVal = useComma ? currentVal.toLocaleString('en-IN') : currentVal.toString();
+            el.textContent = `${prefix}${formattedVal}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                const finalVal = useComma ? target.toLocaleString('en-IN') : target.toString();
+                el.textContent = `${prefix}${finalVal}${suffix}`;
+            }
+        };
+
+        requestAnimationFrame(step);
+    };
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -20px 0px'
+        });
+
+        counterElements.forEach(el => observer.observe(el));
+    } else {
+        counterElements.forEach(el => animateCounter(el));
+    }
+}
+window.initCounters = initCounters;
+
 // Auto-run on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
+function initPage() {
     const savedLang = localStorage.getItem('pgsm_selected_lang') || 'en';
     applyLanguage(savedLang);
-});
+    initCounters();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPage);
+} else {
+    initPage();
+}
 
 // Razorpay Configuration
 window.RAZORPAY_KEY_ID = 'rzp_live_TZYodTojrVGsKI';
