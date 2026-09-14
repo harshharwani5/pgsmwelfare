@@ -1714,19 +1714,23 @@ const aboutHtml = `<!DOCTYPE html>
             </div>
         </section>
 
-        <!-- ================= ABOUT SECTION 2.5: DISTINGUISHED GUESTS & PATRONS ================= -->
-        <section id="patrons" class="py-16 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF9F5] border-b border-gray-200/80 relative overflow-hidden">
+        <!-- ================= ABOUT SECTION 3 (DARK 1/3): DISTINGUISHED GUESTS & PATRONS ================= -->
+        <section id="patrons" class="py-20 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#1A1A1A] text-white border-b border-white/10 relative overflow-hidden">
+            <!-- Subtle ambient glow -->
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#F36F21]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
             <div class="max-w-[1280px] mx-auto relative z-10">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-14">
-                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F36F21]/10 border border-[#F36F21]/20 text-[#a04100] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F36F21]/20 border border-[#F36F21]/30 text-[#FFB693] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
                         <span class="material-symbols-outlined text-base text-[#F36F21]">military_tech</span>
                         <span data-i18n="patrons_badge">DIGNITARY ENDORSEMENTS & CONVOCATION HONORS</span>
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] tracking-tight">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                         <span data-i18n="patrons_title">Distinguished Guests & Institutional Patrons</span>
                     </h2>
-                    <p class="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                    <p class="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto">
                         <span data-i18n="patrons_sub">Our annual convocations, merit scholarship ceremonies, and grassroots programs have been graced and commended by civil servants (IAS), senior medical specialists, and eminent educators.</span>
                     </p>
                 </div>
@@ -1735,27 +1739,27 @@ const aboutHtml = `<!DOCTYPE html>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     
                     <!-- Card 1: Shri Ashutosh Mishra (IAS) -->
-                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/50 rounded-2xl p-7 shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 backdrop-blur-sm">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="bg-[#FFF2EB] text-[#F36F21] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-[#F36F21]/20 flex items-center gap-1.5" data-i18n="patron_c1_tag">
+                                <span class="bg-[#F36F21]/20 text-[#FFB693] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-[#F36F21]/30 flex items-center gap-1.5" data-i18n="patron_c1_tag">
                                     <span class="material-symbols-outlined text-sm">account_balance</span>
                                     Civil Services / IAS Officer
                                 </span>
-                                <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">AIR 198</span>
+                                <span class="text-xs font-bold text-amber-300 bg-amber-500/20 px-2.5 py-0.5 rounded-md border border-amber-500/40">AIR 198</span>
                             </div>
-                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-[#F36F21] transition-colors" data-i18n="patron_c1_name">
+                            <h3 class="text-xl font-black text-white mb-1 group-hover:text-[#FFB693] transition-colors" data-i18n="patron_c1_name">
                                 Shri Ashutosh Mishra (IAS)
                             </h3>
-                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c1_role">
+                            <p class="text-xs font-bold text-gray-400 mb-4" data-i18n="patron_c1_role">
                                 UPSC 2024 · All India Rank 198 (Special Guest)
                             </p>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c1_desc">
+                            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal" data-i18n="patron_c1_desc">
                                 Graced our Annual Convocation as Special Guest of Honor, felicitating meritorious graduates and commending the society's mission of bridging professional technical education with rural careers in Bundelkhand.
                             </p>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
-                            <span class="inline-flex items-center gap-1 text-gray-700">
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-semibold">
+                            <span class="inline-flex items-center gap-1.5 text-gray-200">
                                 <span class="material-symbols-outlined text-sm text-[#F36F21]">verified</span>
                                 Convocation 2025 Guest of Honor
                             </span>
@@ -1763,56 +1767,56 @@ const aboutHtml = `<!DOCTYPE html>
                     </div>
 
                     <!-- Card 2: Dr. Major L.N. Rawat -->
-                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/50 rounded-2xl p-7 shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 backdrop-blur-sm">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="bg-blue-50 text-blue-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-200 flex items-center gap-1.5" data-i18n="patron_c2_tag">
+                                <span class="bg-blue-500/20 text-blue-300 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-500/30 flex items-center gap-1.5" data-i18n="patron_c2_tag">
                                     <span class="material-symbols-outlined text-sm">school</span>
                                     Higher Education Mentor
                                 </span>
-                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">Senior Academic</span>
+                                <span class="text-xs font-bold text-blue-300 bg-blue-500/20 px-2.5 py-0.5 rounded-md border border-blue-500/40">Senior Academic</span>
                             </div>
-                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-blue-700 transition-colors" data-i18n="patron_c2_name">
+                            <h3 class="text-xl font-black text-white mb-1 group-hover:text-blue-300 transition-colors" data-i18n="patron_c2_name">
                                 Dr. Major L.N. Rawat
                             </h3>
-                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c2_role">
+                            <p class="text-xs font-bold text-gray-400 mb-4" data-i18n="patron_c2_role">
                                 Former Principal, Bapu Degree College
                             </p>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c2_desc">
+                            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal" data-i18n="patron_c2_desc">
                                 Keynote convocation speaker and veteran academic advisor, praising the institution's stringent PCI compliance, academic discipline, and field-driven NSS youth leadership.
                             </p>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
-                            <span class="inline-flex items-center gap-1 text-gray-700">
-                                <span class="material-symbols-outlined text-sm text-blue-600">verified</span>
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-semibold">
+                            <span class="inline-flex items-center gap-1.5 text-gray-200">
+                                <span class="material-symbols-outlined text-sm text-blue-400">verified</span>
                                 Academic Keynote Mentor
                             </span>
                         </div>
                     </div>
 
                     <!-- Card 3: Kritika Pateria & Scholarship -->
-                    <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-400/50 rounded-2xl p-7 shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 backdrop-blur-sm">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="bg-emerald-50 text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-200 flex items-center gap-1.5" data-i18n="patron_c3_tag">
+                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-500/30 flex items-center gap-1.5" data-i18n="patron_c3_tag">
                                     <span class="material-symbols-outlined text-sm">military_tech</span>
                                     State Merit Scholar & Incentive
                                 </span>
-                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">₹10,000 Award</span>
+                                <span class="text-xs font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-md border border-emerald-500/40">₹10,000 Award</span>
                             </div>
-                            <h3 class="text-xl font-black text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors" data-i18n="patron_c3_name">
+                            <h3 class="text-xl font-black text-white mb-1 group-hover:text-emerald-300 transition-colors" data-i18n="patron_c3_name">
                                 Kritika Pateria
                             </h3>
-                            <p class="text-xs font-bold text-gray-500 mb-4" data-i18n="patron_c3_role">
+                            <p class="text-xs font-bold text-gray-400 mb-4" data-i18n="patron_c3_role">
                                 9th State Rank (MP Board 12th) · Scholarship Recipient
                             </p>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal" data-i18n="patron_c3_desc">
+                            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal" data-i18n="patron_c3_desc">
                                 Awarded a 100% higher education scholarship and special ₹10,000 cash incentive on stage by Director Er. Bhartendu Mishra, exemplifying our covenant to sponsor outstanding rural female scholars.
                             </p>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-semibold">
-                            <span class="inline-flex items-center gap-1 text-gray-700">
-                                <span class="material-symbols-outlined text-sm text-emerald-600">verified</span>
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-semibold">
+                            <span class="inline-flex items-center gap-1.5 text-gray-200">
+                                <span class="material-symbols-outlined text-sm text-emerald-400">verified</span>
                                 100% Scholarship + Cash Incentive
                             </span>
                         </div>
@@ -1821,17 +1825,17 @@ const aboutHtml = `<!DOCTYPE html>
                 </div>
 
                 <!-- Bottom Medical & Administrative Patronage Strip -->
-                <div class="mt-10 bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+                <div class="mt-10 bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm backdrop-blur-sm">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-[#F36F21]/10 flex items-center justify-center text-[#F36F21] shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-[#F36F21]/20 border border-[#F36F21]/30 flex items-center justify-center text-[#FFB693] shrink-0">
                             <span class="material-symbols-outlined text-2xl">local_hospital</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-gray-900">Endorsed by Public Administrators & Senior Medical Specialists</h4>
-                            <p class="text-xs text-gray-600">Guided by Dr. Ravi Kant Mishra's two decades of clinical goodwill in Nowgong and commended by state administrative leadership.</p>
+                            <h4 class="text-sm font-bold text-white">Endorsed by Public Administrators & Senior Medical Specialists</h4>
+                            <p class="text-xs text-gray-300 mt-0.5">Guided by Dr. Ravi Kant Mishra's two decades of clinical goodwill in Nowgong and commended by state administrative leadership.</p>
                         </div>
                     </div>
-                    <a href="about.html#governance" class="text-xs font-bold text-[#F36F21] hover:underline shrink-0 inline-flex items-center gap-1">
+                    <a href="about.html#governance" class="text-xs font-bold text-[#FFB693] hover:text-white shrink-0 inline-flex items-center gap-1 transition-colors">
                         <span>View Governance</span>
                         <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
@@ -1839,68 +1843,72 @@ const aboutHtml = `<!DOCTYPE html>
             </div>
         </section>
 
-        <!-- ================= ABOUT SECTION 3: AWARDS & LEGAL COMPLIANCE ================= -->
-        <section id="compliance" class="w-full py-xl bg-[#1F1F1F] text-white relative overflow-hidden">
-            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-xl">
+        <!-- ================= ABOUT SECTION 4 (WHITE 3/4): AWARDS & STATUTORY CERTIFICATES ================= -->
+        <section id="compliance" class="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#FFF9F5] text-gray-900 border-b border-gray-200/80 relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto flex flex-col gap-14">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
-                    <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-sm font-extrabold">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F36F21]/10 border border-[#F36F21]/20 text-[#a04100] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+                        <span class="material-symbols-outlined text-base text-[#F36F21]">verified</span>
+                        STATUTORY RECOGNITION & PUBLIC AUDIT
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1F1F1F] tracking-tight">
                         Awards, Recognitions & Legal Compliance
                     </h2>
-                    <div class="h-1 w-24 bg-[#F36F21] mx-auto rounded-full mb-lg"></div>
-                    <h3 class="font-headline-md text-headline-md text-[#FFB693] mb-sm font-bold">
-                        Recognizing Leaders in NGO Partnership
+                    <div class="h-1 w-20 bg-[#F36F21] mx-auto rounded-full my-3"></div>
+                    <h3 class="text-lg font-bold text-[#a04100] mb-2">
+                        Recognizing Leaders in NGO Partnership & Transparency
                     </h3>
-                    <p class="font-body-lg text-body-lg text-[#E3E2E2] max-w-2xl leading-relaxed">
+                    <p class="text-sm sm:text-base text-gray-600 max-w-2xl leading-relaxed">
                         Celebrating institutional trust and nationwide community impact. Our commitment to transparency and legal compliance is foundational to our mission.
                     </p>
                 </div>
 
-                <!-- 4 Compliance Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- 4 Compliance Cards (Light Mode) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Card 1 -->
-                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
-                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
-                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">gavel</span>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#FFF2EB] flex items-center justify-center mb-3 border border-[#F36F21]/20 text-[#F36F21]">
+                            <span class="material-symbols-outlined text-2xl">gavel</span>
                         </div>
-                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">Society Registration</h4>
-                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">06/12/03/11718/16</p>
-                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">(Under MP Society Registration Act)</p>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">Society Registration</h4>
+                        <p class="text-sm font-black text-[#F36F21]">06/12/03/11718/16</p>
+                        <p class="text-xs text-gray-500 mt-1">(Under MP Societies Act)</p>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
-                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
-                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">badge</span>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#FFF2EB] flex items-center justify-center mb-3 border border-[#F36F21]/20 text-[#F36F21]">
+                            <span class="material-symbols-outlined text-2xl">badge</span>
                         </div>
-                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">Permanent PAN</h4>
-                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">AAATP8891J</p>
-                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">Income Tax Department</p>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">Permanent PAN</h4>
+                        <p class="text-sm font-black text-[#F36F21]">AAATP8891J</p>
+                        <p class="text-xs text-gray-500 mt-1">Income Tax Department</p>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
-                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
-                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">receipt_long</span>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#FFF2EB] flex items-center justify-center mb-3 border border-[#F36F21]/20 text-[#F36F21]">
+                            <span class="material-symbols-outlined text-2xl">receipt_long</span>
                         </div>
-                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">Section 80G Exemption</h4>
-                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">50% Tax Exemption</p>
-                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">URN: AAEAP1466C24BP02</p>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">Section 80G Exemption</h4>
+                        <p class="text-sm font-black text-emerald-600">50% Tax Exemption</p>
+                        <p class="text-xs text-gray-500 mt-1">URN: AAEAP1466C24BP02</p>
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="glass-card rounded-2xl p-md flex flex-col items-center text-center shadow-lg">
-                        <div class="w-16 h-16 rounded-full bg-[#F36F21]/15 flex items-center justify-center mb-sm border border-[#F36F21]/30">
-                            <span class="material-symbols-outlined text-[#F36F21] text-[32px]">handshake</span>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#FFF2EB] flex items-center justify-center mb-3 border border-[#F36F21]/20 text-[#F36F21]">
+                            <span class="material-symbols-outlined text-2xl">handshake</span>
                         </div>
-                        <h4 class="font-headline-md text-lg text-white mb-xs font-bold">NITI Aayog NGO Darpan</h4>
-                        <p class="font-body-md text-body-md text-[#FFB693] font-bold">MP/2021/0299785</p>
-                        <p class="font-label-sm text-label-sm text-gray-400 mt-xs">Government of India Portal</p>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">NITI Aayog NGO Darpan</h4>
+                        <p class="text-sm font-black text-[#F36F21]">MP/2021/0299785</p>
+                        <p class="text-xs text-gray-500 mt-1">Govt of India Portal</p>
                     </div>
                 </div>
 
-                <!-- ================= OFFICIAL GOVERNMENT REGISTRATIONS & STATUTORY CERTIFICATES ================= -->
-                <div id="statutory-documents" class="bg-gradient-to-br from-[#2A2A2A] to-[#1A1A1A] border-2 border-[#F36F21]/30 rounded-3xl p-6 md:p-10 shadow-2xl flex flex-col gap-8 my-4 relative overflow-hidden">
+                <!-- ================= OFFICIAL GOVERNMENT REGISTRATIONS & STATUTORY CERTIFICATES (Dark Box Showcase) ================= -->
+                <div id="statutory-documents" class="bg-gradient-to-br from-[#242424] to-[#141414] border-2 border-[#F36F21]/40 rounded-3xl p-6 md:p-10 shadow-2xl flex flex-col gap-8 relative overflow-hidden text-white my-4">
                     <!-- Subtle watermark badge -->
                     <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none text-white select-none">
                         <span class="material-symbols-outlined text-[240px]">verified</span>
@@ -1909,7 +1917,7 @@ const aboutHtml = `<!DOCTYPE html>
                     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-white/10 pb-6 relative z-10">
                         <div>
                             <span class="inline-flex items-center gap-1.5 bg-[#F36F21]/20 text-[#FFB693] text-xs font-extrabold uppercase px-3 py-1 rounded-full border border-[#F36F21]/40 mb-2">
-                                <span class="material-symbols-outlined text-sm">verified</span>
+                                <span class="material-symbols-outlined text-sm text-[#F36F21]">verified</span>
                                 Verified Public Records
                             </span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -1920,22 +1928,22 @@ const aboutHtml = `<!DOCTYPE html>
                             </p>
                         </div>
                         <div class="flex items-center gap-2 shrink-0">
-                            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm">check_circle</span> 100% Verified Non-Profit
+                            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-sm text-emerald-400">check_circle</span> 100% Verified Non-Profit
                             </span>
                         </div>
                     </div>
 
-                    <!-- 5 Statutory Certificates Cards Grid -->
+                    <!-- 5 Statutory Certificates Cards Grid (Dark Glass / High Contrast) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
                         <!-- 1. Society Registration Certificate -->
-                        <div id="doc-society-reg" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md">
+                        <div id="doc-society-reg" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md hover:shadow-xl">
                             <div>
                                 <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div class="w-12 h-12 rounded-xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21]">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
                                         <span class="material-symbols-outlined text-2xl">gavel</span>
                                     </div>
-                                    <span class="text-[10px] font-extrabold uppercase bg-amber-500/20 text-amber-200 border border-amber-500/30 px-2 py-0.5 rounded-full">Govt. of MP</span>
+                                    <span class="text-[10px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full">Govt. of MP</span>
                                 </div>
                                 <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
                                     Society Registration Certificate
@@ -1948,28 +1956,28 @@ const aboutHtml = `<!DOCTYPE html>
                                 </p>
                             </div>
                             <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
-                                <a href="documents/PGSM_Society_Registration_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                <a href="documents/PGSM_Society_Registration_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#ff833b] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
                                     <span class="material-symbols-outlined text-sm">visibility</span> View PDF
                                 </a>
-                                <a href="documents/PGSM_Society_Registration_Certificate.pdf" download="PGSM_Society_Registration_Certificate.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                <a href="documents/PGSM_Society_Registration_Certificate.pdf" download="PGSM_Society_Registration_Certificate.pdf" class="bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center border border-white/15" title="Download PDF">
                                     <span class="material-symbols-outlined text-sm">download</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- 2. Section 80G Tax Exemption Order -->
-                        <div id="doc-80g-exemption" class="bg-white/5 hover:bg-white/10 border-2 border-[#F36F21]/40 hover:border-[#F36F21] rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-lg relative">
-                            <div class="absolute -top-3 right-4 bg-[#F36F21] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow">
+                        <div id="doc-80g-exemption" class="bg-white/5 hover:bg-white/10 border-2 border-emerald-500/40 hover:border-emerald-400 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-lg relative">
+                            <div class="absolute -top-3 right-4 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow">
                                 50% Tax Exemption
                             </div>
                             <div>
                                 <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                                         <span class="material-symbols-outlined text-2xl">receipt_long</span>
                                     </div>
-                                    <span class="text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-200 border border-emerald-500/30 px-2 py-0.5 rounded-full">Income Tax Dept</span>
+                                    <span class="text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">Income Tax Dept</span>
                                 </div>
-                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                <h4 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
                                     Section 80G Tax Exemption Order
                                 </h4>
                                 <p class="text-xs font-bold text-emerald-400 mt-1">
@@ -1980,25 +1988,25 @@ const aboutHtml = `<!DOCTYPE html>
                                 </p>
                             </div>
                             <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
-                                <a href="documents/PGSM_Section_80G_Tax_Exemption_Order.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                <a href="documents/PGSM_Section_80G_Tax_Exemption_Order.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
                                     <span class="material-symbols-outlined text-sm">visibility</span> View PDF
                                 </a>
-                                <a href="documents/PGSM_Section_80G_Tax_Exemption_Order.pdf" download="PGSM_Section_80G_Tax_Exemption_Order.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                <a href="documents/PGSM_Section_80G_Tax_Exemption_Order.pdf" download="PGSM_Section_80G_Tax_Exemption_Order.pdf" class="bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center border border-white/15" title="Download PDF">
                                     <span class="material-symbols-outlined text-sm">download</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- 3. Section 12AB (12A) Charitable Registration -->
-                        <div id="doc-12ab-charitable" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md">
+                        <div id="doc-12ab-charitable" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md hover:shadow-xl">
                             <div>
                                 <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
                                         <span class="material-symbols-outlined text-2xl">verified_user</span>
                                     </div>
-                                    <span class="text-[10px] font-extrabold uppercase bg-blue-500/20 text-blue-200 border border-blue-500/30 px-2 py-0.5 rounded-full">10-Year Trust Order</span>
+                                    <span class="text-[10px] font-extrabold uppercase bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded-full">10-Year Trust Order</span>
                                 </div>
-                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                <h4 class="text-lg font-bold text-white group-hover:text-blue-300 transition-colors leading-snug">
                                     Section 12AB (12A) Registration
                                 </h4>
                                 <p class="text-xs font-bold text-blue-400 mt-1">
@@ -2009,23 +2017,23 @@ const aboutHtml = `<!DOCTYPE html>
                                 </p>
                             </div>
                             <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
-                                <a href="documents/PGSM_Section_12AB_Charitable_Registration_Order.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                <a href="documents/PGSM_Section_12AB_Charitable_Registration_Order.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#ff833b] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
                                     <span class="material-symbols-outlined text-sm">visibility</span> View PDF
                                 </a>
-                                <a href="documents/PGSM_Section_12AB_Charitable_Registration_Order.pdf" download="PGSM_Section_12AB_Charitable_Registration_Order.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                <a href="documents/PGSM_Section_12AB_Charitable_Registration_Order.pdf" download="PGSM_Section_12AB_Charitable_Registration_Order.pdf" class="bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center border border-white/15" title="Download PDF">
                                     <span class="material-symbols-outlined text-sm">download</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- 4. NITI Aayog NGO Darpan Certificate -->
-                        <div id="doc-niti-aayog" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md">
+                        <div id="doc-niti-aayog" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md hover:shadow-xl">
                             <div>
                                 <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400">
+                                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-[#FFB693]">
                                         <span class="material-symbols-outlined text-2xl">handshake</span>
                                     </div>
-                                    <span class="text-[10px] font-extrabold uppercase bg-orange-500/20 text-orange-200 border border-orange-500/30 px-2 py-0.5 rounded-full">National Portal</span>
+                                    <span class="text-[10px] font-extrabold uppercase bg-orange-500/20 text-[#FFB693] border border-orange-500/30 px-2 py-0.5 rounded-full">National Portal</span>
                                 </div>
                                 <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
                                     NITI Aayog NGO Darpan
@@ -2038,25 +2046,25 @@ const aboutHtml = `<!DOCTYPE html>
                                 </p>
                             </div>
                             <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2">
-                                <a href="documents/PGSM_NITI_Aayog_Darpan_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
+                                <a href="documents/PGSM_NITI_Aayog_Darpan_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#ff833b] text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all text-center flex items-center justify-center gap-1 shadow-sm">
                                     <span class="material-symbols-outlined text-sm">visibility</span> View PDF
                                 </a>
-                                <a href="documents/PGSM_NITI_Aayog_Darpan_Certificate.pdf" download="PGSM_NITI_Aayog_Darpan_Certificate.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center" title="Download PDF">
+                                <a href="documents/PGSM_NITI_Aayog_Darpan_Certificate.pdf" download="PGSM_NITI_Aayog_Darpan_Certificate.pdf" class="bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center border border-white/15" title="Download PDF">
                                     <span class="material-symbols-outlined text-sm">download</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- 5. Society Constitution & MoA (12 Pages) -->
-                        <div id="doc-society-moa" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F36F21]/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md md:col-span-2 lg:col-span-2">
+                        <div id="doc-society-moa" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-400/60 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between group shadow-md hover:shadow-xl md:col-span-2 lg:col-span-2">
                             <div>
                                 <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400">
+                                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300">
                                         <span class="material-symbols-outlined text-2xl">menu_book</span>
                                     </div>
-                                    <span class="text-[10px] font-extrabold uppercase bg-purple-500/20 text-purple-200 border border-purple-500/30 px-2 py-0.5 rounded-full">12-Page Certified Charter</span>
+                                    <span class="text-[10px] font-extrabold uppercase bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded-full">12-Page Certified Charter</span>
                                 </div>
-                                <h4 class="text-lg font-bold text-white group-hover:text-[#FFB693] transition-colors leading-snug">
+                                <h4 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors leading-snug">
                                     Society Memorandum of Association & By-Laws (स्मृति पत्र एवं नियमावली)
                                 </h4>
                                 <p class="text-xs font-bold text-purple-400 mt-1">
@@ -2067,116 +2075,142 @@ const aboutHtml = `<!DOCTYPE html>
                                 </p>
                             </div>
                             <div class="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                                <a href="documents/PGSM_Society_Constitution_Rules_MoA.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all text-center flex items-center justify-center gap-1.5 shadow-sm">
+                                <a href="documents/PGSM_Society_Constitution_Rules_MoA.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#F36F21] hover:bg-[#ff833b] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all text-center flex items-center justify-center gap-1.5 shadow-sm">
                                     <span class="material-symbols-outlined text-sm">visibility</span> View Full 12-Page MoA (PDF)
                                 </a>
-                                <a href="documents/PGSM_Society_Constitution_Rules_MoA.pdf" download="PGSM_Society_Constitution_Rules_MoA.pdf" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5" title="Download MoA PDF">
+                                <a href="documents/PGSM_Society_Constitution_Rules_MoA.pdf" download="PGSM_Society_Constitution_Rules_MoA.pdf" class="bg-white/10 hover:bg-white/20 text-gray-200 font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 border border-white/15" title="Download MoA PDF">
                                     <span class="material-symbols-outlined text-sm">download</span> Download PDF (2.2 MB)
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- ================= ABOUT SECTION 5 (DARK 2/3): INSTITUTIONAL AUDITS & ANNUAL REPORTS ================= -->
+        <section id="audits" class="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#1F1F1F] text-white border-b border-white/10 relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto flex flex-col gap-8">
                 <!-- Institutional & CSR Audit Download Strip -->
-                <div class="bg-white/5 border border-white/15 rounded-2xl p-6 md:p-8 backdrop-blur-md flex flex-col gap-6 shadow-xl my-2">
-                    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 text-left">
-                            <div class="w-14 h-14 rounded-2xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21] shrink-0">
+                <div class="bg-white/5 border border-white/15 rounded-3xl p-6 md:p-10 backdrop-blur-md flex flex-col gap-6 shadow-2xl">
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                        <div class="flex items-center gap-5 text-left">
+                            <div class="w-16 h-16 rounded-2xl bg-[#F36F21]/20 border border-[#F36F21]/40 flex items-center justify-center text-[#F36F21] shrink-0">
                                 <span class="material-symbols-outlined text-3xl">verified_user</span>
                             </div>
                             <div>
-                                <span class="bg-[#F36F21] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full" data-i18n="comp_inst_badge">Institutional & CSR Compliance</span>
-                                <h4 class="text-lg md:text-xl font-bold text-white mt-1" data-i18n="comp_inst_title">Official Annual Reports & Statutory Auditor Filings</h4>
-                                <p class="text-xs sm:text-sm text-gray-300 mt-0.5 max-w-xl" data-i18n="comp_inst_sub">Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization across all operating years.</p>
+                                <span class="bg-[#F36F21] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full" data-i18n="comp_inst_badge">Institutional & CSR Compliance</span>
+                                <h4 class="text-xl md:text-2xl font-black text-white mt-1.5" data-i18n="comp_inst_title">Official Annual Reports & Statutory Auditor Filings</h4>
+                                <p class="text-xs sm:text-sm text-gray-300 mt-1 max-w-xl" data-i18n="comp_inst_sub">Complete audited financials certified by Statutory Auditor Jayendra Tiwari & Associates, verifying 100% ethical utilization across all operating years.</p>
                             </div>
                         </div>
-                        <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all shadow-md active:scale-95 shrink-0 w-full sm:w-auto">
+                        <a href="reports/AUDITOR_REPORT_Jayendra_Tiwari.pdf" download class="inline-flex items-center justify-center gap-2 bg-[#F36F21] hover:bg-[#a04100] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-lg active:scale-95 shrink-0 w-full sm:w-auto">
                             <span class="material-symbols-outlined text-base">receipt_long</span>
                             <span data-i18n="btn_dl_audit">Download CA Audited Financial Statements (PDF)</span>
                         </a>
                     </div>
 
                     <!-- Multi-Year Annual Reports Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t border-white/10">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-white/10">
                         <!-- 2026 -->
-                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                        <a href="reports/ANNUAL_REPORT_2026.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-2xl p-5 transition-all flex flex-col justify-between shadow-md">
                             <div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2025–26</span>
-                                    <span class="text-[10px] font-extrabold bg-[#F36F21] text-white px-2 py-0.5 rounded-full">Latest</span>
+                                    <span class="text-base font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2025–26</span>
+                                    <span class="text-[10px] font-extrabold bg-[#F36F21] text-white px-2.5 py-0.5 rounded-full">Latest</span>
                                 </div>
                                 <p class="text-xs text-gray-300 mt-2 font-medium">Annual Progress & Governance</p>
                             </div>
-                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
-                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                            <div class="mt-5 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
                                 <span class="text-[10px] text-gray-400">4.9 MB</span>
                             </div>
                         </a>
 
                         <!-- 2025 -->
-                        <a href="reports/ANNUAL_REPORT_2025.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                        <a href="reports/ANNUAL_REPORT_2025.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-2xl p-5 transition-all flex flex-col justify-between shadow-md">
                             <div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2024–25</span>
-                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2 py-0.5 rounded-full">Certified</span>
+                                    <span class="text-base font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2024–25</span>
+                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2.5 py-0.5 rounded-full">Certified</span>
                                 </div>
                                 <p class="text-xs text-gray-300 mt-2 font-medium">Annual Progress & Impact Report</p>
                             </div>
-                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
-                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                            <div class="mt-5 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
                                 <span class="text-[10px] text-gray-400">4.2 MB</span>
                             </div>
                         </a>
 
                         <!-- 2024 -->
-                        <a href="reports/ANNUAL_REPORT_2024.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                        <a href="reports/ANNUAL_REPORT_2024.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-2xl p-5 transition-all flex flex-col justify-between shadow-md">
                             <div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2023–24</span>
-                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2 py-0.5 rounded-full">Certified</span>
+                                    <span class="text-base font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2023–24</span>
+                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2.5 py-0.5 rounded-full">Certified</span>
                                 </div>
                                 <p class="text-xs text-gray-300 mt-2 font-medium">Annual Progress & Outreach</p>
                             </div>
-                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
-                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                            <div class="mt-5 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
                                 <span class="text-[10px] text-gray-400">PDF</span>
                             </div>
                         </a>
 
                         <!-- 2023 -->
-                        <a href="reports/ANNUAL_REPORT_2023.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-xl p-4 transition-all flex flex-col justify-between">
+                        <a href="reports/ANNUAL_REPORT_2023.pdf" download class="group bg-white/5 hover:bg-[#F36F21]/20 border border-white/10 hover:border-[#F36F21]/50 rounded-2xl p-5 transition-all flex flex-col justify-between shadow-md">
                             <div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-sm font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2022–23</span>
-                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2 py-0.5 rounded-full">Certified</span>
+                                    <span class="text-base font-bold text-white group-hover:text-[#FFB693] transition-colors">FY 2022–23</span>
+                                    <span class="text-[10px] font-semibold text-gray-300 bg-white/10 px-2.5 py-0.5 rounded-full">Certified</span>
                                 </div>
                                 <p class="text-xs text-gray-300 mt-2 font-medium">Financial & Statutory Statement</p>
                             </div>
-                            <div class="mt-4 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
-                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
+                            <div class="mt-5 flex items-center justify-between text-xs text-[#FFB693] font-semibold">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">download</span> Download PDF</span>
                                 <span class="text-[10px] text-gray-400">7.5 MB</span>
                             </div>
                         </a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT SECTION 6 (DARK 3/3): CEREMONY DOCUMENTARY PHOTO FRAME ================= -->
+        <section id="ceremony" class="w-full py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#161616] text-white relative overflow-hidden">
+            <div class="max-w-[1280px] mx-auto flex flex-col gap-6">
+                <!-- Header -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F36F21]/20 border border-[#F36F21]/30 text-[#FFB693] text-xs font-bold uppercase tracking-wider mb-2">
+                            <span class="material-symbols-outlined text-base text-[#F36F21]">photo_camera</span>
+                            Documentary Archive
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                            Shanti Pratibha Khoj & Board Merit Honors
+                        </h3>
+                    </div>
+                    <a href="donate.html" class="bg-[#F36F21] hover:bg-[#a04100] text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg active:scale-95 transition-all inline-flex items-center gap-2">
+                        <span>Support Our Cause</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
 
                 <!-- Ceremony Documentary Photo Frame -->
-                <div class="w-full relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 mt-4">
+                <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
                     <img class="w-full h-auto max-h-[550px] object-cover" alt="Shanti Pratibha Khoj and Board Merit Honors Felicitation Ceremony" src="images/real/pratibha_khoj_enhanced.jpg" onerror="this.onerror=null; this.src='images/real/pratibha_khoj.jpg';"/>
                     <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
                         <div>
-                            <p class="text-white font-bold text-lg">Shanti Pratibha Khoj & Board Merit Honors</p>
+                            <p class="text-white font-bold text-lg">State Talent Honors & Higher Education Grants</p>
                             <p class="text-gray-300 text-sm"><span data-i18n="m4_desc">Annual state talent exam awarding cash prizes (₹5,100) and honoring 60%+ 12th-grade board toppers.</span></p>
                         </div>
-                        <a href="donate.html" class="bg-[#F36F21] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 shadow-lg active:scale-95 transition-all">
-                            Support Our Cause
-                        </a>
+                        <span class="text-xs text-[#FFB693] font-bold bg-black/50 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20">
+                            Nowgong, Chhatarpur (M.P.)
+                        </span>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </section></main>
 
     ${unifiedFooterHtml}
 </body>
